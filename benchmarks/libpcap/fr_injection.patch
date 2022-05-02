@@ -1,0 +1,2430 @@
+diff --git a/bpf_filter.c b/bpf_filter.c
+index c41d034..8a053eb 100644
+--- a/bpf_filter.c
++++ b/bpf_filter.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*-
+  * Copyright (c) 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997
+  *	The Regents of the University of California.  All rights reserved.
+@@ -97,11 +101,26 @@ pcap_filter_with_aux_data(const struct bpf_insn *pc, const u_char *p,
+ 	register bpf_u_int32 k;
+ 	uint32_t mem[BPF_MEMWORDS];
+ 
+-	if (pc == 0)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[4]) {
++	  if ((pc == 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 4\n");
++	  else
++	    fprintf(stderr, "reached bug index 4\n");
++	}
++	if ((!FIXREVERTER[4] && (pc == 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		/*
+ 		 * No filter means accept all.
+ 		 */
+ 		return (u_int)-1;
++		#ifdef FRCOV
++		}
++		#endif
+ 	A = 0;
+ 	X = 0;
+ 	--pc;
+@@ -151,9 +170,24 @@ pcap_filter_with_aux_data(const struct bpf_insn *pc, const u_char *p,
+ #endif
+ 			default:
+ 				k = pc->k;
+-				if (k >= buflen) {
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[5]) {
++				  if ((k >= buflen ) && !(0))
++				    fprintf(stderr, "triggered bug index 5\n");
++				  else
++				    fprintf(stderr, "reached bug index 5\n");
++				}
++				if ((!FIXREVERTER[5] && (k >= buflen ))
++				#else
++				if (0
++				#endif
++				) {
+ 					return 0;
+ 				}
++				#ifdef FRCOV
++				}
++				#endif
+ 				A = p[k];
+ 				break;
+ 			}
+@@ -187,17 +221,47 @@ pcap_filter_with_aux_data(const struct bpf_insn *pc, const u_char *p,
+ 
+ 		case BPF_LD|BPF_B|BPF_IND:
+ 			k = X + pc->k;
+-			if (pc->k >= buflen || X >= buflen - pc->k) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[6]) {
++			  if ((pc -> k >= buflen || X >= buflen - pc -> k ) && !(0))
++			    fprintf(stderr, "triggered bug index 6\n");
++			  else
++			    fprintf(stderr, "reached bug index 6\n");
++			}
++			if ((!FIXREVERTER[6] && (pc -> k >= buflen || X >= buflen - pc -> k ))
++			#else
++			if (0
++			#endif
++			) {
+ 				return 0;
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			A = p[k];
+ 			continue;
+ 
+ 		case BPF_LDX|BPF_MSH|BPF_B:
+ 			k = pc->k;
+-			if (k >= buflen) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[7]) {
++			  if ((k >= buflen ) && !(0))
++			    fprintf(stderr, "triggered bug index 7\n");
++			  else
++			    fprintf(stderr, "reached bug index 7\n");
++			}
++			if ((!FIXREVERTER[7] && (k >= buflen ))
++			#else
++			if (0
++			#endif
++			) {
+ 				return 0;
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			X = (p[pc->k] & 0xf) << 2;
+ 			continue;
+ 
+@@ -278,14 +342,44 @@ pcap_filter_with_aux_data(const struct bpf_insn *pc, const u_char *p,
+ 			continue;
+ 
+ 		case BPF_ALU|BPF_DIV|BPF_X:
+-			if (X == 0)
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[8]) {
++			  if ((X == 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 8\n");
++			  else
++			    fprintf(stderr, "reached bug index 8\n");
++			}
++			if ((!FIXREVERTER[8] && (X == 0 ))
++			#else
++			if (0
++			#endif
++			)
+ 				return 0;
++				#ifdef FRCOV
++				}
++				#endif
+ 			A /= X;
+ 			continue;
+ 
+ 		case BPF_ALU|BPF_MOD|BPF_X:
+-			if (X == 0)
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[9]) {
++			  if ((X == 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 9\n");
++			  else
++			    fprintf(stderr, "reached bug index 9\n");
++			}
++			if ((!FIXREVERTER[9] && (X == 0 ))
++			#else
++			if (0
++			#endif
++			)
+ 				return 0;
++				#ifdef FRCOV
++				}
++				#endif
+ 			A %= X;
+ 			continue;
+ 
+diff --git a/fmtutils.c b/fmtutils.c
+index a4f59c2..eb77ff8 100644
+--- a/fmtutils.c
++++ b/fmtutils.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1993, 1994, 1995, 1996, 1997, 1998
+  *	The Regents of the University of California.  All rights reserved.
+@@ -75,10 +79,25 @@ pcap_fmt_errmsg_for_errno(char *errbuf, size_t errbuflen, int errnum,
+ 	 * Do we have enough space to append ": "?
+ 	 * Including the terminating '\0', that's 3 bytes.
+ 	 */
+-	if (msglen + 3 > errbuflen) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[16]) {
++	  if ((msglen + 3 > errbuflen ) && !(0))
++	    fprintf(stderr, "triggered bug index 16\n");
++	  else
++	    fprintf(stderr, "reached bug index 16\n");
++	}
++	if ((!FIXREVERTER[16] && (msglen + 3 > errbuflen ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/* No - just give them what we've produced. */
+ 		return;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	p = errbuf + msglen;
+ 	errbuflen_remaining = errbuflen - msglen;
+ 	*p++ = ':';
+diff --git a/gencode.c b/gencode.c
+index 040a553..99db365 100644
+--- a/gencode.c
++++ b/gencode.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*#define CHASE_CHAIN*/
+ /*
+  * Copyright (c) 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998
+@@ -613,22 +617,67 @@ newchunk_nolongjmp(compiler_state_t *cstate, size_t n)
+ 	if (n > cp->n_left) {
+ 		++cp;
+ 		k = ++cstate->cur_chunk;
+-		if (k >= NCHUNKS) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[20]) {
++		  if ((k >= 16 ) && !(0))
++		    fprintf(stderr, "triggered bug index 20\n");
++		  else
++		    fprintf(stderr, "reached bug index 20\n");
++		}
++		if ((!FIXREVERTER[20] && (k >= 16 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			bpf_set_error(cstate, "out of memory");
+ 			return (NULL);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		size = CHUNK0SIZE << k;
+ 		cp->m = (void *)malloc(size);
+-		if (cp->m == NULL) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[21]) {
++		  if ((cp -> m == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 21\n");
++		  else
++		    fprintf(stderr, "reached bug index 21\n");
++		}
++		if ((!FIXREVERTER[21] && (cp -> m == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			bpf_set_error(cstate, "out of memory");
+ 			return (NULL);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		memset((char *)cp->m, 0, size);
+ 		cp->n_left = size;
+-		if (n > size) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[22]) {
++		  if ((n > size ) && !(0))
++		    fprintf(stderr, "triggered bug index 22\n");
++		  else
++		    fprintf(stderr, "reached bug index 22\n");
++		}
++		if ((!FIXREVERTER[22] && (n > size ))
++		#else
++		if (0
++		#endif
++		) {
+ 			bpf_set_error(cstate, "out of memory");
+ 			return (NULL);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 	}
+ 	cp->n_left -= n;
+ 	return (void *)((char *)cp->m + cp->n_left);
+@@ -669,8 +718,23 @@ sdup(compiler_state_t *cstate, const char *s)
+ 	size_t n = strlen(s) + 1;
+ 	char *cp = newchunk_nolongjmp(cstate, n);
+ 
+-	if (cp == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[23]) {
++	  if ((cp == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 23\n");
++	  else
++	    fprintf(stderr, "reached bug index 23\n");
++	}
++	if ((!FIXREVERTER[23] && (cp == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return (NULL);
++		#ifdef FRCOV
++		}
++		#endif
+ 	pcap_strlcpy(cp, s, n);
+ 	return (cp);
+ }
+@@ -839,11 +903,26 @@ pcap_compile(pcap_t *p, struct bpf_program *program,
+ 	}
+ 	program->bf_insns = icode_to_fcode(&cstate.ic,
+ 	    cstate.ic.root, &len, p->errbuf);
+-	if (program->bf_insns == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[25]) {
++	  if ((program -> bf_insns == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 25\n");
++	  else
++	    fprintf(stderr, "reached bug index 25\n");
++	}
++	if ((!FIXREVERTER[25] && (program -> bf_insns == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/* Failure */
+ 		rc = -1;
+ 		goto quit;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	program->bf_len = len;
+ 
+ 	rc = 0;  /* We're all okay */
+@@ -3255,8 +3334,23 @@ gen_linktype(compiler_state_t *cstate, bpf_u_int32 ll_proto)
+ 		/*
+ 		 * Raw IPv4, so no type field.
+ 		 */
+-		if (ll_proto == ETHERTYPE_IP)
+-			return gen_true(cstate);	/* always true */
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[28]) {
++		  if ((ll_proto == 2048 ) && !(0))
++		    fprintf(stderr, "triggered bug index 28\n");
++		  else
++		    fprintf(stderr, "reached bug index 28\n");
++		}
++		if ((!FIXREVERTER[28] && (ll_proto == 2048 ))
++		#else
++		if (0
++		#endif
++		)
++			return gen_true(cstate);
++			#ifdef FRCOV
++			}
++			#endif	/* always true */
+ 
+ 		/* Checking for something other than IPv4; always false */
+ 		return gen_false(cstate);
+@@ -3266,8 +3360,23 @@ gen_linktype(compiler_state_t *cstate, bpf_u_int32 ll_proto)
+ 		/*
+ 		 * Raw IPv6, so no type field.
+ 		 */
+-		if (ll_proto == ETHERTYPE_IPV6)
+-			return gen_true(cstate);	/* always true */
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[29]) {
++		  if ((ll_proto == 34525 ) && !(0))
++		    fprintf(stderr, "triggered bug index 29\n");
++		  else
++		    fprintf(stderr, "reached bug index 29\n");
++		}
++		if ((!FIXREVERTER[29] && (ll_proto == 34525 ))
++		#else
++		if (0
++		#endif
++		)
++			return gen_true(cstate);
++			#ifdef FRCOV
++			}
++			#endif	/* always true */
+ 
+ 		/* Checking for something other than IPv6; always false */
+ 		return gen_false(cstate);
+diff --git a/nametoaddr.c b/nametoaddr.c
+index e005f05..10ae10f 100644
+--- a/nametoaddr.c
++++ b/nametoaddr.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998
+  *	The Regents of the University of California.  All rights reserved.
+@@ -675,14 +679,44 @@ __pcap_atoin(const char *s, bpf_u_int32 *addr)
+ 	for (;;) {
+ 		n = 0;
+ 		while (*s && *s != '.') {
+-			if (n > 25) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[51]) {
++			  if ((n > 25 ) && !(0))
++			    fprintf(stderr, "triggered bug index 51\n");
++			  else
++			    fprintf(stderr, "reached bug index 51\n");
++			}
++			if ((!FIXREVERTER[51] && (n > 25 ))
++			#else
++			if (0
++			#endif
++			) {
+ 				/* The result will be > 255 */
+ 				return -1;
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			n = n * 10 + *s++ - '0';
+ 		}
+-		if (n > 255)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[52]) {
++		  if ((n > 255 ) && !(0))
++		    fprintf(stderr, "triggered bug index 52\n");
++		  else
++		    fprintf(stderr, "reached bug index 52\n");
++		}
++		if ((!FIXREVERTER[52] && (n > 255 ))
++		#else
++		if (0
++		#endif
++		)
+ 			return -1;
++			#ifdef FRCOV
++			}
++			#endif
+ 		*addr <<= 8;
+ 		*addr |= n & 0xff;
+ 		len += 8;
+@@ -730,8 +764,23 @@ pcap_ether_aton(const char *s)
+ 	register u_char d;
+ 
+ 	e = ep = (u_char *)malloc(6);
+-	if (e == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[53]) {
++	  if ((e == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 53\n");
++	  else
++	    fprintf(stderr, "reached bug index 53\n");
++	}
++	if ((!FIXREVERTER[53] && (e == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return (NULL);
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	while (*s) {
+ 		if (*s == ':' || *s == '.' || *s == '-')
+diff --git a/optimize.c b/optimize.c
+index bcee9af..9e70f9c 100644
+--- a/optimize.c
++++ b/optimize.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1988, 1989, 1990, 1991, 1993, 1994, 1995, 1996
+  *	The Regents of the University of California.  All rights reserved.
+@@ -861,8 +865,23 @@ opt_peep(opt_state_t *opt_state, struct block *b)
+ 	bpf_u_int32 val;
+ 
+ 	s = b->stmts;
+-	if (s == 0)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[57]) {
++	  if ((s == 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 57\n");
++	  else
++	    fprintf(stderr, "reached bug index 57\n");
++	}
++	if ((!FIXREVERTER[57] && (s == 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	last = s;
+ 	for (/*empty*/; /*empty*/; s = next) {
+@@ -870,16 +889,46 @@ opt_peep(opt_state_t *opt_state, struct block *b)
+ 		 * Skip over nops.
+ 		 */
+ 		s = this_op(s);
+-		if (s == 0)
+-			break;	/* nothing left in the block */
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[58]) {
++		  if ((s == 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 58\n");
++		  else
++		    fprintf(stderr, "reached bug index 58\n");
++		}
++		if ((!FIXREVERTER[58] && (s == 0 ))
++		#else
++		if (0
++		#endif
++		)
++			break;
++			#ifdef FRCOV
++			}
++			#endif	/* nothing left in the block */
+ 
+ 		/*
+ 		 * Find the next real instruction after that one
+ 		 * (skipping nops).
+ 		 */
+ 		next = this_op(s->next);
+-		if (next == 0)
+-			break;	/* no next instruction */
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[59]) {
++		  if ((next == 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 59\n");
++		  else
++		    fprintf(stderr, "reached bug index 59\n");
++		}
++		if ((!FIXREVERTER[59] && (next == 0 ))
++		#else
++		if (0
++		#endif
++		)
++			break;
++			#ifdef FRCOV
++			}
++			#endif	/* no next instruction */
+ 		last = next;
+ 
+ 		/*
+@@ -1216,17 +1265,45 @@ opt_stmt(opt_state_t *opt_state, struct stmt *s, bpf_u_int32 val[], int alter)
+ 				 * Fail if we're dividing by zero or taking
+ 				 * a modulus by zero.
+ 				 */
+-				if (op == BPF_ADD ||
+-				    op == BPF_LSH || op == BPF_RSH ||
+-				    op == BPF_OR || op == BPF_XOR) {
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[60]) {
++				  if ((op == 0 || op == 96 || op == 112 || op == 64 || op == 160 ) && !(0))
++				    fprintf(stderr, "triggered bug index 60\n");
++				  else
++				    fprintf(stderr, "reached bug index 60\n");
++				}
++				if ((!FIXREVERTER[60] && (op == 0 || op == 96 || op == 112 || op == 64 || op == 160 ))
++				#else
++				if (0
++				#endif
++				) {
+ 					s->code = NOP;
+ 					break;
+ 				}
+-				if (op == BPF_MUL || op == BPF_AND) {
++				#ifdef FRCOV
++				}
++				#endif
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[61]) {
++				  if ((op == 32 || op == 80 ) && !(0))
++				    fprintf(stderr, "triggered bug index 61\n");
++				  else
++				    fprintf(stderr, "reached bug index 61\n");
++				}
++				if ((!FIXREVERTER[61] && (op == 32 || op == 80 ))
++				#else
++				if (0
++				#endif
++				) {
+ 					s->code = BPF_LD|BPF_IMM;
+ 					val[A_ATOM] = K(s->k);
+ 					break;
+ 				}
++				#ifdef FRCOV
++				}
++				#endif
+ 				if (op == BPF_DIV)
+ 					opt_error(opt_state,
+ 					    "division by zero");
+@@ -1293,10 +1370,25 @@ opt_stmt(opt_state_t *opt_state, struct stmt *s, bpf_u_int32 val[], int alter)
+ 				vstore(s, &val[A_ATOM], K(s->k), alter);
+ 				break;
+ 			}
+-			else if (op == BPF_NEG) {
++			else 
++			#ifdef FRCOV
++			{if (FIXREVERTER[62]) {
++			  if ((op == 128 ) && !(0))
++			    fprintf(stderr, "triggered bug index 62\n");
++			  else
++			    fprintf(stderr, "reached bug index 62\n");
++			}
++			if ((!FIXREVERTER[62] && (op == 128 ))
++			#else
++			if (0
++			#endif
++			) {
+ 				s->code = NOP;
+ 				break;
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 		}
+ 		val[A_ATOM] = F(opt_state, s->code, val[A_ATOM], val[X_ATOM]);
+ 		break;
+@@ -1621,8 +1713,23 @@ or_pullup(opt_state_t *opt_state, struct block *b)
+ 	struct edge *ep;
+ 
+ 	ep = b->in_edges;
+-	if (ep == 0)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[66]) {
++	  if ((ep == 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 66\n");
++	  else
++	    fprintf(stderr, "reached bug index 66\n");
++	}
++	if ((!FIXREVERTER[66] && (ep == 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	/*
+ 	 * Make sure each predecessor loads the same value.
+@@ -1714,8 +1821,23 @@ and_pullup(opt_state_t *opt_state, struct block *b)
+ 	struct edge *ep;
+ 
+ 	ep = b->in_edges;
+-	if (ep == 0)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[67]) {
++	  if ((ep == 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 67\n");
++	  else
++	    fprintf(stderr, "reached bug index 67\n");
++	}
++	if ((!FIXREVERTER[67] && (ep == 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	/*
+ 	 * Make sure each predecessor loads the same value.
+@@ -1888,7 +2010,7 @@ opt_root(struct block **b)
+ static void
+ opt_loop(opt_state_t *opt_state, struct icode *ic, int do_stmts)
+ {
+-
++	int loopCounter = 0;
+ #ifdef BDEBUG
+ 	if (pcap_optimizer_debug > 1 || pcap_print_dot_graph) {
+ 		printf("opt_loop(root, %d) begin\n", do_stmts);
+@@ -1909,6 +2031,10 @@ opt_loop(opt_state_t *opt_state, struct icode *ic, int do_stmts)
+ 			opt_dump(opt_state, ic);
+ 		}
+ #endif
++		loopCounter++;
++		if (loopCounter > 1000) {
++			break;
++		}
+ 	} while (!opt_state->done);
+ }
+ 
+diff --git a/pcap-common.c b/pcap-common.c
+index 176c4ed..71944bb 100644
+--- a/pcap-common.c
++++ b/pcap-common.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1993, 1994, 1995, 1996, 1997
+  *	The Regents of the University of California.  All rights reserved.
+@@ -1313,10 +1317,40 @@ linktype_to_dlt(int linktype)
+ 	 * because, for some reason, not all OSes have the
+ 	 * same value for that DLT.
+ 	 */
+-	if (linktype == LINKTYPE_PFSYNC)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[85]) {
++	  if ((linktype == 246 ) && !(0))
++	    fprintf(stderr, "triggered bug index 85\n");
++	  else
++	    fprintf(stderr, "reached bug index 85\n");
++	}
++	if ((!FIXREVERTER[85] && (linktype == 246 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return (DLT_PFSYNC);
+-	if (linktype == LINKTYPE_PKTAP)
++		#ifdef FRCOV
++		}
++		#endif
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[86]) {
++	  if ((linktype == 258 ) && !(0))
++	    fprintf(stderr, "triggered bug index 86\n");
++	  else
++	    fprintf(stderr, "reached bug index 86\n");
++	}
++	if ((!FIXREVERTER[86] && (linktype == 258 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return (DLT_PKTAP);
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	/*
+ 	 * For all other values in the matching range, the LINKTYPE
+@@ -1445,53 +1479,188 @@ swap_linux_usb_header(const struct pcap_pkthdr *hdr, u_char *buf,
+ 	 * convert it to the reading host's byte order???
+ 	 */
+ 	offset += 8;			/* skip past id */
+-	if (hdr->caplen < offset)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[87]) {
++	  if ((hdr -> caplen < offset ) && !(0))
++	    fprintf(stderr, "triggered bug index 87\n");
++	  else
++	    fprintf(stderr, "reached bug index 87\n");
++	}
++	if ((!FIXREVERTER[87] && (hdr -> caplen < offset ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 	uhdr->id = SWAPLL(uhdr->id);
+ 
+ 	offset += 4;			/* skip past various 1-byte fields */
+ 
+ 	offset += 2;			/* skip past bus_id */
+-	if (hdr->caplen < offset)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[88]) {
++	  if ((hdr -> caplen < offset ) && !(0))
++	    fprintf(stderr, "triggered bug index 88\n");
++	  else
++	    fprintf(stderr, "reached bug index 88\n");
++	}
++	if ((!FIXREVERTER[88] && (hdr -> caplen < offset ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 	uhdr->bus_id = SWAPSHORT(uhdr->bus_id);
+ 
+ 	offset += 2;			/* skip past various 1-byte fields */
+ 
+ 	offset += 8;			/* skip past ts_sec */
+-	if (hdr->caplen < offset)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[89]) {
++	  if ((hdr -> caplen < offset ) && !(0))
++	    fprintf(stderr, "triggered bug index 89\n");
++	  else
++	    fprintf(stderr, "reached bug index 89\n");
++	}
++	if ((!FIXREVERTER[89] && (hdr -> caplen < offset ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 	uhdr->ts_sec = SWAPLL(uhdr->ts_sec);
+ 
+ 	offset += 4;			/* skip past ts_usec */
+-	if (hdr->caplen < offset)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[90]) {
++	  if ((hdr -> caplen < offset ) && !(0))
++	    fprintf(stderr, "triggered bug index 90\n");
++	  else
++	    fprintf(stderr, "reached bug index 90\n");
++	}
++	if ((!FIXREVERTER[90] && (hdr -> caplen < offset ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 	uhdr->ts_usec = SWAPLONG(uhdr->ts_usec);
+ 
+ 	offset += 4;			/* skip past status */
+-	if (hdr->caplen < offset)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[91]) {
++	  if ((hdr -> caplen < offset ) && !(0))
++	    fprintf(stderr, "triggered bug index 91\n");
++	  else
++	    fprintf(stderr, "reached bug index 91\n");
++	}
++	if ((!FIXREVERTER[91] && (hdr -> caplen < offset ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 	uhdr->status = SWAPLONG(uhdr->status);
+ 
+ 	offset += 4;			/* skip past urb_len */
+-	if (hdr->caplen < offset)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[92]) {
++	  if ((hdr -> caplen < offset ) && !(0))
++	    fprintf(stderr, "triggered bug index 92\n");
++	  else
++	    fprintf(stderr, "reached bug index 92\n");
++	}
++	if ((!FIXREVERTER[92] && (hdr -> caplen < offset ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 	uhdr->urb_len = SWAPLONG(uhdr->urb_len);
+ 
+ 	offset += 4;			/* skip past data_len */
+-	if (hdr->caplen < offset)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[93]) {
++	  if ((hdr -> caplen < offset ) && !(0))
++	    fprintf(stderr, "triggered bug index 93\n");
++	  else
++	    fprintf(stderr, "reached bug index 93\n");
++	}
++	if ((!FIXREVERTER[93] && (hdr -> caplen < offset ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 	uhdr->data_len = SWAPLONG(uhdr->data_len);
+ 
+ 	if (uhdr->transfer_type == URB_ISOCHRONOUS) {
+ 		offset += 4;			/* skip past s.iso.error_count */
+-		if (hdr->caplen < offset)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[94]) {
++		  if ((hdr -> caplen < offset ) && !(0))
++		    fprintf(stderr, "triggered bug index 94\n");
++		  else
++		    fprintf(stderr, "reached bug index 94\n");
++		}
++		if ((!FIXREVERTER[94] && (hdr -> caplen < offset ))
++		#else
++		if (0
++		#endif
++		)
+ 			return;
++			#ifdef FRCOV
++			}
++			#endif
+ 		uhdr->s.iso.error_count = SWAPLONG(uhdr->s.iso.error_count);
+ 
+ 		offset += 4;			/* skip past s.iso.numdesc */
+-		if (hdr->caplen < offset)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[95]) {
++		  if ((hdr -> caplen < offset ) && !(0))
++		    fprintf(stderr, "triggered bug index 95\n");
++		  else
++		    fprintf(stderr, "reached bug index 95\n");
++		}
++		if ((!FIXREVERTER[95] && (hdr -> caplen < offset ))
++		#else
++		if (0
++		#endif
++		)
+ 			return;
++			#ifdef FRCOV
++			}
++			#endif
+ 		uhdr->s.iso.numdesc = SWAPLONG(uhdr->s.iso.numdesc);
+ 	} else
+ 		offset += 8;			/* skip USB setup header */
+@@ -1517,23 +1686,83 @@ swap_linux_usb_header(const struct pcap_pkthdr *hdr, u_char *buf,
+ 		 * a "version 1" header.
+ 		 */
+ 		offset += 4;			/* skip past interval */
+-		if (hdr->caplen < offset)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[96]) {
++		  if ((hdr -> caplen < offset ) && !(0))
++		    fprintf(stderr, "triggered bug index 96\n");
++		  else
++		    fprintf(stderr, "reached bug index 96\n");
++		}
++		if ((!FIXREVERTER[96] && (hdr -> caplen < offset ))
++		#else
++		if (0
++		#endif
++		)
+ 			return;
++			#ifdef FRCOV
++			}
++			#endif
+ 		uhdr->interval = SWAPLONG(uhdr->interval);
+ 
+ 		offset += 4;			/* skip past start_frame */
+-		if (hdr->caplen < offset)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[97]) {
++		  if ((hdr -> caplen < offset ) && !(0))
++		    fprintf(stderr, "triggered bug index 97\n");
++		  else
++		    fprintf(stderr, "reached bug index 97\n");
++		}
++		if ((!FIXREVERTER[97] && (hdr -> caplen < offset ))
++		#else
++		if (0
++		#endif
++		)
+ 			return;
++			#ifdef FRCOV
++			}
++			#endif
+ 		uhdr->start_frame = SWAPLONG(uhdr->start_frame);
+ 
+ 		offset += 4;			/* skip past xfer_flags */
+-		if (hdr->caplen < offset)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[98]) {
++		  if ((hdr -> caplen < offset ) && !(0))
++		    fprintf(stderr, "triggered bug index 98\n");
++		  else
++		    fprintf(stderr, "reached bug index 98\n");
++		}
++		if ((!FIXREVERTER[98] && (hdr -> caplen < offset ))
++		#else
++		if (0
++		#endif
++		)
+ 			return;
++			#ifdef FRCOV
++			}
++			#endif
+ 		uhdr->xfer_flags = SWAPLONG(uhdr->xfer_flags);
+ 
+ 		offset += 4;			/* skip past ndesc */
+-		if (hdr->caplen < offset)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[99]) {
++		  if ((hdr -> caplen < offset ) && !(0))
++		    fprintf(stderr, "triggered bug index 99\n");
++		  else
++		    fprintf(stderr, "reached bug index 99\n");
++		}
++		if ((!FIXREVERTER[99] && (hdr -> caplen < offset ))
++		#else
++		if (0
++		#endif
++		)
+ 			return;
++			#ifdef FRCOV
++			}
++			#endif
+ 		uhdr->ndesc = SWAPLONG(uhdr->ndesc);
+ 
+ 		if (uhdr->transfer_type == URB_ISOCHRONOUS) {
+@@ -1544,18 +1773,63 @@ swap_linux_usb_header(const struct pcap_pkthdr *hdr, u_char *buf,
+ 			pisodesc = (usb_isodesc *)(void *)(buf+offset);
+ 			for (i = 0; i < uhdr->ndesc; i++) {
+ 				offset += 4;		/* skip past status */
+-				if (hdr->caplen < offset)
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[100]) {
++				  if ((hdr -> caplen < offset ) && !(0))
++				    fprintf(stderr, "triggered bug index 100\n");
++				  else
++				    fprintf(stderr, "reached bug index 100\n");
++				}
++				if ((!FIXREVERTER[100] && (hdr -> caplen < offset ))
++				#else
++				if (0
++				#endif
++				)
+ 					return;
++					#ifdef FRCOV
++					}
++					#endif
+ 				pisodesc->status = SWAPLONG(pisodesc->status);
+ 
+ 				offset += 4;		/* skip past offset */
+-				if (hdr->caplen < offset)
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[101]) {
++				  if ((hdr -> caplen < offset ) && !(0))
++				    fprintf(stderr, "triggered bug index 101\n");
++				  else
++				    fprintf(stderr, "reached bug index 101\n");
++				}
++				if ((!FIXREVERTER[101] && (hdr -> caplen < offset ))
++				#else
++				if (0
++				#endif
++				)
+ 					return;
++					#ifdef FRCOV
++					}
++					#endif
+ 				pisodesc->offset = SWAPLONG(pisodesc->offset);
+ 
+ 				offset += 4;		/* skip past len */
+-				if (hdr->caplen < offset)
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[102]) {
++				  if ((hdr -> caplen < offset ) && !(0))
++				    fprintf(stderr, "triggered bug index 102\n");
++				  else
++				    fprintf(stderr, "reached bug index 102\n");
++				}
++				if ((!FIXREVERTER[102] && (hdr -> caplen < offset ))
++				#else
++				if (0
++				#endif
++				)
+ 					return;
++					#ifdef FRCOV
++					}
++					#endif
+ 				pisodesc->len = SWAPLONG(pisodesc->len);
+ 
+ 				offset += 4;		/* skip past padding */
+@@ -1621,10 +1895,25 @@ swap_nflog_header(const struct pcap_pkthdr *hdr, u_char *buf)
+ 		}
+ 
+ 		/* Do we have enough data for the full TLV? */
+-		if (caplen < size || length < size) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[103]) {
++		  if ((caplen < size || length < size ) && !(0))
++		    fprintf(stderr, "triggered bug index 103\n");
++		  else
++		    fprintf(stderr, "reached bug index 103\n");
++		}
++		if ((!FIXREVERTER[103] && (caplen < size || length < size ))
++		#else
++		if (0
++		#endif
++		) {
+ 			/* No. */
+ 			return;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 		/* Skip over the TLV. */
+ 		length -= size;
+diff --git a/pcap-linux.c b/pcap-linux.c
+index 1212dd3..f70c406 100644
+--- a/pcap-linux.c
++++ b/pcap-linux.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  *  pcap-linux.c: Packet capture interface to the Linux kernel
+  *
+@@ -1888,8 +1892,23 @@ pcap_read_packet(pcap_t *handle, pcap_handler callback, u_char *userdata)
+ 	 */
+ 
+ 	caplen = (int)packet_len;
+-	if (caplen > handle->snapshot)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[214]) {
++	  if ((caplen > handle -> snapshot ) && !(0))
++	    fprintf(stderr, "triggered bug index 214\n");
++	  else
++	    fprintf(stderr, "reached bug index 214\n");
++	}
++	if ((!FIXREVERTER[214] && (caplen > handle -> snapshot ))
++	#else
++	if (0
++	#endif
++	)
+ 		caplen = handle->snapshot;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	/* Run the packet filter if not using kernel filter */
+ 	if (handlep->filter_in_userland && handle->fcode.bf_insns) {
+diff --git a/pcap-netfilter-linux.c b/pcap-netfilter-linux.c
+index f78d7f3..3e4db81 100644
+--- a/pcap-netfilter-linux.c
++++ b/pcap-netfilter-linux.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 2011 Jakub Zawadzki
+  * All rights reserved.
+@@ -126,11 +130,26 @@ netfilter_read_linux(pcap_t *handle, int max_packets, pcap_handler callback, u_c
+ 				handlep->packets_nobufs++;
+ 		} while ((len == -1) && (errno == EINTR || errno == ENOBUFS));
+ 
+-		if (len < 0) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[296]) {
++		  if ((len < 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 296\n");
++		  else
++		    fprintf(stderr, "reached bug index 296\n");
++		}
++		if ((!FIXREVERTER[296] && (len < 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			pcap_fmt_errmsg_for_errno(handle->errbuf,
+ 			    PCAP_ERRBUF_SIZE, errno, "Can't receive packet");
+ 			return PCAP_ERROR;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 		bp = (unsigned char *)handle->buffer;
+ 	} else
+@@ -288,8 +307,23 @@ netfilter_read_linux(pcap_t *handle, int max_packets, pcap_handler callback, u_c
+ 		if (count >= max_packets && !PACKET_COUNT_IS_UNLIMITED(max_packets)) {
+ 			handle->bp = bp;
+ 			handle->cc = (int)(ep - bp);
+-			if (handle->cc < 0)
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[297]) {
++			  if ((handle -> cc < 0  ) && !(0))
++			    fprintf(stderr, "triggered bug index 297\n");
++			  else
++			    fprintf(stderr, "reached bug index 297\n");
++			}
++			if ((!FIXREVERTER[297] && (handle -> cc < 0  ))
++			#else
++			if (0
++			#endif
++			)
+ 				handle->cc = 0;
++				#ifdef FRCOV
++				}
++				#endif
+ 			return count;
+ 		}
+ 	}
+diff --git a/pcap-usb-linux.c b/pcap-usb-linux.c
+index d6e368d..f5b56c5 100644
+--- a/pcap-usb-linux.c
++++ b/pcap-usb-linux.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 2006 Paolo Abeni (Italy)
+  * All rights reserved.
+@@ -852,7 +856,19 @@ usb_read_linux(pcap_t *handle, int max_packets _U_, pcap_handler callback, u_cha
+ 			return -2;
+ 		}
+ 	} while ((read_ret == -1) && (errno == EINTR));
+-	if (read_ret < 0)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[276]) {
++	  if ((read_ret < 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 276\n");
++	  else
++	    fprintf(stderr, "reached bug index 276\n");
++	}
++	if ((!FIXREVERTER[276] && (read_ret < 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 	{
+ 		if (errno == EAGAIN)
+ 			return 0;	/* no data there */
+@@ -861,6 +877,9 @@ usb_read_linux(pcap_t *handle, int max_packets _U_, pcap_handler callback, u_cha
+ 		    errno, "Can't read from fd %d", handle->fd);
+ 		return -1;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	/* read urb header; %n argument may increment return value, but it's
+ 	* not mandatory, so does not count on it*/
+@@ -1252,10 +1271,40 @@ usb_read_linux_mmap(pcap_t *handle, int max_packets, pcap_handler callback, u_ch
+ 	for (;;) {
+ 		int i, ret;
+ 		int limit = max_packets - packets;
+-		if (limit <= 0)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[291]) {
++		  if ((limit <= 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 291\n");
++		  else
++		    fprintf(stderr, "reached bug index 291\n");
++		}
++		if ((!FIXREVERTER[291] && (limit <= 0 ))
++		#else
++		if (0
++		#endif
++		)
+ 			limit = VEC_SIZE;
+-		if (limit > VEC_SIZE)
++			#ifdef FRCOV
++			}
++			#endif
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[292]) {
++		  if ((limit > 32 ) && !(0))
++		    fprintf(stderr, "triggered bug index 292\n");
++		  else
++		    fprintf(stderr, "reached bug index 292\n");
++		}
++		if ((!FIXREVERTER[292] && (limit > 32 ))
++		#else
++		if (0
++		#endif
++		)
+ 			limit = VEC_SIZE;
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 		/* try to fetch as many events as possible*/
+ 		fetch.offvec = vec;
+@@ -1310,8 +1359,23 @@ usb_read_linux_mmap(pcap_t *handle, int max_packets, pcap_handler callback, u_ch
+ 			 * the snaplen.
+ 			 */
+ 			clen = max_clen;
+-			if (hdr->data_len < clen)
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[294]) {
++			  if ((hdr -> data_len < clen ) && !(0))
++			    fprintf(stderr, "triggered bug index 294\n");
++			  else
++			    fprintf(stderr, "reached bug index 294\n");
++			}
++			if ((!FIXREVERTER[294] && (hdr -> data_len < clen ))
++			#else
++			if (0
++			#endif
++			)
+ 				clen = hdr->data_len;
++				#ifdef FRCOV
++				}
++				#endif
+ 			pkth.caplen = sizeof(pcap_usb_header_mmapped) + clen;
+ 			if (hdr->data_flag) {
+ 				/*
+@@ -1344,8 +1408,23 @@ usb_read_linux_mmap(pcap_t *handle, int max_packets, pcap_handler callback, u_ch
+ 		}
+ 
+ 		/* with max_packets specifying "unlimited" we stop afer the first chunk*/
+-		if (PACKET_COUNT_IS_UNLIMITED(max_packets) || (packets == max_packets))
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[295]) {
++		  if ((max_packets <= 0 || packets == max_packets ) && !(0))
++		    fprintf(stderr, "triggered bug index 295\n");
++		  else
++		    fprintf(stderr, "reached bug index 295\n");
++		}
++		if ((!FIXREVERTER[295] && (max_packets <= 0 || packets == max_packets ))
++		#else
++		if (0
++		#endif
++		)
+ 			break;
++			#ifdef FRCOV
++			}
++			#endif
+ 	}
+ 
+ 	/* flush pending events*/
+diff --git a/pcap.c b/pcap.c
+index 6b2f2e6..11eee99 100644
+--- a/pcap.c
++++ b/pcap.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1993, 1994, 1995, 1996, 1997, 1998
+  *	The Regents of the University of California.  All rights reserved.
+@@ -2284,11 +2288,26 @@ pcap_alloc_pcap_t(char *ebuf, size_t size)
+ 	 */
+ #define PCAP_T_ALIGNED_SIZE	((sizeof(pcap_t) + 7U) & ~0x7U)
+ 	chunk = malloc(PCAP_T_ALIGNED_SIZE + size);
+-	if (chunk == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[122]) {
++	  if ((chunk == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 122\n");
++	  else
++	    fprintf(stderr, "reached bug index 122\n");
++	}
++	if ((!FIXREVERTER[122] && (chunk == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		pcap_fmt_errmsg_for_errno(ebuf, PCAP_ERRBUF_SIZE,
+ 		    errno, "malloc");
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	memset(chunk, 0, PCAP_T_ALIGNED_SIZE + size);
+ 
+ 	/*
+@@ -2710,8 +2729,23 @@ pcap_open_offline_common(char *ebuf, size_t size)
+ 	pcap_t *p;
+ 
+ 	p = pcap_alloc_pcap_t(ebuf, size);
+-	if (p == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[135]) {
++	  if ((p == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 135\n");
++	  else
++	    fprintf(stderr, "reached bug index 135\n");
++	}
++	if ((!FIXREVERTER[135] && (p == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return (NULL);
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	p->opt.tstamp_precision = PCAP_TSTAMP_PRECISION_MICRO;
+ 
+diff --git a/savefile.c b/savefile.c
+index aef9fb1..6de8452 100644
+--- a/savefile.c
++++ b/savefile.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1993, 1994, 1995, 1996, 1997
+  *	The Regents of the University of California.  All rights reserved.
+@@ -253,11 +257,26 @@ pcap_open_offline_with_tstamp_precision(const char *fname, u_int precision,
+ 	FILE *fp;
+ 	pcap_t *p;
+ 
+-	if (fname == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[152]) {
++	  if ((fname == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 152\n");
++	  else
++	    fprintf(stderr, "reached bug index 152\n");
++	}
++	if ((!FIXREVERTER[152] && (fname == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 		    "A null pointer was supplied as the file name");
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	if (fname[0] == '-' && fname[1] == '\0')
+ 	{
+ 		fp = stdin;
+@@ -282,11 +301,26 @@ pcap_open_offline_with_tstamp_precision(const char *fname, u_int precision,
+ 		 * and must be read in binary mode.
+ 		 */
+ 		fp = fopen(fname, "rb");
+-		if (fp == NULL) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[154]) {
++		  if ((fp == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 154\n");
++		  else
++		    fprintf(stderr, "reached bug index 154\n");
++		}
++		if ((!FIXREVERTER[154] && (fp == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			pcap_fmt_errmsg_for_errno(errbuf, PCAP_ERRBUF_SIZE,
+ 			    errno, "%s", fname);
+ 			return (NULL);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 	}
+ 	p = pcap_fopen_offline_with_tstamp_precision(fp, precision, errbuf);
+ 	if (p == NULL) {
+@@ -392,11 +426,26 @@ pcap_fopen_offline_with_tstamp_precision(FILE *fp, u_int precision,
+ 	 * it could happen if buggy code is opening with a FILE * and
+ 	 * didn't bother to make sure the FILE * isn't null.
+ 	 */
+-	if (fp == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[156]) {
++	  if ((fp == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 156\n");
++	  else
++	    fprintf(stderr, "reached bug index 156\n");
++	}
++	if ((!FIXREVERTER[156] && (fp == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 		    "Null FILE * pointer provided to savefile open routine");
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	/*
+ 	 * Read the first 4 bytes of the file; the network analyzer dump
+diff --git a/sf-pcap.c b/sf-pcap.c
+index ab51d7c..fb2eb28 100644
+--- a/sf-pcap.c
++++ b/sf-pcap.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1993, 1994, 1995, 1996, 1997
+  *	The Regents of the University of California.  All rights reserved.
+@@ -214,12 +218,27 @@ pcap_check_header(const uint8_t *magic, FILE *fp, u_int precision, char *errbuf,
+ 		hdr.linktype = SWAPLONG(hdr.linktype);
+ 	}
+ 
+-	if (hdr.version_major < PCAP_VERSION_MAJOR) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[192]) {
++	  if ((hdr . version_major < 2 ) && !(0))
++	    fprintf(stderr, "triggered bug index 192\n");
++	  else
++	    fprintf(stderr, "reached bug index 192\n");
++	}
++	if ((!FIXREVERTER[192] && (hdr . version_major < 2 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 		    "archaic pcap savefile format");
+ 		*err = 1;
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	/*
+ 	 * currently only versions 2.[0-4] are supported with
+@@ -241,11 +260,26 @@ pcap_check_header(const uint8_t *magic, FILE *fp, u_int precision, char *errbuf,
+ 	 * Allocate a pcap_t for it.
+ 	 */
+ 	p = pcap_open_offline_common(errbuf, sizeof (struct pcap_sf));
+-	if (p == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[193]) {
++	  if ((p == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 193\n");
++	  else
++	    fprintf(stderr, "reached bug index 193\n");
++	}
++	if ((!FIXREVERTER[193] && (p == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/* Allocation failed. */
+ 		*err = 1;
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	p->swapped = swapped;
+ 	p->version_major = hdr.version_major;
+ 	p->version_minor = hdr.version_minor;
+@@ -399,8 +433,23 @@ pcap_check_header(const uint8_t *magic, FILE *fp, u_int precision, char *errbuf,
+ 	 * packet.
+ 	 */
+ 	p->bufsize = p->snapshot;
+-	if (p->bufsize > 2048)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[194]) {
++	  if ((p -> bufsize > 2048  ) && !(0))
++	    fprintf(stderr, "triggered bug index 194\n");
++	  else
++	    fprintf(stderr, "reached bug index 194\n");
++	}
++	if ((!FIXREVERTER[194] && (p -> bufsize > 2048  ))
++	#else
++	if (0
++	#endif
++	)
+ 		p->bufsize = 2048;
++		#ifdef FRCOV
++		}
++		#endif
+ 	p->buffer = malloc(p->bufsize);
+ 	if (p->buffer == NULL) {
+ 		snprintf(errbuf, PCAP_ERRBUF_SIZE, "out of memory");
+@@ -423,10 +472,25 @@ grow_buffer(pcap_t *p, u_int bufsize)
+ 	void *bigger_buffer;
+ 
+ 	bigger_buffer = realloc(p->buffer, bufsize);
+-	if (bigger_buffer == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[195]) {
++	  if ((bigger_buffer == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 195\n");
++	  else
++	    fprintf(stderr, "reached bug index 195\n");
++	}
++	if ((!FIXREVERTER[195] && (bigger_buffer == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		snprintf(p->errbuf, PCAP_ERRBUF_SIZE, "out of memory");
+ 		return (0);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	p->buffer = bigger_buffer;
+ 	p->bufsize = bufsize;
+ 	return (1);
+@@ -516,13 +580,28 @@ pcap_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 		break;
+ 
+ 	case MAYBE_SWAPPED:
+-		if (hdr->caplen <= hdr->len) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[197]) {
++		  if ((hdr -> caplen <= hdr -> len ) && !(0))
++		    fprintf(stderr, "triggered bug index 197\n");
++		  else
++		    fprintf(stderr, "reached bug index 197\n");
++		}
++		if ((!FIXREVERTER[197] && (hdr -> caplen <= hdr -> len ))
++		#else
++		if (0
++		#endif
++		) {
+ 			/*
+ 			 * The captured length is <= the actual length,
+ 			 * so presumably they weren't swapped.
+ 			 */
+ 			break;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		/* FALLTHROUGH */
+ 
+ 	case SWAPPED:
+@@ -691,7 +770,19 @@ pcap_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 
+ 		/* read the packet itself */
+ 		amt_read = fread(p->buffer, 1, hdr->caplen, fp);
+-		if (amt_read != hdr->caplen) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[201]) {
++		  if ((amt_read != hdr -> caplen ) && !(0))
++		    fprintf(stderr, "triggered bug index 201\n");
++		  else
++		    fprintf(stderr, "reached bug index 201\n");
++		}
++		if ((!FIXREVERTER[201] && (amt_read != hdr -> caplen ))
++		#else
++		if (0
++		#endif
++		) {
+ 			if (ferror(fp)) {
+ 				pcap_fmt_errmsg_for_errno(p->errbuf,
+ 				    PCAP_ERRBUF_SIZE, errno,
+@@ -703,6 +794,9 @@ pcap_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			}
+ 			return (-1);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 	}
+ 	*data = p->buffer;
+ 
+diff --git a/sf-pcapng.c b/sf-pcapng.c
+index 4ab415e..4d5348a 100644
+--- a/sf-pcapng.c
++++ b/sf-pcapng.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#endif
+ /*
+  * Copyright (c) 1993, 1994, 1995, 1996, 1997
+  *	The Regents of the University of California.  All rights reserved.
+@@ -331,16 +335,46 @@ read_block(FILE *fp, pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 		 */
+ 		void *bigger_buffer;
+ 
+-		if (bhdr.total_length > ps->max_blocksize) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[161]) {
++		  if ((bhdr . total_length > ps -> max_blocksize ) && !(0))
++		    fprintf(stderr, "triggered bug index 161\n");
++		  else
++		    fprintf(stderr, "reached bug index 161\n");
++		}
++		if ((!FIXREVERTER[161] && (bhdr . total_length > ps -> max_blocksize ))
++		#else
++		if (0
++		#endif
++		) {
+ 			snprintf(errbuf, PCAP_ERRBUF_SIZE, "pcapng block size %u > maximum %u", bhdr.total_length,
+ 			    ps->max_blocksize);
+ 			return (-1);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		bigger_buffer = realloc(p->buffer, bhdr.total_length);
+-		if (bigger_buffer == NULL) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[162]) {
++		  if ((bigger_buffer == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 162\n");
++		  else
++		    fprintf(stderr, "reached bug index 162\n");
++		}
++		if ((!FIXREVERTER[162] && (bigger_buffer == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			snprintf(errbuf, PCAP_ERRBUF_SIZE, "out of memory");
+ 			return (-1);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		p->buffer = bigger_buffer;
+ 	}
+ 
+@@ -365,7 +399,19 @@ read_block(FILE *fp, pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 	 * Is the total length from the trailer the same as the total
+ 	 * length from the header?
+ 	 */
+-	if (bhdr.total_length != btrlr->total_length) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[163]) {
++	  if ((bhdr . total_length != btrlr -> total_length ) && !(0))
++	    fprintf(stderr, "triggered bug index 163\n");
++	  else
++	    fprintf(stderr, "reached bug index 163\n");
++	}
++	if ((!FIXREVERTER[163] && (bhdr . total_length != btrlr -> total_length ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/*
+ 		 * No.
+ 		 */
+@@ -373,6 +419,9 @@ read_block(FILE *fp, pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 		    "block total length in header and trailer don't match");
+ 		return (-1);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	/*
+ 	 * Initialize the cursor.
+@@ -393,12 +442,27 @@ get_from_block_data(struct block_cursor *cursor, size_t chunk_size,
+ 	 * Make sure we have the specified amount of data remaining in
+ 	 * the block data.
+ 	 */
+-	if (cursor->data_remaining < chunk_size) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[164]) {
++	  if ((cursor -> data_remaining < chunk_size ) && !(0))
++	    fprintf(stderr, "triggered bug index 164\n");
++	  else
++	    fprintf(stderr, "reached bug index 164\n");
++	}
++	if ((!FIXREVERTER[164] && (cursor -> data_remaining < chunk_size ))
++	#else
++	if (0
++	#endif
++	) {
+ 		snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 		    "block of type %u in pcapng dump file is too short",
+ 		    cursor->block_type);
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	/*
+ 	 * Return the current pointer, and skip past the chunk.
+@@ -415,12 +479,27 @@ get_opthdr_from_block_data(pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 	struct option_header *opthdr;
+ 
+ 	opthdr = get_from_block_data(cursor, sizeof(*opthdr), errbuf);
+-	if (opthdr == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[165]) {
++	  if ((opthdr == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 165\n");
++	  else
++	    fprintf(stderr, "reached bug index 165\n");
++	}
++	if ((!FIXREVERTER[165] && (opthdr == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/*
+ 		 * Option header is cut short.
+ 		 */
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	/*
+ 	 * Byte-swap it if necessary.
+@@ -445,12 +524,27 @@ get_optvalue_from_block_data(struct block_cursor *cursor,
+ 	padded_option_len = ((padded_option_len + 3)/4)*4;
+ 
+ 	optvalue = get_from_block_data(cursor, padded_option_len, errbuf);
+-	if (optvalue == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[166]) {
++	  if ((optvalue == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 166\n");
++	  else
++	    fprintf(stderr, "reached bug index 166\n");
++	}
++	if ((!FIXREVERTER[166] && (optvalue == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/*
+ 		 * Option value is cut short.
+ 		 */
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	return (optvalue);
+ }
+@@ -472,43 +566,103 @@ process_idb_options(pcap_t *p, struct block_cursor *cursor, uint64_t *tsresol,
+ 		 * Get the option header.
+ 		 */
+ 		opthdr = get_opthdr_from_block_data(p, cursor, errbuf);
+-		if (opthdr == NULL) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[167]) {
++		  if ((opthdr == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 167\n");
++		  else
++		    fprintf(stderr, "reached bug index 167\n");
++		}
++		if ((!FIXREVERTER[167] && (opthdr == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			/*
+ 			 * Option header is cut short.
+ 			 */
+ 			return (-1);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 		/*
+ 		 * Get option value.
+ 		 */
+ 		optvalue = get_optvalue_from_block_data(cursor, opthdr,
+ 		    errbuf);
+-		if (optvalue == NULL) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[168]) {
++		  if ((optvalue == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 168\n");
++		  else
++		    fprintf(stderr, "reached bug index 168\n");
++		}
++		if ((!FIXREVERTER[168] && (optvalue == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			/*
+ 			 * Option value is cut short.
+ 			 */
+ 			return (-1);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 		switch (opthdr->option_code) {
+ 
+ 		case OPT_ENDOFOPT:
+-			if (opthdr->option_length != 0) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[169]) {
++			  if ((opthdr -> option_length != 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 169\n");
++			  else
++			    fprintf(stderr, "reached bug index 169\n");
++			}
++			if ((!FIXREVERTER[169] && (opthdr -> option_length != 0 ))
++			#else
++			if (0
++			#endif
++			) {
+ 				snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 				    "Interface Description Block has opt_endofopt option with length %u != 0",
+ 				    opthdr->option_length);
+ 				return (-1);
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			goto done;
+ 
+ 		case IF_TSRESOL:
+-			if (opthdr->option_length != 1) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[170]) {
++			  if ((opthdr -> option_length != 1 ) && !(0))
++			    fprintf(stderr, "triggered bug index 170\n");
++			  else
++			    fprintf(stderr, "reached bug index 170\n");
++			}
++			if ((!FIXREVERTER[170] && (opthdr -> option_length != 1 ))
++			#else
++			if (0
++			#endif
++			) {
+ 				snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 				    "Interface Description Block has if_tsresol option with length %u != 1",
+ 				    opthdr->option_length);
+ 				return (-1);
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			if (saw_tsresol) {
+ 				snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 				    "Interface Description Block has more than one if_tsresol option");
+@@ -560,12 +714,27 @@ process_idb_options(pcap_t *p, struct block_cursor *cursor, uint64_t *tsresol,
+ 			break;
+ 
+ 		case IF_TSOFFSET:
+-			if (opthdr->option_length != 8) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[171]) {
++			  if ((opthdr -> option_length != 8 ) && !(0))
++			    fprintf(stderr, "triggered bug index 171\n");
++			  else
++			    fprintf(stderr, "reached bug index 171\n");
++			}
++			if ((!FIXREVERTER[171] && (opthdr -> option_length != 8 ))
++			#else
++			if (0
++			#endif
++			) {
+ 				snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 				    "Interface Description Block has if_tsoffset option with length %u != 8",
+ 				    opthdr->option_length);
+ 				return (-1);
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			if (saw_tsoffset) {
+ 				snprintf(errbuf, PCAP_ERRBUF_SIZE,
+ 				    "Interface Description Block has more than one if_tsoffset option");
+@@ -637,7 +806,19 @@ add_interface(pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 			 *
+ 			 * Check for overflow if we double it.
+ 			 */
+-			if (ps->ifaces_size * 2 < ps->ifaces_size) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[172]) {
++			  if ((ps -> ifaces_size * 2 < ps -> ifaces_size ) && !(0))
++			    fprintf(stderr, "triggered bug index 172\n");
++			  else
++			    fprintf(stderr, "reached bug index 172\n");
++			}
++			if ((!FIXREVERTER[172] && (ps -> ifaces_size * 2 < ps -> ifaces_size ))
++			#else
++			if (0
++			#endif
++			) {
+ 				/*
+ 				 * The maximum number of interfaces before
+ 				 * ps->ifaces_size overflows is the largest
+@@ -649,6 +830,9 @@ add_interface(pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 				    0x80000000U);
+ 				return (0);
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 			/*
+ 			 * ps->ifaces_size * 2 doesn't overflow, so it's
+@@ -682,7 +866,19 @@ add_interface(pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 			}
+ 			new_ifaces = realloc(ps->ifaces, new_ifaces_size * sizeof (struct pcap_ng_if));
+ 		}
+-		if (new_ifaces == NULL) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[173]) {
++		  if ((new_ifaces == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 173\n");
++		  else
++		    fprintf(stderr, "reached bug index 173\n");
++		}
++		if ((!FIXREVERTER[173] && (new_ifaces == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			/*
+ 			 * We ran out of memory.
+ 			 * Give up.
+@@ -692,6 +888,9 @@ add_interface(pcap_t *p, struct block_cursor *cursor, char *errbuf)
+ 			    ps->ifcount);
+ 			return (0);
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		ps->ifaces_size = new_ifaces_size;
+ 		ps->ifaces = new_ifaces;
+ 	}
+@@ -873,11 +1072,26 @@ pcap_ng_check_header(const uint8_t *magic, FILE *fp, u_int precision,
+ 	 * Allocate a pcap_t for it.
+ 	 */
+ 	p = pcap_open_offline_common(errbuf, sizeof (struct pcap_ng_sf));
+-	if (p == NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[178]) {
++	  if ((p == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 178\n");
++	  else
++	    fprintf(stderr, "reached bug index 178\n");
++	}
++	if ((!FIXREVERTER[178] && (p == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/* Allocation failed. */
+ 		*err = 1;
+ 		return (NULL);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	p->swapped = swapped;
+ 	ps = p->priv;
+ 
+@@ -999,8 +1213,23 @@ pcap_ng_check_header(const uint8_t *magic, FILE *fp, u_int precision,
+ 			 */
+ 			idbp = get_from_block_data(&cursor, sizeof(*idbp),
+ 			    errbuf);
+-			if (idbp == NULL)
+-				goto fail;	/* error */
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[181]) {
++			  if ((idbp == (void *) 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 181\n");
++			  else
++			    fprintf(stderr, "reached bug index 181\n");
++			}
++			if ((!FIXREVERTER[181] && (idbp == (void *) 0 ))
++			#else
++			if (0
++			#endif
++			)
++				goto fail;
++				#ifdef FRCOV
++				}
++				#endif	/* error */
+ 
+ 			/*
+ 			 * Byte-swap it if necessary.
+@@ -1116,8 +1345,23 @@ pcap_ng_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			 */
+ 			epbp = get_from_block_data(&cursor, sizeof(*epbp),
+ 			    p->errbuf);
+-			if (epbp == NULL)
+-				return (-1);	/* error */
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[183]) {
++			  if ((epbp == (void *) 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 183\n");
++			  else
++			    fprintf(stderr, "reached bug index 183\n");
++			}
++			if ((!FIXREVERTER[183] && (epbp == (void *) 0 ))
++			#else
++			if (0
++			#endif
++			)
++				return (-1);
++				#ifdef FRCOV
++				}
++				#endif	/* error */
+ 
+ 			/*
+ 			 * Byte-swap it if necessary.
+@@ -1145,8 +1389,23 @@ pcap_ng_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			 */
+ 			spbp = get_from_block_data(&cursor, sizeof(*spbp),
+ 			    p->errbuf);
+-			if (spbp == NULL)
+-				return (-1);	/* error */
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[184]) {
++			  if ((spbp == (void *) 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 184\n");
++			  else
++			    fprintf(stderr, "reached bug index 184\n");
++			}
++			if ((!FIXREVERTER[184] && (spbp == (void *) 0 ))
++			#else
++			if (0
++			#endif
++			)
++				return (-1);
++				#ifdef FRCOV
++				}
++				#endif	/* error */
+ 
+ 			/*
+ 			 * SPB packets are assumed to have arrived on
+@@ -1181,8 +1440,23 @@ pcap_ng_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			 */
+ 			pbp = get_from_block_data(&cursor, sizeof(*pbp),
+ 			    p->errbuf);
+-			if (pbp == NULL)
+-				return (-1);	/* error */
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[185]) {
++			  if ((pbp == (void *) 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 185\n");
++			  else
++			    fprintf(stderr, "reached bug index 185\n");
++			}
++			if ((!FIXREVERTER[185] && (pbp == (void *) 0 ))
++			#else
++			if (0
++			#endif
++			)
++				return (-1);
++				#ifdef FRCOV
++				}
++				#endif	/* error */
+ 
+ 			/*
+ 			 * Byte-swap it if necessary.
+@@ -1210,8 +1484,23 @@ pcap_ng_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			 */
+ 			idbp = get_from_block_data(&cursor, sizeof(*idbp),
+ 			    p->errbuf);
+-			if (idbp == NULL)
+-				return (-1);	/* error */
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[186]) {
++			  if ((idbp == (void *) 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 186\n");
++			  else
++			    fprintf(stderr, "reached bug index 186\n");
++			}
++			if ((!FIXREVERTER[186] && (idbp == (void *) 0 ))
++			#else
++			if (0
++			#endif
++			)
++				return (-1);
++				#ifdef FRCOV
++				}
++				#endif	/* error */
+ 
+ 			/*
+ 			 * Byte-swap it if necessary.
+@@ -1229,12 +1518,27 @@ pcap_ng_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			 * XXX - just discard packets from those
+ 			 * interfaces?
+ 			 */
+-			if (p->linktype != idbp->linktype) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[187]) {
++			  if ((p -> linktype != idbp -> linktype ) && !(0))
++			    fprintf(stderr, "triggered bug index 187\n");
++			  else
++			    fprintf(stderr, "reached bug index 187\n");
++			}
++			if ((!FIXREVERTER[187] && (p -> linktype != idbp -> linktype ))
++			#else
++			if (0
++			#endif
++			) {
+ 				snprintf(p->errbuf, PCAP_ERRBUF_SIZE,
+ 				    "an interface has a type %u different from the type of the first interface",
+ 				    idbp->linktype);
+ 				return (-1);
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 			/*
+ 			 * Check against the *adjusted* value of this IDB's
+@@ -1262,8 +1566,23 @@ pcap_ng_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			 */
+ 			shbp = get_from_block_data(&cursor, sizeof(*shbp),
+ 			    p->errbuf);
+-			if (shbp == NULL)
+-				return (-1);	/* error */
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[188]) {
++			  if ((shbp == (void *) 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 188\n");
++			  else
++			    fprintf(stderr, "reached bug index 188\n");
++			}
++			if ((!FIXREVERTER[188] && (shbp == (void *) 0 ))
++			#else
++			if (0
++			#endif
++			)
++				return (-1);
++				#ifdef FRCOV
++				}
++				#endif	/* error */
+ 
+ 			/*
+ 			 * Assume the byte order of this section is
+@@ -1311,12 +1630,27 @@ pcap_ng_next_packet(pcap_t *p, struct pcap_pkthdr *hdr, u_char **data)
+ 			 * Make sure the major version is the version
+ 			 * we handle.
+ 			 */
+-			if (shbp->major_version != PCAP_NG_VERSION_MAJOR) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[189]) {
++			  if ((shbp -> major_version != 1 ) && !(0))
++			    fprintf(stderr, "triggered bug index 189\n");
++			  else
++			    fprintf(stderr, "reached bug index 189\n");
++			}
++			if ((!FIXREVERTER[189] && (shbp -> major_version != 1 ))
++			#else
++			if (0
++			#endif
++			) {
+ 				snprintf(p->errbuf, PCAP_ERRBUF_SIZE,
+ 				    "unknown pcapng savefile major version number %u",
+ 				    shbp->major_version);
+ 				return (-1);
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 			/*
+ 			 * Reset the interface count; this section should
+@@ -1342,7 +1676,19 @@ found:
+ 	/*
+ 	 * Is the interface ID an interface we know?
+ 	 */
+-	if (interface_id >= ps->ifcount) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[190]) {
++	  if ((interface_id >= ps -> ifcount ) && !(0))
++	    fprintf(stderr, "triggered bug index 190\n");
++	  else
++	    fprintf(stderr, "reached bug index 190\n");
++	}
++	if ((!FIXREVERTER[190] && (interface_id >= ps -> ifcount ))
++	#else
++	if (0
++	#endif
++	) {
+ 		/*
+ 		 * Yes.  Fail.
+ 		 */
+@@ -1351,6 +1697,9 @@ found:
+ 		    interface_id);
+ 		return (-1);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	if (hdr->caplen > (bpf_u_int32)p->snapshot) {
+ 		snprintf(p->errbuf, PCAP_ERRBUF_SIZE,
+diff --git a/testprogs/fuzz/fuzz_both.c b/testprogs/fuzz/fuzz_both.c
+index 59e3d40..4972e5b 100644
+--- a/testprogs/fuzz/fuzz_both.c
++++ b/testprogs/fuzz/fuzz_both.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#define FIXREVERTER_SIZE 345
++short FIXREVERTER[FIXREVERTER_SIZE];
++#endif
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <fcntl.h>
+@@ -36,7 +40,41 @@ void fuzz_openFile(const char * name) {
+     outfile = fopen(name, "w");
+ }
+ 
++
++#ifdef FRCOV
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#endif
+ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
++    
++    #ifdef FRCOV
++    char *fixReverterEnv = getenv("FIXREVERTER");
++    char *fixReverterToken = strtok(fixReverterEnv, " ");
++    if (fixReverterToken == NULL) {
++      for (int i = 0; i < FIXREVERTER_SIZE; i++)
++        FIXREVERTER[i] = 1;
++    } else if (!strcmp("on", fixReverterToken)) {
++      for (int i = 0; i < FIXREVERTER_SIZE; i++)
++        FIXREVERTER[i] = 0;
++      fixReverterToken = strtok(NULL, " ");
++      while (fixReverterToken != NULL) {
++        FIXREVERTER[atoi(fixReverterToken)] = 1;
++        fixReverterToken = strtok(NULL, " ");
++      }
++    } else if (!strcmp("off", fixReverterToken)) {
++      for (int i = 0; i < FIXREVERTER_SIZE; i++)
++        FIXREVERTER[i] = 1;
++      fixReverterToken = strtok(NULL, " ");
++      while (fixReverterToken != NULL) {
++        FIXREVERTER[atoi(fixReverterToken)] = 0;
++        fixReverterToken = strtok(NULL, " ");
++      }
++    } else {
++      fprintf(stderr, "[FIXREVERTER] - first token must be on or off\n");
++      exit(0);
++    }
++    #endif
+     pcap_t * pkts;
+     char errbuf[PCAP_ERRBUF_SIZE];
+     const u_char *pkt;

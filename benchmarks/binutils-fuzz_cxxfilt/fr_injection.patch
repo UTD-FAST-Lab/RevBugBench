@@ -1,0 +1,4463 @@
+diff --git a/bfd/coff-sh.c b/bfd/coff-sh.c
+index 10d203f..494a5f2 100644
+--- a/bfd/coff-sh.c
++++ b/bfd/coff-sh.c
+@@ -1392,13 +1392,13 @@ sh_relax_delete_bytes (bfd *abfd,
+ 	{
+ 	  struct internal_syment sym;
+ 
+-#ifdef COFF_WITH_PE
+-	  if (irelscan->r_type != R_SH_IMM32
+-	      && irelscan->r_type != R_SH_IMAGEBASE
+-	      && irelscan->r_type != R_SH_IMM32CE)
+-#else
++
++
++
++
++
+ 	  if (irelscan->r_type != R_SH_IMM32)
+-#endif
++
+ 	    continue;
+ 
+ 	  bfd_coff_swap_sym_in (abfd,
+diff --git a/bfd/doc/chew.c b/bfd/doc/chew.c
+index b3be7fa..408d21f 100644
+--- a/bfd/doc/chew.c
++++ b/bfd/doc/chew.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++short FIXREVERTER[11895];
++#endif
+ /* chew
+    Copyright (C) 1990-2021 Free Software Foundation, Inc.
+    Contributed by steve chamberlain @cygnus
+diff --git a/binutils/.gitignore b/binutils/.gitignore
+old mode 100644
+new mode 100755
+diff --git a/binutils/BRANCHES b/binutils/BRANCHES
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog b/binutils/ChangeLog
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-0001 b/binutils/ChangeLog-0001
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-0203 b/binutils/ChangeLog-0203
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2004 b/binutils/ChangeLog-2004
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2005 b/binutils/ChangeLog-2005
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2006 b/binutils/ChangeLog-2006
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2007 b/binutils/ChangeLog-2007
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2008 b/binutils/ChangeLog-2008
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2009 b/binutils/ChangeLog-2009
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2010 b/binutils/ChangeLog-2010
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2011 b/binutils/ChangeLog-2011
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2012 b/binutils/ChangeLog-2012
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2013 b/binutils/ChangeLog-2013
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2014 b/binutils/ChangeLog-2014
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2015 b/binutils/ChangeLog-2015
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2016 b/binutils/ChangeLog-2016
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2017 b/binutils/ChangeLog-2017
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2018 b/binutils/ChangeLog-2018
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2019 b/binutils/ChangeLog-2019
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-2020 b/binutils/ChangeLog-2020
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-9197 b/binutils/ChangeLog-9197
+old mode 100644
+new mode 100755
+diff --git a/binutils/ChangeLog-9899 b/binutils/ChangeLog-9899
+old mode 100644
+new mode 100755
+diff --git a/binutils/MAINTAINERS b/binutils/MAINTAINERS
+old mode 100644
+new mode 100755
+diff --git a/binutils/Makefile.am b/binutils/Makefile.am
+old mode 100644
+new mode 100755
+diff --git a/binutils/Makefile.in b/binutils/Makefile.in
+old mode 100644
+new mode 100755
+diff --git a/binutils/NEWS b/binutils/NEWS
+old mode 100644
+new mode 100755
+diff --git a/binutils/README b/binutils/README
+old mode 100644
+new mode 100755
+diff --git a/binutils/README-how-to-make-a-release b/binutils/README-how-to-make-a-release
+old mode 100644
+new mode 100755
+diff --git a/binutils/aclocal.m4 b/binutils/aclocal.m4
+old mode 100644
+new mode 100755
+diff --git a/binutils/addr2line.c b/binutils/addr2line.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/ar.c b/binutils/ar.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/arlex.l b/binutils/arlex.l
+old mode 100644
+new mode 100755
+diff --git a/binutils/arparse.y b/binutils/arparse.y
+old mode 100644
+new mode 100755
+diff --git a/binutils/arsup.c b/binutils/arsup.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/arsup.h b/binutils/arsup.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/bfdtest1.c b/binutils/bfdtest1.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/bfdtest2.c b/binutils/bfdtest2.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/bin2c.c b/binutils/bin2c.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/binemul.c b/binutils/binemul.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/binemul.h b/binutils/binemul.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/bucomm.c b/binutils/bucomm.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/bucomm.h b/binutils/bucomm.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/budbg.h b/binutils/budbg.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/coffdump.c b/binutils/coffdump.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/coffgrok.c b/binutils/coffgrok.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/coffgrok.h b/binutils/coffgrok.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/config.in b/binutils/config.in
+old mode 100644
+new mode 100755
+diff --git a/binutils/configure.ac b/binutils/configure.ac
+old mode 100644
+new mode 100755
+diff --git a/binutils/configure.com b/binutils/configure.com
+old mode 100644
+new mode 100755
+diff --git a/binutils/configure.tgt b/binutils/configure.tgt
+old mode 100644
+new mode 100755
+diff --git a/binutils/cxxfilt.c b/binutils/cxxfilt.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/debug.c b/binutils/debug.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/debug.h b/binutils/debug.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/deflex.l b/binutils/deflex.l
+old mode 100644
+new mode 100755
+diff --git a/binutils/defparse.y b/binutils/defparse.y
+old mode 100644
+new mode 100755
+diff --git a/binutils/dep-in.sed b/binutils/dep-in.sed
+old mode 100644
+new mode 100755
+diff --git a/binutils/dlltool.c b/binutils/dlltool.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/dlltool.h b/binutils/dlltool.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/dllwrap.c b/binutils/dllwrap.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/doc/Makefile.am b/binutils/doc/Makefile.am
+old mode 100644
+new mode 100755
+diff --git a/binutils/doc/Makefile.in b/binutils/doc/Makefile.in
+old mode 100644
+new mode 100755
+diff --git a/binutils/doc/binutils.texi b/binutils/doc/binutils.texi
+old mode 100644
+new mode 100755
+diff --git a/binutils/doc/ctf.options.texi b/binutils/doc/ctf.options.texi
+old mode 100644
+new mode 100755
+diff --git a/binutils/doc/debug.options.texi b/binutils/doc/debug.options.texi
+old mode 100644
+new mode 100755
+diff --git a/binutils/doc/fdl.texi b/binutils/doc/fdl.texi
+old mode 100644
+new mode 100755
+diff --git a/binutils/dwarf-mode.el b/binutils/dwarf-mode.el
+old mode 100644
+new mode 100755
+diff --git a/binutils/dwarf.c b/binutils/dwarf.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/dwarf.h b/binutils/dwarf.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/elfcomm.c b/binutils/elfcomm.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/elfcomm.h b/binutils/elfcomm.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/elfedit.c b/binutils/elfedit.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/embedspu.sh b/binutils/embedspu.sh
+old mode 100644
+new mode 100755
+diff --git a/binutils/emul_aix.c b/binutils/emul_aix.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/emul_vanilla.c b/binutils/emul_vanilla.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/filemode.c b/binutils/filemode.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/is-ranlib.c b/binutils/is-ranlib.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/is-strip.c b/binutils/is-strip.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/makefile.vms b/binutils/makefile.vms
+old mode 100644
+new mode 100755
+diff --git a/binutils/maybe-ranlib.c b/binutils/maybe-ranlib.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/maybe-strip.c b/binutils/maybe-strip.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/mclex.c b/binutils/mclex.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/mcparse.y b/binutils/mcparse.y
+old mode 100644
+new mode 100755
+diff --git a/binutils/nm.c b/binutils/nm.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/not-ranlib.c b/binutils/not-ranlib.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/not-strip.c b/binutils/not-strip.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/objcopy.c b/binutils/objcopy.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/objdump.c b/binutils/objdump.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/objdump.h b/binutils/objdump.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/od-elf32_avr.c b/binutils/od-elf32_avr.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/od-macho.c b/binutils/od-macho.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/od-xcoff.c b/binutils/od-xcoff.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/.cvsignore b/binutils/po/.cvsignore
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/Make-in b/binutils/po/Make-in
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/POTFILES.in b/binutils/po/POTFILES.in
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/bg.po b/binutils/po/bg.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/binutils.pot b/binutils/po/binutils.pot
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/ca.po b/binutils/po/ca.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/da.po b/binutils/po/da.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/es.po b/binutils/po/es.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/fi.po b/binutils/po/fi.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/fr.po b/binutils/po/fr.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/hr.po b/binutils/po/hr.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/id.po b/binutils/po/id.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/it.po b/binutils/po/it.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/ja.po b/binutils/po/ja.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/pt.po b/binutils/po/pt.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/ro.po b/binutils/po/ro.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/ru.po b/binutils/po/ru.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/rw.po b/binutils/po/rw.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/sk.po b/binutils/po/sk.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/sr.po b/binutils/po/sr.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/sv.po b/binutils/po/sv.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/tr.po b/binutils/po/tr.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/uk.po b/binutils/po/uk.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/vi.po b/binutils/po/vi.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/zh_CN.po b/binutils/po/zh_CN.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/po/zh_TW.po b/binutils/po/zh_TW.po
+old mode 100644
+new mode 100755
+diff --git a/binutils/prdbg.c b/binutils/prdbg.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/rclex.c b/binutils/rclex.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/rcparse.y b/binutils/rcparse.y
+old mode 100644
+new mode 100755
+diff --git a/binutils/rdcoff.c b/binutils/rdcoff.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/rddbg.c b/binutils/rddbg.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/readelf.c b/binutils/readelf.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/rename.c b/binutils/rename.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/resbin.c b/binutils/resbin.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/rescoff.c b/binutils/rescoff.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/resrc.c b/binutils/resrc.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/resres.c b/binutils/resres.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/size.c b/binutils/size.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/srconv.c b/binutils/srconv.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/stabs.c b/binutils/stabs.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/stamp-h.in b/binutils/stamp-h.in
+old mode 100644
+new mode 100755
+diff --git a/binutils/strings.c b/binutils/strings.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/sysdep.h b/binutils/sysdep.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/sysdump.c b/binutils/sysdump.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/sysinfo.y b/binutils/sysinfo.y
+old mode 100644
+new mode 100755
+index 3d09fc0..bbe63dc
+--- a/binutils/sysinfo.y
++++ b/binutils/sysinfo.y
+@@ -19,6 +19,9 @@
+    MA 02110-1301, USA.  */
+ 
+ %{
++#ifdef FRCOV
++short FIXREVERTER[11895];
++#endif
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+diff --git a/binutils/syslex.l b/binutils/syslex.l
+old mode 100644
+new mode 100755
+diff --git a/binutils/syslex_wrap.c b/binutils/syslex_wrap.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/sysroff.info b/binutils/sysroff.info
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/ChangeLog-0411 b/binutils/testsuite/ChangeLog-0411
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/ChangeLog-1215 b/binutils/testsuite/ChangeLog-1215
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/ChangeLog-9303 b/binutils/testsuite/ChangeLog-9303
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/aarch64.exp b/binutils/testsuite/binutils-all/aarch64/aarch64.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/illegal.d b/binutils/testsuite/binutils-all/aarch64/illegal.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/illegal.s b/binutils/testsuite/binutils-all/aarch64/illegal.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/in-order-all.d b/binutils/testsuite/binutils-all/aarch64/in-order-all.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/in-order.d b/binutils/testsuite/binutils-all/aarch64/in-order.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/objdump.d b/binutils/testsuite/binutils-all/aarch64/objdump.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/objdump.s b/binutils/testsuite/binutils-all/aarch64/objdump.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/out-of-order-all.d b/binutils/testsuite/binutils-all/aarch64/out-of-order-all.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/out-of-order.T b/binutils/testsuite/binutils-all/aarch64/out-of-order.T
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/out-of-order.d b/binutils/testsuite/binutils-all/aarch64/out-of-order.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/out-of-order.s b/binutils/testsuite/binutils-all/aarch64/out-of-order.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/sve-dwarf-registers.d b/binutils/testsuite/binutils-all/aarch64/sve-dwarf-registers.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/sve-dwarf-registers.s b/binutils/testsuite/binutils-all/aarch64/sve-dwarf-registers.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/unallocated-encoding.d b/binutils/testsuite/binutils-all/aarch64/unallocated-encoding.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/aarch64/unallocated-encoding.s b/binutils/testsuite/binutils-all/aarch64/unallocated-encoding.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/add-empty-section.d b/binutils/testsuite/binutils-all/add-empty-section.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/add-section.d b/binutils/testsuite/binutils-all/add-section.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/add-symbol.d b/binutils/testsuite/binutils-all/add-symbol.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/alias-2.def b/binutils/testsuite/binutils-all/alias-2.def
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/alias.def b/binutils/testsuite/binutils-all/alias.def
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/ar.exp b/binutils/testsuite/binutils-all/ar.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arc/double_regs.s b/binutils/testsuite/binutils-all/arc/double_regs.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arc/double_store.s b/binutils/testsuite/binutils-all/arc/double_store.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arc/dsp.s b/binutils/testsuite/binutils-all/arc/dsp.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arc/hexprint.s b/binutils/testsuite/binutils-all/arc/hexprint.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arc/objdump.exp b/binutils/testsuite/binutils-all/arc/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/in-order-all.d b/binutils/testsuite/binutils-all/arm/in-order-all.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/in-order.d b/binutils/testsuite/binutils-all/arm/in-order.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/objdump.exp b/binutils/testsuite/binutils-all/arm/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/out-of-order-all.d b/binutils/testsuite/binutils-all/arm/out-of-order-all.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/out-of-order.T b/binutils/testsuite/binutils-all/arm/out-of-order.T
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/out-of-order.d b/binutils/testsuite/binutils-all/arm/out-of-order.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/out-of-order.s b/binutils/testsuite/binutils-all/arm/out-of-order.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/rvct_symbol.s b/binutils/testsuite/binutils-all/arm/rvct_symbol.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/simple.s b/binutils/testsuite/binutils-all/arm/simple.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/thumb2-cond.s b/binutils/testsuite/binutils-all/arm/thumb2-cond.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/vdup-cond.d b/binutils/testsuite/binutils-all/arm/vdup-cond.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/vdup-cond.s b/binutils/testsuite/binutils-all/arm/vdup-cond.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/vdup-thumb.d b/binutils/testsuite/binutils-all/arm/vdup-thumb.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/arm/vdup-thumb.s b/binutils/testsuite/binutils-all/arm/vdup-thumb.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/bfin/objdump.exp b/binutils/testsuite/binutils-all/bfin/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/bfin/unknown-mode.s b/binutils/testsuite/binutils-all/bfin/unknown-mode.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/bintest.s b/binutils/testsuite/binutils-all/bintest.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-1.s b/binutils/testsuite/binutils-all/common-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-1a.d b/binutils/testsuite/binutils-all/common-1a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-1b.d b/binutils/testsuite/binutils-all/common-1b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-1c.d b/binutils/testsuite/binutils-all/common-1c.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-1d.d b/binutils/testsuite/binutils-all/common-1d.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-1e.d b/binutils/testsuite/binutils-all/common-1e.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-1f.d b/binutils/testsuite/binutils-all/common-1f.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-2.s b/binutils/testsuite/binutils-all/common-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-2a.d b/binutils/testsuite/binutils-all/common-2a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-2b.d b/binutils/testsuite/binutils-all/common-2b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-2c.d b/binutils/testsuite/binutils-all/common-2c.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-2d.d b/binutils/testsuite/binutils-all/common-2d.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-2e.d b/binutils/testsuite/binutils-all/common-2e.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/common-2f.d b/binutils/testsuite/binutils-all/common-2f.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/compress.exp b/binutils/testsuite/binutils-all/compress.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copy-1.d b/binutils/testsuite/binutils-all/copy-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copy-1.s b/binutils/testsuite/binutils-all/copy-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copy-2.d b/binutils/testsuite/binutils-all/copy-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copy-3.d b/binutils/testsuite/binutils-all/copy-3.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copy-4.d b/binutils/testsuite/binutils-all/copy-4.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copy-5.d b/binutils/testsuite/binutils-all/copy-5.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copy-6.d b/binutils/testsuite/binutils-all/copy-6.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/copytest.s b/binutils/testsuite/binutils-all/copytest.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/cxxfilt.exp b/binutils/testsuite/binutils-all/cxxfilt.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/data-sections.s b/binutils/testsuite/binutils-all/data-sections.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/debug_str.d b/binutils/testsuite/binutils-all/debug_str.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/debug_str.s b/binutils/testsuite/binutils-all/debug_str.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/debuginfod.exp b/binutils/testsuite/binutils-all/debuginfod.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/debuglink.s b/binutils/testsuite/binutils-all/debuglink.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/disasm.s b/binutils/testsuite/binutils-all/disasm.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dlltool.exp b/binutils/testsuite/binutils-all/dlltool.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dumptest.s b/binutils/testsuite/binutils-all/dumptest.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-1.S b/binutils/testsuite/binutils-all/dw2-1.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-1.W b/binutils/testsuite/binutils-all/dw2-1.W
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-2.S b/binutils/testsuite/binutils-all/dw2-2.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-3.S b/binutils/testsuite/binutils-all/dw2-3.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-3.W b/binutils/testsuite/binutils-all/dw2-3.W
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-3.rS b/binutils/testsuite/binutils-all/dw2-3.rS
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-3.rt b/binutils/testsuite/binutils-all/dw2-3.rt
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-3gabi.W b/binutils/testsuite/binutils-all/dw2-3gabi.W
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-compressed.S b/binutils/testsuite/binutils-all/dw2-compressed.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-decodedline-1.S b/binutils/testsuite/binutils-all/dw2-decodedline-1.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-decodedline.S b/binutils/testsuite/binutils-all/dw2-decodedline.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-empty.S b/binutils/testsuite/binutils-all/dw2-empty.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-ranges.S b/binutils/testsuite/binutils-all/dw2-ranges.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw2-ranges.W b/binutils/testsuite/binutils-all/dw2-ranges.W
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw4.s b/binutils/testsuite/binutils-all/dw4.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw5.S b/binutils/testsuite/binutils-all/dw5.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dw5.W b/binutils/testsuite/binutils-all/dw5.W
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dwarf-attributes.S b/binutils/testsuite/binutils-all/dwarf-attributes.S
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dwarf-attributes.W b/binutils/testsuite/binutils-all/dwarf-attributes.W
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/dwo.s b/binutils/testsuite/binutils-all/dwo.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/elfedit-1.d b/binutils/testsuite/binutils-all/elfedit-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/elfedit-2.d b/binutils/testsuite/binutils-all/elfedit-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/elfedit-3.d b/binutils/testsuite/binutils-all/elfedit-3.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/elfedit-4.d b/binutils/testsuite/binutils-all/elfedit-4.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/elfedit-5.d b/binutils/testsuite/binutils-all/elfedit-5.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/elfedit.exp b/binutils/testsuite/binutils-all/elfedit.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/empty b/binutils/testsuite/binutils-all/empty
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/empty-file b/binutils/testsuite/binutils-all/empty-file
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/empty.s b/binutils/testsuite/binutils-all/empty.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/exclude-1.s b/binutils/testsuite/binutils-all/exclude-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/exclude-1a.d b/binutils/testsuite/binutils-all/exclude-1a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/exclude-1b.d b/binutils/testsuite/binutils-all/exclude-1b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/fastcall.def b/binutils/testsuite/binutils-all/fastcall.def
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-2.s b/binutils/testsuite/binutils-all/group-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-3.s b/binutils/testsuite/binutils-all/group-3.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-4.s b/binutils/testsuite/binutils-all/group-4.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-5.d b/binutils/testsuite/binutils-all/group-5.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-5.s b/binutils/testsuite/binutils-all/group-5.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-6.d b/binutils/testsuite/binutils-all/group-6.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-6.s b/binutils/testsuite/binutils-all/group-6.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-7.s b/binutils/testsuite/binutils-all/group-7.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-7a.d b/binutils/testsuite/binutils-all/group-7a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-7b.d b/binutils/testsuite/binutils-all/group-7b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group-7c.d b/binutils/testsuite/binutils-all/group-7c.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/group.s b/binutils/testsuite/binutils-all/group.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/hppa/addendbug.s b/binutils/testsuite/binutils-all/hppa/addendbug.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/hppa/freg.s b/binutils/testsuite/binutils-all/hppa/freg.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/hppa/objdump.exp b/binutils/testsuite/binutils-all/hppa/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/compressed-1.s b/binutils/testsuite/binutils-all/i386/compressed-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/compressed-1a.d b/binutils/testsuite/binutils-all/i386/compressed-1a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/compressed-1b.d b/binutils/testsuite/binutils-all/i386/compressed-1b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/compressed-1c.d b/binutils/testsuite/binutils-all/i386/compressed-1c.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/empty.d b/binutils/testsuite/binutils-all/i386/empty.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/empty.s b/binutils/testsuite/binutils-all/i386/empty.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/i386.exp b/binutils/testsuite/binutils-all/i386/i386.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/ibt.d b/binutils/testsuite/binutils-all/i386/ibt.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/ibt.s b/binutils/testsuite/binutils-all/i386/ibt.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/pr21231a.d b/binutils/testsuite/binutils-all/i386/pr21231a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/pr21231a.s b/binutils/testsuite/binutils-all/i386/pr21231a.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/pr21231b.d b/binutils/testsuite/binutils-all/i386/pr21231b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/pr21231b.s b/binutils/testsuite/binutils-all/i386/pr21231b.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/shstk.d b/binutils/testsuite/binutils-all/i386/shstk.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/i386/shstk.s b/binutils/testsuite/binutils-all/i386/shstk.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/ifunc.s b/binutils/testsuite/binutils-all/ifunc.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/keep-section-1.d b/binutils/testsuite/binutils-all/keep-section-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/keep-section-2.d b/binutils/testsuite/binutils-all/keep-section-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/libdw2-compressed.out b/binutils/testsuite/binutils-all/libdw2-compressed.out
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/libdw2-compressedgabi.out b/binutils/testsuite/binutils-all/libdw2-compressedgabi.out
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/libdw2.out b/binutils/testsuite/binutils-all/libdw2.out
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/link-order.s b/binutils/testsuite/binutils-all/link-order.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/linkdebug.s b/binutils/testsuite/binutils-all/linkdebug.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/localize-hidden-1.d b/binutils/testsuite/binutils-all/localize-hidden-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/localize-hidden-1.s b/binutils/testsuite/binutils-all/localize-hidden-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/localize-hidden-2.d b/binutils/testsuite/binutils-all/localize-hidden-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/localize-hidden-2.s b/binutils/testsuite/binutils-all/localize-hidden-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/locview-1.s b/binutils/testsuite/binutils-all/locview-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/locview-2.s b/binutils/testsuite/binutils-all/locview-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/m68k/fnop.s b/binutils/testsuite/binutils-all/m68k/fnop.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/m68k/movem.s b/binutils/testsuite/binutils-all/m68k/movem.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/m68k/objdump.exp b/binutils/testsuite/binutils-all/m68k/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mangled.s b/binutils/testsuite/binutils-all/mangled.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mbind1.s b/binutils/testsuite/binutils-all/mbind1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-final-n32.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-final-n32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-final-n64.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-final-n64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-final-o32.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-final-o32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-n32.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-n32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-n32t.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-n32t.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-n64.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-n64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-o32.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-o32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-o32t.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-o32t.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n32.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n32t.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n32t.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n64.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n64t.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-n64t.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-o32.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-o32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-o32t.d b/binutils/testsuite/binutils-all/mips/global-local-symtab-sort-o32t.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-ase-1.d b/binutils/testsuite/binutils-all/mips/mips-ase-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-ase-1.s b/binutils/testsuite/binutils-all/mips/mips-ase-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-ase-2.d b/binutils/testsuite/binutils-all/mips/mips-ase-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-ase-2.s b/binutils/testsuite/binutils-all/mips/mips-ase-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-ase-3.d b/binutils/testsuite/binutils-all/mips/mips-ase-3.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-note-2-n32.d b/binutils/testsuite/binutils-all/mips/mips-note-2-n32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-note-2-n64.d b/binutils/testsuite/binutils-all/mips/mips-note-2-n64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-note-2.d b/binutils/testsuite/binutils-all/mips/mips-note-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-note-2r-n32.d b/binutils/testsuite/binutils-all/mips/mips-note-2r-n32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-note-2r-n64.d b/binutils/testsuite/binutils-all/mips/mips-note-2r-n64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-note-2r.d b/binutils/testsuite/binutils-all/mips/mips-note-2r.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-reginfo-n32.d b/binutils/testsuite/binutils-all/mips/mips-reginfo-n32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-reginfo.d b/binutils/testsuite/binutils-all/mips/mips-reginfo.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-reginfo.s b/binutils/testsuite/binutils-all/mips/mips-reginfo.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-xpa-virt-1.d b/binutils/testsuite/binutils-all/mips/mips-xpa-virt-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-xpa-virt-2.d b/binutils/testsuite/binutils-all/mips/mips-xpa-virt-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-xpa-virt-3.d b/binutils/testsuite/binutils-all/mips/mips-xpa-virt-3.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-xpa-virt-4.d b/binutils/testsuite/binutils-all/mips/mips-xpa-virt-4.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips-xpa-virt.s b/binutils/testsuite/binutils-all/mips/mips-xpa-virt.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips.exp b/binutils/testsuite/binutils-all/mips/mips.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-alias.d b/binutils/testsuite/binutils-all/mips/mips16-alias.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-alias.s b/binutils/testsuite/binutils-all/mips/mips16-alias.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-extend-insn.d b/binutils/testsuite/binutils-all/mips/mips16-extend-insn.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-extend-insn.s b/binutils/testsuite/binutils-all/mips/mips16-extend-insn.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-extend-noinsn.d b/binutils/testsuite/binutils-all/mips/mips16-extend-noinsn.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-extend-noinsn.s b/binutils/testsuite/binutils-all/mips/mips16-extend-noinsn.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-noalias.d b/binutils/testsuite/binutils-all/mips/mips16-noalias.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-pcrel.d b/binutils/testsuite/binutils-all/mips/mips16-pcrel.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-pcrel.s b/binutils/testsuite/binutils-all/mips/mips16-pcrel.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-undecoded.d b/binutils/testsuite/binutils-all/mips/mips16-undecoded.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16-undecoded.s b/binutils/testsuite/binutils-all/mips/mips16-undecoded.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16e2-extend-insn.d b/binutils/testsuite/binutils-all/mips/mips16e2-extend-insn.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mips16e2-undecoded.d b/binutils/testsuite/binutils-all/mips/mips16e2-undecoded.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mixed-micromips.d b/binutils/testsuite/binutils-all/mips/mixed-micromips.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mixed-micromips.s b/binutils/testsuite/binutils-all/mips/mixed-micromips.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mixed-mips16-micromips.d b/binutils/testsuite/binutils-all/mips/mixed-mips16-micromips.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mixed-mips16-micromips.s b/binutils/testsuite/binutils-all/mips/mixed-mips16-micromips.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mixed-mips16.d b/binutils/testsuite/binutils-all/mips/mixed-mips16.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/mips/mixed-mips16.s b/binutils/testsuite/binutils-all/mips/mixed-mips16.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/needed-by-reloc.s b/binutils/testsuite/binutils-all/needed-by-reloc.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nfp/objdump.exp b/binutils/testsuite/binutils-all/nfp/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nfp/test1.d b/binutils/testsuite/binutils-all/nfp/test1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nfp/test1_nfp6000.nffw b/binutils/testsuite/binutils-all/nfp/test1_nfp6000.nffw
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nfp/test2_ctx8.d b/binutils/testsuite/binutils-all/nfp/test2_ctx8.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nfp/test2_nfp6000.nffw b/binutils/testsuite/binutils-all/nfp/test2_nfp6000.nffw
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nfp/test2_no-pc_ctx4.d b/binutils/testsuite/binutils-all/nfp/test2_no-pc_ctx4.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nm-1.s b/binutils/testsuite/binutils-all/nm-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nm-elf-1.s b/binutils/testsuite/binutils-all/nm-elf-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nm-ver.s b/binutils/testsuite/binutils-all/nm-ver.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/nm.exp b/binutils/testsuite/binutils-all/nm.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-1.d b/binutils/testsuite/binutils-all/note-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-2-32.d b/binutils/testsuite/binutils-all/note-2-32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-2-32.s b/binutils/testsuite/binutils-all/note-2-32.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-2-64.d b/binutils/testsuite/binutils-all/note-2-64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-2-64.s b/binutils/testsuite/binutils-all/note-2-64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-3-32.d b/binutils/testsuite/binutils-all/note-3-32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-3-32.s b/binutils/testsuite/binutils-all/note-3-32.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-3-64.d b/binutils/testsuite/binutils-all/note-3-64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-3-64.s b/binutils/testsuite/binutils-all/note-3-64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-3.32.s b/binutils/testsuite/binutils-all/note-3.32.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-4-32.d b/binutils/testsuite/binutils-all/note-4-32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-4-32.s b/binutils/testsuite/binutils-all/note-4-32.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-4-64.d b/binutils/testsuite/binutils-all/note-4-64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-4-64.s b/binutils/testsuite/binutils-all/note-4-64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-5.d b/binutils/testsuite/binutils-all/note-5.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-5.s b/binutils/testsuite/binutils-all/note-5.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-6-32.d b/binutils/testsuite/binutils-all/note-6-32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-6-32.s b/binutils/testsuite/binutils-all/note-6-32.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-6-64.d b/binutils/testsuite/binutils-all/note-6-64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/note-6-64.s b/binutils/testsuite/binutils-all/note-6-64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objcopy.exp b/binutils/testsuite/binutils-all/objcopy.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objdump.W b/binutils/testsuite/binutils-all/objdump.W
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objdump.WK2 b/binutils/testsuite/binutils-all/objdump.WK2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objdump.WK3 b/binutils/testsuite/binutils-all/objdump.WK3
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objdump.WL b/binutils/testsuite/binutils-all/objdump.WL
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objdump.Wk b/binutils/testsuite/binutils-all/objdump.Wk
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objdump.exp b/binutils/testsuite/binutils-all/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/objdump.s b/binutils/testsuite/binutils-all/objdump.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/only-section-01.d b/binutils/testsuite/binutils-all/only-section-01.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr18374.s b/binutils/testsuite/binutils-all/pr18374.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr19020.in b/binutils/testsuite/binutils-all/pr19020.in
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr19020a.d b/binutils/testsuite/binutils-all/pr19020a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr19020b.d b/binutils/testsuite/binutils-all/pr19020b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr19547.c b/binutils/testsuite/binutils-all/pr19547.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr23633.d b/binutils/testsuite/binutils-all/pr23633.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr23633.list b/binutils/testsuite/binutils-all/pr23633.list
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr23633.s b/binutils/testsuite/binutils-all/pr23633.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr25543.d b/binutils/testsuite/binutils-all/pr25543.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr25543.s b/binutils/testsuite/binutils-all/pr25543.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr25662-pdp11.s b/binutils/testsuite/binutils-all/pr25662-pdp11.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr25662.ld b/binutils/testsuite/binutils-all/pr25662.ld
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr25662.s b/binutils/testsuite/binutils-all/pr25662.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr26112.o.bz2 b/binutils/testsuite/binutils-all/pr26112.o.bz2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr26112.r b/binutils/testsuite/binutils-all/pr26112.r
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr26160.dwp.bz2 b/binutils/testsuite/binutils-all/pr26160.dwp.bz2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr26160.r b/binutils/testsuite/binutils-all/pr26160.r
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr26548.d b/binutils/testsuite/binutils-all/pr26548.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr26548.s b/binutils/testsuite/binutils-all/pr26548.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/pr26548e.d b/binutils/testsuite/binutils-all/pr26548e.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf-maskos-1a.d b/binutils/testsuite/binutils-all/readelf-maskos-1a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf-maskos-1b.d b/binutils/testsuite/binutils-all/readelf-maskos-1b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf-maskos-unknown.s b/binutils/testsuite/binutils-all/readelf-maskos-unknown.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf-maskos.s b/binutils/testsuite/binutils-all/readelf-maskos.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.demangled b/binutils/testsuite/binutils-all/readelf.demangled
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.exp b/binutils/testsuite/binutils-all/readelf.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.h b/binutils/testsuite/binutils-all/readelf.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.k b/binutils/testsuite/binutils-all/readelf.k
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.k2 b/binutils/testsuite/binutils-all/readelf.k2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.locview-1 b/binutils/testsuite/binutils-all/readelf.locview-1
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.locview-2 b/binutils/testsuite/binutils-all/readelf.locview-2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.n b/binutils/testsuite/binutils-all/readelf.n
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.pr18374 b/binutils/testsuite/binutils-all/readelf.pr18374
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.r b/binutils/testsuite/binutils-all/readelf.r
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.r-64 b/binutils/testsuite/binutils-all/readelf.r-64
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.s b/binutils/testsuite/binutils-all/readelf.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.s-64 b/binutils/testsuite/binutils-all/readelf.s-64
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.s-64-unused b/binutils/testsuite/binutils-all/readelf.s-64-unused
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.ss b/binutils/testsuite/binutils-all/readelf.ss
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.ss-64 b/binutils/testsuite/binutils-all/readelf.ss-64
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.ss-64-unused b/binutils/testsuite/binutils-all/readelf.ss-64-unused
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.ss-mips b/binutils/testsuite/binutils-all/readelf.ss-mips
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.ss-tmips b/binutils/testsuite/binutils-all/readelf.ss-tmips
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.ss-unused b/binutils/testsuite/binutils-all/readelf.ss-unused
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.wKis b/binutils/testsuite/binutils-all/readelf.wKis
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.wa b/binutils/testsuite/binutils-all/readelf.wa
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/readelf.z b/binutils/testsuite/binutils-all/readelf.z
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-01.d b/binutils/testsuite/binutils-all/remove-relocs-01.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-01.s b/binutils/testsuite/binutils-all/remove-relocs-01.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-02.d b/binutils/testsuite/binutils-all/remove-relocs-02.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-03.d b/binutils/testsuite/binutils-all/remove-relocs-03.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-04.d b/binutils/testsuite/binutils-all/remove-relocs-04.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-05.d b/binutils/testsuite/binutils-all/remove-relocs-05.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-06.d b/binutils/testsuite/binutils-all/remove-relocs-06.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-07.d b/binutils/testsuite/binutils-all/remove-relocs-07.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-07.s b/binutils/testsuite/binutils-all/remove-relocs-07.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-relocs-08.d b/binutils/testsuite/binutils-all/remove-relocs-08.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/remove-section-01.d b/binutils/testsuite/binutils-all/remove-section-01.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/retain1.s b/binutils/testsuite/binutils-all/retain1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/retain1a.d b/binutils/testsuite/binutils-all/retain1a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/retain1b.d b/binutils/testsuite/binutils-all/retain1b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/set-section-alignment.d b/binutils/testsuite/binutils-all/set-section-alignment.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/size.exp b/binutils/testsuite/binutils-all/size.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strings.exp b/binutils/testsuite/binutils-all/strings.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-1.d b/binutils/testsuite/binutils-all/strip-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-10.d b/binutils/testsuite/binutils-all/strip-10.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-11.d b/binutils/testsuite/binutils-all/strip-11.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-12.d b/binutils/testsuite/binutils-all/strip-12.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-12.s b/binutils/testsuite/binutils-all/strip-12.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-13.d b/binutils/testsuite/binutils-all/strip-13.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-13mips64.s b/binutils/testsuite/binutils-all/strip-13mips64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-13rel.s b/binutils/testsuite/binutils-all/strip-13rel.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-13rela.s b/binutils/testsuite/binutils-all/strip-13rela.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-14.d b/binutils/testsuite/binutils-all/strip-14.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-14mips64.s b/binutils/testsuite/binutils-all/strip-14mips64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-14rel.s b/binutils/testsuite/binutils-all/strip-14rel.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-14rela.s b/binutils/testsuite/binutils-all/strip-14rela.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-15.d b/binutils/testsuite/binutils-all/strip-15.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-15mips64.s b/binutils/testsuite/binutils-all/strip-15mips64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-15rel.s b/binutils/testsuite/binutils-all/strip-15rel.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-15rela.s b/binutils/testsuite/binutils-all/strip-15rela.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-2.d b/binutils/testsuite/binutils-all/strip-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-3.d b/binutils/testsuite/binutils-all/strip-3.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-4.d b/binutils/testsuite/binutils-all/strip-4.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-5.d b/binutils/testsuite/binutils-all/strip-5.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-6.d b/binutils/testsuite/binutils-all/strip-6.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-7.d b/binutils/testsuite/binutils-all/strip-7.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-8.d b/binutils/testsuite/binutils-all/strip-8.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/strip-9.d b/binutils/testsuite/binutils-all/strip-9.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/symbols-1.d b/binutils/testsuite/binutils-all/symbols-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/symbols-2.d b/binutils/testsuite/binutils-all/symbols-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/symbols-3.d b/binutils/testsuite/binutils-all/symbols-3.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/symbols-4.d b/binutils/testsuite/binutils-all/symbols-4.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/symbols.s b/binutils/testsuite/binutils-all/symbols.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/testprog.c b/binutils/testsuite/binutils-all/testprog.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/testranges-ia64.d b/binutils/testsuite/binutils-all/testranges-ia64.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/testranges-ia64.s b/binutils/testsuite/binutils-all/testranges-ia64.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/testranges.d b/binutils/testsuite/binutils-all/testranges.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/testranges.s b/binutils/testsuite/binutils-all/testranges.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/unique.s b/binutils/testsuite/binutils-all/unique.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/unknown.s b/binutils/testsuite/binutils-all/unknown.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/update-1.s b/binutils/testsuite/binutils-all/update-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/update-2.s b/binutils/testsuite/binutils-all/update-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/update-3.s b/binutils/testsuite/binutils-all/update-3.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/update-4.s b/binutils/testsuite/binutils-all/update-4.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/update-section.exp b/binutils/testsuite/binutils-all/update-section.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/vax/entrymask.s b/binutils/testsuite/binutils-all/vax/entrymask.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/vax/objdump.exp b/binutils/testsuite/binutils-all/vax/objdump.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/verilog-1.hex b/binutils/testsuite/binutils-all/verilog-1.hex
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/verilog-2.hex b/binutils/testsuite/binutils-all/verilog-2.hex
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/verilog-4.hex b/binutils/testsuite/binutils-all/verilog-4.hex
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/verilog-8.hex b/binutils/testsuite/binutils-all/verilog-8.hex
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/verilogtest.s b/binutils/testsuite/binutils-all/verilogtest.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/version.def b/binutils/testsuite/binutils-all/version.def
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/version.s b/binutils/testsuite/binutils-all/version.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/create-wasm.d b/binutils/testsuite/binutils-all/wasm32/create-wasm.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/create-wasm.s b/binutils/testsuite/binutils-all/wasm32/create-wasm.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/custom-section.d b/binutils/testsuite/binutils-all/wasm32/custom-section.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/custom-section.s b/binutils/testsuite/binutils-all/wasm32/custom-section.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/invalid-wasm-1.d b/binutils/testsuite/binutils-all/wasm32/invalid-wasm-1.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/invalid-wasm-1.s b/binutils/testsuite/binutils-all/wasm32/invalid-wasm-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/invalid-wasm-2.d b/binutils/testsuite/binutils-all/wasm32/invalid-wasm-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/invalid-wasm-2.s b/binutils/testsuite/binutils-all/wasm32/invalid-wasm-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/long-sections.d b/binutils/testsuite/binutils-all/wasm32/long-sections.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/long-sections.s b/binutils/testsuite/binutils-all/wasm32/long-sections.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/parse-wasm-2.d b/binutils/testsuite/binutils-all/wasm32/parse-wasm-2.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/parse-wasm-2.s b/binutils/testsuite/binutils-all/wasm32/parse-wasm-2.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/parse-wasm.d b/binutils/testsuite/binutils-all/wasm32/parse-wasm.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/parse-wasm.s b/binutils/testsuite/binutils-all/wasm32/parse-wasm.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/prepared-section.d b/binutils/testsuite/binutils-all/wasm32/prepared-section.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/prepared-section.s b/binutils/testsuite/binutils-all/wasm32/prepared-section.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/wasm32/wasm32.exp b/binutils/testsuite/binutils-all/wasm32/wasm32.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/MSG00001.bin b/binutils/testsuite/binutils-all/windres/MSG00001.bin
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/README b/binutils/testsuite/binutils-all/windres/README
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/bmp1.bmp b/binutils/testsuite/binutils-all/windres/bmp1.bmp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/bmpalign.rc b/binutils/testsuite/binutils-all/windres/bmpalign.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/bmpalign.rsd b/binutils/testsuite/binutils-all/windres/bmpalign.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/capstyle.rc b/binutils/testsuite/binutils-all/windres/capstyle.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/capstyle.rsd b/binutils/testsuite/binutils-all/windres/capstyle.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/checkbox.rc b/binutils/testsuite/binutils-all/windres/checkbox.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/checkbox.rsd b/binutils/testsuite/binutils-all/windres/checkbox.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/combobox.rc b/binutils/testsuite/binutils-all/windres/combobox.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/combobox.rsd b/binutils/testsuite/binutils-all/windres/combobox.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/controldata.rc b/binutils/testsuite/binutils-all/windres/controldata.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/controldata.rsd b/binutils/testsuite/binutils-all/windres/controldata.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/deflang.rc b/binutils/testsuite/binutils-all/windres/deflang.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/deflang.rsd b/binutils/testsuite/binutils-all/windres/deflang.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialog0.rc b/binutils/testsuite/binutils-all/windres/dialog0.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialog0.rsd b/binutils/testsuite/binutils-all/windres/dialog0.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialog1.rc b/binutils/testsuite/binutils-all/windres/dialog1.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialog1.rsd b/binutils/testsuite/binutils-all/windres/dialog1.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialogid.rc b/binutils/testsuite/binutils-all/windres/dialogid.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialogid.rsd b/binutils/testsuite/binutils-all/windres/dialogid.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialogsignature.rc b/binutils/testsuite/binutils-all/windres/dialogsignature.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dialogsignature.rsd b/binutils/testsuite/binutils-all/windres/dialogsignature.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dlgfont.rc b/binutils/testsuite/binutils-all/windres/dlgfont.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/dlgfont.rsd b/binutils/testsuite/binutils-all/windres/dlgfont.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/edittext.rc b/binutils/testsuite/binutils-all/windres/edittext.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/edittext.rsd b/binutils/testsuite/binutils-all/windres/edittext.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/escapea.rc b/binutils/testsuite/binutils-all/windres/escapea.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/escapea.rsd b/binutils/testsuite/binutils-all/windres/escapea.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/escapex-2.rc b/binutils/testsuite/binutils-all/windres/escapex-2.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/escapex-2.rsd b/binutils/testsuite/binutils-all/windres/escapex-2.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/escapex.rc b/binutils/testsuite/binutils-all/windres/escapex.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/escapex.rsd b/binutils/testsuite/binutils-all/windres/escapex.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/html.rc b/binutils/testsuite/binutils-all/windres/html.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/html.rsd b/binutils/testsuite/binutils-all/windres/html.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/html1.hm b/binutils/testsuite/binutils-all/windres/html1.hm
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/html2.hm b/binutils/testsuite/binutils-all/windres/html2.hm
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/lang.rc b/binutils/testsuite/binutils-all/windres/lang.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/lang.rsd b/binutils/testsuite/binutils-all/windres/lang.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/listbox.rc b/binutils/testsuite/binutils-all/windres/listbox.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/listbox.rsd b/binutils/testsuite/binutils-all/windres/listbox.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/menuitem_flags.rc b/binutils/testsuite/binutils-all/windres/menuitem_flags.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/messagetable.rc b/binutils/testsuite/binutils-all/windres/messagetable.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/messagetable.rsd b/binutils/testsuite/binutils-all/windres/messagetable.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/nocaption.rc b/binutils/testsuite/binutils-all/windres/nocaption.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/nocaption.rsd b/binutils/testsuite/binutils-all/windres/nocaption.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/printstyle.rc b/binutils/testsuite/binutils-all/windres/printstyle.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/printstyle.rsd b/binutils/testsuite/binutils-all/windres/printstyle.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/quoteclass.rc b/binutils/testsuite/binutils-all/windres/quoteclass.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/scrollbar.rc b/binutils/testsuite/binutils-all/windres/scrollbar.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/scrollbar.rsd b/binutils/testsuite/binutils-all/windres/scrollbar.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab1.rc b/binutils/testsuite/binutils-all/windres/strtab1.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab1.rsd b/binutils/testsuite/binutils-all/windres/strtab1.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab2.rc b/binutils/testsuite/binutils-all/windres/strtab2.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab2.rsd b/binutils/testsuite/binutils-all/windres/strtab2.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab3.rc b/binutils/testsuite/binutils-all/windres/strtab3.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab3.rsd b/binutils/testsuite/binutils-all/windres/strtab3.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab4.rc b/binutils/testsuite/binutils-all/windres/strtab4.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/strtab4.rsd b/binutils/testsuite/binutils-all/windres/strtab4.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/sublang.rc b/binutils/testsuite/binutils-all/windres/sublang.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/sublang.rsd b/binutils/testsuite/binutils-all/windres/sublang.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version.rc b/binutils/testsuite/binutils-all/windres/version.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version.rsd b/binutils/testsuite/binutils-all/windres/version.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version_cat.rc b/binutils/testsuite/binutils-all/windres/version_cat.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version_cat.rsd b/binutils/testsuite/binutils-all/windres/version_cat.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version_mlang.rc b/binutils/testsuite/binutils-all/windres/version_mlang.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version_mlang.rsd b/binutils/testsuite/binutils-all/windres/version_mlang.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version_small.rc b/binutils/testsuite/binutils-all/windres/version_small.rc
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/version_small.rsd b/binutils/testsuite/binutils-all/windres/version_small.rsd
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/windres/windres.exp b/binutils/testsuite/binutils-all/windres/windres.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/compressed-1.s b/binutils/testsuite/binutils-all/x86-64/compressed-1.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/compressed-1a.d b/binutils/testsuite/binutils-all/x86-64/compressed-1a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/compressed-1b.d b/binutils/testsuite/binutils-all/x86-64/compressed-1b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/compressed-1c.d b/binutils/testsuite/binutils-all/x86-64/compressed-1c.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/empty-x32.d b/binutils/testsuite/binutils-all/x86-64/empty-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/empty.d b/binutils/testsuite/binutils-all/x86-64/empty.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/empty.s b/binutils/testsuite/binutils-all/x86-64/empty.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/ibt-x32.d b/binutils/testsuite/binutils-all/x86-64/ibt-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/ibt.d b/binutils/testsuite/binutils-all/x86-64/ibt.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/ibt.s b/binutils/testsuite/binutils-all/x86-64/ibt.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/lam-u48.d b/binutils/testsuite/binutils-all/x86-64/lam-u48.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/lam-u48.s b/binutils/testsuite/binutils-all/x86-64/lam-u48.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/lam-u57.d b/binutils/testsuite/binutils-all/x86-64/lam-u57.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/lam-u57.s b/binutils/testsuite/binutils-all/x86-64/lam-u57.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/objects.exp b/binutils/testsuite/binutils-all/x86-64/objects.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr21231a.d b/binutils/testsuite/binutils-all/x86-64/pr21231a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr21231a.s b/binutils/testsuite/binutils-all/x86-64/pr21231a.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr21231b.d b/binutils/testsuite/binutils-all/x86-64/pr21231b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr21231b.s b/binutils/testsuite/binutils-all/x86-64/pr21231b.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr22451.o.bz2 b/binutils/testsuite/binutils-all/x86-64/pr22451.o.bz2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494a-x32.d b/binutils/testsuite/binutils-all/x86-64/pr23494a-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494a.d b/binutils/testsuite/binutils-all/x86-64/pr23494a.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494a.s b/binutils/testsuite/binutils-all/x86-64/pr23494a.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494b-x32.d b/binutils/testsuite/binutils-all/x86-64/pr23494b-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494b.d b/binutils/testsuite/binutils-all/x86-64/pr23494b.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494b.s b/binutils/testsuite/binutils-all/x86-64/pr23494b.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494c-x32.d b/binutils/testsuite/binutils-all/x86-64/pr23494c-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494c.d b/binutils/testsuite/binutils-all/x86-64/pr23494c.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494c.s b/binutils/testsuite/binutils-all/x86-64/pr23494c.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494d-x32.d b/binutils/testsuite/binutils-all/x86-64/pr23494d-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494d.d b/binutils/testsuite/binutils-all/x86-64/pr23494d.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494e-x32.d b/binutils/testsuite/binutils-all/x86-64/pr23494e-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr23494e.d b/binutils/testsuite/binutils-all/x86-64/pr23494e.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr26808.dump b/binutils/testsuite/binutils-all/x86-64/pr26808.dump
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr26808.dwp.bz2 b/binutils/testsuite/binutils-all/x86-64/pr26808.dwp.bz2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr27708.dump b/binutils/testsuite/binutils-all/x86-64/pr27708.dump
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/pr27708.exe.bz2 b/binutils/testsuite/binutils-all/x86-64/pr27708.exe.bz2
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/shstk-x32.d b/binutils/testsuite/binutils-all/x86-64/shstk-x32.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/shstk.d b/binutils/testsuite/binutils-all/x86-64/shstk.d
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/shstk.s b/binutils/testsuite/binutils-all/x86-64/shstk.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/x86-64/x86-64.exp b/binutils/testsuite/binutils-all/x86-64/x86-64.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/z.s b/binutils/testsuite/binutils-all/z.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/zero-sec.r b/binutils/testsuite/binutils-all/zero-sec.r
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/binutils-all/zero-sec.s b/binutils/testsuite/binutils-all/zero-sec.s
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/config/default.exp b/binutils/testsuite/config/default.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/config/hppa.sed b/binutils/testsuite/config/hppa.sed
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/gentestdlls.c b/binutils/testsuite/gentestdlls.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/lib/binutils-common.exp b/binutils/testsuite/lib/binutils-common.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/testsuite/lib/utils-lib.exp b/binutils/testsuite/lib/utils-lib.exp
+old mode 100644
+new mode 100755
+diff --git a/binutils/unwind-ia64.c b/binutils/unwind-ia64.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/unwind-ia64.h b/binutils/unwind-ia64.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/version.c b/binutils/version.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/windint.h b/binutils/windint.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/windmc.c b/binutils/windmc.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/windmc.h b/binutils/windmc.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/windres.c b/binutils/windres.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/windres.h b/binutils/windres.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/winduni.c b/binutils/winduni.c
+old mode 100644
+new mode 100755
+diff --git a/binutils/winduni.h b/binutils/winduni.h
+old mode 100644
+new mode 100755
+diff --git a/binutils/wrstabs.c b/binutils/wrstabs.c
+old mode 100644
+new mode 100755
+diff --git a/libiberty/cp-demangle.c b/libiberty/cp-demangle.c
+index d3e7984..8eccdeb 100644
+--- a/libiberty/cp-demangle.c
++++ b/libiberty/cp-demangle.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++short FIXREVERTER[11895];
++#endif
+ /* Demangler for g++ V3 ABI.
+    Copyright (C) 2003-2021 Free Software Foundation, Inc.
+    Written by Ian Lance Taylor <ian@wasabisystems.com>.
+@@ -861,8 +864,23 @@ CP_STATIC_IF_GLIBCPP_V3
+ int
+ cplus_demangle_fill_name (struct demangle_component *p, const char *s, int len)
+ {
+-  if (p == NULL || s == NULL || len <= 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11812]) {
++    if ((p == (void *) 0 || s == (void *) 0 || len <= 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11812\n");
++    else
++      fprintf(stderr, "reached bug index 11812\n");
++  }
++  if ((!FIXREVERTER[11812] && (p == (void *) 0 || s == (void *) 0 || len <= 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
++    #ifdef FRCOV
++    }
++    #endif
+   p->d_printing = 0;
+   p->d_counting = 0;
+   p->type = DEMANGLE_COMPONENT_NAME;
+@@ -878,8 +896,23 @@ int
+ cplus_demangle_fill_extended_operator (struct demangle_component *p, int args,
+                                        struct demangle_component *name)
+ {
+-  if (p == NULL || args < 0 || name == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11813]) {
++    if ((p == (void *) 0 || args < 0 || name == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11813\n");
++    else
++      fprintf(stderr, "reached bug index 11813\n");
++  }
++  if ((!FIXREVERTER[11813] && (p == (void *) 0 || args < 0 || name == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
++    #ifdef FRCOV
++    }
++    #endif
+   p->d_printing = 0;
+   p->d_counting = 0;
+   p->type = DEMANGLE_COMPONENT_EXTENDED_OPERATOR;
+@@ -979,8 +1012,23 @@ d_make_comp (struct d_info *di, enum demangle_component_type type,
+     case DEMANGLE_COMPONENT_COMPOUND_NAME:
+     case DEMANGLE_COMPONENT_VECTOR_TYPE:
+     case DEMANGLE_COMPONENT_CLONE:
+-      if (left == NULL || right == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11815]) {
++        if ((left == (void *) 0 || right == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11815\n");
++        else
++          fprintf(stderr, "reached bug index 11815\n");
++      }
++      if ((!FIXREVERTER[11815] && (left == (void *) 0 || right == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+       break;
+ 
+       /* These types only require one parameter.  */
+@@ -1016,16 +1064,46 @@ d_make_comp (struct d_info *di, enum demangle_component_type type,
+     case DEMANGLE_COMPONENT_NULLARY:
+     case DEMANGLE_COMPONENT_TRINARY_ARG2:
+     case DEMANGLE_COMPONENT_TPARM_OBJ:
+-      if (left == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11816]) {
++        if ((left == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11816\n");
++        else
++          fprintf(stderr, "reached bug index 11816\n");
++      }
++      if ((!FIXREVERTER[11816] && (left == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+       break;
+ 
+       /* This needs a right parameter, but the left parameter can be
+ 	 empty.  */
+     case DEMANGLE_COMPONENT_ARRAY_TYPE:
+     case DEMANGLE_COMPONENT_INITIALIZER_LIST:
+-      if (right == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11817]) {
++        if ((right == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11817\n");
++        else
++          fprintf(stderr, "reached bug index 11817\n");
++      }
++      if ((!FIXREVERTER[11817] && (right == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+       break;
+ 
+       /* These are allowed to have no parameters--in some cases they
+@@ -1086,8 +1164,23 @@ d_make_builtin_type (struct d_info *di,
+ {
+   struct demangle_component *p;
+ 
+-  if (type == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11818]) {
++    if ((type == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11818\n");
++    else
++      fprintf(stderr, "reached bug index 11818\n");
++  }
++  if ((!FIXREVERTER[11818] && (type == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+   p = d_make_empty (di);
+   if (p != NULL)
+     {
+@@ -1262,8 +1355,23 @@ cplus_demangle_mangled_name (struct d_info *di, int top_level)
+ static int
+ has_return_type (struct demangle_component *dc)
+ {
+-  if (dc == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11819]) {
++    if ((dc == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11819\n");
++    else
++      fprintf(stderr, "reached bug index 11819\n");
++  }
++  if ((!FIXREVERTER[11819] && (dc == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
++    #ifdef FRCOV
++    }
++    #endif
+   switch (dc->type)
+     {
+     default:
+@@ -1283,8 +1391,23 @@ has_return_type (struct demangle_component *dc)
+ static int
+ is_ctor_dtor_or_conversion (struct demangle_component *dc)
+ {
+-  if (dc == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11820]) {
++    if ((dc == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11820\n");
++    else
++      fprintf(stderr, "reached bug index 11820\n");
++  }
++  if ((!FIXREVERTER[11820] && (dc == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
++    #ifdef FRCOV
++    }
++    #endif
+   switch (dc->type)
+     {
+     default:
+@@ -1503,8 +1626,23 @@ d_nested_name (struct d_info *di)
+     return NULL;
+ 
+   pret = d_cv_qualifiers (di, &ret, 1);
+-  if (pret == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11821]) {
++    if ((pret == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11821\n");
++    else
++      fprintf(stderr, "reached bug index 11821\n");
++  }
++  if ((!FIXREVERTER[11821] && (pret == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   /* Parse the ref-qualifier now and then attach it
+      once we have something to attach it to.  */
+@@ -1580,8 +1718,23 @@ d_prefix (struct d_info *di, int subst)
+ 	dc = d_substitution (di, 1);
+       else if (peek == 'I')
+ 	{
+-	  if (ret == NULL)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11822]) {
++	    if ((ret == (void *) 0 ) && !(0))
++	      fprintf(stderr, "triggered bug index 11822\n");
++	    else
++	      fprintf(stderr, "reached bug index 11822\n");
++	  }
++	  if ((!FIXREVERTER[11822] && (ret == (void *) 0 ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	  comb_type = DEMANGLE_COMPONENT_TEMPLATE;
+ 	  dc = d_template_args (di);
+ 	}
+@@ -1594,8 +1747,23 @@ d_prefix (struct d_info *di, int subst)
+ 	  /* Initializer scope for a lambda.  We don't need to represent
+ 	     this; the normal code will just treat the variable as a type
+ 	     scope, which gives appropriate output.  */
+-	  if (ret == NULL)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11823]) {
++	    if ((ret == (void *) 0 ) && !(0))
++	      fprintf(stderr, "triggered bug index 11823\n");
++	    else
++	      fprintf(stderr, "reached bug index 11823\n");
++	  }
++	  if ((!FIXREVERTER[11823] && (ret == (void *) 0 ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	  d_advance (di, 1);
+ 	  continue;
+ 	}
+@@ -1658,8 +1826,23 @@ d_unqualified_name (struct d_info *di)
+       d_advance (di, 1);
+ 
+       ret = d_source_name (di);
+-      if (ret == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11824]) {
++        if ((ret == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11824\n");
++        else
++          fprintf(stderr, "reached bug index 11824\n");
++      }
++      if ((!FIXREVERTER[11824] && (ret == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+       if (! d_discriminator (di))
+ 	return NULL;
+     }
+@@ -1694,8 +1877,23 @@ d_source_name (struct d_info *di)
+   struct demangle_component *ret;
+ 
+   len = d_number (di);
+-  if (len <= 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11825]) {
++    if ((len <= 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11825\n");
++    else
++      fprintf(stderr, "reached bug index 11825\n");
++  }
++  if ((!FIXREVERTER[11825] && (len <= 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+   ret = d_identifier (di, len);
+   di->last_name = ret;
+   return ret;
+@@ -1929,8 +2127,23 @@ d_operator_name (struct d_info *di)
+ 	    high = i;
+ 	  else
+ 	    low = i + 1;
+-	  if (low == high)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11827]) {
++	    if ((low == high ) && !(0))
++	      fprintf(stderr, "triggered bug index 11827\n");
++	    else
++	      fprintf(stderr, "reached bug index 11827\n");
++	  }
++	  if ((!FIXREVERTER[11827] && (low == high ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	}
+     }
+ }
+@@ -1998,8 +2211,23 @@ d_java_resource (struct d_info *di)
+ 	  str = d_str (di);
+ 	  len -= i;
+ 	  i = 0;
+-	  if (next == NULL)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11829]) {
++	    if ((next == (void *) 0 ) && !(0))
++	      fprintf(stderr, "triggered bug index 11829\n");
++	    else
++	      fprintf(stderr, "reached bug index 11829\n");
++	  }
++	  if ((!FIXREVERTER[11829] && (next == (void *) 0 ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	}
+       /* ... or a sequence of characters.  */
+       else
+@@ -2012,8 +2240,23 @@ d_java_resource (struct d_info *di)
+ 	  str = d_str (di);
+ 	  len -= i;
+ 	  i = 0;
+-	  if (next == NULL)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11830]) {
++	    if ((next == (void *) 0 ) && !(0))
++	      fprintf(stderr, "triggered bug index 11830\n");
++	    else
++	      fprintf(stderr, "reached bug index 11830\n");
++	  }
++	  if ((!FIXREVERTER[11830] && (next == (void *) 0 ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	}
+ 
+       if (p == NULL)
+@@ -2021,8 +2264,23 @@ d_java_resource (struct d_info *di)
+       else
+ 	{
+ 	  p = d_make_comp (di, DEMANGLE_COMPONENT_COMPOUND_NAME, p, next);
+-	  if (p == NULL)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11831]) {
++	    if ((p == (void *) 0 ) && !(0))
++	      fprintf(stderr, "triggered bug index 11831\n");
++	    else
++	      fprintf(stderr, "reached bug index 11831\n");
++	  }
++	  if ((!FIXREVERTER[11831] && (p == (void *) 0 ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	}
+     }
+ 
+@@ -2423,8 +2681,23 @@ cplus_demangle_type (struct d_info *di)
+       struct demangle_component **pret;
+ 
+       pret = d_cv_qualifiers (di, &ret, 0);
+-      if (pret == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11834]) {
++        if ((pret == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11834\n");
++        else
++          fprintf(stderr, "reached bug index 11834\n");
++      }
++      if ((!FIXREVERTER[11834] && (pret == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+       if (d_peek_char (di) == 'F')
+ 	{
+ 	  /* cv-qualifiers before a function type apply to 'this',
+@@ -2793,8 +3066,23 @@ d_cv_qualifiers (struct d_info *di,
+ 	      if (peek == 'O')
+ 		{
+ 		  right = d_expression (di);
+-		  if (right == NULL)
++		  
++		  #ifdef FRCOV
++		  {if (FIXREVERTER[11835]) {
++		    if ((right == (void *) 0 ) && !(0))
++		      fprintf(stderr, "triggered bug index 11835\n");
++		    else
++		      fprintf(stderr, "reached bug index 11835\n");
++		  }
++		  if ((!FIXREVERTER[11835] && (right == (void *) 0 ))
++		  #else
++		  if (0
++		  #endif
++		  )
+ 		    return NULL;
++		    #ifdef FRCOV
++		    }
++		    #endif
+ 		  if (! d_check_char (di, 'E'))
+ 		    return NULL;
+ 		}
+@@ -2804,8 +3092,23 @@ d_cv_qualifiers (struct d_info *di,
+ 	      t = DEMANGLE_COMPONENT_THROW_SPEC;
+ 	      di->expansion += sizeof "throw";
+ 	      right = d_parmlist (di);
+-	      if (right == NULL)
++	      
++	      #ifdef FRCOV
++	      {if (FIXREVERTER[11836]) {
++	        if ((right == (void *) 0 ) && !(0))
++	          fprintf(stderr, "triggered bug index 11836\n");
++	        else
++	          fprintf(stderr, "reached bug index 11836\n");
++	      }
++	      if ((!FIXREVERTER[11836] && (right == (void *) 0 ))
++	      #else
++	      if (0
++	      #endif
++	      )
+ 		return NULL;
++		#ifdef FRCOV
++		}
++		#endif
+ 	      if (! d_check_char (di, 'E'))
+ 		return NULL;
+ 	    }
+@@ -2886,10 +3189,25 @@ d_function_type (struct d_info *di)
+ 
+   if ((di->options & DMGL_NO_RECURSE_LIMIT) == 0)
+     {
+-      if (di->recursion_level > DEMANGLE_RECURSION_LIMIT)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11837]) {
++        if ((di -> recursion_level > 2048 ) && !(0))
++          fprintf(stderr, "triggered bug index 11837\n");
++        else
++          fprintf(stderr, "reached bug index 11837\n");
++      }
++      if ((!FIXREVERTER[11837] && (di -> recursion_level > 2048 ))
++      #else
++      if (0
++      #endif
++      )
+ 	/* FIXME: There ought to be a way to report
+ 	   that the recursion limit has been reached.  */
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       di->recursion_level ++;
+     }
+@@ -2947,8 +3265,23 @@ d_parmlist (struct d_info *di)
+   /* There should be at least one parameter type besides the optional
+      return type.  A function which takes no arguments will have a
+      single parameter type void.  */
+-  if (tl == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11839]) {
++    if ((tl == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11839\n");
++    else
++      fprintf(stderr, "reached bug index 11839\n");
++  }
++  if ((!FIXREVERTER[11839] && (tl == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   /* If we have a single parameter type void, omit it.  */
+   if (d_right (tl) == NULL
+@@ -2983,15 +3316,45 @@ d_bare_function_type (struct d_info *di, int has_return_type)
+   if (has_return_type)
+     {
+       return_type = cplus_demangle_type (di);
+-      if (return_type == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11840]) {
++        if ((return_type == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11840\n");
++        else
++          fprintf(stderr, "reached bug index 11840\n");
++      }
++      if ((!FIXREVERTER[11840] && (return_type == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+     }
+   else
+     return_type = NULL;
+ 
+   tl = d_parmlist (di);
+-  if (tl == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11841]) {
++    if ((tl == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11841\n");
++    else
++      fprintf(stderr, "reached bug index 11841\n");
++  }
++  if ((!FIXREVERTER[11841] && (tl == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   return d_make_comp (di, DEMANGLE_COMPONENT_FUNCTION_TYPE,
+ 		      return_type, tl);
+@@ -3033,14 +3396,44 @@ d_array_type (struct d_info *di)
+ 	}
+       while (IS_DIGIT (peek));
+       dim = d_make_name (di, s, d_str (di) - s);
+-      if (dim == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11842]) {
++        if ((dim == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11842\n");
++        else
++          fprintf(stderr, "reached bug index 11842\n");
++      }
++      if ((!FIXREVERTER[11842] && (dim == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+     }
+   else
+     {
+       dim = d_expression (di);
+-      if (dim == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11843]) {
++        if ((dim == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11843\n");
++        else
++          fprintf(stderr, "reached bug index 11843\n");
++      }
++      if ((!FIXREVERTER[11843] && (dim == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+     }
+ 
+   if (! d_check_char (di, '_'))
+@@ -3068,8 +3461,23 @@ d_vector_type (struct d_info *di)
+   else
+     dim = d_number_component (di);
+ 
+-  if (dim == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11844]) {
++    if ((dim == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11844\n");
++    else
++      fprintf(stderr, "reached bug index 11844\n");
++  }
++  if ((!FIXREVERTER[11844] && (dim == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   if (! d_check_char (di, '_'))
+     return NULL;
+@@ -3090,8 +3498,23 @@ d_pointer_to_member_type (struct d_info *di)
+     return NULL;
+ 
+   cl = cplus_demangle_type (di);
+-  if (cl == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11845]) {
++    if ((cl == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11845\n");
++    else
++      fprintf(stderr, "reached bug index 11845\n");
++  }
++  if ((!FIXREVERTER[11845] && (cl == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   /* The ABI says, "The type of a non-static member function is considered
+      to be different, for the purposes of substitution, from the type of a
+@@ -3109,8 +3532,23 @@ d_pointer_to_member_type (struct d_info *di)
+      wrong type in the substitution table is harmless.  */
+ 
+   mem = cplus_demangle_type (di);
+-  if (mem == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11846]) {
++    if ((mem == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11846\n");
++    else
++      fprintf(stderr, "reached bug index 11846\n");
++  }
++  if ((!FIXREVERTER[11846] && (mem == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   return d_make_comp (di, DEMANGLE_COMPONENT_PTRMEM_TYPE, cl, mem);
+ }
+@@ -3146,8 +3584,23 @@ d_template_param (struct d_info *di)
+     return NULL;
+ 
+   param = d_compact_number (di);
+-  if (param < 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11847]) {
++    if ((param < 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11847\n");
++    else
++      fprintf(stderr, "reached bug index 11847\n");
++  }
++  if ((!FIXREVERTER[11847] && (param < 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   return d_make_template_param (di, param);
+ }
+@@ -3193,8 +3646,23 @@ d_template_args_1 (struct d_info *di)
+       struct demangle_component *a;
+ 
+       a = d_template_arg (di);
+-      if (a == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11848]) {
++        if ((a == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11848\n");
++        else
++          fprintf(stderr, "reached bug index 11848\n");
++      }
++      if ((!FIXREVERTER[11848] && (a == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       *pal = d_make_comp (di, DEMANGLE_COMPONENT_TEMPLATE_ARGLIST, a, NULL);
+       if (*pal == NULL)
+@@ -3263,8 +3731,23 @@ d_exprlist (struct d_info *di, char terminator)
+   while (1)
+     {
+       struct demangle_component *arg = d_expression (di);
+-      if (arg == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11849]) {
++        if ((arg == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11849\n");
++        else
++          fprintf(stderr, "reached bug index 11849\n");
++      }
++      if ((!FIXREVERTER[11849] && (arg == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       *p = d_make_comp (di, DEMANGLE_COMPONENT_ARGLIST, arg, NULL);
+       if (*p == NULL)
+@@ -3404,8 +3887,23 @@ d_expression_1 (struct d_info *di)
+ 	d_advance (di, 2);
+ 
+       name = d_unqualified_name (di);
+-      if (name == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11850]) {
++        if ((name == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11850\n");
++        else
++          fprintf(stderr, "reached bug index 11850\n");
++      }
++      if ((!FIXREVERTER[11850] && (name == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+       if (d_peek_char (di) == 'I')
+ 	return d_make_comp (di, DEMANGLE_COMPONENT_TEMPLATE, name,
+ 			    d_template_args (di));
+@@ -3432,8 +3930,23 @@ d_expression_1 (struct d_info *di)
+       int args;
+ 
+       op = d_operator_name (di);
+-      if (op == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11851]) {
++        if ((op == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11851\n");
++        else
++          fprintf(stderr, "reached bug index 11851\n");
++      }
++      if ((!FIXREVERTER[11851] && (op == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       if (op->type == DEMANGLE_COMPONENT_OPERATOR)
+ 	{
+@@ -3494,8 +4007,23 @@ d_expression_1 (struct d_info *di)
+ 	    struct demangle_component *left;
+ 	    struct demangle_component *right;
+ 
+-	    if (code == NULL)
++	    
++	    #ifdef FRCOV
++	    {if (FIXREVERTER[11852]) {
++	      if ((code == (void *) 0 ) && !(0))
++	        fprintf(stderr, "triggered bug index 11852\n");
++	      else
++	        fprintf(stderr, "reached bug index 11852\n");
++	    }
++	    if ((!FIXREVERTER[11852] && (code == (void *) 0 ))
++	    #else
++	    if (0
++	    #endif
++	    )
+ 	      return NULL;
++	      #ifdef FRCOV
++	      }
++	      #endif
+ 	    if (op_is_new_cast (op))
+ 	      left = cplus_demangle_type (di);
+ 	    else if (code[0] == 'f')
+@@ -3549,8 +4077,23 @@ d_expression_1 (struct d_info *di)
+ 		first = d_expression_1 (di);
+ 		second = d_expression_1 (di);
+ 		third = d_expression_1 (di);
+-		if (third == NULL)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[11853]) {
++		  if ((third == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 11853\n");
++		  else
++		    fprintf(stderr, "reached bug index 11853\n");
++		}
++		if ((!FIXREVERTER[11853] && (third == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		)
+ 		  return NULL;
++		  #ifdef FRCOV
++		  }
++		  #endif
+ 	      }
+ 	    else if (code[0] == 'f')
+ 	      {
+@@ -3558,8 +4101,23 @@ d_expression_1 (struct d_info *di)
+ 		first = d_operator_name (di);
+ 		second = d_expression_1 (di);
+ 		third = d_expression_1 (di);
+-		if (third == NULL)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[11854]) {
++		  if ((third == (void *) 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 11854\n");
++		  else
++		    fprintf(stderr, "reached bug index 11854\n");
++		}
++		if ((!FIXREVERTER[11854] && (third == (void *) 0 ))
++		#else
++		if (0
++		#endif
++		)
+ 		  return NULL;
++		  #ifdef FRCOV
++		  }
++		  #endif
+ 	      }
+ 	    else if (code[0] == 'n')
+ 	      {
+@@ -3638,8 +4196,23 @@ d_expr_primary (struct d_info *di)
+       const char *s;
+ 
+       type = cplus_demangle_type (di);
+-      if (type == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11855]) {
++        if ((type == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11855\n");
++        else
++          fprintf(stderr, "reached bug index 11855\n");
++      }
++      if ((!FIXREVERTER[11855] && (type == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       /* If we have a type we know how to print, we aren't going to
+ 	 print the type name itself.  */
+@@ -3726,8 +4299,23 @@ d_local_name (struct d_info *di)
+ 	  /* Default argument scope: d <number> _.  */
+ 	  d_advance (di, 1);
+ 	  num = d_compact_number (di);
+-	  if (num < 0)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11856]) {
++	    if ((num < 0 ) && !(0))
++	      fprintf(stderr, "triggered bug index 11856\n");
++	    else
++	      fprintf(stderr, "reached bug index 11856\n");
++	  }
++	  if ((!FIXREVERTER[11856] && (num < 0 ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	}
+ 
+       name = d_name (di);
+@@ -3743,8 +4331,23 @@ d_local_name (struct d_info *di)
+ 	    return NULL;
+ 	}
+ 
+-      if (num >= 0)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11857]) {
++        if ((num >= 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11857\n");
++        else
++          fprintf(stderr, "reached bug index 11857\n");
++      }
++      if ((!FIXREVERTER[11857] && (num >= 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	name = d_make_default_arg (di, num, name);
++	#ifdef FRCOV
++	}
++	#endif
+     }
+ 
+   /* Elide the return type of the containing function so as to not
+@@ -3809,15 +4412,45 @@ d_lambda (struct d_info *di)
+     return NULL;
+ 
+   tl = d_parmlist (di);
+-  if (tl == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11860]) {
++    if ((tl == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11860\n");
++    else
++      fprintf(stderr, "reached bug index 11860\n");
++  }
++  if ((!FIXREVERTER[11860] && (tl == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   if (! d_check_char (di, 'E'))
+     return NULL;
+ 
+   num = d_compact_number (di);
+-  if (num < 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11861]) {
++    if ((num < 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11861\n");
++    else
++      fprintf(stderr, "reached bug index 11861\n");
++  }
++  if ((!FIXREVERTER[11861] && (num < 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   ret = d_make_empty (di);
+   if (ret)
+@@ -3844,8 +4477,23 @@ d_unnamed_type (struct d_info *di)
+     return NULL;
+ 
+   num = d_compact_number (di);
+-  if (num < 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11862]) {
++    if ((num < 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11862\n");
++    else
++      fprintf(stderr, "reached bug index 11862\n");
++  }
++  if ((!FIXREVERTER[11862] && (num < 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   ret = d_make_empty (di);
+   if (ret)
+@@ -3892,10 +4540,40 @@ d_clone_suffix (struct d_info *di, struct demangle_component *encoding)
+ static int
+ d_add_substitution (struct d_info *di, struct demangle_component *dc)
+ {
+-  if (dc == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11863]) {
++    if ((dc == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11863\n");
++    else
++      fprintf(stderr, "reached bug index 11863\n");
++  }
++  if ((!FIXREVERTER[11863] && (dc == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
+-  if (di->next_sub >= di->num_subs)
++    #ifdef FRCOV
++    }
++    #endif
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11864]) {
++    if ((di -> next_sub >= di -> num_subs ) && !(0))
++      fprintf(stderr, "triggered bug index 11864\n");
++    else
++      fprintf(stderr, "reached bug index 11864\n");
++  }
++  if ((!FIXREVERTER[11864] && (di -> next_sub >= di -> num_subs ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
++    #ifdef FRCOV
++    }
++    #endif
+   di->subs[di->next_sub] = dc;
+   ++di->next_sub;
+   return 1;
+@@ -3971,8 +4649,23 @@ d_substitution (struct d_info *di, int prefix)
+ 		new_id = id * 36 + c - 'A' + 10;
+ 	      else
+ 		return NULL;
+-	      if (new_id < id)
++	      
++	      #ifdef FRCOV
++	      {if (FIXREVERTER[11866]) {
++	        if ((new_id < id ) && !(0))
++	          fprintf(stderr, "triggered bug index 11866\n");
++	        else
++	          fprintf(stderr, "reached bug index 11866\n");
++	      }
++	      if ((!FIXREVERTER[11866] && (new_id < id ))
++	      #else
++	      if (0
++	      #endif
++	      )
+ 		return NULL;
++		#ifdef FRCOV
++		}
++		#endif
+ 	      id = new_id;
+ 	      c = d_next_char (di);
+ 	    }
+@@ -4012,9 +4705,24 @@ d_substitution (struct d_info *di, int prefix)
+ 	      int len;
+ 	      struct demangle_component *dc;
+ 
+-	      if (p->set_last_name != NULL)
++	      
++	      #ifdef FRCOV
++	      {if (FIXREVERTER[11867]) {
++	        if ((p -> set_last_name != (void *) 0  ) && !(0))
++	          fprintf(stderr, "triggered bug index 11867\n");
++	        else
++	          fprintf(stderr, "reached bug index 11867\n");
++	      }
++	      if ((!FIXREVERTER[11867] && (p -> set_last_name != (void *) 0  ))
++	      #else
++	      if (0
++	      #endif
++	      )
+ 		di->last_name = d_make_sub (di, p->set_last_name,
+ 					    p->set_last_name_len);
++					    #ifdef FRCOV
++					    }
++					    #endif
+ 	      if (verbose)
+ 		{
+ 		  s = p->full_expansion;
+@@ -4148,8 +4856,23 @@ static void
+ d_count_templates_scopes (struct d_print_info *dpi,
+ 			  struct demangle_component *dc)
+ {
+-  if (dc == NULL || dc->d_counting > 1 || dpi->recursion > MAX_RECURSION_COUNT)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11868]) {
++    if ((dc == (void *) 0 || dc -> d_counting > 1 || dpi -> recursion > 1024 ) && !(0))
++      fprintf(stderr, "triggered bug index 11868\n");
++    else
++      fprintf(stderr, "reached bug index 11868\n");
++  }
++  if ((!FIXREVERTER[11868] && (dc == (void *) 0 || dc -> d_counting > 1 || dpi -> recursion > 1024 ))
++  #else
++  if (0
++  #endif
++  )
+     return;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   ++ dc->d_counting;
+ 
+@@ -4239,10 +4962,25 @@ d_count_templates_scopes (struct d_print_info *dpi,
+     case DEMANGLE_COMPONENT_CLONE:
+     recurse_left_right:
+       /* PR 89394 - Check for too much recursion.  */
+-      if (dpi->recursion > DEMANGLE_RECURSION_LIMIT)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11869]) {
++        if ((dpi -> recursion > 2048 ) && !(0))
++          fprintf(stderr, "triggered bug index 11869\n");
++        else
++          fprintf(stderr, "reached bug index 11869\n");
++      }
++      if ((!FIXREVERTER[11869] && (dpi -> recursion > 2048 ))
++      #else
++      if (0
++      #endif
++      )
+ 	/* FIXME: There ought to be a way to report to the
+ 	   user that the recursion limit has been reached.  */
+ 	return;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       ++ dpi->recursion;
+       d_count_templates_scopes (dpi, d_left (dc));
+@@ -4312,8 +5050,23 @@ d_print_init (struct d_print_info *dpi, demangle_callbackref callback,
+   /* If we did not reach the recursion limit, then reset the
+      current recursion value back to 0, so that we can print
+      the templates.  */
+-  if (dpi->recursion < DEMANGLE_RECURSION_LIMIT)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11870]) {
++    if ((dpi -> recursion < 2048  ) && !(0))
++      fprintf(stderr, "triggered bug index 11870\n");
++    else
++      fprintf(stderr, "reached bug index 11870\n");
++  }
++  if ((!FIXREVERTER[11870] && (dpi -> recursion < 2048  ))
++  #else
++  if (0
++  #endif
++  )
+     dpi->recursion = 0;
++    #ifdef FRCOV
++    }
++    #endif
+   dpi->num_copy_templates *= dpi->num_saved_scopes;
+ 
+   dpi->current_template = NULL;
+@@ -4482,8 +5235,23 @@ d_index_template_argument (struct demangle_component *args, int i)
+ 	break;
+       --i;
+     }
+-  if (i != 0 || a == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11874]) {
++    if ((a == (void *) 0 ) && !(i != 0 ))
++      fprintf(stderr, "triggered bug index 11874\n");
++    else
++      fprintf(stderr, "reached bug index 11874\n");
++  }
++  if ((FIXREVERTER[11874] && (i != 0 )) || (!FIXREVERTER[11874] && (i != 0 || a == (void *) 0 ))
++  #else
++  if (i != 0 
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   return d_left (a);
+ }
+@@ -4495,11 +5263,26 @@ static struct demangle_component *
+ d_lookup_template_argument (struct d_print_info *dpi,
+ 			    const struct demangle_component *dc)
+ {
+-  if (dpi->templates == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11875]) {
++    if ((dpi -> templates == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11875\n");
++    else
++      fprintf(stderr, "reached bug index 11875\n");
++  }
++  if ((!FIXREVERTER[11875] && (dpi -> templates == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     {
+       d_print_error (dpi);
+       return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 	
+   return d_index_template_argument
+     (d_right (dpi->templates->template_decl),
+@@ -4513,8 +5296,23 @@ d_find_pack (struct d_print_info *dpi,
+ 	     const struct demangle_component *dc)
+ {
+   struct demangle_component *a;
+-  if (dc == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11876]) {
++    if ((dc == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11876\n");
++    else
++      fprintf(stderr, "reached bug index 11876\n");
++  }
++  if ((!FIXREVERTER[11876] && (dc == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   switch (dc->type)
+     {
+@@ -4582,8 +5380,23 @@ d_args_length (struct d_print_info *dpi, const struct demangle_component *dc)
+        dc = d_right (dc))
+     {
+       struct demangle_component *elt = d_left (dc);
+-      if (elt == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11877]) {
++        if ((elt == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 11877\n");
++        else
++          fprintf(stderr, "reached bug index 11877\n");
++      }
++      if ((!FIXREVERTER[11877] && (elt == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	break;
++	#ifdef FRCOV
++	}
++	#endif
+       if (elt->type == DEMANGLE_COMPONENT_PACK_EXPANSION)
+ 	{
+ 	  struct demangle_component *a = d_find_pack (dpi, d_left (elt));
+@@ -4624,11 +5437,26 @@ d_save_scope (struct d_print_info *dpi,
+   struct d_saved_scope *scope;
+   struct d_print_template *src, **link;
+ 
+-  if (dpi->next_saved_scope >= dpi->num_saved_scopes)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11878]) {
++    if ((dpi -> next_saved_scope >= dpi -> num_saved_scopes ) && !(0))
++      fprintf(stderr, "triggered bug index 11878\n");
++    else
++      fprintf(stderr, "reached bug index 11878\n");
++  }
++  if ((!FIXREVERTER[11878] && (dpi -> next_saved_scope >= dpi -> num_saved_scopes ))
++  #else
++  if (0
++  #endif
++  )
+     {
+       d_print_error (dpi);
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+   scope = &dpi->saved_scopes[dpi->next_saved_scope];
+   dpi->next_saved_scope++;
+ 
+@@ -4639,11 +5467,26 @@ d_save_scope (struct d_print_info *dpi,
+     {
+       struct d_print_template *dst;
+ 
+-      if (dpi->next_copy_template >= dpi->num_copy_templates)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11879]) {
++        if ((dpi -> next_copy_template >= dpi -> num_copy_templates ) && !(0))
++          fprintf(stderr, "triggered bug index 11879\n");
++        else
++          fprintf(stderr, "reached bug index 11879\n");
++      }
++      if ((!FIXREVERTER[11879] && (dpi -> next_copy_template >= dpi -> num_copy_templates ))
++      #else
++      if (0
++      #endif
++      )
+ 	{
+ 	  d_print_error (dpi);
+ 	  return;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+       dst = &dpi->copy_templates[dpi->next_copy_template];
+       dpi->next_copy_template++;
+ 
+@@ -4810,11 +5653,26 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+   /* Nonzero if templates have been stored in the above variable.  */
+   int need_template_restore = 0;
+ 
+-  if (dc == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11880]) {
++    if ((dc == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 11880\n");
++    else
++      fprintf(stderr, "reached bug index 11880\n");
++  }
++  if ((!FIXREVERTER[11880] && (dc == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     {
+       d_print_error (dpi);
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+   if (d_print_saw_error (dpi))
+     return;
+ 
+@@ -4871,11 +5729,26 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	typed_name = d_left (dc);
+ 	while (typed_name != NULL)
+ 	  {
+-	    if (i >= sizeof adpm / sizeof adpm[0])
++	    
++	    #ifdef FRCOV
++	    {if (FIXREVERTER[11882]) {
++	      if ((i >= sizeof ( adpm ) / sizeof ( adpm [ 0 ] ) ) && !(0))
++	        fprintf(stderr, "triggered bug index 11882\n");
++	      else
++	        fprintf(stderr, "reached bug index 11882\n");
++	    }
++	    if ((!FIXREVERTER[11882] && (i >= sizeof ( adpm ) / sizeof ( adpm [ 0 ] ) ))
++	    #else
++	    if (0
++	    #endif
++	    )
+ 	      {
+ 		d_print_error (dpi);
+ 		return;
+ 	      }
++	      #ifdef FRCOV
++	      }
++	      #endif
+ 
+ 	    adpm[i].next = dpi->modifiers;
+ 	    dpi->modifiers = &adpm[i];
+@@ -4890,11 +5763,26 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	    typed_name = d_left (typed_name);
+ 	  }
+ 
+-	if (typed_name == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[11883]) {
++	  if ((typed_name == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 11883\n");
++	  else
++	    fprintf(stderr, "reached bug index 11883\n");
++	}
++	if ((!FIXREVERTER[11883] && (typed_name == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 	  {
+ 	    d_print_error (dpi);
+ 	    return;
+ 	  }
++	  #ifdef FRCOV
++	  }
++	  #endif
+ 
+ 	/* If typed_name is a DEMANGLE_COMPONENT_LOCAL_NAME, then
+ 	   there may be CV-qualifiers on its right argument which
+@@ -4908,11 +5796,26 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	    while (typed_name != NULL
+ 		   && is_fnqual_component_type (typed_name->type))
+ 	      {
+-		if (i >= sizeof adpm / sizeof adpm[0])
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[11884]) {
++		  if ((i >= sizeof ( adpm ) / sizeof ( adpm [ 0 ] ) ) && !(0))
++		    fprintf(stderr, "triggered bug index 11884\n");
++		  else
++		    fprintf(stderr, "reached bug index 11884\n");
++		}
++		if ((!FIXREVERTER[11884] && (i >= sizeof ( adpm ) / sizeof ( adpm [ 0 ] ) ))
++		#else
++		if (0
++		#endif
++		)
+ 		  {
+ 		    d_print_error (dpi);
+ 		    return;
+ 		  }
++		  #ifdef FRCOV
++		  }
++		  #endif
+ 
+ 		adpm[i] = adpm[i - 1];
+ 		adpm[i].next = &adpm[i - 1];
+@@ -4925,11 +5828,26 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 
+ 		typed_name = d_left (typed_name);
+ 	      }
+-	    if (typed_name == NULL)
++	    
++	    #ifdef FRCOV
++	    {if (FIXREVERTER[11885]) {
++	      if ((typed_name == (void *) 0 ) && !(0))
++	        fprintf(stderr, "triggered bug index 11885\n");
++	      else
++	        fprintf(stderr, "reached bug index 11885\n");
++	    }
++	    if ((!FIXREVERTER[11885] && (typed_name == (void *) 0 ))
++	    #else
++	    if (0
++	    #endif
++	    )
+ 	      {
+ 		d_print_error (dpi);
+ 		return;
+ 	      }
++	      #ifdef FRCOV
++	      }
++	      #endif
+ 	  }
+ 
+ 	/* If typed_name is a template, then it applies to the
+@@ -5031,11 +5949,26 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	  if (a && a->type == DEMANGLE_COMPONENT_TEMPLATE_ARGLIST)
+ 	    a = d_index_template_argument (a, dpi->pack_index);
+ 
+-	  if (a == NULL)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11886]) {
++	    if ((a == (void *) 0 ) && !(0))
++	      fprintf(stderr, "triggered bug index 11886\n");
++	    else
++	      fprintf(stderr, "reached bug index 11886\n");
++	  }
++	  if ((!FIXREVERTER[11886] && (a == (void *) 0 ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    {
+ 	      d_print_error (dpi);
+ 	      return;
+ 	    }
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 
+ 	  /* While processing this parameter, we need to pop the list
+ 	     of templates.  This is because the template parameter may
+@@ -5239,7 +6172,19 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	    if (a && a->type == DEMANGLE_COMPONENT_TEMPLATE_ARGLIST)
+ 	      a = d_index_template_argument (a, dpi->pack_index);
+ 
+-	    if (a == NULL)
++	    
++	    #ifdef FRCOV
++	    {if (FIXREVERTER[11887]) {
++	      if ((a == (void *) 0 ) && !(0))
++	        fprintf(stderr, "triggered bug index 11887\n");
++	      else
++	        fprintf(stderr, "reached bug index 11887\n");
++	    }
++	    if ((!FIXREVERTER[11887] && (a == (void *) 0 ))
++	    #else
++	    if (0
++	    #endif
++	    )
+ 	      {
+ 		if (need_template_restore)
+ 		  dpi->templates = saved_templates;
+@@ -5247,6 +6192,9 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 		d_print_error (dpi);
+ 		return;
+ 	      }
++	      #ifdef FRCOV
++	      }
++	      #endif
+ 
+ 	    sub = a;
+ 	  }
+@@ -5383,11 +6331,26 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	  {
+ 	    if (! pdpm->printed)
+ 	      {
+-		if (i >= sizeof adpm / sizeof adpm[0])
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[11889]) {
++		  if ((i >= sizeof ( adpm ) / sizeof ( adpm [ 0 ] ) ) && !(0))
++		    fprintf(stderr, "triggered bug index 11889\n");
++		  else
++		    fprintf(stderr, "reached bug index 11889\n");
++		}
++		if ((!FIXREVERTER[11889] && (i >= sizeof ( adpm ) / sizeof ( adpm [ 0 ] ) ))
++		#else
++		if (0
++		#endif
++		)
+ 		  {
+ 		    d_print_error (dpi);
+ 		    return;
+ 		  }
++		  #ifdef FRCOV
++		  }
++		  #endif
+ 
+ 		adpm[i] = *pdpm;
+ 		adpm[i].next = dpi->modifiers;
+@@ -5474,8 +6437,25 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	  d_print_comp (dpi, options, d_right (dc));
+ 	  /* If that didn't print anything (which can happen with empty
+ 	     template argument packs), remove the comma and space.  */
+-	  if (dpi->flush_count == flush_count && dpi->len == len)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[11890]) {
++	    fprintf(stderr, "reached bug index 11890\n");
++	  }
++	  if ((FIXREVERTER[11890] && (dpi -> flush_count == flush_count )) || (!FIXREVERTER[11890] && (dpi -> flush_count == flush_count && dpi -> len == len ))
++	  #else
++	  if (dpi -> flush_count == flush_count 
++	  #endif
++	  )
++	    
++	    #ifdef FRCOV
++	    {if (!(dpi -> len == len ))
++	      fprintf(stderr, "triggered bug index 11890\n");
++	    #endif
+ 	    dpi->len -= 2;
++	    #ifdef FRCOV
++	    }}
++	    #endif
+ 	}
+       return;
+ 
+@@ -5834,7 +6814,19 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	int len;
+ 	int i;
+ 	struct demangle_component *a = d_find_pack (dpi, d_left (dc));
+-	if (a == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[11891]) {
++	  if ((a == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 11891\n");
++	  else
++	    fprintf(stderr, "reached bug index 11891\n");
++	}
++	if ((!FIXREVERTER[11891] && (a == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 	  {
+ 	    /* d_find_pack won't find anything if the only packs involved
+ 	       in this expansion are function parameter packs; in that
+@@ -5843,6 +6835,9 @@ d_print_comp_inner (struct d_print_info *dpi, int options,
+ 	    d_append_string (dpi, "...");
+ 	    return;
+ 	  }
++	  #ifdef FRCOV
++	  }
++	  #endif
+ 
+ 	len = d_pack_length (a);
+ 	dc = d_left (dc);
+@@ -5916,11 +6911,26 @@ d_print_comp (struct d_print_info *dpi, int options,
+ 	      struct demangle_component *dc)
+ {
+   struct d_component_stack self;
+-  if (dc == NULL || dc->d_printing > 1 || dpi->recursion > MAX_RECURSION_COUNT)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[11892]) {
++    if ((dc == (void *) 0 || dc -> d_printing > 1 || dpi -> recursion > 1024 ) && !(0))
++      fprintf(stderr, "triggered bug index 11892\n");
++    else
++      fprintf(stderr, "reached bug index 11892\n");
++  }
++  if ((!FIXREVERTER[11892] && (dc == (void *) 0 || dc -> d_printing > 1 || dpi -> recursion > 1024 ))
++  #else
++  if (0
++  #endif
++  )
+     {
+       d_print_error (dpi);
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   dc->d_printing++;
+   dpi->recursion++;
+@@ -6337,8 +7347,23 @@ d_print_conversion (struct d_print_info *dpi, int options,
+   if (d_left (dc)->type != DEMANGLE_COMPONENT_TEMPLATE)
+     {
+       d_print_comp (dpi, options, d_left (dc));
+-      if (dpi->current_template != NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11893]) {
++        if ((dpi -> current_template != (void *) 0  ) && !(0))
++          fprintf(stderr, "triggered bug index 11893\n");
++        else
++          fprintf(stderr, "reached bug index 11893\n");
++      }
++      if ((!FIXREVERTER[11893] && (dpi -> current_template != (void *) 0  ))
++      #else
++      if (0
++      #endif
++      )
+ 	dpi->templates = dpt.next;
++	#ifdef FRCOV
++	}
++	#endif
+     }
+   else
+     {
+@@ -6347,8 +7372,23 @@ d_print_conversion (struct d_print_info *dpi, int options,
+       /* For a templated cast operator, we need to remove the template
+ 	 parameters from scope after printing the operator name,
+ 	 so we need to handle the template printing here.  */
+-      if (dpi->current_template != NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[11894]) {
++        if ((dpi -> current_template != (void *) 0  ) && !(0))
++          fprintf(stderr, "triggered bug index 11894\n");
++        else
++          fprintf(stderr, "reached bug index 11894\n");
++      }
++      if ((!FIXREVERTER[11894] && (dpi -> current_template != (void *) 0  ))
++      #else
++      if (0
++      #endif
++      )
+ 	dpi->templates = dpt.next;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       if (d_last_char (dpi) == '<')
+ 	d_append_char (dpi, ' ');
+diff --git a/libiberty/d-demangle.c b/libiberty/d-demangle.c
+index 822c758..9baff99 100644
+--- a/libiberty/d-demangle.c
++++ b/libiberty/d-demangle.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++extern short FIXREVERTER[];
++#endif
+ /* Demangler for the D programming language
+    Copyright (C) 2014-2021 Free Software Foundation, Inc.
+    Written by Iain Buclaw (ibuclaw@gdcproject.org)
+@@ -348,8 +351,23 @@ dlang_backref (const char *mangled, const char **ret, struct dlang_info *info)
+   mangled++;
+ 
+   mangled = dlang_decode_backref (mangled, &refpos);
+-  if (mangled == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2589]) {
++    if ((mangled == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2589\n");
++    else
++      fprintf(stderr, "reached bug index 2589\n");
++  }
++  if ((!FIXREVERTER[2589] && (mangled == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   if (refpos > qpos - info->s)
+     return NULL;
+@@ -380,12 +398,42 @@ dlang_symbol_backref (string *decl, const char *mangled,
+ 
+   /* Must point to a simple identifier.  */
+   backref = dlang_number (backref, &len);
+-  if (backref == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2590]) {
++    if ((backref == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2590\n");
++    else
++      fprintf(stderr, "reached bug index 2590\n");
++  }
++  if ((!FIXREVERTER[2590] && (backref == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   backref = dlang_lname (decl, backref, len);
+-  if (backref == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2591]) {
++    if ((backref == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2591\n");
++    else
++      fprintf(stderr, "reached bug index 2591\n");
++  }
++  if ((!FIXREVERTER[2591] && (backref == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   return mangled;
+ }
+@@ -424,8 +472,23 @@ dlang_type_backref (string *decl, const char *mangled, struct dlang_info *info,
+ 
+   info->last_backref = save_refpos;
+ 
+-  if (backref == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2592]) {
++    if ((backref == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2592\n");
++    else
++      fprintf(stderr, "reached bug index 2592\n");
++  }
++  if ((!FIXREVERTER[2592] && (backref == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   return mangled;
+ }
+@@ -1022,11 +1085,41 @@ dlang_identifier (string *decl, const char *mangled, struct dlang_info *info)
+ 
+   const char *endptr = dlang_number (mangled, &len);
+ 
+-  if (endptr == NULL || len == 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2593]) {
++    if ((endptr == (void *) 0 || len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2593\n");
++    else
++      fprintf(stderr, "reached bug index 2593\n");
++  }
++  if ((!FIXREVERTER[2593] && (endptr == (void *) 0 || len == 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
+-
+-  if (strlen (endptr) < len)
++    #ifdef FRCOV
++    }
++    #endif
++
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2594]) {
++    if ((strlen ( endptr ) < len ) && !(0))
++      fprintf(stderr, "triggered bug index 2594\n");
++    else
++      fprintf(stderr, "reached bug index 2594\n");
++  }
++  if ((!FIXREVERTER[2594] && (strlen ( endptr ) < len ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   mangled = endptr;
+ 
+@@ -1144,8 +1237,23 @@ dlang_parse_integer (string *decl, const char *mangled, char type)
+       unsigned long val;
+ 
+       mangled = dlang_number (mangled, &val);
+-      if (mangled == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2596]) {
++        if ((mangled == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2596\n");
++        else
++          fprintf(stderr, "reached bug index 2596\n");
++      }
++      if ((!FIXREVERTER[2596] && (mangled == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       string_append (decl, "'");
+ 
+@@ -1200,8 +1308,23 @@ dlang_parse_integer (string *decl, const char *mangled, char type)
+       unsigned long val;
+ 
+       mangled = dlang_number (mangled, &val);
+-      if (mangled == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2597]) {
++        if ((mangled == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2597\n");
++        else
++          fprintf(stderr, "reached bug index 2597\n");
++      }
++      if ((!FIXREVERTER[2597] && (mangled == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       string_append (decl, val ? "true" : "false");
+     }
+@@ -1330,8 +1453,23 @@ dlang_parse_string (string *decl, const char *mangled)
+       char val;
+       const char *endptr = dlang_hexdigit (mangled, &val);
+ 
+-      if (endptr == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2598]) {
++        if ((endptr == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2598\n");
++        else
++          fprintf(stderr, "reached bug index 2598\n");
++      }
++      if ((!FIXREVERTER[2598] && (endptr == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       /* Sanitize white and non-printable characters.  */
+       switch (val)
+@@ -1383,15 +1521,45 @@ dlang_parse_arrayliteral (string *decl, const char *mangled)
+   unsigned long elements;
+ 
+   mangled = dlang_number (mangled, &elements);
+-  if (mangled == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2599]) {
++    if ((mangled == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2599\n");
++    else
++      fprintf(stderr, "reached bug index 2599\n");
++  }
++  if ((!FIXREVERTER[2599] && (mangled == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   string_append (decl, "[");
+   while (elements--)
+     {
+       mangled = dlang_value (decl, mangled, NULL, '\0');
+-      if (mangled == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2600]) {
++        if ((mangled == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2600\n");
++        else
++          fprintf(stderr, "reached bug index 2600\n");
++      }
++      if ((!FIXREVERTER[2600] && (mangled == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       if (elements != 0)
+ 	string_append (decl, ", ");
+@@ -1409,20 +1577,65 @@ dlang_parse_assocarray (string *decl, const char *mangled)
+   unsigned long elements;
+ 
+   mangled = dlang_number (mangled, &elements);
+-  if (mangled == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2601]) {
++    if ((mangled == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2601\n");
++    else
++      fprintf(stderr, "reached bug index 2601\n");
++  }
++  if ((!FIXREVERTER[2601] && (mangled == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   string_append (decl, "[");
+   while (elements--)
+     {
+       mangled = dlang_value (decl, mangled, NULL, '\0');
+-      if (mangled == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2602]) {
++        if ((mangled == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2602\n");
++        else
++          fprintf(stderr, "reached bug index 2602\n");
++      }
++      if ((!FIXREVERTER[2602] && (mangled == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       string_append (decl, ":");
+       mangled = dlang_value (decl, mangled, NULL, '\0');
+-      if (mangled == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2603]) {
++        if ((mangled == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2603\n");
++        else
++          fprintf(stderr, "reached bug index 2603\n");
++      }
++      if ((!FIXREVERTER[2603] && (mangled == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       if (elements != 0)
+ 	string_append (decl, ", ");
+@@ -1440,8 +1653,23 @@ dlang_parse_structlit (string *decl, const char *mangled, const char *name)
+   unsigned long args;
+ 
+   mangled = dlang_number (mangled, &args);
+-  if (mangled == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2604]) {
++    if ((mangled == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2604\n");
++    else
++      fprintf(stderr, "reached bug index 2604\n");
++  }
++  if ((!FIXREVERTER[2604] && (mangled == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   if (name != NULL)
+     string_append (decl, name);
+@@ -1450,8 +1678,23 @@ dlang_parse_structlit (string *decl, const char *mangled, const char *name)
+   while (args--)
+     {
+       mangled = dlang_value (decl, mangled, NULL, '\0');
+-      if (mangled == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2605]) {
++        if ((mangled == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2605\n");
++        else
++          fprintf(stderr, "reached bug index 2605\n");
++      }
++      if ((!FIXREVERTER[2605] && (mangled == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       if (args != 0)
+ 	string_append (decl, ", ");
+@@ -1667,16 +1910,46 @@ dlang_parse_tuple (string *decl, const char *mangled, struct dlang_info *info)
+   unsigned long elements;
+ 
+   mangled = dlang_number (mangled, &elements);
+-  if (mangled == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2606]) {
++    if ((mangled == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2606\n");
++    else
++      fprintf(stderr, "reached bug index 2606\n");
++  }
++  if ((!FIXREVERTER[2606] && (mangled == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   string_append (decl, "Tuple!(");
+ 
+   while (elements--)
+     {
+       mangled = dlang_type (decl, mangled, info);
+-      if (mangled == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[2607]) {
++        if ((mangled == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 2607\n");
++        else
++          fprintf(stderr, "reached bug index 2607\n");
++      }
++      if ((!FIXREVERTER[2607] && (mangled == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return NULL;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       if (elements != 0)
+ 	string_append (decl, ", ");
+@@ -1702,8 +1975,23 @@ dlang_template_symbol_param (string *decl, const char *mangled,
+   unsigned long len;
+   const char *endptr = dlang_number (mangled, &len);
+ 
+-  if (endptr == NULL || len == 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2608]) {
++    if ((endptr == (void *) 0 || len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 2608\n");
++    else
++      fprintf(stderr, "reached bug index 2608\n");
++  }
++  if ((!FIXREVERTER[2608] && (endptr == (void *) 0 || len == 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   /* In template parameter symbols generated by the frontend up to 2.076,
+      the symbol length is encoded and the first character of the mangled
+@@ -1817,8 +2105,23 @@ dlang_template_args (string *decl, const char *mangled, struct dlang_info *info)
+ 
+ 	  mangled++;
+ 	  endptr = dlang_number (mangled, &len);
+-	  if (endptr == NULL || strlen (endptr) < len)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[2609]) {
++	    if ((endptr == (void *) 0 || strlen ( endptr ) < len ) && !(0))
++	      fprintf(stderr, "triggered bug index 2609\n");
++	    else
++	      fprintf(stderr, "reached bug index 2609\n");
++	  }
++	  if ((!FIXREVERTER[2609] && (endptr == (void *) 0 || strlen ( endptr ) < len ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    return NULL;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 
+ 	  string_appendn (decl, endptr, len);
+ 	  mangled = endptr + len;
+diff --git a/libiberty/rust-demangle.c b/libiberty/rust-demangle.c
+index 6fd8f6a..44f7329 100644
+--- a/libiberty/rust-demangle.c
++++ b/libiberty/rust-demangle.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++extern short FIXREVERTER[];
++#endif
+ /* Demangler for the Rust programming language
+    Copyright (C) 2016-2021 Free Software Foundation, Inc.
+    Written by David Tolnay (dtolnay@gmail.com).
+@@ -228,11 +231,26 @@ parse_ident (struct rust_demangler *rdm)
+   start = rdm->next;
+   rdm->next += len;
+   /* Check for overflows. */
+-  if ((start > rdm->next) || (rdm->next > rdm->sym_len))
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[5632]) {
++    if ((start > rdm -> next ) && !(rdm -> next > rdm -> sym_len ))
++      fprintf(stderr, "triggered bug index 5632\n");
++    else
++      fprintf(stderr, "reached bug index 5632\n");
++  }
++  if ((FIXREVERTER[5632] && (rdm -> next > rdm -> sym_len )) || (!FIXREVERTER[5632] && (start > rdm -> next || rdm -> next > rdm -> sym_len ))
++  #else
++  if (rdm -> next > rdm -> sym_len 
++  #endif
++  )
+     {
+       rdm->errored = 1;
+       return ident;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   ident.ascii = rdm->sym + start;
+   ident.ascii_len = len;
+@@ -498,13 +516,58 @@ print_ident (struct rust_demangler *rdm, struct rust_mangled_ident ident)
+         {
+           k += base;
+           t = k < bias ? 0 : (k - bias);
+-          if (t < t_min)
++          
++          #ifdef FRCOV
++          {if (FIXREVERTER[5639]) {
++            if ((t < t_min ) && !(0))
++              fprintf(stderr, "triggered bug index 5639\n");
++            else
++              fprintf(stderr, "reached bug index 5639\n");
++          }
++          if ((!FIXREVERTER[5639] && (t < t_min ))
++          #else
++          if (0
++          #endif
++          )
+             t = t_min;
+-          if (t > t_max)
++            #ifdef FRCOV
++            }
++            #endif
++          
++          #ifdef FRCOV
++          {if (FIXREVERTER[5640]) {
++            if ((t > t_max ) && !(0))
++              fprintf(stderr, "triggered bug index 5640\n");
++            else
++              fprintf(stderr, "reached bug index 5640\n");
++          }
++          if ((!FIXREVERTER[5640] && (t > t_max ))
++          #else
++          if (0
++          #endif
++          )
+             t = t_max;
+-
+-          if (punycode_pos >= ident.punycode_len)
++            #ifdef FRCOV
++            }
++            #endif
++
++          
++          #ifdef FRCOV
++          {if (FIXREVERTER[5641]) {
++            if ((punycode_pos >= ident . punycode_len ) && !(0))
++              fprintf(stderr, "triggered bug index 5641\n");
++            else
++              fprintf(stderr, "reached bug index 5641\n");
++          }
++          if ((!FIXREVERTER[5641] && (punycode_pos >= ident . punycode_len ))
++          #else
++          if (0
++          #endif
++          )
+             goto cleanup;
++            #ifdef FRCOV
++            }
++            #endif
+           d = ident.punycode[punycode_pos++];
+ 
+           if (ISLOWER (d))
+@@ -558,8 +621,23 @@ print_ident (struct rust_demangler *rdm, struct rust_mangled_ident ident)
+       p[3] = 0x80 | (c & 0x3f);
+ 
+       /* If there are no more deltas, decoding is complete. */
+-      if (punycode_pos == ident.punycode_len)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[5642]) {
++        if ((punycode_pos == ident . punycode_len ) && !(0))
++          fprintf(stderr, "triggered bug index 5642\n");
++        else
++          fprintf(stderr, "reached bug index 5642\n");
++      }
++      if ((!FIXREVERTER[5642] && (punycode_pos == ident . punycode_len ))
++      #else
++      if (0
++      #endif
++      )
+         break;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+       i++;
+ 
+diff --git a/zlib/adler32.c b/zlib/adler32.c
+index b3d35e2..af0429d 100644
+--- a/zlib/adler32.c
++++ b/zlib/adler32.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++#include <stdio.h>
++#endif
+ /* adler32.c -- compute the Adler-32 checksum of a data stream
+  * Copyright (C) 1995-2011, 2016 Mark Adler
+  * For conditions of distribution and use, see copyright notice in zlib.h
+diff --git a/zlib/crc32.c b/zlib/crc32.c
+index affcd46..72b2454 100644
+--- a/zlib/crc32.c
++++ b/zlib/crc32.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++#include <stdio.h>
++#endif
+ /* crc32.c -- compute the CRC-32 of a data stream
+  * Copyright (C) 1995-2006, 2010, 2011, 2012, 2016 Mark Adler
+  * For conditions of distribution and use, see copyright notice in zlib.h
+diff --git a/zlib/deflate.c b/zlib/deflate.c
+index 586cd15..4dd325d 100644
+--- a/zlib/deflate.c
++++ b/zlib/deflate.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++#include <stdio.h>
++#endif
+ /* deflate.c -- compress data using the deflation algorithm
+  * Copyright (C) 1995-2017 Jean-loup Gailly and Mark Adler
+  * For conditions of distribution and use, see copyright notice in zlib.h
+diff --git a/zlib/inflate.c b/zlib/inflate.c
+index ac333e8..9e4cfed 100644
+--- a/zlib/inflate.c
++++ b/zlib/inflate.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++#include <stdio.h>
++#endif
+ /* inflate.c -- zlib decompression
+  * Copyright (C) 1995-2016 Mark Adler
+  * For conditions of distribution and use, see copyright notice in zlib.h
+diff --git a/zlib/inftrees.c b/zlib/inftrees.c
+index 2ea08fc..a3bf735 100644
+--- a/zlib/inftrees.c
++++ b/zlib/inftrees.c
+@@ -1,3 +1,6 @@
++#ifdef FRCOV
++#include <stdio.h>
++#endif
+ /* inftrees.c -- generate Huffman trees for efficient decoding
+  * Copyright (C) 1995-2017 Mark Adler
+  * For conditions of distribution and use, see copyright notice in zlib.h

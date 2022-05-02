@@ -1,0 +1,3 @@
+fuzz_target: fuzz_disassemble
+project: binutils
+type: bug
