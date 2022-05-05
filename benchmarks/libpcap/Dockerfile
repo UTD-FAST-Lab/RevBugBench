@@ -22,5 +22,6 @@ RUN git clone https://github.com/the-tcpdump-group/tcpdump.git $SRC/tcpdump && g
 
 WORKDIR $SRC
 COPY build.sh $SRC/
+COPY fr_injection.patch $SRC/
 ADD seeds $OUT/seeds
 

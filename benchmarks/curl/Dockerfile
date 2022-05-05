@@ -20,6 +20,9 @@ FROM gcr.io/oss-fuzz-base/base-builder@sha256:b112cfb8b4adbb796643f42f8ba40b9296
 RUN git clone https://github.com/curl/curl.git $SRC/curl && git -C $SRC/curl checkout -f 376d5bb323c03c0fc4af266c03abac8f067fbd0e
 RUN git clone https://github.com/curl/curl-fuzzer.git $SRC/curl_fuzzer && git -C $SRC/curl_fuzzer checkout -f 9a48d437484b5ad5f2a97c0cab0d8bcbb5d058de
 
+COPY fr_injection_curl.patch $SRC/
+COPY fr_injection_curl_fuzzer.patch $SRC/
+
 # Use curl-fuzzer's scripts to get latest dependencies.
 RUN $SRC/curl_fuzzer/scripts/ossfuzzdeps.sh
 

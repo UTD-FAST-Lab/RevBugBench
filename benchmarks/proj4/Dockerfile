@@ -31,3 +31,4 @@ RUN git clone https://github.com/OSGeo/PROJ $SRC/PROJ && git -C $SRC/PROJ checko
 RUN wget -qO $OUT/fuzz-target.dict \
     https://raw.githubusercontent.com/google/fuzzing/master/dictionaries/proj4.dict
 COPY build.sh $SRC/
+COPY fr_injection.patch $SRC/

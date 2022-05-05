@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y make autoconf autogen texinfo flex biso
 RUN git clone --recursive git://sourceware.org/git/binutils-gdb.git $SRC/binutils-gdb && git -C $SRC/binutils-gdb checkout -f 7c96e6120f1b9b5025629bbe995ca55d1be8f36f
 
 COPY build.sh $SRC/
-COPY fuzz_disassemble.c $SRC/fuzz_disassemble.c
-COPY fr_injection.patch $SRC/fr_injection.patch
+COPY fuzz_disassemble.c $SRC/
+COPY fr_injection.patch $SRC/
 ADD seeds $OUT/seeds
 
 WORKDIR $SRC/

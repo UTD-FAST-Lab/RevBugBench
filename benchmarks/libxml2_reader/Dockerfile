@@ -22,4 +22,5 @@ RUN git clone https://gitlab.gnome.org/GNOME/libxml2.git $SRC/libxml2 && git -C 
 
 WORKDIR $SRC/libxml2
 COPY build.sh $SRC/
+COPY fr_injection.patch $SRC/
 COPY *.cc *.h *.dict $SRC/

@@ -32,3 +32,4 @@ ADD seeds $OUT/seeds
 RUN wget -qO $OUT/fuzz-target.dict \
     https://raw.githubusercontent.com/google/AFL/debe27037b9444bbf090a0ffbd5d24889bb887ae/dictionaries/xml.dict
 COPY target.cc build.sh $SRC/
+COPY fr_injection.patch $SRC/
