@@ -28,3 +28,4 @@ RUN $SRC/curl_fuzzer/scripts/ossfuzzdeps.sh
 
 WORKDIR $SRC/curl_fuzzer
 COPY build.sh $SRC/
+COPY download_zlib.sh $SRC/curl_fuzzer/scripts/download_zlib.sh
