@@ -16,6 +16,8 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder@sha256:b112cfb8b4adbb796643f42f8ba40b92962912893f64d617b2706d51c1bd1a53
 
+ENV GIT_SSL_NO_VERIFY 1
+
 RUN apt-get update && apt-get install -y make autoconf automake libtool pkg-config python-dev python3-dev
 
 RUN git clone https://gitlab.gnome.org/GNOME/libxml2.git $SRC/libxml2 && git -C $SRC/libxml2 checkout -f 99a864a1f7a9cb59865f803770d7d62fb47cad69

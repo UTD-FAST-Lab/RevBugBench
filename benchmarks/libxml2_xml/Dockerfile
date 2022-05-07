@@ -16,6 +16,8 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder@sha256:b112cfb8b4adbb796643f42f8ba40b92962912893f64d617b2706d51c1bd1a53
 
+ENV GIT_SSL_NO_VERIFY 1
+
 RUN apt-get update && \
     apt-get install -y \
     make \
