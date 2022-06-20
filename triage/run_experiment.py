@@ -34,7 +34,7 @@ def parse_args():
       action='store_true')
   parser.add_argument('-e',
       '--experiments',
-      help='Experiments to run the analysis on. Default to all targets',
+      help='The FuzzBench experiment.',
       required=True,
       nargs='+')
   parser.add_argument('-f',
