@@ -60,9 +60,9 @@ def parse_args():
       nargs='+',
       default=[],
       choices=['crashes', 'coverage'])
-  parser.add_argument(
-      '--repair',
-      help='Repair eclipser crashing seeds time',
+  parser.add_argument('-g',
+      '--growth',
+      help='generate combined single cause growth graph',
       required=False,
       action='store_true')
   parser.add_argument('-v',
