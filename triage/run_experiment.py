@@ -12,6 +12,8 @@ from utils.common import fill_missing_time, SCRIPT_DIR, PROGRAMS, FUZZERS
 
 from analysis.count_crashes import count_crashes
 from analysis.count_coverage import count_coverage
+from analysis.growth_plot import generate_growth_plot
+from analysis.venn_graph import draw_venn_graph
 from experiment.run_crashes import run_crashes_main
 from experiment.run_coverage import run_coverage_main
 
@@ -58,6 +60,16 @@ def parse_args():
       nargs='+',
       default=[],
       choices=['crashes', 'coverage'])
+  parser.add_argument(
+      '--repair',
+      help='Repair eclipser crashing seeds time',
+      required=False,
+      action='store_true')
+  parser.add_argument('-v',
+      '--venn',
+      help='generate venn diagram for single causes',
+      required=False,
+      action='store_true')
 
   return parser.parse_args()
 
@@ -122,6 +134,12 @@ def run_experiment_on_targets(args):
     if 'crashes' in args.count:
       logging.info(f"Loggings to be added")
       count_crashes(analysis.out_dir, args.fuzzers, args.programs)
+
+  if args.growth:
+    generate_growth_plot(analysis.out_dir, args.fuzzers, args.programs)
+    
+  if args.venn:
+    draw_venn_graph(analysis.out_dir, args.fuzzers, args.programs)
 
 
 def set_config(experiment, fuzzer, program, log=True):

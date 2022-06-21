@@ -65,17 +65,17 @@ def get_trial_dirs(work_dir, trial_names):
 
 
 def get_exp_config():
-  return ExpConfig(parse_config('optfuzz'), parse_config('target'))
+  return ExpConfig(parse_config('config'), parse_config('target'))
 
 
 class ExpConfig:
-  def __init__(self, optfuzz_config, target_config):
-    self.fuzzbench_exp_dir = optfuzz_config.get('paths', 'fuzzbenchExpDir')
-    self.out_dir = optfuzz_config.get('paths', 'outDir')
+  def __init__(self, triage_config, target_config):
+    self.fuzzbench_exp_dir = triage_config.get('paths', 'fuzzbenchExpDir')
+    self.out_dir = triage_config.get('paths', 'outDir')
     if not os.path.exists(self.out_dir):
-      os.mkdir(self.out_dir)
+      Path(self.out_dir).mkdir(parents=True, exist_ok=True)
 
-    self.cores = int(optfuzz_config.get('values', 'cores'))
+    self.cores = int(triage_config.get('values', 'cores'))
 
     self.experiment = target_config.get('names', 'experiment')
     self.fuzzer = target_config.get('names', 'fuzzer')
@@ -85,7 +85,7 @@ class ExpConfig:
     self.exp_cov_tar = os.path.join(self.fuzzbench_exp_dir, self.experiment, 'coverage-binaries', f'coverage-build-{self.program}.tar.gz')
     self.trial_names = get_trial_names(self.exp_data_dir)
 
-    self.prog_dir = os.path.join(optfuzz_config.get('paths', 'workDir'), self.program)
+    self.prog_dir = os.path.join(triage_config.get('paths', 'workDir'), self.program)
     self.work_dir = os.path.join(self.prog_dir, self.fuzzer)
     Path(self.work_dir).mkdir(parents=True, exist_ok=True)
 
@@ -98,5 +98,5 @@ class ExpConfig:
   
     self.is_opt = self.program.endswith('_1') or self.program.endswith('_2')
     if self.is_opt:
-      self.argparse_dir = optfuzz_config.get('paths', 'argParseDir')
+      self.argparse_dir = triage_config.get('paths', 'argParseDir')
       self.arg_parser = os.path.join(self.argparse_dir, self.program, 'argparser')
