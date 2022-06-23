@@ -290,7 +290,7 @@ def generate_growth_plot(out_dir, fuzzers, programs):
   maxy = combined_df['single_crash_covered'].max()
 
   _write_plot_to_image(growth_plot, combined_df,
-                                  '/home/zenong/revision/post/single_crash_growth.pdf',
+                                  os.path.join(out_dir, 'single_crash_growth.pdf'),
                                   wide=True,
                                   logscale=False,
                                   interest='single_crash_covered')

@@ -45,7 +45,7 @@ def draw_venn_graph(out_dir, fuzzers, programs):
 
   labels = venn.get_labels(single_crash_sets, fill=['number'])
   fig, ax = venn.venn5(labels, names=list(map(lambda x: fuzzer_names[x], fuzzers)))
-  fig.savefig(f'/home/zenong/revision/post/total_venn.png')
+  fig.savefig(os.path.join(out_dir, 'total_venn.png'))
   matplotlib.pyplot.clf()
 
 if __name__ == '__main__':
