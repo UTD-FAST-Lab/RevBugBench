@@ -90,7 +90,7 @@ def get_seed_info(trial_dirs, program, fuzzer, seed_type):
         a = seed['id'] + seed['time']
         
 
-    if seed_type == 'crash' and len(seeds) > 664:
+    if seed_type == 'crash' and fuzzer == 'libfuzzer' and (program == 'libxml2_xml' or program == 'libxml2_reader') and len(seeds) > 664:
       seeds_for_combined = random.sample(seeds, 664)
     else:
       seeds_for_combined = seeds
