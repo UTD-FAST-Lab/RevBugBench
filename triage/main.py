@@ -51,10 +51,10 @@ def main():
 
     if args.setup:
         setup.setup(helper)
-    if args.run:
+    if args.triage:
         # Unimplemented
         return
-    if args.analyze:
+    if args.report:
         # Unimplemented
         return
 
