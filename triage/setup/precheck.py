@@ -1,23 +1,26 @@
 import logging
 import os
 
-import common.utils
-import prepare.utils
+import common.paths
+import setup.utils
+from common.confighelper import ConfigHelper
 
 
 # Returns a list of benchmrak-experiment pair.
 # Throws error when a benchmark is not mapped to exactly one experiment.
-# Throws error when all fuzzers on a benchamrk are mapped to exactly one experiment.
+# Throws error when a benchmark-fuzzer pair is not mapped to exactly one experiment.
 
-def benchmark_exp_pairs(benchmarks: list[str], fuzzers: list[str],
-                        exp_names: list[str], fuzzbench_exp_dir: str) -> list[(str, str, str)]:
-    common.utils.check_path_exist(fuzzbench_exp_dir)
+def exp_tuples(benchmarks: list, fuzzers: list, exps: list, raw_data_dir: str) -> list:
+    # Make sure FuzzBench experiment-data directory exists.
+    common.paths.error_if_not_exist(raw_data_dir)
+
     # Stores experiment names for benchmark-fuzzer pairs.
     exp_map = {(b, f): [] for b in benchmarks for f in fuzzers}
-    for e in exp_names:
+    for e in exps:
         for b in benchmarks:
             for f in fuzzers:
-                data_dir = prepare.utils.fuzzbench_data_dir(b, f, e, fuzzbench_exp_dir)
+                # Checks if the benchmark-fuzzer pair `(b, f)` exists in the experiment `e`.
+                data_dir = setup.utils.fuzzbench_data_dir(raw_data_dir, e, b, f)
                 if os.path.exists(data_dir):
                     exp_map[(b, f)].append(e)
     ret = []

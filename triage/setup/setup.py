@@ -1,102 +1,48 @@
-import os
-import sys
-import shutil
-import tarfile
-import configparser
 import logging
-from pathlib import Path
+import os
+import re
+import tarfile
 
-from utils.common import SCRIPT_DIR, COV_BINS
-
-
-def parse_config(config_name):
-  config = configparser.ConfigParser()
-  config.read(os.path.join(SCRIPT_DIR, os.path.join(SCRIPT_DIR, f'{config_name}.ini')))
-  return config
-
-
-def setup_dirs(work_dir):
-  if os.path.exists(work_dir):
-    shutil.rmtree(work_dir)
-  os.mkdir(work_dir)
+import common.utils
+import common.paths
+import setup.utils
+from common.confighelper import ConfigHelper
+from setup import precheck
 
 
-def untar_raw_data(prog_dir, work_dir, cov_tar, exp_data_dir, trial_names):
-  cov_dir = os.path.join(prog_dir, 'coverage')
-
-  if os.path.exists(cov_dir):
-    logging.info(f'{cov_dir} already exists, skip extracting coverage folder')
-  else:
-    os.mkdir(cov_dir)
-    cov_tar = tarfile.open(cov_tar)
-    cov_tar.extractall(path=cov_dir)
-    cov_tar.close()
-
-  for trial_name in trial_names:
-    corpus_dir = os.path.join(exp_data_dir, trial_name, 'corpus')
-    max_snap = -1
-    
-    for file_name in os.listdir(corpus_dir):
-      file_name_split = file_name.split('.')[0].split('-')
-      snap = int(file_name_split[2])
-      if snap > max_snap:
-        max_snap = snap
-        lastest_file = file_name
-    
-    if lastest_file != 'corpus-archive-0097.tar.gz':
-      logging.warning(f"{corpus_dir}: Lastest snapshot number is not 97: {lastest_file}")
-
-    tar = tarfile.open(os.path.join(corpus_dir, lastest_file))
-    trial_dir = os.path.join(work_dir, trial_name)
-    tar.extractall(path=trial_dir)
-    tar.close()
+def setup(helper: ConfigHelper) -> None:
+    exp_tuples = precheck.exp_tuples(helper.benchmarks(), helper.fuzzers(), helper.exps(), helper.raw_data_dir())
+    for benchmark, fuzzer, exp_name in exp_tuples:
+        extract_fuzzing_result(benchmark, fuzzer, exp_name, helper)
 
 
-def get_trial_names(exp_data_dir):
-  return os.listdir(exp_data_dir)
+def extract_fuzzing_result(benchmark: str, fuzzer: str, exp_name: str, helper: ConfigHelper) -> None:
+    # Stores extracted fuzzing results for each trial.
+    bf_data_dir = helper.bf_data_dir(benchmark, fuzzer)
+    common.paths.rm_before_mkdir(bf_data_dir)
+    fuzzbench_data_dir = setup.utils.fuzzbench_data_dir(helper.raw_data_dir(), exp_name, benchmark, fuzzer)
+    max_snap_id = 0
+    last_gz_file = None
+    for trial_name in os.listdir(fuzzbench_data_dir):
+        fuzzbench_corpus_dir = os.path.join(fuzzbench_data_dir, trial_name, 'corpus')
+        for file_name in os.listdir(fuzzbench_corpus_dir):
+            match = re.search(r'corpus-archive-(\d+).tar.gz', file_name)
+            assert match, f'corpus archive file not found in {fuzzbench_corpus_dir}'
+            snap_id = int(match.group(1))
+            if snap_id > max_snap_id:
+                max_snap_id = snap_id
+                last_gz_file = file_name
+        logging.info(f'{fuzzbench_corpus_dir}: Latest snapshot number is {max_snap_id}')
+
+        # Stores fuzzing results of a trial in data_dir.
+        with tarfile.open(os.path.join(fuzzbench_corpus_dir, last_gz_file)) as tar:
+            tar.extractall(path=helper.trial_data_dir(benchmark, fuzzer, trial_name), members=corpus_members(tar))
 
 
-def get_trial_dirs(work_dir, trial_names):
-  trial_dirs = {}
-  for trial_name in trial_names:
-    trial_dir = os.path.join(work_dir, trial_name)
-    trial_dirs[trial_name] = trial_dir
-  return trial_dirs
-
-
-def get_exp_config():
-  return ExpConfig(parse_config('config'), parse_config('target'))
-
-
-class ExpConfig:
-  def __init__(self, triage_config, target_config):
-    self.fuzzbench_exp_dir = triage_config.get('paths', 'fuzzbenchExpDir')
-    self.out_dir = triage_config.get('paths', 'outDir')
-    if not os.path.exists(self.out_dir):
-      Path(self.out_dir).mkdir(parents=True, exist_ok=True)
-
-    self.cores = int(triage_config.get('values', 'cores'))
-
-    self.experiment = target_config.get('names', 'experiment')
-    self.fuzzer = target_config.get('names', 'fuzzer')
-    self.program = target_config.get('names', 'program')
-
-    self.exp_data_dir = os.path.join(self.fuzzbench_exp_dir, self.experiment, 'experiment-folders', f'{self.program}-{self.fuzzer}')
-    self.exp_cov_tar = os.path.join(self.fuzzbench_exp_dir, self.experiment, 'coverage-binaries', f'coverage-build-{self.program}.tar.gz')
-    self.trial_names = get_trial_names(self.exp_data_dir)
-
-    self.prog_dir = os.path.join(triage_config.get('paths', 'workDir'), self.program)
-    self.work_dir = os.path.join(self.prog_dir, self.fuzzer)
-    Path(self.work_dir).mkdir(parents=True, exist_ok=True)
-
-    self.cov_bin = os.path.join(self.prog_dir, 'coverage', COV_BINS[self.program])
-
-    self.trial_dirs = get_trial_dirs(self.work_dir, self.trial_names)
-
-    self.target_out = os.path.join(self.out_dir, self.program, self.fuzzer)
-    Path(self.target_out).mkdir(parents=True, exist_ok=True)
-  
-    self.is_opt = self.program.endswith('_1') or self.program.endswith('_2')
-    if self.is_opt:
-      self.argparse_dir = triage_config.get('paths', 'argParseDir')
-      self.arg_parser = os.path.join(self.argparse_dir, self.program, 'argparser')
+# Only extracts files in `corpus/` and removes `corpus/` from path.
+def corpus_members(tf: tarfile.TarFile):
+    for member in tf.getmembers():
+        if member.path.startswith('corpus/'):
+            # len("corpus/") is 7
+            member.path = member.path[7:]
+            yield member

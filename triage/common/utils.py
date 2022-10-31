@@ -3,27 +3,28 @@ import os
 import pathlib
 import shutil
 
-TRIAGE_ROOT = os.path.dirname(os.path.dirname(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.dirname(__file__))
 
-Coverage_Binaries = {}
+CORPUS_QUEUE_STORE = {'aflplusplus': ['corpus/default/queue'],
+                      'afl': ['corpus/queue'],
+                      'libfuzzer': ['corpus/corpus'],
+                      'eclipser': ['corpus/afl-worker/queue', 'corpus/eclipser_output/queue'],
+                      'fairfuzz': ['corpus/queue']}
+CORPUS_CRASH_STORE = {'aflplusplus': ['corpus/default/crashes'],
+                      'afl': ['corpus/crashes'],
+                      'libfuzzer': ['corpus/crashes'],
+                      'eclipser': ['corpus/afl-worker/crashes', 'corpus/eclipser_output/crashes'],
+                      'fairfuzz': ['corpus/crashes']}
 
 
-def check_path_exist(path: str) -> None:
-    if not os.path.exists(path):
-        logging.error(f'{path} does not exist')
-        exit(1)
+def fuzzer_queue_store(fuzzer: str) -> list:
+    return CORPUS_QUEUE_STORE[fuzzer]
 
 
-def mkdir_if_not_exist(path: str) -> None:
-    pathlib.Path(path).mkdir(parents=True, exist_ok=True)
+def fuzzer_crash_store(fuzzer: str) -> list:
+    return CORPUS_CRASH_STORE[fuzzer]
 
 
-# Removes existing directory at `dir_path` if it exists, and makes an empty one.
-def remove_before_mkdir(dir_path: str) -> None:
-    if os.path.exists(dir_path):
-        logging.warning(f'directory removed before make: {dir_path}')
-        shutil.rmtree(dir_path)
-    os.mkdir(dir_path)
 
 
 # Returns the coverage binary name of a benchmark.
