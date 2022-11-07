@@ -43,8 +43,8 @@ class ConfigHelper:
     def bf_data_dir(self, benchmark: str, fuzzer: str) -> str:
         return join(self.data_dir(), benchmark, fuzzer)
 
-    def trial_data_dir(self, program: str, schedule: str, trial_name: str) -> str:
-        return join(self.schedule_data_dir(program, schedule), trial_name)
+    def trial_data_dir(self, program: str, fuzzer: str, trial_name: str) -> str:
+        return join(self.bf_data_dir(program, fuzzer), trial_name)
 
     def inst_dir(self) -> str:
         return join(self.__work_dir, 'inst')
