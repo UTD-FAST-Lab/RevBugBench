@@ -16,6 +16,7 @@ class ConfigHelper:
         self.__out_dir = config.get('paths', 'outDir')
         paths.mkdir(self.__out_dir)
         self.__raw_data_dir = config.get('paths', 'fuzzbenchExpDir')
+        paths.error_if_not_exist(self.__raw_data_dir, 'fuzzbenchExpDir in config')
 
         self.__exps = list(config['experiments'].keys())
         self.__benchmarks = list(config['benchmarks'].keys())

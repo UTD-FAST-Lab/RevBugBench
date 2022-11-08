@@ -21,7 +21,10 @@ def rm_if_exist(path: str) -> None:
         shutil.rmtree(path)
 
 
-def error_if_not_exist(path: str) -> None:
+def error_if_not_exist(path: str, info: str = None) -> None:
     if not os.path.exists(path):
-        logging.error(f'{path} does not exist')
+        if str:
+            logging.error(f'{info}: {path} does not exist')
+        else:
+            logging.error(f'{path} does not exist')
         exit(1)

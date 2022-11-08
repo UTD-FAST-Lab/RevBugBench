@@ -11,9 +11,6 @@ from common.confighelper import ConfigHelper
 # Throws error when a benchmark-fuzzer pair is not mapped to exactly one experiment.
 
 def exp_tuples(benchmarks: list, fuzzers: list, exps: list, raw_data_dir: str) -> list:
-    # Make sure FuzzBench experiment-data directory exists.
-    common.paths.error_if_not_exist(raw_data_dir)
-
     # Stores experiment names for benchmark-fuzzer pairs.
     exp_map = {(b, f): [] for b in benchmarks for f in fuzzers}
     for e in exps:
