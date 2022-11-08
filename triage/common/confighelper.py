@@ -1,4 +1,7 @@
 import configparser
+from pathlib import Path
+
+import yaml
 
 from os.path import join
 from common import paths
@@ -15,6 +18,8 @@ class ConfigHelper:
         paths.mkdir(self.__work_dir)
         self.__out_dir = config.get('paths', 'outDir')
         paths.mkdir(self.__out_dir)
+        self.__fuzzbench_dir = config.get('paths', 'fuzzbenchDir')
+        paths.error_if_not_exist(self.__fuzzbench_dir, 'fuzzbenchDir in config')
         self.__raw_data_dir = config.get('paths', 'fuzzbenchExpDir')
         paths.error_if_not_exist(self.__raw_data_dir, 'fuzzbenchExpDir in config')
 
@@ -22,6 +27,17 @@ class ConfigHelper:
         self.__benchmarks = list(config['benchmarks'].keys())
         self.__fuzzers = list(config['fuzzers'].keys())
         self.__cores = int(config.get('values', 'cores'))
+
+        self.__fuzz_targets = self.__get_fuzz_targets(self.__benchmarks)
+
+    def __get_fuzz_targets(self, benchmarks: list) -> dict:
+        target_names = {}
+        for benchmark in benchmarks:
+            benchmark_dir = join(self.__fuzzbench_dir, 'benchmarks', benchmark)
+            paths.error_if_not_exist(benchmark_dir, f'FuzzBench benchmark {benchmark}')
+            target_names[benchmark] = yaml.safe_load(Path(join(benchmark_dir, 'benchmark.yaml'))
+                                                     .read_text())['fuzz_target']
+        return target_names
 
     def raw_data_dir(self) -> str:
         return self.__raw_data_dir
@@ -38,6 +54,9 @@ class ConfigHelper:
     def fuzzers(self) -> list:
         return self.__fuzzers
 
+    def fuzz_target(self, benchmark: str) -> str:
+        return self.__fuzz_targets[benchmark]
+
     def data_dir(self) -> str:
         return join(self.__work_dir, 'data')
 
@@ -46,6 +65,12 @@ class ConfigHelper:
 
     def trial_data_dir(self, benchmark: str, fuzzer: str, trial_name: str) -> str:
         return join(self.bf_data_dir(benchmark, fuzzer), trial_name)
+
+    def benchmark_triage_bin_dir(self, benchmark: str) -> str:
+        return join(self.__work_dir, 'triage_binaries', benchmark)
+
+    def benchmark_triage_binary(self, benchmark: str) -> str:
+        return join(self.benchmark_triage_bin_dir(benchmark), self.__fuzz_targets[benchmark])
 
     def inst_dir(self) -> str:
         return join(self.__work_dir, 'inst')
