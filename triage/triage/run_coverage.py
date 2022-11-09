@@ -2,9 +2,7 @@ import sys
 import os
 
 import shutil
-import re
 import logging
-import pickle
 import itertools
 import multiprocessing
 import time
@@ -13,8 +11,8 @@ import numpy as np
 from utils.common import dump_to_pickle
 from utils import sanitizer, new_process
 from setup.setup import get_exp_config
-from experiment.get_seed_info import get_seed_info
-from experiment.run_crashes import parseFixReverterLog, UNIT_TIMEOUT, RSS_LIMIT_MB
+from triage.get_seeds import get_seeds
+from triage.run_crashes import parseFixReverterLog, UNIT_TIMEOUT, RSS_LIMIT_MB
 
 def run_coverage(seeds_by_trial, cov_bin, work_dir, target_out_dir, cores):
   start_time = time.time()
@@ -82,14 +80,14 @@ def run_coverage_worker(seed_pair, cov_bin, triage_dir):
   return trial_name, seed
 
 def run_coverage_main(analysis):
-  seeds_by_trial = get_seed_info(analysis.trial_dirs, analysis.program, analysis.fuzzer, 'queue')
+  seeds_by_trial = get_seeds(analysis.trial_dirs, analysis.program, analysis.fuzzer, 'queue')
   run_coverage(seeds_by_trial, analysis.cov_bin, analysis.work_dir, analysis.target_out, analysis.cores)
 
 def main():
   logging.basicConfig(level = logging.INFO)
   analysis = get_exp_config()
 
-  seeds_by_trial = get_seed_info(analysis.trial_dirs, analysis.program, analysis.fuzzer, 'queue')
+  seeds_by_trial = get_seeds(analysis.trial_dirs, analysis.program, analysis.fuzzer, 'queue')
   run_coverage(seeds_by_trial, analysis.cov_bin, analysis.work_dir, analysis.target_out, analysis.cores)
 
 

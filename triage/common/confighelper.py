@@ -1,4 +1,5 @@
 import configparser
+import os
 from pathlib import Path
 
 import yaml
@@ -65,6 +66,10 @@ class ConfigHelper:
 
     def trial_data_dir(self, benchmark: str, fuzzer: str, trial_name: str) -> str:
         return join(self.bf_data_dir(benchmark, fuzzer), trial_name)
+
+    def trials(self, benchmark: str, fuzzer: str) -> list:
+        paths.error_if_not_exist(self.bf_data_dir(benchmark, fuzzer), 'cannot extract trial names')
+        return os.listdir(self.bf_data_dir(benchmark, fuzzer))
 
     def benchmark_triage_bin_dir(self, benchmark: str) -> str:
         return join(self.__work_dir, 'triage_binaries', benchmark)
