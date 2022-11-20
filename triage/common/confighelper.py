@@ -77,35 +77,10 @@ class ConfigHelper:
     def benchmark_triage_binary(self, benchmark: str) -> str:
         return join(self.benchmark_triage_bin_dir(benchmark), self.__fuzz_targets[benchmark])
 
-    def inst_dir(self) -> str:
-        return join(self.__work_dir, 'inst')
+    def parsed_seeds_store(self, benchmark: str, fuzzer: str, seed_type: str) -> str:
+        store_dir = join(self.__work_dir, 'parsed_seeds', benchmark, fuzzer)
+        paths.mkdir(store_dir)
+        return join(store_dir, f'{seed_type}.json')
 
-    def prog_inst_dir(self, program: str) -> str:
-        return join(self.inst_dir(), self.__fuzzer, program)
-
-    def inst_stats(self, program: str, schedule: str) -> str:
-        return join(self.prog_inst_dir(program), f'stats_{schedule}.json')
-
-    def seeds_dir(self) -> str:
-        return join(self.__work_dir, 'seeds')
-
-    def prog_seeds_dir(self, program: str) -> str:
-        return join(self.seeds_dir(), self.__fuzzer, program)
-
-    def raw_seeds(self, program: str) -> str:
-        return join(self.prog_seeds_dir(program), 'raw_seeds.json')
-
-    def trial_profraw_dir(self, program: str, schedule: str, trial_name: str) -> str:
-        return join(self.__work_dir, 'raw_files', self.__fuzzer, program, schedule, trial_name)
-
-    def profraw_file(self, program: str, schedule: str, trial_name: str, seed_id: int) -> str:
-        return join(self.trial_profraw_dir(program, schedule, trial_name), f'{seed_id}.profraw')
-
-    def trial_prof_dir(self, program: str, schedule: str, trial_name: str) -> str:
-        return join(self.__work_dir, 'prof_files', self.__fuzzer, program, schedule, trial_name)
-
-    def prof_file(self, program: str, schedule: str, trial_name: str, file_name: str) -> str:
-        return join(self.trial_prof_dir(program, schedule, trial_name), f'{file_name}.prof')
-
-    def out_stats(self, program):
-        return join(self.__out_dir, f'{self.__fuzzer}_{program}_stats.csv')
+    def tmp_running_dir(self, process_name: str) -> str:
+        return join(self.__work_dir, 'tmp_running_dir', process_name)

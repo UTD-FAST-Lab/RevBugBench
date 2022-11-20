@@ -1,9 +1,7 @@
 import sys
 import pandas as pd
 import os
-import csv
 import logging
-import collections
 import matplotlib
 import pickle
 matplotlib.use('Agg')

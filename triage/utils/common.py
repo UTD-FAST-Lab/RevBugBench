@@ -60,16 +60,16 @@ PROGRAMS = {'binutils-fuzz_cxxfilt', 'binutils-fuzz_disassemble', 'lcms', 'proj4
 
 FUZZERS = ['afl', 'aflplusplus', 'eclipser', 'fairfuzz', 'libfuzzer']
 
-CORPUS_QUEUE_STORE = {'aflplusplus': ['corpus/default/queue'],
-                      'afl': ['corpus/queue'],
-                      'libfuzzer': ['corpus/corpus'],
-                      'eclipser': ['corpus/afl-worker/queue', 'corpus/eclipser_output/queue'],
-                      'fairfuzz': ['corpus/queue']}
-CORPUS_CRASH_STORE = {'aflplusplus': ['corpus/default/crashes'],
-                      'afl': ['corpus/crashes'],
-                      'libfuzzer': ['corpus/crashes'],
-                      'eclipser': ['corpus/afl-worker/crashes', 'corpus/eclipser_output/crashes'],
-                      'fairfuzz': ['corpus/crashes']}
+CORPUS_QUEUE_STORE = {'aflplusplus': ['default/queue'],
+                      'afl': ['queue'],
+                      'libfuzzer': ['corpus'],
+                      'eclipser': ['afl-worker/queue', 'eclipser_output/queue'],
+                      'fairfuzz': ['queue']}
+CORPUS_CRASH_STORE = {'aflplusplus': ['default/crashes'],
+                      'afl': ['crashes'],
+                      'libfuzzer': ['crashes'],
+                      'eclipser': ['afl-worker/crashes', 'eclipser_output/crashes'],
+                      'fairfuzz': ['crashes']}
 
 COV_BINS = {'binutils-fuzz_cxxfilt': 'fuzz_cxxfilt',
             'binutils-fuzz_disassemble': 'fuzz_disassemble',

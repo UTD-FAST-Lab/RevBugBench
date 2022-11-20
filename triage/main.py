@@ -3,6 +3,8 @@ import logging
 import os
 import sys
 
+from triage.triage_seeds import triage_seeds
+
 # Add the triage folder to PATH.
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
@@ -52,8 +54,8 @@ def main():
     if args.setup:
         setup.setup(helper)
     if args.triage:
-        # Unimplemented
-        return
+        triage_seeds(helper, 'queue')
+        triage_seeds(helper, 'crash')
     if args.report:
         # Unimplemented
         return
