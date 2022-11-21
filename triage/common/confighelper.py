@@ -77,10 +77,13 @@ class ConfigHelper:
     def benchmark_triage_binary(self, benchmark: str) -> str:
         return join(self.benchmark_triage_bin_dir(benchmark), self.__fuzz_targets[benchmark])
 
-    def parsed_seeds_store(self, benchmark: str, fuzzer: str, seed_type: str) -> str:
+    def parsed_seeds_store(self, benchmark: str, fuzzer: str, trial_name: str, seed_type: str) -> str:
         store_dir = join(self.__work_dir, 'parsed_seeds', benchmark, fuzzer)
         paths.mkdir(store_dir)
-        return join(store_dir, f'{seed_type}.json')
+        return join(store_dir, f'{trial_name}_{seed_type}.json')
 
     def tmp_running_dir(self, process_name: str) -> str:
         return join(self.__work_dir, 'tmp_running_dir', process_name)
+
+    def dda_file(self, benchmark: str) -> str:
+        return join(self.__work_dir, 'dda_store', benchmark, 'dda.json')

@@ -3,6 +3,7 @@ import logging
 import os
 import sys
 
+from analysis.coverage_table import coverage_table
 from triage.triage_seeds import triage_seeds
 
 # Add the triage folder to PATH.
@@ -57,8 +58,7 @@ def main():
         triage_seeds(helper, 'queue')
         triage_seeds(helper, 'crash')
     if args.report:
-        # Unimplemented
-        return
+        coverage_table(helper)
 
 
 if __name__ == '__main__':
