@@ -1,0 +1,10413 @@
+[
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "33",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "5198",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11887,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "cp-demangle.c",
+          "line": "5249"
+        },
+        "start": {
+          "col": "8",
+          "file": "cp-demangle.c",
+          "line": "5243"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "cp-demangle.c",
+        "line": "5249"
+      },
+      "start": {
+        "col": "6",
+        "file": "cp-demangle.c",
+        "line": "5242"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "33",
+        "file": "cp-demangle.c",
+        "line": "5198",
+        "order": 1,
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_bare_function_type",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2971",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "tl"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11841,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "2994"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "2994"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "2994"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "2993"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "2971",
+        "order": 1,
+        "val": "tl"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_array_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3016",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dim"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11843,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "3043"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3043"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "3043"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3042"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "3016",
+        "order": 1,
+        "val": "dim"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_symbol_backref",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "375",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "backref"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2591,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "388"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "388"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "388"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "387"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "d-demangle.c",
+        "line": "375",
+        "order": 1,
+        "val": "backref"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "5029",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11886,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "5038"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "5035"
+        }
+      },
+      "end": {
+        "col": "6",
+        "file": "cp-demangle.c",
+        "line": "5038"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "5034"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "cp-demangle.c",
+        "line": "5029",
+        "order": 1,
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_parmlist",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2922",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "tl"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11839,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "2951"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "2951"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "2951"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "2950"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "2922",
+        "order": 1,
+        "val": "tl"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_expr_primary",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3636",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "type"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11855,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "3642"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3642"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "3642"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3641"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "3636",
+        "order": 1,
+        "val": "type"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_expression_1",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "33",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3541",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "third"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11853,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3553"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3553"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3553"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3552"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "33",
+        "file": "cp-demangle.c",
+        "line": "3541",
+        "order": 1,
+        "val": "third"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_find_pack",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "40",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4513",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11876,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "4517"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4517"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "4517"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4516"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "40",
+        "file": "cp-demangle.c",
+        "line": "4513",
+        "order": 1,
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 17,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "35",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "5916",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "7",
+        "file": "./../include/demangle.h",
+        "line": "470",
+        "offset": 1,
+        "order": 8,
+        "tag": "traceVarNumCmpField[]",
+        "val": "d_printing"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 14,
+        "tag": "traceVarNumCmpField[]",
+        "val": "recursion"
+      },
+      {
+        "col": "35",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "5916",
+        "offset": 1,
+        "order": 6,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dc"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "5915",
+        "offset": 8,
+        "order": 12,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 9,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 15,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 11,
+        "tag": "logic[]",
+        "val": "||"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 11892,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "5923"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "5920"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "5923"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "5919"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "35",
+        "file": "cp-demangle.c",
+        "line": "5916",
+        "order": 1,
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "35",
+        "file": "cp-demangle.c",
+        "line": "5916",
+        "order": 6,
+        "val": "dc"
+      },
+      {
+        "order": 7,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "./../include/demangle.h",
+        "line": "470",
+        "offset": 1,
+        "order": 8,
+        "val": "d_printing"
+      },
+      {
+        "order": 9,
+        "val": ">"
+      },
+      {
+        "order": 10,
+        "val": "1"
+      },
+      {
+        "order": 11,
+        "val": "||"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "5915",
+        "order": 12,
+        "val": "dpi"
+      },
+      {
+        "order": 13,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 14,
+        "val": "recursion"
+      },
+      {
+        "order": 15,
+        "val": ">"
+      },
+      {
+        "order": 16,
+        "val": "1024"
+      },
+      {
+        "order": 17,
+        "val": "less3"
+      },
+      {
+        "order": 18,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_bare_function_type",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2970",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "return_type"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11840,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "2987"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "2987"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "2987"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "2986"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "2970",
+        "order": 1,
+        "val": "return_type"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_cv_qualifiers",
+      "param": [
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2756",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "right"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11835,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "14",
+          "file": "cp-demangle.c",
+          "line": "2797"
+        },
+        "start": {
+          "col": "7",
+          "file": "cp-demangle.c",
+          "line": "2797"
+        }
+      },
+      "end": {
+        "col": "14",
+        "file": "cp-demangle.c",
+        "line": "2797"
+      },
+      "start": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "2796"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "2756",
+        "order": 1,
+        "val": "right"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_expression_1",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3430",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "op"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11851,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "3436"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3436"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "3436"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3435"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "3430",
+        "order": 1,
+        "val": "op"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_cv_qualifiers",
+      "param": [
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2756",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "right"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11836,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "cp-demangle.c",
+          "line": "2808"
+        },
+        "start": {
+          "col": "3",
+          "file": "cp-demangle.c",
+          "line": "2808"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "cp-demangle.c",
+        "line": "2808"
+      },
+      "start": {
+        "col": "8",
+        "file": "cp-demangle.c",
+        "line": "2807"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "2756",
+        "order": 1,
+        "val": "right"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_assocarray",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "51",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1407",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2601,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "1413"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "1413"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "1413"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "1412"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "51",
+        "file": "d-demangle.c",
+        "line": "1407",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_lambda",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3802",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "tl"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11860,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3813"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3813"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3813"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3812"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "3802",
+        "order": 1,
+        "val": "tl"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_prefix",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1546",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ret"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11822,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "cp-demangle.c",
+          "line": "1584"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "1584"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "cp-demangle.c",
+        "line": "1584"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "1583"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "1546",
+        "order": 1,
+        "val": "ret"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_pointer_to_member_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3087",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mem"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11846,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3113"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3113"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3113"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3112"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "3087",
+        "order": 1,
+        "val": "mem"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_pointer_to_member_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3086",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "cl"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11845,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3094"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3094"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3094"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3093"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "3086",
+        "order": 1,
+        "val": "cl"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "cplus_demangle_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "35",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2423",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "pret"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11834,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "2427"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "2427"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "2427"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "2426"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "35",
+        "file": "cp-demangle.c",
+        "line": "2423",
+        "order": 1,
+        "val": "pret"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_symbol_backref",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "375",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "backref"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2590,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "384"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "384"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "384"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "383"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "d-demangle.c",
+        "line": "375",
+        "order": 1,
+        "val": "backref"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_args_length",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4584",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "elt"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11877,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "4586"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "4586"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cp-demangle.c",
+        "line": "4586"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "4585"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "4584",
+        "order": 1,
+        "val": "elt"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "break"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 15,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "5358",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "order": 7,
+        "tag": "arith[]",
+        "val": "/"
+      }
+    ],
+    "index": 11889,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "5390"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "5387"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "5390"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "5386"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "cp-demangle.c",
+        "line": "5358",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "order": 3,
+        "val": "sizeof"
+      },
+      {
+        "order": 4,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "5357",
+        "order": 5,
+        "val": "adpm"
+      },
+      {
+        "order": 6,
+        "val": ")"
+      },
+      {
+        "order": 7,
+        "val": "/"
+      },
+      {
+        "order": 8,
+        "val": "sizeof"
+      },
+      {
+        "order": 9,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "5357",
+        "order": 10,
+        "val": "adpm"
+      },
+      {
+        "order": 11,
+        "val": "["
+      },
+      {
+        "order": 12,
+        "val": "0"
+      },
+      {
+        "order": 13,
+        "val": "]"
+      },
+      {
+        "order": 14,
+        "val": ")"
+      },
+      {
+        "order": 15,
+        "val": "less3"
+      },
+      {
+        "order": 16,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_init",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "recursion"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "4284",
+        "offset": 8,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 8,
+        "tag": "traceVarAssignNumField[]",
+        "val": "recursion"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4284",
+        "offset": 8,
+        "order": 6,
+        "tag": "traceVarAssignNumBase[]",
+        "val": "dpi"
+      }
+    ],
+    "index": 11870,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "22",
+          "file": "cp-demangle.c",
+          "line": "4316"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4316"
+        }
+      },
+      "end": {
+        "col": "22",
+        "file": "cp-demangle.c",
+        "line": "4316"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4315"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "4284",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 3,
+        "val": "recursion"
+      },
+      {
+        "order": 4,
+        "val": "<"
+      },
+      {
+        "order": 5,
+        "val": "2048"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "4284",
+        "order": 6,
+        "val": "dpi"
+      },
+      {
+        "order": 7,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 8,
+        "val": "recursion"
+      },
+      {
+        "order": 9,
+        "val": ";"
+      },
+      {
+        "order": 10,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_identifier",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1010",
+        "order": 6,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      }
+    ],
+    "index": 2594,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "1029"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "1029"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "1029"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "1028"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "/usr/include/string.h",
+        "line": "385",
+        "order": 1,
+        "val": "strlen"
+      },
+      {
+        "order": 2,
+        "val": "("
+      },
+      {
+        "col": "15",
+        "file": "d-demangle.c",
+        "line": "1023",
+        "order": 3,
+        "val": "endptr"
+      },
+      {
+        "col": "21",
+        "file": "d-demangle.c",
+        "line": "1028",
+        "order": 4,
+        "val": ")"
+      },
+      {
+        "order": 5,
+        "val": "<"
+      },
+      {
+        "col": "17",
+        "file": "d-demangle.c",
+        "line": "1010",
+        "order": 6,
+        "val": "len"
+      },
+      {
+        "order": 7,
+        "val": "return"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_string",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1331",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2598,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1334"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1334"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1334"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1333"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "d-demangle.c",
+        "line": "1331",
+        "order": 1,
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_expression_1",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "33",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3541",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "third"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11854,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3562"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3562"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3562"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3561"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "33",
+        "file": "cp-demangle.c",
+        "line": "3541",
+        "order": 1,
+        "val": "third"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "rust-demangle.c",
+    "func": {
+      "name": "print_ident",
+      "param": [
+        64,
+        256
+      ]
+    },
+    "ids": [
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "t"
+      },
+      {
+        "col": "16",
+        "file": "rust-demangle.c",
+        "line": "378",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "t_min"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 4,
+        "tag": "traceVarAssignNum[]",
+        "val": "t"
+      }
+    ],
+    "index": 5639,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "rust-demangle.c",
+          "line": "502"
+        },
+        "start": {
+          "col": "13",
+          "file": "rust-demangle.c",
+          "line": "502"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "rust-demangle.c",
+        "line": "502"
+      },
+      "start": {
+        "col": "11",
+        "file": "rust-demangle.c",
+        "line": "501"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 1,
+        "val": "t"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "col": "16",
+        "file": "rust-demangle.c",
+        "line": "378",
+        "order": 3,
+        "val": "t_min"
+      },
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 4,
+        "val": "t"
+      },
+      {
+        "order": 5,
+        "val": ";"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4800",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11880,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4817"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4814"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "4817"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4813"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "4800",
+        "order": 1,
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_substitution",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "col": "15",
+        "file": "cp-demangle.c",
+        "line": "239",
+        "offset": 5,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "set_last_name"
+      },
+      {
+        "col": "41",
+        "file": "cp-demangle.c",
+        "line": "3992",
+        "offset": 5,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "p"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "!="
+      },
+      {
+        "col": "30",
+        "file": "./cp-demangle.h",
+        "line": "115",
+        "offset": 10,
+        "order": 9,
+        "tag": "traceVarAssignNullField[]",
+        "val": "last_name"
+      },
+      {
+        "col": "32",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3949",
+        "offset": 10,
+        "order": 7,
+        "tag": "traceVarAssignNullBase[]",
+        "val": "di"
+      }
+    ],
+    "index": 11867,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "30",
+          "file": "cp-demangle.c",
+          "line": "4017"
+        },
+        "start": {
+          "col": "3",
+          "file": "cp-demangle.c",
+          "line": "4016"
+        }
+      },
+      "end": {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "4017"
+      },
+      "start": {
+        "col": "8",
+        "file": "cp-demangle.c",
+        "line": "4015"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "41",
+        "file": "cp-demangle.c",
+        "line": "3992",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "15",
+        "file": "cp-demangle.c",
+        "line": "239",
+        "offset": 5,
+        "order": 3,
+        "val": "set_last_name"
+      },
+      {
+        "order": 4,
+        "val": "!="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "col": "32",
+        "file": "cp-demangle.c",
+        "line": "3949",
+        "order": 7,
+        "val": "di"
+      },
+      {
+        "order": 8,
+        "val": "->"
+      },
+      {
+        "col": "30",
+        "file": "./cp-demangle.h",
+        "line": "115",
+        "offset": 10,
+        "order": 9,
+        "val": "last_name"
+      },
+      {
+        "order": 10,
+        "val": ";"
+      },
+      {
+        "order": 11,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_nested_name",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1499",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "pret"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11821,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "1507"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "1507"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "1507"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "1506"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "cp-demangle.c",
+        "line": "1499",
+        "order": 1,
+        "val": "pret"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "29",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4860",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "typed_name"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11885,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "cp-demangle.c",
+          "line": "4932"
+        },
+        "start": {
+          "col": "8",
+          "file": "cp-demangle.c",
+          "line": "4929"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "cp-demangle.c",
+        "line": "4932"
+      },
+      "start": {
+        "col": "6",
+        "file": "cp-demangle.c",
+        "line": "4928"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "29",
+        "file": "cp-demangle.c",
+        "line": "4860",
+        "order": 1,
+        "val": "typed_name"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_parmlist",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2929",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "type"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11838,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "2940"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "2940"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "2940"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "2939"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "2929",
+        "order": 1,
+        "val": "type"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_count_templates_scopes",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 17,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "33",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4149",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "7",
+        "file": "./../include/demangle.h",
+        "line": "471",
+        "offset": 2,
+        "order": 8,
+        "tag": "traceVarNumCmpField[]",
+        "val": "d_counting"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 14,
+        "tag": "traceVarNumCmpField[]",
+        "val": "recursion"
+      },
+      {
+        "col": "33",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4149",
+        "offset": 2,
+        "order": 6,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dc"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4148",
+        "offset": 8,
+        "order": 12,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 9,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 15,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 11,
+        "tag": "logic[]",
+        "val": "||"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 11868,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4152"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4152"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "4152"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4151"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "33",
+        "file": "cp-demangle.c",
+        "line": "4149",
+        "order": 1,
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "33",
+        "file": "cp-demangle.c",
+        "line": "4149",
+        "order": 6,
+        "val": "dc"
+      },
+      {
+        "order": 7,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "./../include/demangle.h",
+        "line": "471",
+        "offset": 2,
+        "order": 8,
+        "val": "d_counting"
+      },
+      {
+        "order": 9,
+        "val": ">"
+      },
+      {
+        "order": 10,
+        "val": "1"
+      },
+      {
+        "order": 11,
+        "val": "||"
+      },
+      {
+        "col": "48",
+        "file": "cp-demangle.c",
+        "line": "4148",
+        "order": 12,
+        "val": "dpi"
+      },
+      {
+        "order": 13,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 14,
+        "val": "recursion"
+      },
+      {
+        "order": 15,
+        "val": ">"
+      },
+      {
+        "order": 16,
+        "val": "1024"
+      },
+      {
+        "order": 17,
+        "val": "return"
+      },
+      {
+        "order": 18,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "has_return_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "45",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1263",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11819,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "1266"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "1266"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "1266"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "1265"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "45",
+        "file": "cp-demangle.c",
+        "line": "1263",
+        "order": 1,
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_unqualified_name",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1629",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ret"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11824,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "1662"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "1662"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "1662"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "1661"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "1629",
+        "order": 1,
+        "val": "ret"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_count_templates_scopes",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "recursion"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4148",
+        "offset": 8,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 11869,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "4245"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "4245"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cp-demangle.c",
+        "line": "4245"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "4242"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "cp-demangle.c",
+        "line": "4148",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "349",
+        "offset": 8,
+        "order": 3,
+        "val": "recursion"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "order": 5,
+        "val": "2048"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "is_ctor_dtor_or_conversion",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "56",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1284",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11820,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "1287"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "1287"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "1287"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "1286"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "56",
+        "file": "cp-demangle.c",
+        "line": "1284",
+        "order": 1,
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "rust-demangle.c",
+    "func": {
+      "name": "print_ident",
+      "param": [
+        64,
+        256
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "20",
+        "crash": true,
+        "file": "rust-demangle.c",
+        "line": "375",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "punycode_pos"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "193",
+        "offset": 3,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "punycode_len"
+      },
+      {
+        "col": "68",
+        "file": "rust-demangle.c",
+        "line": "371",
+        "offset": 3,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "ident"
+      }
+    ],
+    "index": 5642,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "rust-demangle.c",
+          "line": "562"
+        },
+        "start": {
+          "col": "9",
+          "file": "rust-demangle.c",
+          "line": "562"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "rust-demangle.c",
+        "line": "562"
+      },
+      "start": {
+        "col": "7",
+        "file": "rust-demangle.c",
+        "line": "561"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "20",
+        "file": "rust-demangle.c",
+        "line": "375",
+        "order": 1,
+        "val": "punycode_pos"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "col": "68",
+        "file": "rust-demangle.c",
+        "line": "371",
+        "order": 3,
+        "val": "ident"
+      },
+      {
+        "order": 4,
+        "val": "."
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "193",
+        "offset": 3,
+        "order": 5,
+        "val": "punycode_len"
+      },
+      {
+        "order": 6,
+        "val": "break"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 15,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4862",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "order": 7,
+        "tag": "arith[]",
+        "val": "/"
+      }
+    ],
+    "index": 11884,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4915"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4912"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "4915"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4911"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "cp-demangle.c",
+        "line": "4862",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "order": 3,
+        "val": "sizeof"
+      },
+      {
+        "order": 4,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "4861",
+        "order": 5,
+        "val": "adpm"
+      },
+      {
+        "order": 6,
+        "val": ")"
+      },
+      {
+        "order": 7,
+        "val": "/"
+      },
+      {
+        "order": 8,
+        "val": "sizeof"
+      },
+      {
+        "order": 9,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "4861",
+        "order": 10,
+        "val": "adpm"
+      },
+      {
+        "order": 11,
+        "val": "["
+      },
+      {
+        "order": 12,
+        "val": "0"
+      },
+      {
+        "order": 13,
+        "val": "]"
+      },
+      {
+        "order": 14,
+        "val": ")"
+      },
+      {
+        "order": 15,
+        "val": "less3"
+      },
+      {
+        "order": 16,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_java_resource",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1955",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "next"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11830,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "cp-demangle.c",
+          "line": "2016"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "2016"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "cp-demangle.c",
+        "line": "2016"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "2015"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "1955",
+        "order": 1,
+        "val": "next"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_conversion",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "373",
+        "offset": 19,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "current_template"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "offset": 19,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "!="
+      },
+      {
+        "col": "28",
+        "file": "cp-demangle.c",
+        "line": "341",
+        "offset": 5,
+        "order": 9,
+        "tag": "traceVarAssignNullField[]",
+        "val": "templates"
+      },
+      {
+        "col": "42",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "offset": 5,
+        "order": 7,
+        "tag": "traceVarAssignNullBase[]",
+        "val": "dpi"
+      }
+    ],
+    "index": 11894,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "23",
+          "file": "cp-demangle.c",
+          "line": "6351"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "6351"
+        }
+      },
+      "end": {
+        "col": "23",
+        "file": "cp-demangle.c",
+        "line": "6351"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "6350"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "373",
+        "offset": 19,
+        "order": 3,
+        "val": "current_template"
+      },
+      {
+        "order": 4,
+        "val": "!="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "order": 7,
+        "val": "dpi"
+      },
+      {
+        "order": 8,
+        "val": "->"
+      },
+      {
+        "col": "28",
+        "file": "cp-demangle.c",
+        "line": "341",
+        "offset": 5,
+        "order": 9,
+        "val": "templates"
+      },
+      {
+        "order": 10,
+        "val": ";"
+      },
+      {
+        "order": 11,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_exprlist",
+      "param": [
+        64,
+        8
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3265",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "arg"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11849,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "3267"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3267"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "3267"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3266"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "3265",
+        "order": 1,
+        "val": "arg"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_assocarray",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "51",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1407",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2603,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1425"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1425"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1425"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1424"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "51",
+        "file": "d-demangle.c",
+        "line": "1407",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "cplus_demangle_fill_name",
+      "param": [
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 14,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "54",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "862",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "p"
+      },
+      {
+        "col": "69",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "862",
+        "order": 6,
+        "tag": "traceVarNullCheck[]",
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "76",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "862",
+        "order": 11,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 12,
+        "tag": "cmp[]",
+        "val": "<="
+      },
+      {
+        "order": 10,
+        "tag": "logic[]",
+        "val": "||"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 11812,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "865"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "865"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "865"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "864"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "54",
+        "file": "cp-demangle.c",
+        "line": "862",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "69",
+        "file": "cp-demangle.c",
+        "line": "862",
+        "order": 6,
+        "val": "s"
+      },
+      {
+        "order": 7,
+        "val": "=="
+      },
+      {
+        "order": 8,
+        "val": "(void *)"
+      },
+      {
+        "order": 9,
+        "val": "0"
+      },
+      {
+        "order": 10,
+        "val": "||"
+      },
+      {
+        "col": "76",
+        "file": "cp-demangle.c",
+        "line": "862",
+        "order": 11,
+        "val": "len"
+      },
+      {
+        "order": 12,
+        "val": "<="
+      },
+      {
+        "order": 13,
+        "val": "0"
+      },
+      {
+        "order": 14,
+        "val": "return"
+      },
+      {
+        "order": 15,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "rust-demangle.c",
+    "func": {
+      "name": "parse_ident",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 14,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "rust-demangle.c",
+        "line": "200",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "start"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 10,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "63",
+        "offset": 4,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "next"
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "63",
+        "offset": 4,
+        "order": 9,
+        "tag": "traceVarNumCmpField[]",
+        "val": "next"
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "57",
+        "offset": 1,
+        "order": 13,
+        "tag": "traceVarNumCmpField[]",
+        "val": "sym_len"
+      },
+      {
+        "col": "37",
+        "file": "rust-demangle.c",
+        "line": "197",
+        "offset": 4,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "rdm"
+      },
+      {
+        "col": "37",
+        "file": "rust-demangle.c",
+        "line": "197",
+        "offset": 4,
+        "order": 7,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "rdm"
+      },
+      {
+        "col": "37",
+        "file": "rust-demangle.c",
+        "line": "197",
+        "offset": 1,
+        "order": 11,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "rdm"
+      },
+      {
+        "order": 6,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 5632,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "rust-demangle.c",
+          "line": "235"
+        },
+        "start": {
+          "col": "5",
+          "file": "rust-demangle.c",
+          "line": "232"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "rust-demangle.c",
+        "line": "235"
+      },
+      "start": {
+        "col": "3",
+        "file": "rust-demangle.c",
+        "line": "231"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "200",
+        "order": 1,
+        "val": "start"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "37",
+        "file": "rust-demangle.c",
+        "line": "197",
+        "order": 3,
+        "val": "rdm"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "63",
+        "offset": 4,
+        "order": 5,
+        "val": "next"
+      },
+      {
+        "order": 6,
+        "val": "||"
+      },
+      {
+        "col": "37",
+        "file": "rust-demangle.c",
+        "line": "197",
+        "order": 7,
+        "val": "rdm"
+      },
+      {
+        "order": 8,
+        "val": "->"
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "63",
+        "offset": 4,
+        "order": 9,
+        "val": "next"
+      },
+      {
+        "order": 10,
+        "val": ">"
+      },
+      {
+        "col": "37",
+        "file": "rust-demangle.c",
+        "line": "197",
+        "order": 11,
+        "val": "rdm"
+      },
+      {
+        "order": 12,
+        "val": "->"
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "57",
+        "offset": 1,
+        "order": 13,
+        "val": "sym_len"
+      },
+      {
+        "order": 14,
+        "val": "less3"
+      },
+      {
+        "order": 15,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_lookup_template_argument",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "28",
+        "file": "cp-demangle.c",
+        "line": "341",
+        "offset": 5,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "templates"
+      },
+      {
+        "col": "50",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4495",
+        "offset": 5,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11875,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4502"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4499"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "4502"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4498"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "50",
+        "file": "cp-demangle.c",
+        "line": "4495",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "28",
+        "file": "cp-demangle.c",
+        "line": "341",
+        "offset": 5,
+        "order": 3,
+        "val": "templates"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_prefix",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1546",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ret"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11823,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "cp-demangle.c",
+          "line": "1598"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "1598"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "cp-demangle.c",
+        "line": "1598"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "1597"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "1546",
+        "order": 1,
+        "val": "ret"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_save_scope",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "369",
+        "offset": 17,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "next_copy_template"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "371",
+        "offset": 18,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "num_copy_templates"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "offset": 17,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "offset": 18,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 11879,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "4646"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "4643"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cp-demangle.c",
+        "line": "4646"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "4642"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "369",
+        "offset": 17,
+        "order": 3,
+        "val": "next_copy_template"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "order": 5,
+        "val": "dpi"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "371",
+        "offset": 18,
+        "order": 7,
+        "val": "num_copy_templates"
+      },
+      {
+        "order": 8,
+        "val": "less3"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_tuple",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "46",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1665",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2607,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1679"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1679"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1679"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1678"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "46",
+        "file": "d-demangle.c",
+        "line": "1665",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_make_comp",
+      "param": [
+        64,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "41",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "953",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "left"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11816,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "1020"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "1020"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "1020"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "1019"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "41",
+        "file": "cp-demangle.c",
+        "line": "953",
+        "order": 1,
+        "val": "left"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "357",
+        "offset": 11,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "flush_count"
+      },
+      {
+        "col": "10",
+        "file": "cp-demangle.c",
+        "line": "332",
+        "offset": 1,
+        "order": 9,
+        "tag": "traceVarNumCmpField[]",
+        "val": "len"
+      },
+      {
+        "col": "42",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4799",
+        "offset": 11,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "col": "42",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4799",
+        "offset": 1,
+        "order": 7,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 10,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "22",
+        "file": "cp-demangle.c",
+        "line": "5466",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "flush_count"
+      },
+      {
+        "col": "11",
+        "file": "cp-demangle.c",
+        "line": "5465",
+        "order": 11,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 6,
+        "tag": "logic[]",
+        "val": "&&"
+      }
+    ],
+    "index": 11890,
+    "pattern": "COND_EXEC",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "18",
+          "file": "cp-demangle.c",
+          "line": "5478"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "5478"
+        }
+      },
+      "end": {
+        "col": "18",
+        "file": "cp-demangle.c",
+        "line": "5478"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "5477"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "4799",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "357",
+        "offset": 11,
+        "order": 3,
+        "val": "flush_count"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "col": "22",
+        "file": "cp-demangle.c",
+        "line": "5466",
+        "order": 5,
+        "val": "flush_count"
+      },
+      {
+        "order": 6,
+        "val": "&&"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "4799",
+        "order": 7,
+        "val": "dpi"
+      },
+      {
+        "order": 8,
+        "val": "->"
+      },
+      {
+        "col": "10",
+        "file": "cp-demangle.c",
+        "line": "332",
+        "offset": 1,
+        "order": 9,
+        "val": "len"
+      },
+      {
+        "order": 10,
+        "val": "=="
+      },
+      {
+        "col": "11",
+        "file": "cp-demangle.c",
+        "line": "5465",
+        "order": 11,
+        "val": "len"
+      },
+      {
+        "order": 12,
+        "val": ";"
+      },
+      {
+        "order": 13,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_source_name",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "7",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1693",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<="
+      }
+    ],
+    "index": 11825,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "1698"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "1698"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "1698"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "1697"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "1693",
+        "order": 1,
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "val": "<="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_java_resource",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1955",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "next"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11829,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "cp-demangle.c",
+          "line": "2002"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "2002"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "cp-demangle.c",
+        "line": "2002"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "2001"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "1955",
+        "order": 1,
+        "val": "next"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_conversion",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "373",
+        "offset": 19,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "current_template"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "offset": 19,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "!="
+      },
+      {
+        "col": "28",
+        "file": "cp-demangle.c",
+        "line": "341",
+        "offset": 5,
+        "order": 9,
+        "tag": "traceVarAssignNullField[]",
+        "val": "templates"
+      },
+      {
+        "col": "42",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "offset": 5,
+        "order": 7,
+        "tag": "traceVarAssignNullBase[]",
+        "val": "dpi"
+      }
+    ],
+    "index": 11893,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "23",
+          "file": "cp-demangle.c",
+          "line": "6341"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "6341"
+        }
+      },
+      "end": {
+        "col": "23",
+        "file": "cp-demangle.c",
+        "line": "6341"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "6340"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "373",
+        "offset": 19,
+        "order": 3,
+        "val": "current_template"
+      },
+      {
+        "order": 4,
+        "val": "!="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "6323",
+        "order": 7,
+        "val": "dpi"
+      },
+      {
+        "order": 8,
+        "val": "->"
+      },
+      {
+        "col": "28",
+        "file": "cp-demangle.c",
+        "line": "341",
+        "offset": 5,
+        "order": 9,
+        "val": "templates"
+      },
+      {
+        "order": 10,
+        "val": ";"
+      },
+      {
+        "order": 11,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_structlit",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "50",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1438",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2604,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "1444"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "1444"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "1444"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "1443"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "50",
+        "file": "d-demangle.c",
+        "line": "1438",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "cplus_demangle_fill_extended_operator",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 14,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "67",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "878",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "p"
+      },
+      {
+        "col": "67",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "879",
+        "order": 10,
+        "tag": "traceVarNullCheck[]",
+        "val": "name"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 11,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "74",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "878",
+        "order": 6,
+        "tag": "traceVarNumCmp[]",
+        "val": "args"
+      },
+      {
+        "order": 7,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 9,
+        "tag": "logic[]",
+        "val": "||"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 11813,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "882"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "882"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "882"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "881"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "67",
+        "file": "cp-demangle.c",
+        "line": "878",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "74",
+        "file": "cp-demangle.c",
+        "line": "878",
+        "order": 6,
+        "val": "args"
+      },
+      {
+        "order": 7,
+        "val": "<"
+      },
+      {
+        "order": 8,
+        "val": "0"
+      },
+      {
+        "order": 9,
+        "val": "||"
+      },
+      {
+        "col": "67",
+        "file": "cp-demangle.c",
+        "line": "879",
+        "order": 10,
+        "val": "name"
+      },
+      {
+        "order": 11,
+        "val": "=="
+      },
+      {
+        "order": 12,
+        "val": "(void *)"
+      },
+      {
+        "order": 13,
+        "val": "0"
+      },
+      {
+        "order": 14,
+        "val": "return"
+      },
+      {
+        "order": 15,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_unnamed_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "7",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3839",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 11862,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3848"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3848"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3848"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3847"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3839",
+        "order": 1,
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_structlit",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "50",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1438",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2605,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1454"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1454"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1454"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1453"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "50",
+        "file": "d-demangle.c",
+        "line": "1438",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_make_empty",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "105",
+        "offset": 5,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "next_comp"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "107",
+        "offset": 6,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "num_comps"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "936",
+        "offset": 5,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "di"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "936",
+        "offset": 6,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "di"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 11814,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "941"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "941"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "941"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "940"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "936",
+        "order": 1,
+        "val": "di"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "105",
+        "offset": 5,
+        "order": 3,
+        "val": "next_comp"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "936",
+        "order": 5,
+        "val": "di"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "107",
+        "offset": 6,
+        "order": 7,
+        "val": "num_comps"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_add_substitution",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "111",
+        "offset": 8,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "next_sub"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "113",
+        "offset": 9,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "num_subs"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3893",
+        "offset": 8,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "di"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3893",
+        "offset": 9,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "di"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 11864,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3898"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3898"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3898"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3897"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "3893",
+        "order": 1,
+        "val": "di"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "111",
+        "offset": 8,
+        "order": 3,
+        "val": "next_sub"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "3893",
+        "order": 5,
+        "val": "di"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "./cp-demangle.h",
+        "line": "113",
+        "offset": 9,
+        "order": 7,
+        "val": "num_subs"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "29",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "5836",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11891,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "cp-demangle.c",
+          "line": "5845"
+        },
+        "start": {
+          "col": "4",
+          "file": "cp-demangle.c",
+          "line": "5838"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "5845"
+      },
+      "start": {
+        "col": "2",
+        "file": "cp-demangle.c",
+        "line": "5837"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "29",
+        "file": "cp-demangle.c",
+        "line": "5836",
+        "order": 1,
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_operator_name",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1910",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "low"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1913",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "high"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11827,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "cp-demangle.c",
+          "line": "1933"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "1933"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "cp-demangle.c",
+        "line": "1933"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "1932"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "cp-demangle.c",
+        "line": "1910",
+        "order": 1,
+        "val": "low"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "col": "11",
+        "file": "cp-demangle.c",
+        "line": "1913",
+        "order": 3,
+        "val": "high"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "29",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4860",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "typed_name"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11883,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "cp-demangle.c",
+          "line": "4897"
+        },
+        "start": {
+          "col": "4",
+          "file": "cp-demangle.c",
+          "line": "4894"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "4897"
+      },
+      "start": {
+        "col": "2",
+        "file": "cp-demangle.c",
+        "line": "4893"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "29",
+        "file": "cp-demangle.c",
+        "line": "4860",
+        "order": 1,
+        "val": "typed_name"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "rust-demangle.c",
+    "func": {
+      "name": "print_ident",
+      "param": [
+        64,
+        256
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "20",
+        "crash": true,
+        "file": "rust-demangle.c",
+        "line": "375",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "punycode_pos"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "193",
+        "offset": 3,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "punycode_len"
+      },
+      {
+        "col": "68",
+        "file": "rust-demangle.c",
+        "line": "371",
+        "offset": 3,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "ident"
+      }
+    ],
+    "index": 5641,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "18",
+          "file": "rust-demangle.c",
+          "line": "507"
+        },
+        "start": {
+          "col": "13",
+          "file": "rust-demangle.c",
+          "line": "507"
+        }
+      },
+      "end": {
+        "col": "18",
+        "file": "rust-demangle.c",
+        "line": "507"
+      },
+      "start": {
+        "col": "11",
+        "file": "rust-demangle.c",
+        "line": "506"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "20",
+        "file": "rust-demangle.c",
+        "line": "375",
+        "order": 1,
+        "val": "punycode_pos"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "68",
+        "file": "rust-demangle.c",
+        "line": "371",
+        "order": 3,
+        "val": "ident"
+      },
+      {
+        "order": 4,
+        "val": "."
+      },
+      {
+        "col": "10",
+        "file": "rust-demangle.c",
+        "line": "193",
+        "offset": 3,
+        "order": 5,
+        "val": "punycode_len"
+      },
+      {
+        "order": 6,
+        "val": "goto"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_function_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "16",
+        "file": "./cp-demangle.h",
+        "line": "131",
+        "offset": 15,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "recursion_level"
+      },
+      {
+        "col": "33",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "2883",
+        "offset": 15,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "di"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 11837,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "2892"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "2892"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "2892"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "2889"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "33",
+        "file": "cp-demangle.c",
+        "line": "2883",
+        "order": 1,
+        "val": "di"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "16",
+        "file": "./cp-demangle.h",
+        "line": "131",
+        "offset": 15,
+        "order": 3,
+        "val": "recursion_level"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "order": 5,
+        "val": "2048"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_local_name",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3722",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 11856,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "cp-demangle.c",
+          "line": "3730"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "3730"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "cp-demangle.c",
+        "line": "3730"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "3729"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "cp-demangle.c",
+        "line": "3722",
+        "order": 1,
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_substitution",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "21",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3966",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "new_id"
+      },
+      {
+        "col": "20",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3959",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "id"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 11866,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "cp-demangle.c",
+          "line": "3975"
+        },
+        "start": {
+          "col": "3",
+          "file": "cp-demangle.c",
+          "line": "3975"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "cp-demangle.c",
+        "line": "3975"
+      },
+      "start": {
+        "col": "8",
+        "file": "cp-demangle.c",
+        "line": "3974"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "3966",
+        "order": 1,
+        "val": "new_id"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "col": "20",
+        "file": "cp-demangle.c",
+        "line": "3959",
+        "order": 3,
+        "val": "id"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_java_resource",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1954",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11831,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "cp-demangle.c",
+          "line": "2025"
+        },
+        "start": {
+          "col": "6",
+          "file": "cp-demangle.c",
+          "line": "2025"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "cp-demangle.c",
+        "line": "2025"
+      },
+      "start": {
+        "col": "4",
+        "file": "cp-demangle.c",
+        "line": "2024"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "1954",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_lambda",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "7",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3804",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 11861,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3820"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3820"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3820"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3819"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3804",
+        "order": 1,
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_template_param",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "7",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3143",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "param"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 11847,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3150"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3150"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3150"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3149"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3143",
+        "order": 1,
+        "val": "param"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_save_scope",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "363",
+        "offset": 14,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "next_saved_scope"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "365",
+        "offset": 15,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "num_saved_scopes"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "offset": 14,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "offset": 15,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dpi"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 11878,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4631"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4628"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "cp-demangle.c",
+        "line": "4631"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4627"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "order": 1,
+        "val": "dpi"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "363",
+        "offset": 14,
+        "order": 3,
+        "val": "next_saved_scope"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "36",
+        "file": "cp-demangle.c",
+        "line": "4621",
+        "order": 5,
+        "val": "dpi"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "365",
+        "offset": 15,
+        "order": 7,
+        "val": "num_saved_scopes"
+      },
+      {
+        "order": 8,
+        "val": "less3"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_tuple",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "46",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1665",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2606,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "1671"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "1671"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "1671"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "1670"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "46",
+        "file": "d-demangle.c",
+        "line": "1665",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_make_comp",
+      "param": [
+        64,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 10,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "41",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "953",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "left"
+      },
+      {
+        "col": "41",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "954",
+        "order": 6,
+        "tag": "traceVarNullCheck[]",
+        "val": "right"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 11815,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "983"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "983"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "983"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "982"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "41",
+        "file": "cp-demangle.c",
+        "line": "953",
+        "order": 1,
+        "val": "left"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "41",
+        "file": "cp-demangle.c",
+        "line": "954",
+        "order": 6,
+        "val": "right"
+      },
+      {
+        "order": 7,
+        "val": "=="
+      },
+      {
+        "order": 8,
+        "val": "(void *)"
+      },
+      {
+        "order": 9,
+        "val": "0"
+      },
+      {
+        "order": 10,
+        "val": "return"
+      },
+      {
+        "order": 11,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_local_name",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "11",
+        "file": "cp-demangle.c",
+        "line": "3722",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3701",
+        "order": 4,
+        "tag": "traceVarAssignNull[]",
+        "val": "name"
+      }
+    ],
+    "index": 11857,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "42",
+          "file": "cp-demangle.c",
+          "line": "3747"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3747"
+        }
+      },
+      "end": {
+        "col": "42",
+        "file": "cp-demangle.c",
+        "line": "3747"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3746"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "cp-demangle.c",
+        "line": "3722",
+        "order": 1,
+        "val": "num"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "3701",
+        "order": 4,
+        "val": "name"
+      },
+      {
+        "order": 5,
+        "val": ";"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_print_comp_inner",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 15,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4862",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "order": 7,
+        "tag": "arith[]",
+        "val": "/"
+      }
+    ],
+    "index": 11882,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "cp-demangle.c",
+          "line": "4878"
+        },
+        "start": {
+          "col": "8",
+          "file": "cp-demangle.c",
+          "line": "4875"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "cp-demangle.c",
+        "line": "4878"
+      },
+      "start": {
+        "col": "6",
+        "file": "cp-demangle.c",
+        "line": "4874"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "cp-demangle.c",
+        "line": "4862",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "order": 3,
+        "val": "sizeof"
+      },
+      {
+        "order": 4,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "4861",
+        "order": 5,
+        "val": "adpm"
+      },
+      {
+        "order": 6,
+        "val": ")"
+      },
+      {
+        "order": 7,
+        "val": "/"
+      },
+      {
+        "order": 8,
+        "val": "sizeof"
+      },
+      {
+        "order": 9,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "cp-demangle.c",
+        "line": "4861",
+        "order": 10,
+        "val": "adpm"
+      },
+      {
+        "order": 11,
+        "val": "["
+      },
+      {
+        "order": 12,
+        "val": "0"
+      },
+      {
+        "order": 13,
+        "val": "]"
+      },
+      {
+        "order": 14,
+        "val": ")"
+      },
+      {
+        "order": 15,
+        "val": "less3"
+      },
+      {
+        "order": 16,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "rust-demangle.c",
+    "func": {
+      "name": "print_ident",
+      "param": [
+        64,
+        256
+      ]
+    },
+    "ids": [
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "t"
+      },
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "378",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "t_max"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 4,
+        "tag": "traceVarAssignNum[]",
+        "val": "t"
+      }
+    ],
+    "index": 5640,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "rust-demangle.c",
+          "line": "504"
+        },
+        "start": {
+          "col": "13",
+          "file": "rust-demangle.c",
+          "line": "504"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "rust-demangle.c",
+        "line": "504"
+      },
+      "start": {
+        "col": "11",
+        "file": "rust-demangle.c",
+        "line": "503"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 1,
+        "val": "t"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "378",
+        "order": 3,
+        "val": "t_max"
+      },
+      {
+        "col": "23",
+        "file": "rust-demangle.c",
+        "line": "379",
+        "order": 4,
+        "val": "t"
+      },
+      {
+        "order": 5,
+        "val": ";"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_backref",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "28",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "338",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2589,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "352"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "352"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "352"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "351"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "28",
+        "file": "d-demangle.c",
+        "line": "338",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_template_args_1",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3193",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11848,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "3197"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3197"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "3197"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3196"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "3193",
+        "order": 1,
+        "val": "a"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_assocarray",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "51",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1407",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2602,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1420"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1420"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1420"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1419"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "51",
+        "file": "d-demangle.c",
+        "line": "1407",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_vector_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3060",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dim"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11844,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3072"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3072"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3072"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3071"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "3060",
+        "order": 1,
+        "val": "dim"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_arrayliteral",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "53",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1381",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2600,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1394"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1394"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1394"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1393"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "53",
+        "file": "d-demangle.c",
+        "line": "1381",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_make_builtin_type",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "63",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "1085",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "type"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11818,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "1090"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "1090"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "1090"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "1089"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "63",
+        "file": "cp-demangle.c",
+        "line": "1085",
+        "order": 1,
+        "val": "type"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_template_args",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 12,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "16",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1816",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 10,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "18",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1815",
+        "order": 11,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 2609,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "d-demangle.c",
+          "line": "1821"
+        },
+        "start": {
+          "col": "6",
+          "file": "d-demangle.c",
+          "line": "1821"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "d-demangle.c",
+        "line": "1821"
+      },
+      "start": {
+        "col": "4",
+        "file": "d-demangle.c",
+        "line": "1820"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "16",
+        "file": "d-demangle.c",
+        "line": "1816",
+        "order": 1,
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "15",
+        "file": "/usr/include/string.h",
+        "line": "385",
+        "order": 6,
+        "val": "strlen"
+      },
+      {
+        "order": 7,
+        "val": "("
+      },
+      {
+        "col": "16",
+        "file": "d-demangle.c",
+        "line": "1816",
+        "order": 8,
+        "val": "endptr"
+      },
+      {
+        "col": "40",
+        "file": "d-demangle.c",
+        "line": "1820",
+        "order": 9,
+        "val": ")"
+      },
+      {
+        "order": 10,
+        "val": "<"
+      },
+      {
+        "col": "18",
+        "file": "d-demangle.c",
+        "line": "1815",
+        "order": 11,
+        "val": "len"
+      },
+      {
+        "order": 12,
+        "val": "return"
+      },
+      {
+        "order": 13,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_template_symbol_param",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 9,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1703",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1702",
+        "order": 6,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 2608,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "1706"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "1706"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "1706"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "1705"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "d-demangle.c",
+        "line": "1703",
+        "order": 1,
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "17",
+        "file": "d-demangle.c",
+        "line": "1702",
+        "order": 6,
+        "val": "len"
+      },
+      {
+        "order": 7,
+        "val": "=="
+      },
+      {
+        "order": 8,
+        "val": "0"
+      },
+      {
+        "order": 9,
+        "val": "return"
+      },
+      {
+        "order": 10,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_make_comp",
+      "param": [
+        64,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "41",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "954",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "right"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11817,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "1028"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "1028"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "1028"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "1027"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "41",
+        "file": "cp-demangle.c",
+        "line": "954",
+        "order": 1,
+        "val": "right"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_index_template_argument",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 9,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "65",
+        "file": "cp-demangle.c",
+        "line": "4467",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      },
+      {
+        "order": 6,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "4469",
+        "order": 5,
+        "tag": "traceVarNullCheck[]",
+        "val": "a"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 11874,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "4486"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "4486"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "4486"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "4485"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "65",
+        "file": "cp-demangle.c",
+        "line": "4467",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "4469",
+        "order": 5,
+        "val": "a"
+      },
+      {
+        "order": 6,
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "val": "(void *)"
+      },
+      {
+        "order": 8,
+        "val": "0"
+      },
+      {
+        "order": 9,
+        "val": "return"
+      },
+      {
+        "order": 10,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_arrayliteral",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "53",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1381",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2599,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "1387"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "1387"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "1387"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "1386"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "53",
+        "file": "d-demangle.c",
+        "line": "1381",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_expression_1",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3400",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "name"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11850,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "3408"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3408"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "3408"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3407"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "cp-demangle.c",
+        "line": "3400",
+        "order": 1,
+        "val": "name"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_add_substitution",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "67",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3893",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11863,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "cp-demangle.c",
+          "line": "3896"
+        },
+        "start": {
+          "col": "5",
+          "file": "cp-demangle.c",
+          "line": "3896"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "cp-demangle.c",
+        "line": "3896"
+      },
+      "start": {
+        "col": "3",
+        "file": "cp-demangle.c",
+        "line": "3895"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "67",
+        "file": "cp-demangle.c",
+        "line": "3893",
+        "order": 1,
+        "val": "dc"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_integer",
+      "param": [
+        64,
+        64,
+        8
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1136",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2596,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1148"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1148"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1148"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1147"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "d-demangle.c",
+        "line": "1136",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_array_type",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3016",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "dim"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11842,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "cp-demangle.c",
+          "line": "3037"
+        },
+        "start": {
+          "col": "2",
+          "file": "cp-demangle.c",
+          "line": "3037"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "cp-demangle.c",
+        "line": "3037"
+      },
+      "start": {
+        "col": "7",
+        "file": "cp-demangle.c",
+        "line": "3036"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "cp-demangle.c",
+        "line": "3016",
+        "order": 1,
+        "val": "dim"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_parse_integer",
+      "param": [
+        64,
+        64,
+        8
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1136",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2597,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "d-demangle.c",
+          "line": "1204"
+        },
+        "start": {
+          "col": "2",
+          "file": "d-demangle.c",
+          "line": "1204"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "d-demangle.c",
+        "line": "1204"
+      },
+      "start": {
+        "col": "7",
+        "file": "d-demangle.c",
+        "line": "1203"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "d-demangle.c",
+        "line": "1136",
+        "order": 1,
+        "val": "mangled"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_identifier",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 9,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1023",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "1010",
+        "order": 6,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 2593,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "1026"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "1026"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "1026"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "1025"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "d-demangle.c",
+        "line": "1023",
+        "order": 1,
+        "val": "endptr"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "17",
+        "file": "d-demangle.c",
+        "line": "1010",
+        "order": 6,
+        "val": "len"
+      },
+      {
+        "order": 7,
+        "val": "=="
+      },
+      {
+        "order": 8,
+        "val": "0"
+      },
+      {
+        "order": 9,
+        "val": "return"
+      },
+      {
+        "order": 10,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "cp-demangle.c",
+    "func": {
+      "name": "d_expression_1",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "cp-demangle.c",
+        "line": "3431",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "code"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 11852,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "15",
+          "file": "cp-demangle.c",
+          "line": "3498"
+        },
+        "start": {
+          "col": "8",
+          "file": "cp-demangle.c",
+          "line": "3498"
+        }
+      },
+      "end": {
+        "col": "15",
+        "file": "cp-demangle.c",
+        "line": "3498"
+      },
+      "start": {
+        "col": "6",
+        "file": "cp-demangle.c",
+        "line": "3497"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "cp-demangle.c",
+        "line": "3431",
+        "order": 1,
+        "val": "code"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/binutils-gdb/libiberty",
+    "fileName": "d-demangle.c",
+    "func": {
+      "name": "dlang_type_backref",
+      "param": [
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "d-demangle.c",
+        "line": "406",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "backref"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 2592,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "d-demangle.c",
+          "line": "428"
+        },
+        "start": {
+          "col": "5",
+          "file": "d-demangle.c",
+          "line": "428"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "d-demangle.c",
+        "line": "428"
+      },
+      "start": {
+        "col": "3",
+        "file": "d-demangle.c",
+        "line": "427"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "d-demangle.c",
+        "line": "406",
+        "order": 1,
+        "val": "backref"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  }
+]
