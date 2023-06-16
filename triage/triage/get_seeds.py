@@ -14,7 +14,11 @@ def get_seeds(seed_type: str, helper: ConfigHelper) -> list:
     corpus_store = CORPUS_QUEUE_STORE if seed_type == 'queue' else CORPUS_CRASH_STORE
     for benchmark in helper.benchmarks():
         for fuzzer in helper.fuzzers():
-            for trial in helper.trials(benchmark, fuzzer):
+            trials = helper.trials(benchmark, fuzzer)
+            if len(trials) != helper.num_trials():
+                logging.warning(f'{benchmark}-{fuzzer}: config file specifies {helper.num_trials()} trials '
+                                f'but the experiment has {len(trials)}')
+            for trial in trials:
                 queues = corpus_store[fuzzer]
                 trial_seeds = []
                 for queue in queues:

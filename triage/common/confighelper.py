@@ -28,6 +28,8 @@ class ConfigHelper:
         self.__benchmarks = list(config['benchmarks'].keys())
         self.__fuzzers = list(config['fuzzers'].keys())
         self.__cores = int(config.get('values', 'cores'))
+        self.__timeout = int(config.get('values', 'timeout'))
+        self.__num_trials = int(config.get('values', 'trials'))
 
         self.__fuzz_targets = self.__get_fuzz_targets(self.__benchmarks)
 
@@ -43,8 +45,14 @@ class ConfigHelper:
     def raw_data_dir(self) -> str:
         return self.__raw_data_dir
 
+    def out_dir(self) -> str:
+        return self.__out_dir
+
     def cores(self) -> int:
         return self.__cores
+
+    def timeout(self) -> int:
+        return self.__timeout
 
     def exps(self) -> list:
         return self.__exps
@@ -70,6 +78,9 @@ class ConfigHelper:
     def trials(self, benchmark: str, fuzzer: str) -> list:
         paths.error_if_not_exist(self.bf_data_dir(benchmark, fuzzer), 'cannot extract trial names')
         return os.listdir(self.bf_data_dir(benchmark, fuzzer))
+
+    def num_trials(self) -> int:
+        return self.__num_trials
 
     def benchmark_triage_bin_dir(self, benchmark: str) -> str:
         return join(self.__work_dir, 'triage_binaries', benchmark)
