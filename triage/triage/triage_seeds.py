@@ -54,7 +54,7 @@ def triage_worker(seed: dict, helper: ConfigHelper, seed_type: str) -> dict:
     # Turn off logging of any injections.
     seed_env["FIXREVERTER"] = 'on '
     non_inj_res = execute_seed(args, seed_env, helper.tmp_running_dir(worker_name))
-    # this bug is not caused by FixReverter injections.
+    # This bug is not caused by FixReverter injections.
     if non_inj_res.retcode:
         seed['crashes'] = []
     else:
