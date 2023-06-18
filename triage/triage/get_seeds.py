@@ -3,8 +3,17 @@ import re
 import logging
 
 from common.confighelper import ConfigHelper
-from utils.common import CORPUS_QUEUE_STORE, CORPUS_CRASH_STORE
 
+CORPUS_QUEUE_STORE = {'aflplusplus': ['default/queue'],
+                      'afl': ['queue'],
+                      'libfuzzer': ['corpus'],
+                      'eclipser': ['afl-worker/queue', 'eclipser_output/queue'],
+                      'fairfuzz': ['queue']}
+CORPUS_CRASH_STORE = {'aflplusplus': ['default/crashes'],
+                      'afl': ['crashes'],
+                      'libfuzzer': ['crashes'],
+                      'eclipser': ['afl-worker/crashes', 'eclipser_output/crashes'],
+                      'fairfuzz': ['crashes']}
 
 # Returns seeds organized by trial.
 def get_seeds(seed_type: str, helper: ConfigHelper) -> list:
