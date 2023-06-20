@@ -5,6 +5,7 @@ import sys
 
 from analysis.coverage_table import coverage_table
 from analysis.growth_plot import growth_plot
+from analysis.venn_diagram import venn_diagram
 from triage.triage_seeds import triage_seeds
 
 # Add the triage folder to PATH.
@@ -61,6 +62,7 @@ def main():
     if args.report:
         coverage_table(helper)
         growth_plot(helper)
+        venn_diagram(helper)
 
 
 if __name__ == '__main__':

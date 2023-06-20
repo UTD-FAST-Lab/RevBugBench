@@ -1,91 +1,34 @@
-import sys
-import pandas as pd
-import os
+import json
 import logging
 import matplotlib
-import pickle
-matplotlib.use('Agg')
+import os
 
-import include.pyvenn.venn as venn
+from analysis.utils import TYPE_KEYS
+from common.confighelper import ConfigHelper
+from include.pyvenn import venn
 
-matplotlib.pyplot.rc('font', size=12)
+# matplotlib.use('Agg')
+# matplotlib.pyplot.rc('font', size=12)
 
-fuzzer_names = {
-    'afl': 'AFL',
-    'aflplusplus': 'AFL++',
-    'eclipser': 'Eclipser',
-    'fairfuzz': 'FairFuzz',
-    'libfuzzer': 'LibFuzzer'
-  }
-
-def draw_venn_graph(out_dir, fuzzers, programs):
-  single_crash_sets = []
-
-  for fuzzer in fuzzers:
-    fuzzer_indi_set = set()
-    for program in programs:
-      prog_out_dir = os.path.join(out_dir, program)
-      target_out_dir = os.path.join(prog_out_dir, fuzzer)
-      with open(os.path.join(target_out_dir, 'crash_seeds.pickle'), 'rb') as f:
-        crash_seeds_by_trial = pickle.load(f)
-
-      for trial_name, seeds in crash_seeds_by_trial.items():
-        for seed in seeds:
-          for crashset in seed['min_crashsets']:
-            if len(crashset) == 1:
-              fuzzer_indi_set.add(f'{program}:{crashset[0]}')
-
-    single_crash_sets.append(fuzzer_indi_set)
-
-  print(single_crash_sets)
-  unique_keys = set.union(*single_crash_sets)
-  print(f'total number of single causes found: {len(unique_keys)}')
-
-  labels = venn.get_labels(single_crash_sets, fill=['number'])
-  fig, ax = venn.venn5(labels, names=list(map(lambda x: fuzzer_names[x], fuzzers)))
-  fig.savefig(os.path.join(out_dir, 'total_venn.png'))
-  matplotlib.pyplot.clf()
-
-if __name__ == '__main__':
-  if len(sys.argv) != 2 or not os.path.exists(sys.argv[1]):
-    sys.exit(0)
-  csv_path = sys.argv[1]
-
-  df = pd.read_csv(csv_path)
-
-  logging.basicConfig(stream=sys.stderr, level=logging.INFO)
-
-  programs = df['benchmark'].unique()
-  fuzzers = df['fuzzer'].unique()
-
-  single_crash_sets = []
-  for fuzzer in fuzzers:
-    single_crashes = set()
-    for prog in programs:
-      logging.info(f'collecting single causes of {prog} - {fuzzer}')
-
-      program_fuzzer_filter = (df['benchmark'] == prog) & (df['fuzzer'] == fuzzer)
-      program_fuzzer_df = df[program_fuzzer_filter]
-
-      trials = program_fuzzer_df['trial_id'].unique()
-
-      for trial in trials:
-        trial_filter = program_fuzzer_df['trial_id'] == trial
-        trial_df = program_fuzzer_df[trial_filter]
-
-        crash_df = trial_df.dropna(subset=['fr_crashes']).assign(fr_crash_key=trial_df['fr_crashes'].str.split(',')).explode('fr_crash_key')
-        unique_crash_keys = crash_df['fr_crash_key'].dropna().unique()
-
-        single_crash_keys = set()
-        for key in unique_crash_keys:
-          comma_split = key.split('+')
-          if len(comma_split) == 1:
-            single_crashes.add(f'{prog}:{int(comma_split[0])}')
-
-    single_crash_sets.append(single_crashes)
-
-  print(single_crash_sets)
-  unique_keys = set.union(*single_crash_sets)
-  print(f'total number of single causes found: {len(unique_keys)}')
-
-
+def venn_diagram(helper: ConfigHelper, interest: str='single_cause') -> None:
+    if len(helper.fuzzers()) != 5:
+        logging.error('the number of fuzzers has to be 5 to draw the 5-way venn diagram')
+        exit(0)
+    id_sets = {f: set() for f in helper.fuzzers()}
+    for fuzzer in helper.fuzzers():
+        for benchmark in helper.benchmarks():
+            for trial in helper.trials(benchmark, fuzzer):
+                with open(helper.parsed_seeds_store(benchmark, fuzzer, trial, 'crash'), 'r') as f:
+                    crashed_seeds = json.load(f)
+                for seed in crashed_seeds:
+                    for id_list in seed[TYPE_KEYS[interest]]:
+                        if interest == 'single_cause' and len(id_list) != 1:
+                            continue
+                        id_sets[fuzzer] |= set([(benchmark, i) for i in id_list])
+    logging.info(f'number of unique {interest}: {len(set.union(*id_sets.values()))}')
+    fuzzers = list(id_sets.keys())
+    data = [id_sets[f] for f in fuzzers]
+    labels = venn.get_labels(data, fill=['number'])
+    fig, ax = venn.venn5(labels, names=fuzzers, fontsize=12, figsize=(14, 12))
+    fig.savefig(os.path.join(helper.out_dir(), 'venn_diagram.png'))
+    matplotlib.pyplot.clf()
