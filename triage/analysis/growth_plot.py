@@ -19,6 +19,7 @@ import seaborn as sns
 import pandas as pd
 import os
 
+from analysis.utils import TYPE_KEYS
 from common.confighelper import ConfigHelper
 
 _DEFAULT_TICKS_COUNT = 12
@@ -187,30 +188,25 @@ def generate_df(helper: ConfigHelper,
                 interest: str= 'single_cause') -> pd.DataFrame:
     ticks = range(0, int(helper.timeout()*3600)+REPORT_INTERVAL, REPORT_INTERVAL)
     rows = []
-    type_keys = {'single_cause': 'crashes',
-                 'all_cause': 'crashes',
-                 'reach': 'reaches',
-                 'trigger': 'triggers'}
 
     for benchmark in helper.benchmarks():
         for fuzzer in helper.fuzzers():
             for trial in helper.trials(benchmark, fuzzer):
                 with open(helper.parsed_seeds_store(benchmark, fuzzer, trial, 'crash'), 'r') as f:
                     crashed_seeds = json.load(f)
-                vals_by_time = {t: set() for t in ticks}
+                ids_by_time = {t: set() for t in ticks}
                 for seed in crashed_seeds:
                     # Map to the smallest tick that is larger than the seed generation time.
                     tick = min(int(seed['time'] / REPORT_INTERVAL + 1) * REPORT_INTERVAL, ticks[-1])
-                    print(int(seed['time'] / REPORT_INTERVAL))
-                    for val_list in seed[type_keys[interest]]:
-                        if interest == 'single_cause' and len(val_list) != 1:
+                    for id_list in seed[TYPE_KEYS[interest]]:
+                        if interest == 'single_cause' and len(id_list) != 1:
                             continue
-                        vals_by_time[tick] |= set(val_list)
+                        ids_by_time[tick] |= set(id_list)
                 # Vals of a tick should contain all vals in preceding ticks.
                 for i in range(1, len(ticks)):
-                    vals_by_time[ticks[i]] |= vals_by_time[ticks[i-1]]
+                    ids_by_time[ticks[i]] |= ids_by_time[ticks[i-1]]
                 for tick in ticks:
-                  rows.append([benchmark, fuzzer, tick, trial, len(vals_by_time[tick])])
+                  rows.append([benchmark, fuzzer, tick, trial, len(ids_by_time[tick])])
 
     df = pd.DataFrame(rows, columns=['benchmark', 'fuzzer', 'time', 'trial', interest])
     df = df.sort_values(['fuzzer', 'benchmark', 'trial', 'time']).drop(columns=['trial'])
@@ -223,7 +219,7 @@ def generate_df(helper: ConfigHelper,
 
 def growth_plot(helper: ConfigHelper,
                 interest='single_cause') -> None:
-    df = generate_df(helper)
+    df = generate_df(helper, interest)
     _write_plot_to_image(draw, df, helper,
                          os.path.join(helper.out_dir(), f'{interest}_growth.png'),
                          wide=True,
