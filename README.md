@@ -71,6 +71,7 @@ For each benchmark to triage, build the triage binary image by
 ```
 make -f triage.mk .fr_triage_driver-[benchmark name]-builder
 ```
+The triage script will then use the built image to extract triage binaries.
 
 ### Command-line Options
 The main script to run the triage is [main.py](/triage/main.py).
