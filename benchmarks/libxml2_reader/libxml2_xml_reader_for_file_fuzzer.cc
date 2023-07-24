@@ -1,5 +1,5 @@
 #ifdef FRCOV
-#define FIXREVERTER_SIZE 4921
+#define FIXREVERTER_SIZE 4734
 short FIXREVERTER[FIXREVERTER_SIZE];
 #endif
 // Copyright 2018 Google Inc.
