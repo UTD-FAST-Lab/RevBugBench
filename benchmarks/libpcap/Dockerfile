@@ -14,7 +14,7 @@
 #
 ################################################################################
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:b112cfb8b4adbb796643f42f8ba40b92962912893f64d617b2706d51c1bd1a53
+FROM gcr.io/oss-fuzz-base/base-builder@sha256:87ca1e9e19235e731fac8de8d1892ebe8d55caf18e7aa131346fc582a2034fdd
 RUN apt-get update && apt-get install -y make cmake flex bison
 
 RUN git clone https://github.com/the-tcpdump-group/libpcap.git $SRC/libpcap && git -C $SRC/libpcap checkout -f d615abec7e0237299250c409dca23effb8dd36cc
