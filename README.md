@@ -6,9 +6,9 @@ See our paper [FIXREVERTER: A Realistic Bug Injection Methodology for Benchmarki
 This repository consists of 5 directories, and each of them will be introduced in the following sections.
 
 ## fuzzbench
-**RevBugBench** was developed on FuzzBench commit 65297c4c76e63cbe4025f1ce7abc1e89b7a1566c. 
+**RevBugBench** currently supports FuzzBench commit 7c70037a73d2cc66627c6109d53d20b3594f85c9. 
 The [diff file](/fuzzbench/revbugbench.patch) shows the modifications made by RevBugBench. 
-The following commands on will apply the changes.
+The following commands will apply the changes.
 ```
 cd [path/to/fuzzbench]
 git checkout 65297c4c76e63cbe4025f1ce7abc1e89b7a1566c
