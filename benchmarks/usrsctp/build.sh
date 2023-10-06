@@ -18,9 +18,9 @@
 git apply ../fr_injection.patch
 # add FRCOV flag if building coverage
 if [[ -z "${FR_COV_BUILD}" ]]; then
-  cmake -Dsctp_build_programs=0 -Dsctp_debug=0 -Dsctp_invariants=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo .
+  cmake -Dsctp_build_programs=0 -Dsctp_debug=0 -Dsctp_invariants=1 -DCMAKE_C_FLAGS="-Wno-error=unused-but-set-variable" -DCMAKE_CXX_FLAGS="-Wno-error=unused-but-set-variable" -DCMAKE_BUILD_TYPE=RelWithDebInfo .
 else
-  cmake -Dsctp_build_programs=0 -Dsctp_debug=0 -Dsctp_invariants=1 -DCMAKE_C_FLAGS=-DFRCOV -DCMAKE_CXX_FLAGS=-DFRCOV -DCMAKE_BUILD_TYPE=RelWithDebInfo .
+  cmake -Dsctp_build_programs=0 -Dsctp_debug=0 -Dsctp_invariants=1 -DCMAKE_C_FLAGS="-DFRCOV -Wno-error=unused-but-set-variable" -DCMAKE_CXX_FLAGS="-DFRCOV -Wno-error=unused-but-set-variable" -DCMAKE_BUILD_TYPE=RelWithDebInfo .
 fi
 
 make

@@ -1,30 +1,5 @@
-diff --git a/experiment/build/builder.py b/experiment/build/builder.py
-index 706992c..a0ec5c9 100644
---- a/experiment/build/builder.py
-+++ b/experiment/build/builder.py
-@@ -40,7 +40,7 @@ else:
- # FIXME: Use 10 as default quota.
- # Even though it says queueing happen, we end up exceeding limits on "get", so
- # be conservative. Use 30 for now since this is limit for FuzzBench service.
--DEFAULT_MAX_CONCURRENT_BUILDS = 30
-+DEFAULT_MAX_CONCURRENT_BUILDS = 5
- 
- # Build fail retries and wait interval.
- NUM_BUILD_RETRIES = 3
-diff --git a/experiment/build/local_build.py b/experiment/build/local_build.py
-index 1f6fd38..282caa8 100644
---- a/experiment/build/local_build.py
-+++ b/experiment/build/local_build.py
-@@ -32,7 +32,6 @@ def make(targets):
-     command = ['make', '-j'] + targets
-     return new_process.execute(command, cwd=utils.ROOT_DIR)
- 
--
- def build_base_images() -> Tuple[int, str]:
-     """Build base images locally."""
-     return make(['base-image', 'worker'])
 diff --git a/experiment/measurer/run_coverage.py b/experiment/measurer/run_coverage.py
-index 4f83d8a..f7419e7 100644
+index 05fb2a1c..2f5ec67b 100644
 --- a/experiment/measurer/run_coverage.py
 +++ b/experiment/measurer/run_coverage.py
 @@ -32,10 +32,10 @@ EXIT_BUFFER = 15
@@ -39,22 +14,9 @@ index 4f83d8a..f7419e7 100644
 +MAX_TOTAL_TIME = 90
  
  
- def find_crashing_units(artifacts_dir: str) -> List[str]:
-diff --git a/experiment/resources/runner-startup-script-template.sh b/experiment/resources/runner-startup-script-template.sh
-index 00945fd..8fa18a6 100644
---- a/experiment/resources/runner-startup-script-template.sh
-+++ b/experiment/resources/runner-startup-script-template.sh
-@@ -35,7 +35,7 @@ do
- done{% endif %}
- 
- docker run \
----privileged --cpus={{num_cpu_cores}} --rm \
-+--privileged --cpus={{num_cpu_cores}} \
- -e INSTANCE_NAME={{instance_name}} \
- -e FUZZER={{fuzzer}} \
- -e BENCHMARK={{benchmark}} \
+ def do_coverage_run(  # pylint: disable=too-many-locals
 diff --git a/fuzzers/coverage/fuzzer.py b/fuzzers/coverage/fuzzer.py
-index bb2fad3..f6cd1e7 100644
+index bb2fad34..f6cd1e77 100644
 --- a/fuzzers/coverage/fuzzer.py
 +++ b/fuzzers/coverage/fuzzer.py
 @@ -21,7 +21,7 @@ from fuzzers import utils
