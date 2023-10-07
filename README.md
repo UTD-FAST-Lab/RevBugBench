@@ -11,7 +11,7 @@ The [diff file](/fuzzbench/revbugbench.patch) shows the modifications made by Re
 The following commands will apply the changes.
 ```
 cd [path/to/fuzzbench]
-git checkout 65297c4c76e63cbe4025f1ce7abc1e89b7a1566c
+git checkout 7c70037a73d2cc66627c6109d53d20b3594f85c9
 git apply [path/to/the/diff/file]
 ```
 The changes in the diff file can also be manually ported the the lastest verion of FuzzBench.
