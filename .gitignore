@@ -1,3 +1,5 @@
 triage/.idea
 *.pyc
 triage/venv/
+fuzzbench/fuzzbench/
+triage/FUZZER_SUPPORT.md

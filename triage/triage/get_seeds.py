@@ -6,14 +6,22 @@ from common.confighelper import ConfigHelper
 
 CORPUS_QUEUE_STORE = {'aflplusplus': ['default/queue'],
                       'afl': ['queue'],
+                      'aflfast': ['queue'],
+                      'aflsmart': ['queue'],
+                      'mopt': ['queue'],
                       'libfuzzer': ['corpus'],
                       'eclipser': ['afl-worker/queue', 'eclipser_output/queue'],
-                      'fairfuzz': ['queue']}
+                      'fairfuzz': ['queue'],
+                      'honggfuzz': ['corpus']}
 CORPUS_CRASH_STORE = {'aflplusplus': ['default/crashes'],
                       'afl': ['crashes'],
+                      'aflfast': ['crashes'],
+                      'aflsmart': ['crashes'],
+                      'mopt': ['crashes'],
                       'libfuzzer': ['crashes'],
                       'eclipser': ['afl-worker/crashes', 'eclipser_output/crashes'],
-                      'fairfuzz': ['crashes']}
+                      'fairfuzz': ['crashes'],
+                      'honggfuzz': ['crashes']}
 
 # Returns seeds organized by trial.
 def get_seeds(seed_type: str, helper: ConfigHelper) -> list:
@@ -50,7 +58,7 @@ def get_seeds(seed_type: str, helper: ConfigHelper) -> list:
                         trial_seeds.append(seed)
                         time_match = re.search(fr'time:(\d+)', seed_name)
                         if time_match:
-                            if fuzzer == 'aflplusplus':
+                            if fuzzer == 'aflplusplus' or fuzzer == 'aflsmart':
                                 seed['time'] = int(time_match.group(1)) / 1000
                             else:
                                 logging.error(f'unsupported time in seed name with fuzzer {fuzzer}')

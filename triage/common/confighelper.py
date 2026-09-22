@@ -69,6 +69,9 @@ class ConfigHelper:
     def data_dir(self) -> str:
         return join(self.__work_dir, 'data')
 
+    def work_dir(self) -> str:
+        return self.__work_dir
+
     def bf_data_dir(self, benchmark: str, fuzzer: str) -> str:
         return join(self.data_dir(), benchmark, fuzzer)
 
@@ -87,6 +90,9 @@ class ConfigHelper:
 
     def benchmark_triage_binary(self, benchmark: str) -> str:
         return join(self.benchmark_triage_bin_dir(benchmark), self.__fuzz_targets[benchmark])
+
+    def edge_coverage_dir(self, benchmark: str, fuzzer: str, trial_name: str) -> str:
+        return join(self.__work_dir, 'edge-coverage', benchmark, fuzzer, trial_name)
 
     def parsed_seeds_store(self, benchmark: str, fuzzer: str, trial_name: str, seed_type: str) -> str:
         store_dir = join(self.__work_dir, 'parsed_seeds', benchmark, fuzzer)

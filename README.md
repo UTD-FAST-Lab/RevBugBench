@@ -84,6 +84,10 @@ Run the triage binaries on fuzzing results and produce triage results.
 It needs to be executed before --report.
 #### --report / -r
 Summarize triage results and generate performance plots/tables/figures on out directory.
+#### --edge-coverage / -e
+Retrieve coverage binaries, run them on queue and crash inputs, and generate per-seed-type LLVM coverage profiles and JSON reports.
+#### --edge-coverage-report / -j
+Merge existing queue and crash LLVM coverage profiles into a combined coverage profile and generate the final JSON coverage report without rerunning inputs.
 #### --config / -c
 Path to the config file, default to `[path/to/revbugbench]/triage/config.ini`.
 
@@ -93,6 +97,8 @@ Running the triage tasks in sequence will generate the performance plots/tables/
 cd [path/to/revbugbench/triage]
 PYTHONPATH=. python3 main.py -c [path/to/config/file] -s
 PYTHONPATH=. python3 main.py -c [path/to/config/file] -t
+PYTHONPATH=. python3 main.py -c [path/to/config/file] -e
+PYTHONPATH=. python3 main.py -c [path/to/config/file] -j
 PYTHONPATH=. python3 main.py -c [path/to/config/file] -r
 ```
 

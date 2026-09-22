@@ -6,6 +6,7 @@ import sys
 from analysis.coverage_table import coverage_table
 from analysis.growth_plot import growth_plot
 from analysis.venn_diagram import venn_diagram
+from edge_coverage.edge_coverage import calculate_edge_coverage, generate_edge_coverage_reports
 from triage.triage_seeds import triage_seeds
 
 # Add the triage folder to PATH.
@@ -31,6 +32,16 @@ def parse_args():
     parser.add_argument('-r',
                         '--report',
                         help='Generate performance plots/tables/figures on out directory.',
+                        required=False,
+                        action='store_true')
+    parser.add_argument('-e',
+                        '--edge-coverage',
+                        help='Calculate edge coverage.',
+                        required=False,
+                        action='store_true')
+    parser.add_argument('-j',
+                        '--edge-coverage-report',
+                        help='Generate JSON reports from existing edge coverage profiles.',
                         required=False,
                         action='store_true')
     parser.add_argument('-c',
@@ -63,6 +74,10 @@ def main():
         coverage_table(helper)
         growth_plot(helper)
         venn_diagram(helper)
+    if args.edge_coverage:
+        calculate_edge_coverage(helper)
+    if args.edge_coverage_report:
+        generate_edge_coverage_reports(helper)
 
 
 if __name__ == '__main__':
