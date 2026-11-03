@@ -3,7 +3,7 @@ import logging
 import matplotlib
 import os
 
-from analysis.utils import TYPE_KEYS
+from analysis.utils import TYPE_KEYS, report_trials
 from common.confighelper import ConfigHelper
 from include.pyvenn import venn
 
@@ -17,7 +17,7 @@ def venn_diagram(helper: ConfigHelper, interest: str='single_cause') -> None:
     id_sets = {f: set() for f in helper.fuzzers()}
     for fuzzer in helper.fuzzers():
         for benchmark in helper.benchmarks():
-            for trial in helper.trials(benchmark, fuzzer):
+            for trial in report_trials(benchmark, fuzzer, helper):
                 with open(helper.parsed_seeds_store(benchmark, fuzzer, trial, 'crash'), 'r') as f:
                     crashed_seeds = json.load(f)
                 for seed in crashed_seeds:

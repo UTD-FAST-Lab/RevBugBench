@@ -7,6 +7,7 @@ import os
 import statistics
 
 from prettytable import PrettyTable
+from analysis.utils import report_trials
 from common.confighelper import ConfigHelper
 
 PATTERNS = ['COND_ABORT', 'COND_EXEC', 'COND_ASSIGN']
@@ -38,7 +39,7 @@ def trial_coverage(benchmark: str, fuzzer: str, helper: ConfigHelper) -> dict:
             return None
         return pattern
 
-    for trial in helper.trials(benchmark, fuzzer):
+    for trial in report_trials(benchmark, fuzzer, helper):
         summary = CoverageSummary({p: set() for p in EXTENDED_PATTERNS},
                                   {p: set() for p in EXTENDED_PATTERNS},
                                   {p: set() for p in EXTENDED_PATTERNS},

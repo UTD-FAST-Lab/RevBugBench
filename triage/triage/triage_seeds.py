@@ -27,9 +27,14 @@ def triage_seeds(helper: ConfigHelper, seed_type: str) -> None:
     logging.info(f'store {seed_type} seeds to parsed_seeds')
 
     # seeds is contiguous w.r.t (fuzzer, benchmark).
-    for k, v in itertools.groupby(seeds, lambda x: (x['benchmark'], x['fuzzer'], x['trial'])):
-        with open(helper.parsed_seeds_store(k[0], k[1], k[2], seed_type), 'w+') as f:
-            json.dump(list(v), f, indent=2)
+    grouped = {k: list(v) for k, v in
+               itertools.groupby(seeds, lambda x: (x['benchmark'], x['fuzzer'], x['trial']))}
+    # Write a store for every trial, even one without seeds, so no stale store from a previous run survives.
+    for benchmark in helper.benchmarks():
+        for fuzzer in helper.fuzzers():
+            for trial in helper.trials(benchmark, fuzzer):
+                with open(helper.parsed_seeds_store(benchmark, fuzzer, trial, seed_type), 'w+') as f:
+                    json.dump(grouped.get((benchmark, fuzzer, trial), []), f, indent=2)
 
 
 def triage_worker(seed: dict, helper: ConfigHelper, seed_type: str) -> dict:

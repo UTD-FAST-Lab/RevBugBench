@@ -14,6 +14,7 @@ def extract_fuzzing_result(benchmark: str, fuzzer: str, exp_name: str, helper: C
     bf_data_dir = helper.bf_data_dir(benchmark, fuzzer)
     common.paths.rm_before_mkdir(bf_data_dir)
     fuzzbench_data_dir = setup.utils.fuzzbench_data_dir(helper.raw_data_dir(), exp_name, benchmark, fuzzer)
+    failed_archives = []
     for trial_name in os.listdir(fuzzbench_data_dir):
         fuzzbench_corpus_dir = os.path.join(fuzzbench_data_dir, trial_name, 'corpus')
         archives = []
@@ -28,5 +29,17 @@ def extract_fuzzing_result(benchmark: str, fuzzer: str, exp_name: str, helper: C
         trial_data_dir = helper.trial_data_dir(benchmark, fuzzer, trial_name)
         common.paths.mkdir(trial_data_dir)
         for _, file_name in archives:
-            with tarfile.open(os.path.join(fuzzbench_corpus_dir, file_name)) as tar:
-                tar.extractall(path=trial_data_dir)
+            archive_path = os.path.join(fuzzbench_corpus_dir, file_name)
+            try:
+                with tarfile.open(archive_path) as tar:
+                    tar.extractall(path=trial_data_dir)
+            except (EOFError, OSError, tarfile.TarError) as error:
+                failed_archives.append(archive_path)
+                logging.error('failed to extract corpus archive %s: %s',
+                              archive_path, error)
+
+    logging.info('%s-%s: skipped %d faulty corpus archives',
+                 benchmark, fuzzer, len(failed_archives))
+    for archive_path in failed_archives:
+        logging.info('%s-%s: skipped faulty archive %s',
+                     benchmark, fuzzer, archive_path)

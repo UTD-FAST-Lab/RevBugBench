@@ -19,7 +19,7 @@ import seaborn as sns
 import pandas as pd
 import os
 
-from analysis.utils import TYPE_KEYS
+from analysis.utils import TYPE_KEYS, report_trials
 from common.confighelper import ConfigHelper
 
 _DEFAULT_TICKS_COUNT = 12
@@ -191,7 +191,7 @@ def generate_df(helper: ConfigHelper,
 
     for benchmark in helper.benchmarks():
         for fuzzer in helper.fuzzers():
-            for trial in helper.trials(benchmark, fuzzer):
+            for trial in report_trials(benchmark, fuzzer, helper):
                 with open(helper.parsed_seeds_store(benchmark, fuzzer, trial, 'crash'), 'r') as f:
                     crashed_seeds = json.load(f)
                 ids_by_time = {t: set() for t in ticks}
