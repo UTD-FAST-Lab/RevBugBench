@@ -35,3 +35,18 @@ index bb2fad34..f6cd1e77 100644
 +    os.environ['FR_COV_BUILD'] = '1'
  
      utils.build_benchmark()
+diff --git a/fuzzers/honggfuzz/fuzzer.py b/fuzzers/honggfuzz/fuzzer.py
+index 7a75a17f..447fcd71 100644
+--- a/fuzzers/honggfuzz/fuzzer.py
++++ b/fuzzers/honggfuzz/fuzzer.py
+@@ -48,6 +48,10 @@ def fuzz(input_corpus, output_corpus, target_binary):
+     command = [
+         './honggfuzz',
+         '--persistent',
++        # Honggfuzz defaults to one thread per visible CPU. Local runners see
++        # every host core, so pin to one thread like a 1-core FuzzBench VM.
++        '--threads',
++        '1',
+         '--rlimit_rss',
+         '2048',
+         '--sanitizers_del_report=true',

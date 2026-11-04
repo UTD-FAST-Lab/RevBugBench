@@ -42,10 +42,16 @@ The triage driver is compatible with FuzzBench fuzzers, and will be built automa
 This folder contains the scripts for triage.
 
 ### Prerequisites
-The triage scripts are developed with python 3.9.0. The [requirements.txt](/triage/requirements.txt) specifies packages used by the scripts. To install them, run with
+The triage scripts run with python 3.9 or 3.10. The [requirements.txt](/triage/requirements.txt) specifies packages used by the scripts.
+Install them in a virtual environment dedicated to triage:
 ```
-pip install -r requirements.txt
+cd [path/to/revbugbench]/triage
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
 ```
+Do not reuse FuzzBench's `.venv`. It pins an older `docker` package that cannot connect to the Docker daemon alongside current `requests`/`urllib3` releases, which makes `--setup` fail when extracting triage binaries.
+
+The `--edge-coverage` and `--edge-coverage-report` tasks also need `llvm-profdata` on `PATH`.
 ### Config
 Before running the scripts, a config file needs to be first set up.
 The [example config](/triage/config.ini) lists all the necessary configs with explanations in the comments.
@@ -95,12 +101,21 @@ Path to the config file, default to `[path/to/revbugbench]/triage/config.ini`.
 Running the triage tasks in sequence will generate the performance plots/tables/figures.
 ```
 cd [path/to/revbugbench/triage]
-PYTHONPATH=. python3 main.py -c [path/to/config/file] -s
-PYTHONPATH=. python3 main.py -c [path/to/config/file] -t
-PYTHONPATH=. python3 main.py -c [path/to/config/file] -e
-PYTHONPATH=. python3 main.py -c [path/to/config/file] -j
-PYTHONPATH=. python3 main.py -c [path/to/config/file] -r
+PYTHONPATH=. .venv/bin/python3 main.py -c [path/to/config/file] -s
+PYTHONPATH=. .venv/bin/python3 main.py -c [path/to/config/file] -t
+PYTHONPATH=. .venv/bin/python3 main.py -c [path/to/config/file] -e
+PYTHONPATH=. .venv/bin/python3 main.py -c [path/to/config/file] -j
+PYTHONPATH=. .venv/bin/python3 main.py -c [path/to/config/file] -r
 ```
+Several tasks can be passed to one call, but `main.py` always runs them in the order setup, triage, report, edge coverage, edge coverage report.
+`--report` needs the `coverage.json` produced by `-j`, and skips trials without it. So run `-r` in a separate call after `-j`:
+```
+PYTHONPATH=. .venv/bin/python3 main.py -c [path/to/config/file] -s -t -e -j
+PYTHONPATH=. .venv/bin/python3 main.py -c [path/to/config/file] -r
+```
+Triage can take hours. Run it inside `tmux` or `screen` so that it survives a closed terminal or a dropped SSH session.
+
+The report writes its per-trial table to `[outDir]/[experiment names]_bug_table.csv`. Tables from different experiments therefore do not overwrite each other.
 
 # Cite
 Please consider citing our USENIX Security 2022 paper if you use FixReverter/RevBugBench in your academic work:

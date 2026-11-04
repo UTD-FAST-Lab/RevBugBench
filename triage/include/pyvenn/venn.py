@@ -1,6 +1,9 @@
 # coding: utf-8
 from itertools import chain
-from collections import Iterable
+try:
+    from collections.abc import Iterable
+except ImportError:
+    from collections import Iterable
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib import colors
