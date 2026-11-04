@@ -17,7 +17,11 @@
 FROM gcr.io/oss-fuzz-base/base-builder@sha256:87ca1e9e19235e731fac8de8d1892ebe8d55caf18e7aa131346fc582a2034fdd
 RUN apt-get update && apt-get install -y make cmake pkg-config
 
-RUN git clone https://github.com/weinrank/usrsctp $SRC/usrsctp && git -C $SRC/usrsctp checkout -f e08eacffd438cb0760c926fbe60ccda011f6ce70
+# The original weinrank/usrsctp fork has been deleted; the pinned commit is still
+# fetchable by SHA from the upstream sctplab/usrsctp repository.
+RUN git clone https://github.com/sctplab/usrsctp $SRC/usrsctp && \
+    git -C $SRC/usrsctp fetch origin e08eacffd438cb0760c926fbe60ccda011f6ce70 && \
+    git -C $SRC/usrsctp checkout -f e08eacffd438cb0760c926fbe60ccda011f6ce70
 
 WORKDIR usrsctp
 COPY build.sh $SRC/
