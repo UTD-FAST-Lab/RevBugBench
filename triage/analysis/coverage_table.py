@@ -130,7 +130,9 @@ def coverage_table(helper: ConfigHelper) -> None:
     for fuzzer in expanded_fuzzers:
         print(tables[fuzzer])
     print(bug_table)
-    with open(os.path.join(helper.out_dir(), 'bug_table.csv'), 'w', newline='') as csv_file:
+    # Prefix with experiment names so tables from different experiments don't overwrite each other.
+    table_name = f'{"_".join(helper.exps())}_bug_table.csv'
+    with open(os.path.join(helper.out_dir(), table_name), 'w', newline='') as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(bug_table.field_names)
         writer.writerows(bug_table.rows)
