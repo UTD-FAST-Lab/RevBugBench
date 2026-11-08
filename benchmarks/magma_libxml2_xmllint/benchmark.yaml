@@ -1,0 +1,12 @@
+commit: ec6e3efb06d7b15cf5a2328fabd3845acea4c815
+fuzz_target: xmllint
+project: libxml2
+type: bug
+unsupported_fuzzers:
+  - aflcc
+  - afl_qemu
+  - aflplusplus_qemu
+  - honggfuzz_qemu
+  - klee
+  - lafintel
+  - weizz_qemu

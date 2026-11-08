@@ -1,0 +1,3910 @@
+diff --git a/contrib/oss-fuzz/libpng_read_fuzzer.cc b/contrib/oss-fuzz/libpng_read_fuzzer.cc
+index 2064a8486..892b30087 100644
+--- a/contrib/oss-fuzz/libpng_read_fuzzer.cc
++++ b/contrib/oss-fuzz/libpng_read_fuzzer.cc
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#define FIXREVERTER_SIZE 322
++short FIXREVERTER[FIXREVERTER_SIZE];
++#endif
+ 
+ // libpng_read_fuzzer.cc
+ // Copyright 2017-2018 Glenn Randers-Pehrson
+@@ -99,7 +103,41 @@ static const int kPngHeaderSize = 8;
+ // Entry point for LibFuzzer.
+ // Roughly follows the libpng book example:
+ // http://www.libpng.org/pub/png/book/chapter13.html
++
++#ifdef FRCOV
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#endif
+ extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
++  
++  #ifdef FRCOV
++  char *fixReverterEnv = getenv("FIXREVERTER");
++  char *fixReverterToken = strtok(fixReverterEnv, " ");
++  if (fixReverterToken == NULL) {
++    for (int i = 0; i < FIXREVERTER_SIZE; i++)
++      FIXREVERTER[i] = 1;
++  } else if (!strcmp("on", fixReverterToken)) {
++    for (int i = 0; i < FIXREVERTER_SIZE; i++)
++      FIXREVERTER[i] = 0;
++    fixReverterToken = strtok(NULL, " ");
++    while (fixReverterToken != NULL) {
++      FIXREVERTER[atoi(fixReverterToken)] = 1;
++      fixReverterToken = strtok(NULL, " ");
++    }
++  } else if (!strcmp("off", fixReverterToken)) {
++    for (int i = 0; i < FIXREVERTER_SIZE; i++)
++      FIXREVERTER[i] = 1;
++    fixReverterToken = strtok(NULL, " ");
++    while (fixReverterToken != NULL) {
++      FIXREVERTER[atoi(fixReverterToken)] = 0;
++      fixReverterToken = strtok(NULL, " ");
++    }
++  } else {
++    fprintf(stderr, "[FIXREVERTER] - first token must be on or off\n");
++    exit(0);
++  }
++  #endif
+   if (size < kPngHeaderSize) {
+     return 0;
+   }
+diff --git a/png.c b/png.c
+index 869cd395c..6f14a2122 100644
+--- a/png.c
++++ b/png.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* png.c - location for general purpose libpng functions
+  *
+@@ -50,11 +57,41 @@ png_set_sig_bytes(png_structrp png_ptr, int num_bytes)
+ 
+    png_debug(1, "in png_set_sig_bytes");
+ 
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[191]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 191\n");
++     else
++       fprintf(stderr, "reached bug index 191\n");
++   }
++   if ((!FIXREVERTER[191] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
+-
+-   if (num_bytes < 0)
++      #ifdef FRCOV
++      }
++      #endif
++
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[192]) {
++     if ((num_bytes < 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 192\n");
++     else
++       fprintf(stderr, "reached bug index 192\n");
++   }
++   if ((!FIXREVERTER[192] && (num_bytes < 0 ))
++   #else
++   if (0
++   #endif
++   )
+       nb = 0;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    if (nb > 8)
+       png_error(png_ptr, "Too many bytes for PNG signature");
+@@ -389,8 +426,23 @@ png_destroy_info_struct(png_const_structrp png_ptr, png_infopp info_ptr_ptr)
+ 
+    png_debug(1, "in png_destroy_info_struct");
+ 
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[198]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 198\n");
++     else
++       fprintf(stderr, "reached bug index 198\n");
++   }
++   if ((!FIXREVERTER[198] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    if (info_ptr_ptr != NULL)
+       info_ptr = *info_ptr_ptr;
+@@ -473,8 +525,23 @@ png_free_data(png_const_structrp png_ptr, png_inforp info_ptr, png_uint_32 mask,
+ {
+    png_debug(1, "in png_free_data");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[201]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 201\n");
++     else
++       fprintf(stderr, "reached bug index 201\n");
++   }
++   if ((!FIXREVERTER[201] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+ #ifdef PNG_TEXT_SUPPORTED
+    /* Free text item num or (if num == -1) all text items */
+@@ -685,8 +752,23 @@ png_free_data(png_const_structrp png_ptr, png_inforp info_ptr, png_uint_32 mask,
+ png_voidp PNGAPI
+ png_get_io_ptr(png_const_structrp png_ptr)
+ {
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[202]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 202\n");
++     else
++       fprintf(stderr, "reached bug index 202\n");
++   }
++   if ((!FIXREVERTER[202] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return (NULL);
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    return (png_ptr->io_ptr);
+ }
+@@ -1214,8 +1296,23 @@ png_colorspace_sync_info(png_const_structrp png_ptr, png_inforp info_ptr)
+ void /* PRIVATE */
+ png_colorspace_sync(png_const_structrp png_ptr, png_inforp info_ptr)
+ {
+-   if (info_ptr == NULL) /* reduce code size; check here not in the caller */
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[208]) {
++     if ((info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 208\n");
++     else
++       fprintf(stderr, "reached bug index 208\n");
++   }
++   if ((!FIXREVERTER[208] && (info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   ) /* reduce code size; check here not in the caller */
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    info_ptr->colorspace = png_ptr->colorspace;
+    png_colorspace_sync_info(png_ptr, info_ptr);
+@@ -1283,14 +1380,134 @@ png_XYZ_from_xy(png_XYZ *XYZ, const png_xy *xy)
+     * points, but they are used to cover the possible colors).  We check
+     * xy->whitey against 5, not 0, to avoid a possible integer overflow.
+     */
+-   if (xy->redx   < 0 || xy->redx > PNG_FP_1) return 1;
+-   if (xy->redy   < 0 || xy->redy > PNG_FP_1-xy->redx) return 1;
+-   if (xy->greenx < 0 || xy->greenx > PNG_FP_1) return 1;
+-   if (xy->greeny < 0 || xy->greeny > PNG_FP_1-xy->greenx) return 1;
+-   if (xy->bluex  < 0 || xy->bluex > PNG_FP_1) return 1;
+-   if (xy->bluey  < 0 || xy->bluey > PNG_FP_1-xy->bluex) return 1;
+-   if (xy->whitex < 0 || xy->whitex > PNG_FP_1) return 1;
+-   if (xy->whitey < 5 || xy->whitey > PNG_FP_1-xy->whitex) return 1;
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[209]) {
++     if ((xy -> redx < 0 || xy -> redx > 100000 ) && !(0))
++       fprintf(stderr, "triggered bug index 209\n");
++     else
++       fprintf(stderr, "reached bug index 209\n");
++   }
++   if ((!FIXREVERTER[209] && (xy -> redx < 0 || xy -> redx > 100000 ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[210]) {
++     if ((xy -> redy < 0 || xy -> redy > 100000 - xy -> redx ) && !(0))
++       fprintf(stderr, "triggered bug index 210\n");
++     else
++       fprintf(stderr, "reached bug index 210\n");
++   }
++   if ((!FIXREVERTER[210] && (xy -> redy < 0 || xy -> redy > 100000 - xy -> redx ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[211]) {
++     if ((xy -> greenx < 0 || xy -> greenx > 100000 ) && !(0))
++       fprintf(stderr, "triggered bug index 211\n");
++     else
++       fprintf(stderr, "reached bug index 211\n");
++   }
++   if ((!FIXREVERTER[211] && (xy -> greenx < 0 || xy -> greenx > 100000 ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[212]) {
++     if ((xy -> greeny < 0 || xy -> greeny > 100000 - xy -> greenx ) && !(0))
++       fprintf(stderr, "triggered bug index 212\n");
++     else
++       fprintf(stderr, "reached bug index 212\n");
++   }
++   if ((!FIXREVERTER[212] && (xy -> greeny < 0 || xy -> greeny > 100000 - xy -> greenx ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[213]) {
++     if ((xy -> bluex < 0 || xy -> bluex > 100000 ) && !(0))
++       fprintf(stderr, "triggered bug index 213\n");
++     else
++       fprintf(stderr, "reached bug index 213\n");
++   }
++   if ((!FIXREVERTER[213] && (xy -> bluex < 0 || xy -> bluex > 100000 ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[214]) {
++     if ((xy -> bluey < 0 || xy -> bluey > 100000 - xy -> bluex ) && !(0))
++       fprintf(stderr, "triggered bug index 214\n");
++     else
++       fprintf(stderr, "reached bug index 214\n");
++   }
++   if ((!FIXREVERTER[214] && (xy -> bluey < 0 || xy -> bluey > 100000 - xy -> bluex ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[215]) {
++     if ((xy -> whitex < 0 || xy -> whitex > 100000 ) && !(0))
++       fprintf(stderr, "triggered bug index 215\n");
++     else
++       fprintf(stderr, "reached bug index 215\n");
++   }
++   if ((!FIXREVERTER[215] && (xy -> whitex < 0 || xy -> whitex > 100000 ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[216]) {
++     if ((xy -> whitey < 5 || xy -> whitey > 100000 - xy -> whitex ) && !(0))
++       fprintf(stderr, "triggered bug index 216\n");
++     else
++       fprintf(stderr, "reached bug index 216\n");
++   }
++   if ((!FIXREVERTER[216] && (xy -> whitey < 5 || xy -> whitey > 100000 - xy -> whitex ))
++   #else
++   if (0
++   #endif
++   ) return 1;
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    /* The reverse calculation is more difficult because the original tristimulus
+     * value had 9 independent values (red,green,blue)x(X,Y,Z) however only 8
+@@ -1506,8 +1723,23 @@ png_XYZ_from_xy(png_XYZ *XYZ, const png_xy *xy)
+     */
+    blue_scale = png_reciprocal(xy->whitey) - png_reciprocal(red_inverse) -
+        png_reciprocal(green_inverse);
+-   if (blue_scale <= 0)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[217]) {
++     if ((blue_scale <= 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 217\n");
++     else
++       fprintf(stderr, "reached bug index 217\n");
++   }
++   if ((!FIXREVERTER[217] && (blue_scale <= 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return 1;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+ 
+    /* And fill in the png_XYZ: */
+@@ -1592,15 +1824,23 @@ static int
+ png_colorspace_endpoints_match(const png_xy *xy1, const png_xy *xy2, int delta)
+ {
+    /* Allow an error of +/-0.01 (absolute value) on each chromaticity */
+-   if (PNG_OUT_OF_RANGE(xy1->whitex, xy2->whitex,delta) ||
+-       PNG_OUT_OF_RANGE(xy1->whitey, xy2->whitey,delta) ||
+-       PNG_OUT_OF_RANGE(xy1->redx,   xy2->redx,  delta) ||
+-       PNG_OUT_OF_RANGE(xy1->redy,   xy2->redy,  delta) ||
+-       PNG_OUT_OF_RANGE(xy1->greenx, xy2->greenx,delta) ||
+-       PNG_OUT_OF_RANGE(xy1->greeny, xy2->greeny,delta) ||
+-       PNG_OUT_OF_RANGE(xy1->bluex,  xy2->bluex, delta) ||
+-       PNG_OUT_OF_RANGE(xy1->bluey,  xy2->bluey, delta))
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[221]) {
++     if ((xy1 -> whitex < xy2 -> whitex - delta || xy1 -> whitex > xy2 -> whitex + delta || xy1 -> whitey < xy2 -> whitey - delta || xy1 -> whitey > xy2 -> whitey + delta || xy1 -> redx < xy2 -> redx - delta || xy1 -> redx > xy2 -> redx + delta || xy1 -> redy < xy2 -> redy - delta || xy1 -> redy > xy2 -> redy + delta || xy1 -> greenx < xy2 -> greenx - delta || xy1 -> greenx > xy2 -> greenx + delta || xy1 -> greeny < xy2 -> greeny - delta || xy1 -> greeny > xy2 -> greeny + delta || xy1 -> bluex < xy2 -> bluex - delta || xy1 -> bluex > xy2 -> bluex + delta || xy1 -> bluey < xy2 -> bluey - delta || xy1 -> bluey > xy2 -> bluey + delta ) && !(0))
++       fprintf(stderr, "triggered bug index 221\n");
++     else
++       fprintf(stderr, "reached bug index 221\n");
++   }
++   if ((!FIXREVERTER[221] && (xy1 -> whitex < xy2 -> whitex - delta || xy1 -> whitex > xy2 -> whitex + delta || xy1 -> whitey < xy2 -> whitey - delta || xy1 -> whitey > xy2 -> whitey + delta || xy1 -> redx < xy2 -> redx - delta || xy1 -> redx > xy2 -> redx + delta || xy1 -> redy < xy2 -> redy - delta || xy1 -> redy > xy2 -> redy + delta || xy1 -> greenx < xy2 -> greenx - delta || xy1 -> greenx > xy2 -> greenx + delta || xy1 -> greeny < xy2 -> greeny - delta || xy1 -> greeny > xy2 -> greeny + delta || xy1 -> bluex < xy2 -> bluex - delta || xy1 -> bluex > xy2 -> bluex + delta || xy1 -> bluey < xy2 -> bluey - delta || xy1 -> bluey > xy2 -> bluey + delta ))
++   #else
++   if (0
++   #endif
++   )
+       return 0;
++      #ifdef FRCOV
++      }
++      #endif
+    return 1;
+ }
+ 
+@@ -1905,9 +2145,24 @@ png_colorspace_set_sRGB(png_const_structrp png_ptr, png_colorspacerp colorspace,
+     * *not* invalidate the profile (though it still produces an error, which can
+     * be ignored.)
+     */
+-   if (intent < 0 || intent >= PNG_sRGB_INTENT_LAST)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[227]) {
++     if ((intent < 0 || intent >= 4 ) && !(0))
++       fprintf(stderr, "triggered bug index 227\n");
++     else
++       fprintf(stderr, "reached bug index 227\n");
++   }
++   if ((!FIXREVERTER[227] && (intent < 0 || intent >= 4 ))
++   #else
++   if (0
++   #endif
++   )
+       return png_icc_profile_error(png_ptr, colorspace, "sRGB",
+           (png_alloc_size_t)intent, "invalid sRGB rendering intent");
++          #ifdef FRCOV
++          }
++          #endif
+ 
+    if ((colorspace->flags & PNG_COLORSPACE_HAVE_INTENT) != 0 &&
+        colorspace->rendering_intent != intent)
+@@ -1970,9 +2225,24 @@ static int /* bool */
+ icc_check_length(png_const_structrp png_ptr, png_colorspacerp colorspace,
+     png_const_charp name, png_uint_32 profile_length)
+ {
+-   if (profile_length < 132)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[228]) {
++     if ((profile_length < 132 ) && !(0))
++       fprintf(stderr, "triggered bug index 228\n");
++     else
++       fprintf(stderr, "reached bug index 228\n");
++   }
++   if ((!FIXREVERTER[228] && (profile_length < 132 ))
++   #else
++   if (0
++   #endif
++   )
+       return png_icc_profile_error(png_ptr, colorspace, name, profile_length,
+           "too short");
++          #ifdef FRCOV
++          }
++          #endif
+    return 1;
+ }
+ 
+@@ -2023,9 +2293,24 @@ png_icc_check_header(png_const_structrp png_ptr, png_colorspacerp colorspace,
+     * this up on read or write by just passing in the profile header length.
+     */
+    temp = png_get_uint_32(profile);
+-   if (temp != profile_length)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[229]) {
++     if ((temp != profile_length ) && !(0))
++       fprintf(stderr, "triggered bug index 229\n");
++     else
++       fprintf(stderr, "reached bug index 229\n");
++   }
++   if ((!FIXREVERTER[229] && (temp != profile_length ))
++   #else
++   if (0
++   #endif
++   )
+       return png_icc_profile_error(png_ptr, colorspace, name, temp,
+           "length does not match profile");
++          #ifdef FRCOV
++          }
++          #endif
+ 
+    temp = (png_uint_32) (*(profile+8));
+    if (temp > 3 && (profile_length & 3))
+@@ -2042,9 +2327,24 @@ png_icc_check_header(png_const_structrp png_ptr, png_colorspacerp colorspace,
+     * 16 bits.
+     */
+    temp = png_get_uint_32(profile+64);
+-   if (temp >= 0xffff) /* The ICC limit */
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[230]) {
++     if ((temp >= 65535 ) && !(0))
++       fprintf(stderr, "triggered bug index 230\n");
++     else
++       fprintf(stderr, "reached bug index 230\n");
++   }
++   if ((!FIXREVERTER[230] && (temp >= 65535 ))
++   #else
++   if (0
++   #endif
++   ) /* The ICC limit */
+       return png_icc_profile_error(png_ptr, colorspace, name, temp,
+           "invalid rendering intent");
++          #ifdef FRCOV
++          }
++          #endif
+ 
+    /* This is just a warning because the profile may be valid in future
+     * versions.
+@@ -2066,9 +2366,24 @@ png_icc_check_header(png_const_structrp png_ptr, png_colorspacerp colorspace,
+     * data.)
+     */
+    temp = png_get_uint_32(profile+36); /* signature 'ascp' */
+-   if (temp != 0x61637370)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[231]) {
++     if ((temp != 1633907568 ) && !(0))
++       fprintf(stderr, "triggered bug index 231\n");
++     else
++       fprintf(stderr, "reached bug index 231\n");
++   }
++   if ((!FIXREVERTER[231] && (temp != 1633907568 ))
++   #else
++   if (0
++   #endif
++   )
+       return png_icc_profile_error(png_ptr, colorspace, name, temp,
+           "invalid signature");
++          #ifdef FRCOV
++          }
++          #endif
+ 
+    /* Currently the PCS illuminant/adopted white point (the computational
+     * white point) are required to be D50,
+@@ -4033,8 +4348,23 @@ png_build_16bit_table(png_structrp png_ptr, png_uint_16pp *ptable,
+          {
+             png_uint_32 ig = (j << (8-shift)) + i;
+ 
+-            if (shift != 0)
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[239]) {
++              if ((shift != 0 ) && !(0))
++                fprintf(stderr, "triggered bug index 239\n");
++              else
++                fprintf(stderr, "reached bug index 239\n");
++            }
++            if ((!FIXREVERTER[239] && (shift != 0 ))
++            #else
++            if (0
++            #endif
++            )
+                ig = (ig * 65535U + max_by_2)/max;
++               #ifdef FRCOV
++               }
++               #endif
+ 
+             sub_table[j] = (png_uint_16)ig;
+          }
+diff --git a/pngerror.c b/pngerror.c
+index ec3a709b9..b36d069c9 100644
+--- a/pngerror.c
++++ b/pngerror.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngerror.c - stub functions for i/o and memory allocation
+  *
+@@ -112,14 +119,32 @@ size_t
+ png_safecat(png_charp buffer, size_t bufsize, size_t pos,
+     png_const_charp string)
+ {
+-   if (buffer != NULL && pos < bufsize)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[313]) {
++     fprintf(stderr, "reached bug index 313\n");
++   }
++   if ((FIXREVERTER[313] && (buffer != (void *) 0 )) || (!FIXREVERTER[313] && (buffer != (void *) 0 && pos < bufsize ))
++   #else
++   if (buffer != (void *) 0 
++   #endif
++   )
+    {
++     
++   #ifdef FRCOV
++     if (!(pos < bufsize ))
++       fprintf(stderr, "triggered bug index 313\n");
++     #endif
++   
+       if (string != NULL)
+          while (*string != '\0' && pos < bufsize-1)
+            buffer[pos++] = *string++;
+ 
+       buffer[pos] = '\0';
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    return pos;
+ }
+@@ -189,8 +214,23 @@ png_format_number(png_const_charp start, png_charp end, int format,
+       ++count;
+ 
+       /* Float a fixed number here: */
+-      if ((format == PNG_NUMBER_FORMAT_fixed) && (count == 5) && (end > start))
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[314]) {
++        fprintf(stderr, "reached bug index 314\n");
++      }
++      if ((FIXREVERTER[314] && (format == 5 && count == 5 )) || (!FIXREVERTER[314] && (format == 5 && count == 5 && end > start ))
++      #else
++      if (format == 5 && count == 5 
++      #endif
++      )
+       {
++        
++      #ifdef FRCOV
++        if (!(end > start ))
++          fprintf(stderr, "triggered bug index 314\n");
++        #endif
++      
+          /* End of the fraction, but maybe nothing was output?  In that case
+           * drop the decimal point.  If the number is a true zero handle that
+           * here.
+@@ -200,6 +240,9 @@ png_format_number(png_const_charp start, png_charp end, int format,
+          else if (number == 0) /* and !output */
+             *--end = '0';
+       }
++      #ifdef FRCOV
++      }
++      #endif
+    }
+ 
+    return end;
+@@ -607,8 +650,23 @@ png_set_longjmp_fn(png_structrp png_ptr, png_longjmp_ptr longjmp_fn,
+     * the buffer is allocated and this may fail, causing the function to return
+     * NULL.
+     */
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[317]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 317\n");
++     else
++       fprintf(stderr, "reached bug index 317\n");
++   }
++   if ((!FIXREVERTER[317] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return NULL;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    if (png_ptr->jmp_buf_ptr == NULL)
+    {
+@@ -622,8 +680,23 @@ png_set_longjmp_fn(png_structrp png_ptr, png_longjmp_ptr longjmp_fn,
+          png_ptr->jmp_buf_ptr = png_voidcast(jmp_buf *,
+              png_malloc_warn(png_ptr, jmp_buf_size));
+ 
+-         if (png_ptr->jmp_buf_ptr == NULL)
+-            return NULL; /* new NULL return on OOM */
++         
++         #ifdef FRCOV
++         {if (FIXREVERTER[318]) {
++           if ((png_ptr -> jmp_buf_ptr == (void *) 0 ) && !(0))
++             fprintf(stderr, "triggered bug index 318\n");
++           else
++             fprintf(stderr, "reached bug index 318\n");
++         }
++         if ((!FIXREVERTER[318] && (png_ptr -> jmp_buf_ptr == (void *) 0 ))
++         #else
++         if (0
++         #endif
++         )
++            return NULL;
++            #ifdef FRCOV
++            }
++            #endif /* new NULL return on OOM */
+ 
+          png_ptr->jmp_buf_size = jmp_buf_size;
+       }
+@@ -648,11 +721,26 @@ png_set_longjmp_fn(png_structrp png_ptr, png_longjmp_ptr longjmp_fn,
+          }
+       }
+ 
+-      if (size != jmp_buf_size)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[319]) {
++        if ((size != jmp_buf_size ) && !(0))
++          fprintf(stderr, "triggered bug index 319\n");
++        else
++          fprintf(stderr, "reached bug index 319\n");
++      }
++      if ((!FIXREVERTER[319] && (size != jmp_buf_size ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_warning(png_ptr, "Application jmp_buf size changed");
+          return NULL; /* caller will probably crash: no choice here */
+       }
++      #ifdef FRCOV
++      }
++      #endif
+    }
+ 
+    /* Finally fill in the function, now we have a satisfactory buffer. It is
+@@ -835,8 +923,23 @@ void PNGAPI
+ png_set_error_fn(png_structrp png_ptr, png_voidp error_ptr,
+     png_error_ptr error_fn, png_error_ptr warning_fn)
+ {
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[321]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 321\n");
++     else
++       fprintf(stderr, "reached bug index 321\n");
++   }
++   if ((!FIXREVERTER[321] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    png_ptr->error_ptr = error_ptr;
+    png_ptr->error_fn = error_fn;
+diff --git a/pngget.c b/pngget.c
+index e44933c0d..179cb74a6 100644
+--- a/pngget.c
++++ b/pngget.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngget.c - retrieval of values from info struct
+  *
+@@ -829,8 +836,23 @@ png_get_IHDR(png_const_structrp png_ptr, png_const_inforp info_ptr,
+ {
+    png_debug1(1, "in %s retrieval function", "IHDR");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[311]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 311\n");
++     else
++       fprintf(stderr, "reached bug index 311\n");
++   }
++   if ((!FIXREVERTER[311] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return (0);
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    if (width != NULL)
+        *width = info_ptr->width;
+diff --git a/pngread.c b/pngread.c
+index 8fa7d9f16..7d95e0334 100644
+--- a/pngread.c
++++ b/pngread.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngread.c - read a PNG file
+  *
+@@ -97,8 +104,23 @@ png_read_info(png_structrp png_ptr, png_inforp info_ptr)
+ 
+    png_debug(1, "in png_read_info");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[102]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 102\n");
++     else
++       fprintf(stderr, "reached bug index 102\n");
++   }
++   if ((!FIXREVERTER[102] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* Read and check the PNG file signature. */
+    png_read_sig(png_ptr, info_ptr);
+@@ -384,8 +406,23 @@ png_read_row(png_structrp png_ptr, png_bytep row, png_bytep dsp_row)
+ {
+    png_row_info row_info;
+ 
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[103]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 103\n");
++     else
++       fprintf(stderr, "reached bug index 103\n");
++   }
++   if ((!FIXREVERTER[103] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    png_debug2(1, "in png_read_row (row %lu, pass %d)",
+        (unsigned long)png_ptr->row_number, png_ptr->pass);
+@@ -771,8 +808,23 @@ png_read_end(png_structrp png_ptr, png_inforp info_ptr)
+ 
+    png_debug(1, "in png_read_end");
+ 
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[106]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 106\n");
++     else
++       fprintf(stderr, "reached bug index 106\n");
++   }
++   if ((!FIXREVERTER[106] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* If png_read_end is called in the middle of reading the rows there may
+     * still be pending IDAT data and an owned zstream.  Deal with this here.
+diff --git a/pngrio.c b/pngrio.c
+index 794635810..1b92b7605 100644
+--- a/pngrio.c
++++ b/pngrio.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngrio.c - functions for data input
+  *
+@@ -51,8 +58,23 @@ png_default_read_data(png_structp png_ptr, png_bytep data, size_t length)
+ {
+    size_t check;
+ 
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[189]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 189\n");
++     else
++       fprintf(stderr, "reached bug index 189\n");
++   }
++   if ((!FIXREVERTER[189] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* fread() returns 0 on error, so it is OK to store this in a size_t
+     * instead of an int, which is what fread() actually returns.
+@@ -87,8 +109,23 @@ void PNGAPI
+ png_set_read_fn(png_structrp png_ptr, png_voidp io_ptr,
+     png_rw_ptr read_data_fn)
+ {
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[190]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 190\n");
++     else
++       fprintf(stderr, "reached bug index 190\n");
++   }
++   if ((!FIXREVERTER[190] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    png_ptr->io_ptr = io_ptr;
+ 
+diff --git a/pngrtran.c b/pngrtran.c
+index 238f5afe7..e4d362b38 100644
+--- a/pngrtran.c
++++ b/pngrtran.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngrtran.c - transforms the data in a row for PNG readers
+  *
+@@ -37,8 +44,23 @@ png_set_crc_action(png_structrp png_ptr, int crit_action, int ancil_action)
+ {
+    png_debug(1, "in png_set_crc_action");
+ 
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[260]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 260\n");
++     else
++       fprintf(stderr, "reached bug index 260\n");
++   }
++   if ((!FIXREVERTER[260] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* Tell libpng how we react to CRC errors in critical chunks */
+    switch (crit_action)
+@@ -1900,7 +1922,21 @@ png_init_read_transformations(png_structrp png_ptr)
+        * the number of significant bits is 0 then no shift is done (this is an
+        * error condition which is silently ignored.)
+        */
+-      if (shift > 0 && shift < 8)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[270]) {
++        fprintf(stderr, "reached bug index 270\n");
++      }
++      if ((FIXREVERTER[270] && (shift > 0 )) || (!FIXREVERTER[270] && (shift > 0 && shift < 8 ))
++      #else
++      if (shift > 0 
++      #endif
++      )
++         
++         #ifdef FRCOV
++         {if (!(shift < 8 ))
++           fprintf(stderr, "triggered bug index 270\n");
++         #endif
+          for (i=0; i<istop; ++i)
+          {
+             int component = png_ptr->palette[i].red;
+@@ -1908,9 +1944,26 @@ png_init_read_transformations(png_structrp png_ptr)
+             component >>= shift;
+             png_ptr->palette[i].red = (png_byte)component;
+          }
++         #ifdef FRCOV
++         }}
++         #endif
+ 
+       shift = 8 - png_ptr->sig_bit.green;
+-      if (shift > 0 && shift < 8)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[271]) {
++        fprintf(stderr, "reached bug index 271\n");
++      }
++      if ((FIXREVERTER[271] && (shift > 0 )) || (!FIXREVERTER[271] && (shift > 0 && shift < 8 ))
++      #else
++      if (shift > 0 
++      #endif
++      )
++         
++         #ifdef FRCOV
++         {if (!(shift < 8 ))
++           fprintf(stderr, "triggered bug index 271\n");
++         #endif
+          for (i=0; i<istop; ++i)
+          {
+             int component = png_ptr->palette[i].green;
+@@ -1918,9 +1971,26 @@ png_init_read_transformations(png_structrp png_ptr)
+             component >>= shift;
+             png_ptr->palette[i].green = (png_byte)component;
+          }
++         #ifdef FRCOV
++         }}
++         #endif
+ 
+       shift = 8 - png_ptr->sig_bit.blue;
+-      if (shift > 0 && shift < 8)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[272]) {
++        fprintf(stderr, "reached bug index 272\n");
++      }
++      if ((FIXREVERTER[272] && (shift > 0 )) || (!FIXREVERTER[272] && (shift > 0 && shift < 8 ))
++      #else
++      if (shift > 0 
++      #endif
++      )
++         
++         #ifdef FRCOV
++         {if (!(shift < 8 ))
++           fprintf(stderr, "triggered bug index 272\n");
++         #endif
+          for (i=0; i<istop; ++i)
+          {
+             int component = png_ptr->palette[i].blue;
+@@ -1928,6 +1998,9 @@ png_init_read_transformations(png_structrp png_ptr)
+             component >>= shift;
+             png_ptr->palette[i].blue = (png_byte)component;
+          }
++         #ifdef FRCOV
++         }}
++         #endif
+    }
+ #endif /* READ_SHIFT */
+ }
+@@ -3019,8 +3092,23 @@ png_do_rgb_to_gray(png_structrp png_ptr, png_row_infop row_info, png_bytep row)
+           * checked the linearized values for equality; this doesn't match
+           * the documentation, the original values must be checked.
+           */
+-         if (png_ptr->gamma_from_1 != NULL && png_ptr->gamma_to_1 != NULL)
++         
++         #ifdef FRCOV
++         {if (FIXREVERTER[274]) {
++           fprintf(stderr, "reached bug index 274\n");
++         }
++         if ((FIXREVERTER[274] && (png_ptr -> gamma_from_1 != (void *) 0 )) || (!FIXREVERTER[274] && (png_ptr -> gamma_from_1 != (void *) 0 && png_ptr -> gamma_to_1 != (void *) 0 ))
++         #else
++         if (png_ptr -> gamma_from_1 != (void *) 0 
++         #endif
++         )
+          {
++           
++         #ifdef FRCOV
++           if (!(png_ptr -> gamma_to_1 != (void *) 0 ))
++             fprintf(stderr, "triggered bug index 274\n");
++           #endif
++         
+             png_bytep sp = row;
+             png_bytep dp = row;
+             png_uint_32 i;
+@@ -3086,13 +3174,31 @@ png_do_rgb_to_gray(png_structrp png_ptr, png_row_infop row_info, png_bytep row)
+                   *(dp++) = *(sp++);
+             }
+          }
++         #ifdef FRCOV
++         }
++         #endif
+       }
+ 
+       else /* RGB bit_depth == 16 */
+       {
+ #ifdef PNG_READ_GAMMA_SUPPORTED
+-         if (png_ptr->gamma_16_to_1 != NULL && png_ptr->gamma_16_from_1 != NULL)
++         
++         #ifdef FRCOV
++         {if (FIXREVERTER[276]) {
++           fprintf(stderr, "reached bug index 276\n");
++         }
++         if ((FIXREVERTER[276] && (png_ptr -> gamma_16_to_1 != (void *) 0 )) || (!FIXREVERTER[276] && (png_ptr -> gamma_16_to_1 != (void *) 0 && png_ptr -> gamma_16_from_1 != (void *) 0 ))
++         #else
++         if (png_ptr -> gamma_16_to_1 != (void *) 0 
++         #endif
++         )
+          {
++           
++         #ifdef FRCOV
++           if (!(png_ptr -> gamma_16_from_1 != (void *) 0 ))
++             fprintf(stderr, "triggered bug index 276\n");
++           #endif
++         
+             png_bytep sp = row;
+             png_bytep dp = row;
+             png_uint_32 i;
+@@ -3106,8 +3212,23 @@ png_do_rgb_to_gray(png_structrp png_ptr, png_row_infop row_info, png_bytep row)
+                hi=*(sp)++; lo=*(sp)++; green = (png_uint_16)((hi << 8) | (lo));
+                hi=*(sp)++; lo=*(sp)++; blue  = (png_uint_16)((hi << 8) | (lo));
+ 
+-               if (red == green && red == blue)
++               
++               #ifdef FRCOV
++               {if (FIXREVERTER[275]) {
++                 fprintf(stderr, "reached bug index 275\n");
++               }
++               if ((FIXREVERTER[275] && (red == green )) || (!FIXREVERTER[275] && (red == green && red == blue ))
++               #else
++               if (red == green 
++               #endif
++               )
+                {
++                 
++               #ifdef FRCOV
++                 if (!(red == blue ))
++                   fprintf(stderr, "triggered bug index 275\n");
++                 #endif
++               
+                   if (png_ptr->gamma_16_table != NULL)
+                      w = png_ptr->gamma_16_table[(red & 0xff)
+                          >> png_ptr->gamma_shift][red >> 8];
+@@ -3131,6 +3252,9 @@ png_do_rgb_to_gray(png_structrp png_ptr, png_row_infop row_info, png_bytep row)
+                       png_ptr->gamma_shift][gray16 >> 8];
+                   rgb_error |= 1;
+                }
++               #ifdef FRCOV
++               }
++               #endif
+ 
+                *(dp++) = (png_byte)((w>>8) & 0xff);
+                *(dp++) = (png_byte)(w & 0xff);
+@@ -3177,6 +3301,9 @@ png_do_rgb_to_gray(png_structrp png_ptr, png_row_infop row_info, png_bytep row)
+                }
+             }
+          }
++         #ifdef FRCOV
++         }
++         #endif
+       }
+ 
+       row_info->channels = (png_byte)(row_info->channels - 2);
+@@ -3603,9 +3730,23 @@ png_do_compose(png_row_infop row_info, png_bytep row, png_structrp png_ptr)
+          if (row_info->bit_depth == 8)
+          {
+ #ifdef PNG_READ_GAMMA_SUPPORTED
+-            if (gamma_to_1 != NULL && gamma_from_1 != NULL &&
+-                gamma_table != NULL)
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[277]) {
++              fprintf(stderr, "reached bug index 277\n");
++            }
++            if ((FIXREVERTER[277] && (gamma_to_1 != (void *) 0 && gamma_from_1 != (void *) 0 )) || (!FIXREVERTER[277] && (gamma_to_1 != (void *) 0 && gamma_from_1 != (void *) 0 && gamma_table != (void *) 0 ))
++            #else
++            if (gamma_to_1 != (void *) 0 && gamma_from_1 != (void *) 0 
++            #endif
++            )
+             {
++              
++            #ifdef FRCOV
++              if (!(gamma_table != (void *) 0 ))
++                fprintf(stderr, "triggered bug index 277\n");
++              #endif
++            
+                sp = row;
+                for (i = 0; i < row_width; i++, sp += 2)
+                {
+@@ -3647,13 +3788,30 @@ png_do_compose(png_row_infop row_info, png_bytep row, png_structrp png_ptr)
+                      png_composite(*sp, *sp, a, png_ptr->background.gray);
+                }
+             }
++            #ifdef FRCOV
++            }
++            #endif
+          }
+          else /* if (png_ptr->bit_depth == 16) */
+          {
+ #ifdef PNG_READ_GAMMA_SUPPORTED
+-            if (gamma_16 != NULL && gamma_16_from_1 != NULL &&
+-                gamma_16_to_1 != NULL)
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[278]) {
++              fprintf(stderr, "reached bug index 278\n");
++            }
++            if ((FIXREVERTER[278] && (gamma_16 != (void *) 0 && gamma_16_from_1 != (void *) 0 )) || (!FIXREVERTER[278] && (gamma_16 != (void *) 0 && gamma_16_from_1 != (void *) 0 && gamma_16_to_1 != (void *) 0 ))
++            #else
++            if (gamma_16 != (void *) 0 && gamma_16_from_1 != (void *) 0 
++            #endif
++            )
+             {
++              
++            #ifdef FRCOV
++              if (!(gamma_16_to_1 != (void *) 0 ))
++                fprintf(stderr, "triggered bug index 278\n");
++              #endif
++            
+                sp = row;
+                for (i = 0; i < row_width; i++, sp += 4)
+                {
+@@ -3720,6 +3878,9 @@ png_do_compose(png_row_infop row_info, png_bytep row, png_structrp png_ptr)
+                   }
+                }
+             }
++            #ifdef FRCOV
++            }
++            #endif
+          }
+          break;
+       }
+@@ -3729,9 +3890,23 @@ png_do_compose(png_row_infop row_info, png_bytep row, png_structrp png_ptr)
+          if (row_info->bit_depth == 8)
+          {
+ #ifdef PNG_READ_GAMMA_SUPPORTED
+-            if (gamma_to_1 != NULL && gamma_from_1 != NULL &&
+-                gamma_table != NULL)
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[279]) {
++              fprintf(stderr, "reached bug index 279\n");
++            }
++            if ((FIXREVERTER[279] && (gamma_to_1 != (void *) 0 && gamma_from_1 != (void *) 0 )) || (!FIXREVERTER[279] && (gamma_to_1 != (void *) 0 && gamma_from_1 != (void *) 0 && gamma_table != (void *) 0 ))
++            #else
++            if (gamma_to_1 != (void *) 0 && gamma_from_1 != (void *) 0 
++            #endif
++            )
+             {
++              
++            #ifdef FRCOV
++              if (!(gamma_table != (void *) 0 ))
++                fprintf(stderr, "triggered bug index 279\n");
++              #endif
++            
+                sp = row;
+                for (i = 0; i < row_width; i++, sp += 4)
+                {
+@@ -3800,13 +3975,30 @@ png_do_compose(png_row_infop row_info, png_bytep row, png_structrp png_ptr)
+                   }
+                }
+             }
++            #ifdef FRCOV
++            }
++            #endif
+          }
+          else /* if (row_info->bit_depth == 16) */
+          {
+ #ifdef PNG_READ_GAMMA_SUPPORTED
+-            if (gamma_16 != NULL && gamma_16_from_1 != NULL &&
+-                gamma_16_to_1 != NULL)
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[283]) {
++              fprintf(stderr, "reached bug index 283\n");
++            }
++            if ((FIXREVERTER[283] && (gamma_16 != (void *) 0 && gamma_16_from_1 != (void *) 0 )) || (!FIXREVERTER[283] && (gamma_16 != (void *) 0 && gamma_16_from_1 != (void *) 0 && gamma_16_to_1 != (void *) 0 ))
++            #else
++            if (gamma_16 != (void *) 0 && gamma_16_from_1 != (void *) 0 
++            #endif
++            )
+             {
++              
++            #ifdef FRCOV
++              if (!(gamma_16_to_1 != (void *) 0 ))
++                fprintf(stderr, "triggered bug index 283\n");
++              #endif
++            
+                sp = row;
+                for (i = 0; i < row_width; i++, sp += 8)
+                {
+@@ -3850,26 +4042,71 @@ png_do_compose(png_row_infop row_info, png_bytep row, png_structrp png_ptr)
+ 
+                      v = gamma_16_to_1[*(sp + 1) >> gamma_shift][*sp];
+                      png_composite_16(w, v, a, png_ptr->background_1.red);
+-                     if (optimize == 0)
++                     
++                     #ifdef FRCOV
++                     {if (FIXREVERTER[280]) {
++                       if ((optimize == 0 ) && !(0))
++                         fprintf(stderr, "triggered bug index 280\n");
++                       else
++                         fprintf(stderr, "reached bug index 280\n");
++                     }
++                     if ((!FIXREVERTER[280] && (optimize == 0 ))
++                     #else
++                     if (0
++                     #endif
++                     )
+                         w = gamma_16_from_1[((w & 0xff) >> gamma_shift)][w >>
+                              8];
++                             #ifdef FRCOV
++                             }
++                             #endif
+                      *sp = (png_byte)((w >> 8) & 0xff);
+                      *(sp + 1) = (png_byte)(w & 0xff);
+ 
+                      v = gamma_16_to_1[*(sp + 3) >> gamma_shift][*(sp + 2)];
+                      png_composite_16(w, v, a, png_ptr->background_1.green);
+-                     if (optimize == 0)
++                     
++                     #ifdef FRCOV
++                     {if (FIXREVERTER[281]) {
++                       if ((optimize == 0 ) && !(0))
++                         fprintf(stderr, "triggered bug index 281\n");
++                       else
++                         fprintf(stderr, "reached bug index 281\n");
++                     }
++                     if ((!FIXREVERTER[281] && (optimize == 0 ))
++                     #else
++                     if (0
++                     #endif
++                     )
+                         w = gamma_16_from_1[((w & 0xff) >> gamma_shift)][w >>
+                              8];
++                             #ifdef FRCOV
++                             }
++                             #endif
+ 
+                      *(sp + 2) = (png_byte)((w >> 8) & 0xff);
+                      *(sp + 3) = (png_byte)(w & 0xff);
+ 
+                      v = gamma_16_to_1[*(sp + 5) >> gamma_shift][*(sp + 4)];
+                      png_composite_16(w, v, a, png_ptr->background_1.blue);
+-                     if (optimize == 0)
++                     
++                     #ifdef FRCOV
++                     {if (FIXREVERTER[282]) {
++                       if ((optimize == 0 ) && !(0))
++                         fprintf(stderr, "triggered bug index 282\n");
++                       else
++                         fprintf(stderr, "reached bug index 282\n");
++                     }
++                     if ((!FIXREVERTER[282] && (optimize == 0 ))
++                     #else
++                     if (0
++                     #endif
++                     )
+                         w = gamma_16_from_1[((w & 0xff) >> gamma_shift)][w >>
+                              8];
++                             #ifdef FRCOV
++                             }
++                             #endif
+ 
+                      *(sp + 4) = (png_byte)((w >> 8) & 0xff);
+                      *(sp + 5) = (png_byte)(w & 0xff);
+@@ -3923,6 +4160,9 @@ png_do_compose(png_row_infop row_info, png_bytep row, png_structrp png_ptr)
+                   }
+                }
+             }
++            #ifdef FRCOV
++            }
++            #endif
+          }
+          break;
+       }
+diff --git a/pngrutil.c b/pngrutil.c
+index 2694fa72a..161b6a5e9 100644
+--- a/pngrutil.c
++++ b/pngrutil.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngrutil.c - utilities to read a PNG file
+  *
+@@ -195,8 +202,23 @@ png_read_chunk_header(png_structrp png_ptr)
+ void /* PRIVATE */
+ png_crc_read(png_structrp png_ptr, png_bytep buf, png_uint_32 length)
+ {
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[4]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 4\n");
++     else
++       fprintf(stderr, "reached bug index 4\n");
++   }
++   if ((!FIXREVERTER[4] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    png_read_data(png_ptr, buf, length);
+    png_calculate_crc(png_ptr, buf, length);
+@@ -219,8 +241,23 @@ png_crc_finish(png_structrp png_ptr, png_uint_32 skip)
+       png_byte tmpbuf[PNG_INFLATE_BUF_SIZE];
+ 
+       len = (sizeof tmpbuf);
+-      if (len > skip)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[5]) {
++        if ((len > skip ) && !(0))
++          fprintf(stderr, "triggered bug index 5\n");
++        else
++          fprintf(stderr, "reached bug index 5\n");
++      }
++      if ((!FIXREVERTER[5] && (len > skip ))
++      #else
++      if (0
++      #endif
++      )
+          len = skip;
++         #ifdef FRCOV
++         }
++         #endif
+       skip -= len;
+ 
+       png_crc_read(png_ptr, tmpbuf, len);
+@@ -299,13 +336,31 @@ png_read_buffer(png_structrp png_ptr, png_alloc_size_t new_size, int warn)
+ {
+    png_bytep buffer = png_ptr->read_buffer;
+ 
+-   if (buffer != NULL && new_size > png_ptr->read_buffer_size)
+-   {
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[6]) {
++     fprintf(stderr, "reached bug index 6\n");
++   }
++   if ((FIXREVERTER[6] && (buffer != (void *) 0 )) || (!FIXREVERTER[6] && (buffer != (void *) 0 && new_size > png_ptr -> read_buffer_size ))
++   #else
++   if (buffer != (void *) 0 
++   #endif
++   )
++   {
++     
++   #ifdef FRCOV
++     if (!(new_size > png_ptr -> read_buffer_size ))
++       fprintf(stderr, "triggered bug index 6\n");
++     #endif
++   
+       png_ptr->read_buffer = NULL;
+       png_ptr->read_buffer_size = 0;
+       png_free(png_ptr, buffer);
+       buffer = NULL;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    if (buffer == NULL)
+    {
+@@ -528,8 +583,23 @@ png_inflate(png_structrp png_ptr, png_uint_32 owner, int finish,
+ 
+          avail = ZLIB_IO_MAX;
+ 
+-         if (avail_in < avail)
+-            avail = (uInt)avail_in; /* safe: < than ZLIB_IO_MAX */
++         
++         #ifdef FRCOV
++         {if (FIXREVERTER[7]) {
++           if ((avail_in < avail ) && !(0))
++             fprintf(stderr, "triggered bug index 7\n");
++           else
++             fprintf(stderr, "reached bug index 7\n");
++         }
++         if ((!FIXREVERTER[7] && (avail_in < avail ))
++         #else
++         if (0
++         #endif
++         )
++            avail = (uInt)avail_in;
++            #ifdef FRCOV
++            }
++            #endif /* safe: < than ZLIB_IO_MAX */
+ 
+          avail_in -= avail;
+          png_ptr->zstream.avail_in = avail;
+@@ -545,12 +615,42 @@ png_inflate(png_structrp png_ptr, png_uint_32 owner, int finish,
+              * make available the full buffer, up to 'remaining_space'
+              */
+             png_ptr->zstream.next_out = local_buffer;
+-            if ((sizeof local_buffer) < avail)
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[8]) {
++              if ((sizeof ( local_buffer ) < avail ) && !(0))
++                fprintf(stderr, "triggered bug index 8\n");
++              else
++                fprintf(stderr, "reached bug index 8\n");
++            }
++            if ((!FIXREVERTER[8] && (sizeof ( local_buffer ) < avail ))
++            #else
++            if (0
++            #endif
++            )
+                avail = (sizeof local_buffer);
++               #ifdef FRCOV
++               }
++               #endif
+          }
+ 
+-         if (avail_out < avail)
+-            avail = (uInt)avail_out; /* safe: < ZLIB_IO_MAX */
++         
++         #ifdef FRCOV
++         {if (FIXREVERTER[9]) {
++           if ((avail_out < avail ) && !(0))
++             fprintf(stderr, "triggered bug index 9\n");
++           else
++             fprintf(stderr, "reached bug index 9\n");
++         }
++         if ((!FIXREVERTER[9] && (avail_out < avail ))
++         #else
++         if (0
++         #endif
++         )
++            avail = (uInt)avail_out;
++            #ifdef FRCOV
++            }
++            #endif /* safe: < ZLIB_IO_MAX */
+ 
+          png_ptr->zstream.avail_out = avail;
+          avail_out -= avail;
+@@ -621,9 +721,25 @@ png_decompress_chunk(png_structrp png_ptr,
+    png_alloc_size_t limit = PNG_SIZE_MAX;
+ 
+ # ifdef PNG_SET_USER_LIMITS_SUPPORTED
+-   if (png_ptr->user_chunk_malloc_max > 0 &&
+-       png_ptr->user_chunk_malloc_max < limit)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[10]) {
++     fprintf(stderr, "reached bug index 10\n");
++   }
++   if ((FIXREVERTER[10] && (png_ptr -> user_chunk_malloc_max > 0 )) || (!FIXREVERTER[10] && (png_ptr -> user_chunk_malloc_max > 0 && png_ptr -> user_chunk_malloc_max < limit ))
++   #else
++   if (png_ptr -> user_chunk_malloc_max > 0 
++   #endif
++   )
++      
++      #ifdef FRCOV
++      {if (!(png_ptr -> user_chunk_malloc_max < limit ))
++        fprintf(stderr, "triggered bug index 10\n");
++      #endif
+       limit = png_ptr->user_chunk_malloc_max;
++      #ifdef FRCOV
++      }}
++      #endif
+ # elif PNG_USER_CHUNK_MALLOC_MAX > 0
+    if (PNG_USER_CHUNK_MALLOC_MAX < limit)
+       limit = PNG_USER_CHUNK_MALLOC_MAX;
+@@ -983,8 +1099,23 @@ png_handle_PLTE(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    else
+       max_palette_length = PNG_MAX_PALETTE_LENGTH;
+ 
+-   if (num > max_palette_length)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[15]) {
++     if ((num > max_palette_length ) && !(0))
++       fprintf(stderr, "triggered bug index 15\n");
++     else
++       fprintf(stderr, "reached bug index 15\n");
++   }
++   if ((!FIXREVERTER[15] && (num > max_palette_length ))
++   #else
++   if (0
++   #endif
++   )
+       num = max_palette_length;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+ #ifdef PNG_POINTER_INDEXING_SUPPORTED
+    for (i = 0, pal_ptr = palette; i < num; i++, pal_ptr++)
+@@ -1077,8 +1208,23 @@ png_handle_PLTE(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+        */
+       png_ptr->num_trans = 0;
+ 
+-      if (info_ptr != NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[16]) {
++        if ((info_ptr != (void *) 0  ) && !(0))
++          fprintf(stderr, "triggered bug index 16\n");
++        else
++          fprintf(stderr, "reached bug index 16\n");
++      }
++      if ((!FIXREVERTER[16] && (info_ptr != (void *) 0  ))
++      #else
++      if (0
++      #endif
++      )
+          info_ptr->num_trans = 0;
++         #ifdef FRCOV
++         }
++         #endif
+ 
+       png_chunk_benign_error(png_ptr, "tRNS must be after");
+    }
+@@ -1133,12 +1279,27 @@ png_handle_gAMA(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+       return;
+    }
+ 
+-   if (length != 4)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[17]) {
++     if ((length != 4 ) && !(0))
++       fprintf(stderr, "triggered bug index 17\n");
++     else
++       fprintf(stderr, "reached bug index 17\n");
++   }
++   if ((!FIXREVERTER[17] && (length != 4 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buf, 4);
+ 
+@@ -1191,12 +1352,27 @@ png_handle_sBIT(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+       sample_depth = png_ptr->bit_depth;
+    }
+ 
+-   if (length != truelen || length > 4)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[18]) {
++     if ((length != truelen || length > 4 ) && !(0))
++       fprintf(stderr, "triggered bug index 18\n");
++     else
++       fprintf(stderr, "reached bug index 18\n");
++   }
++   if ((!FIXREVERTER[18] && (length != truelen || length > 4 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_benign_error(png_ptr, "invalid");
+       png_crc_finish(png_ptr, length);
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    buf[0] = buf[1] = buf[2] = buf[3] = sample_depth;
+    png_crc_read(png_ptr, buf, truelen);
+@@ -1253,12 +1429,27 @@ png_handle_cHRM(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+       return;
+    }
+ 
+-   if (length != 32)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[19]) {
++     if ((length != 32 ) && !(0))
++       fprintf(stderr, "triggered bug index 19\n");
++     else
++       fprintf(stderr, "reached bug index 19\n");
++   }
++   if ((!FIXREVERTER[19] && (length != 32 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buf, 32);
+ 
+@@ -1324,12 +1515,27 @@ png_handle_sRGB(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+       return;
+    }
+ 
+-   if (length != 1)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[20]) {
++     if ((length != 1 ) && !(0))
++       fprintf(stderr, "triggered bug index 20\n");
++     else
++       fprintf(stderr, "reached bug index 20\n");
++   }
++   if ((!FIXREVERTER[20] && (length != 1 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, &intent, 1);
+ 
+@@ -1386,12 +1592,27 @@ png_handle_iCCP(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+     * terminator (0) byte and the compression method byte, and the
+     * 'zlib' datastream is at least 11 bytes.
+     */
+-   if (length < 14)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[21]) {
++     if ((length < 14 ) && !(0))
++       fprintf(stderr, "triggered bug index 21\n");
++     else
++       fprintf(stderr, "reached bug index 21\n");
++   }
++   if ((!FIXREVERTER[21] && (length < 14 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "too short");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    /* If a colorspace error has already been output skip this chunk */
+    if ((png_ptr->colorspace.flags & PNG_COLORSPACE_INVALID) != 0)
+@@ -1412,8 +1633,23 @@ png_handle_iCCP(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+        * bytes can be at most 81 characters long.
+        */
+       read_length = 81; /* maximum */
+-      if (read_length > length)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[22]) {
++        if ((read_length > length ) && !(0))
++          fprintf(stderr, "triggered bug index 22\n");
++        else
++          fprintf(stderr, "reached bug index 22\n");
++      }
++      if ((!FIXREVERTER[22] && (read_length > length ))
++      #else
++      if (0
++      #endif
++      )
+          read_length = (uInt)length;
++         #ifdef FRCOV
++         }
++         #endif
+ 
+       png_crc_read(png_ptr, (png_bytep)keyword, read_length);
+       length -= read_length;
+@@ -1421,12 +1657,27 @@ png_handle_iCCP(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+       /* The minimum 'zlib' stream is assumed to be just the 2 byte header,
+        * 5 bytes minimum 'deflate' stream, and the 4 byte checksum.
+        */
+-      if (length < 11)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[23]) {
++        if ((length < 11 ) && !(0))
++          fprintf(stderr, "triggered bug index 23\n");
++        else
++          fprintf(stderr, "reached bug index 23\n");
++      }
++      if ((!FIXREVERTER[23] && (length < 11 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_crc_finish(png_ptr, length);
+          png_chunk_benign_error(png_ptr, "too short");
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       keyword_length = 0;
+       while (keyword_length < 80 && keyword_length < read_length &&
+@@ -1576,14 +1827,44 @@ png_handle_iCCP(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+                                     if (info_ptr != NULL)
+                                        png_colorspace_sync(png_ptr, info_ptr);
+ 
+-                                    if (errmsg == NULL)
++                                    
++                                    #ifdef FRCOV
++                                    {if (FIXREVERTER[24]) {
++                                      if ((errmsg == (void *) 0 ) && !(0))
++                                        fprintf(stderr, "triggered bug index 24\n");
++                                      else
++                                        fprintf(stderr, "reached bug index 24\n");
++                                    }
++                                    if ((!FIXREVERTER[24] && (errmsg == (void *) 0 ))
++                                    #else
++                                    if (0
++                                    #endif
++                                    )
+                                     {
+                                        png_ptr->zowner = 0;
+                                        return;
+                                     }
++                                    #ifdef FRCOV
++                                    }
++                                    #endif
++                                 }
++                                 
++                                 #ifdef FRCOV
++                                 {if (FIXREVERTER[25]) {
++                                   if ((errmsg == (void *) 0 ) && !(0))
++                                     fprintf(stderr, "triggered bug index 25\n");
++                                   else
++                                     fprintf(stderr, "reached bug index 25\n");
+                                  }
+-                                 if (errmsg == NULL)
++                                 if ((!FIXREVERTER[25] && (errmsg == (void *) 0 ))
++                                 #else
++                                 if (0
++                                 #endif
++                                 )
+                                     errmsg = png_ptr->zstream.msg;
++                                    #ifdef FRCOV
++                                    }
++                                    #endif
+                               }
+                               /* else png_icc_check_tag_table output an error */
+                            }
+@@ -1653,11 +1934,26 @@ png_handle_sPLT(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ #ifdef PNG_USER_LIMITS_SUPPORTED
+    if (png_ptr->user_chunk_cache_max != 0)
+    {
+-      if (png_ptr->user_chunk_cache_max == 1)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[26]) {
++        if ((png_ptr -> user_chunk_cache_max == 1 ) && !(0))
++          fprintf(stderr, "triggered bug index 26\n");
++        else
++          fprintf(stderr, "reached bug index 26\n");
++      }
++      if ((!FIXREVERTER[26] && (png_ptr -> user_chunk_cache_max == 1 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_crc_finish(png_ptr, length);
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       if (--png_ptr->user_chunk_cache_max == 1)
+       {
+@@ -1688,12 +1984,27 @@ png_handle_sPLT(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ #endif
+ 
+    buffer = png_read_buffer(png_ptr, length+1, 2/*silent*/);
+-   if (buffer == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[27]) {
++     if ((buffer == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 27\n");
++     else
++       fprintf(stderr, "reached bug index 27\n");
++   }
++   if ((!FIXREVERTER[27] && (buffer == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "out of memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+ 
+    /* WARNING: this may break if size_t is less than 32 bits; it is assumed
+@@ -1747,11 +2058,26 @@ png_handle_sPLT(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    new_palette.entries = (png_sPLT_entryp)png_malloc_warn(png_ptr,
+        (png_alloc_size_t) new_palette.nentries * (sizeof (png_sPLT_entry)));
+ 
+-   if (new_palette.entries == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[29]) {
++     if ((new_palette . entries == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 29\n");
++     else
++       fprintf(stderr, "reached bug index 29\n");
++   }
++   if ((!FIXREVERTER[29] && (new_palette . entries == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_warning(png_ptr, "sPLT chunk requires too much memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+ #ifdef PNG_POINTER_INDEXING_SUPPORTED
+    for (i = 0; i < new_palette.nentries; i++)
+@@ -1840,12 +2166,27 @@ png_handle_tRNS(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    {
+       png_byte buf[2];
+ 
+-      if (length != 2)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[30]) {
++        if ((length != 2 ) && !(0))
++          fprintf(stderr, "triggered bug index 30\n");
++        else
++          fprintf(stderr, "reached bug index 30\n");
++      }
++      if ((!FIXREVERTER[30] && (length != 2 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_crc_finish(png_ptr, length);
+          png_chunk_benign_error(png_ptr, "invalid");
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       png_crc_read(png_ptr, buf, 2);
+       png_ptr->num_trans = 1;
+@@ -1856,12 +2197,27 @@ png_handle_tRNS(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    {
+       png_byte buf[6];
+ 
+-      if (length != 6)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[31]) {
++        if ((length != 6 ) && !(0))
++          fprintf(stderr, "triggered bug index 31\n");
++        else
++          fprintf(stderr, "reached bug index 31\n");
++      }
++      if ((!FIXREVERTER[31] && (length != 6 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_crc_finish(png_ptr, length);
+          png_chunk_benign_error(png_ptr, "invalid");
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       png_crc_read(png_ptr, buf, length);
+       png_ptr->num_trans = 1;
+@@ -1953,12 +2309,27 @@ png_handle_bKGD(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    else
+       truelen = 2;
+ 
+-   if (length != truelen)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[32]) {
++     if ((length != truelen ) && !(0))
++       fprintf(stderr, "triggered bug index 32\n");
++     else
++       fprintf(stderr, "reached bug index 32\n");
++   }
++   if ((!FIXREVERTER[32] && (length != truelen ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buf, truelen);
+ 
+@@ -2063,12 +2434,27 @@ png_handle_eXIf(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    info_ptr->eXIf_buf = png_voidcast(png_bytep,
+              png_malloc_warn(png_ptr, length));
+ 
+-   if (info_ptr->eXIf_buf == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[33]) {
++     if ((info_ptr -> eXIf_buf == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 33\n");
++     else
++       fprintf(stderr, "reached bug index 33\n");
++   }
++   if ((!FIXREVERTER[33] && (info_ptr -> eXIf_buf == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "out of memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    for (i = 0; i < length; i++)
+    {
+@@ -2173,12 +2559,27 @@ png_handle_pHYs(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+       return;
+    }
+ 
+-   if (length != 9)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[34]) {
++     if ((length != 9 ) && !(0))
++       fprintf(stderr, "triggered bug index 34\n");
++     else
++       fprintf(stderr, "reached bug index 34\n");
++   }
++   if ((!FIXREVERTER[34] && (length != 9 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buf, 9);
+ 
+@@ -2219,12 +2620,27 @@ png_handle_oFFs(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+       return;
+    }
+ 
+-   if (length != 9)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[35]) {
++     if ((length != 9 ) && !(0))
++       fprintf(stderr, "triggered bug index 35\n");
++     else
++       fprintf(stderr, "reached bug index 35\n");
++   }
++   if ((!FIXREVERTER[35] && (length != 9 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buf, 9);
+ 
+@@ -2273,12 +2689,27 @@ png_handle_pCAL(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ 
+    buffer = png_read_buffer(png_ptr, length+1, 2/*silent*/);
+ 
+-   if (buffer == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[36]) {
++     if ((buffer == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 36\n");
++     else
++       fprintf(stderr, "reached bug index 36\n");
++   }
++   if ((!FIXREVERTER[36] && (buffer == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "out of memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buffer, length);
+ 
+@@ -2335,11 +2766,26 @@ png_handle_pCAL(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    params = png_voidcast(png_charpp, png_malloc_warn(png_ptr,
+        nparams * (sizeof (png_charp))));
+ 
+-   if (params == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[37]) {
++     if ((params == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 37\n");
++     else
++       fprintf(stderr, "reached bug index 37\n");
++   }
++   if ((!FIXREVERTER[37] && (params == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_benign_error(png_ptr, "out of memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    /* Get pointers to the start of each parameter string. */
+    for (i = 0; i < nparams; i++)
+@@ -2352,12 +2798,27 @@ png_handle_pCAL(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+          /* Empty loop to move past each parameter string */ ;
+ 
+       /* Make sure we haven't run out of data yet */
+-      if (buf > endptr)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[38]) {
++        if ((buf > endptr ) && !(0))
++          fprintf(stderr, "triggered bug index 38\n");
++        else
++          fprintf(stderr, "reached bug index 38\n");
++      }
++      if ((!FIXREVERTER[38] && (buf > endptr ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_free(png_ptr, params);
+          png_chunk_benign_error(png_ptr, "invalid data");
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+    }
+ 
+    png_set_pCAL(png_ptr, info_ptr, (png_charp)buffer, X0, X1, type, nparams,
+@@ -2396,24 +2857,54 @@ png_handle_sCAL(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    }
+ 
+    /* Need unit type, width, \0, height: minimum 4 bytes */
+-   else if (length < 4)
++   else 
++   #ifdef FRCOV
++   {if (FIXREVERTER[39]) {
++     if ((length < 4 ) && !(0))
++       fprintf(stderr, "triggered bug index 39\n");
++     else
++       fprintf(stderr, "reached bug index 39\n");
++   }
++   if ((!FIXREVERTER[39] && (length < 4 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_debug1(2, "Allocating and reading sCAL chunk data (%u bytes)",
+        length + 1);
+ 
+    buffer = png_read_buffer(png_ptr, length+1, 2/*silent*/);
+ 
+-   if (buffer == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[40]) {
++     if ((buffer == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 40\n");
++     else
++       fprintf(stderr, "reached bug index 40\n");
++   }
++   if ((!FIXREVERTER[40] && (buffer == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_benign_error(png_ptr, "out of memory");
+       png_crc_finish(png_ptr, length);
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buffer, length);
+    buffer[length] = 0; /* Null terminate the last string */
+@@ -2483,12 +2974,27 @@ png_handle_tIME(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+    if ((png_ptr->mode & PNG_HAVE_IDAT) != 0)
+       png_ptr->mode |= PNG_AFTER_IDAT;
+ 
+-   if (length != 7)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[41]) {
++     if ((length != 7 ) && !(0))
++       fprintf(stderr, "triggered bug index 41\n");
++     else
++       fprintf(stderr, "reached bug index 41\n");
++   }
++   if ((!FIXREVERTER[41] && (length != 7 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "invalid");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buf, 7);
+ 
+@@ -2522,11 +3028,26 @@ png_handle_tEXt(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ #ifdef PNG_USER_LIMITS_SUPPORTED
+    if (png_ptr->user_chunk_cache_max != 0)
+    {
+-      if (png_ptr->user_chunk_cache_max == 1)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[42]) {
++        if ((png_ptr -> user_chunk_cache_max == 1 ) && !(0))
++          fprintf(stderr, "triggered bug index 42\n");
++        else
++          fprintf(stderr, "reached bug index 42\n");
++      }
++      if ((!FIXREVERTER[42] && (png_ptr -> user_chunk_cache_max == 1 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_crc_finish(png_ptr, length);
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       if (--png_ptr->user_chunk_cache_max == 1)
+       {
+@@ -2554,11 +3075,26 @@ png_handle_tEXt(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ 
+    buffer = png_read_buffer(png_ptr, length+1, 1/*warn*/);
+ 
+-   if (buffer == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[43]) {
++     if ((buffer == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 43\n");
++     else
++       fprintf(stderr, "reached bug index 43\n");
++   }
++   if ((!FIXREVERTER[43] && (buffer == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_benign_error(png_ptr, "out of memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buffer, length);
+ 
+@@ -2601,11 +3137,26 @@ png_handle_zTXt(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ #ifdef PNG_USER_LIMITS_SUPPORTED
+    if (png_ptr->user_chunk_cache_max != 0)
+    {
+-      if (png_ptr->user_chunk_cache_max == 1)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[44]) {
++        if ((png_ptr -> user_chunk_cache_max == 1 ) && !(0))
++          fprintf(stderr, "triggered bug index 44\n");
++        else
++          fprintf(stderr, "reached bug index 44\n");
++      }
++      if ((!FIXREVERTER[44] && (png_ptr -> user_chunk_cache_max == 1 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_crc_finish(png_ptr, length);
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       if (--png_ptr->user_chunk_cache_max == 1)
+       {
+@@ -2627,12 +3178,27 @@ png_handle_zTXt(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+     */
+    buffer = png_read_buffer(png_ptr, length, 2/*silent*/);
+ 
+-   if (buffer == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[45]) {
++     if ((buffer == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 45\n");
++     else
++       fprintf(stderr, "reached bug index 45\n");
++   }
++   if ((!FIXREVERTER[45] && (buffer == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "out of memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buffer, length);
+ 
+@@ -2718,11 +3284,26 @@ png_handle_iTXt(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ #ifdef PNG_USER_LIMITS_SUPPORTED
+    if (png_ptr->user_chunk_cache_max != 0)
+    {
+-      if (png_ptr->user_chunk_cache_max == 1)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[46]) {
++        if ((png_ptr -> user_chunk_cache_max == 1 ) && !(0))
++          fprintf(stderr, "triggered bug index 46\n");
++        else
++          fprintf(stderr, "reached bug index 46\n");
++      }
++      if ((!FIXREVERTER[46] && (png_ptr -> user_chunk_cache_max == 1 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_crc_finish(png_ptr, length);
+          return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       if (--png_ptr->user_chunk_cache_max == 1)
+       {
+@@ -2741,12 +3322,27 @@ png_handle_iTXt(png_structrp png_ptr, png_inforp info_ptr, png_uint_32 length)
+ 
+    buffer = png_read_buffer(png_ptr, length+1, 1/*warn*/);
+ 
+-   if (buffer == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[47]) {
++     if ((buffer == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 47\n");
++     else
++       fprintf(stderr, "reached bug index 47\n");
++   }
++   if ((!FIXREVERTER[47] && (buffer == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_crc_finish(png_ptr, length);
+       png_chunk_benign_error(png_ptr, "out of memory");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_crc_read(png_ptr, buffer, length);
+ 
+@@ -3430,8 +4026,23 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+              * is not an exact number of bytes wide; libpng has always done
+              * this.
+              */
+-            if (row_width <= pixels_per_byte)
+-               break; /* May need to restore part of the last byte */
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[51]) {
++              if ((row_width <= pixels_per_byte ) && !(0))
++                fprintf(stderr, "triggered bug index 51\n");
++              else
++                fprintf(stderr, "reached bug index 51\n");
++            }
++            if ((!FIXREVERTER[51] && (row_width <= pixels_per_byte ))
++            #else
++            if (0
++            #endif
++            )
++               break;
++               #ifdef FRCOV
++               }
++               #endif /* May need to restore part of the last byte */
+ 
+             row_width -= pixels_per_byte;
+             ++dp;
+@@ -3472,8 +4083,23 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+             bytes_to_copy = (1<<((6-pass)>>1)) * pixel_depth;
+ 
+             /* But don't allow this number to exceed the actual row width. */
+-            if (bytes_to_copy > row_width)
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[52]) {
++              if ((bytes_to_copy > row_width ) && !(0))
++                fprintf(stderr, "triggered bug index 52\n");
++              else
++                fprintf(stderr, "reached bug index 52\n");
++            }
++            if ((!FIXREVERTER[52] && (bytes_to_copy > row_width ))
++            #else
++            if (0
++            #endif
++            )
+                bytes_to_copy = (unsigned int)/*SAFE*/row_width;
++               #ifdef FRCOV
++               }
++               #endif
+          }
+ 
+          else /* normal row; Adam7 only ever gives us one pixel to copy. */
+@@ -3497,8 +4123,23 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+                {
+                   *dp = *sp;
+ 
+-                  if (row_width <= bytes_to_jump)
++                  
++                  #ifdef FRCOV
++                  {if (FIXREVERTER[53]) {
++                    if ((row_width <= bytes_to_jump ) && !(0))
++                      fprintf(stderr, "triggered bug index 53\n");
++                    else
++                      fprintf(stderr, "reached bug index 53\n");
++                  }
++                  if ((!FIXREVERTER[53] && (row_width <= bytes_to_jump ))
++                  #else
++                  if (0
++                  #endif
++                  )
+                      return;
++                     #ifdef FRCOV
++                     }
++                     #endif
+ 
+                   dp += bytes_to_jump;
+                   sp += bytes_to_jump;
+@@ -3513,8 +4154,23 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+                {
+                   dp[0] = sp[0]; dp[1] = sp[1];
+ 
+-                  if (row_width <= bytes_to_jump)
++                  
++                  #ifdef FRCOV
++                  {if (FIXREVERTER[54]) {
++                    if ((row_width <= bytes_to_jump ) && !(0))
++                      fprintf(stderr, "triggered bug index 54\n");
++                    else
++                      fprintf(stderr, "reached bug index 54\n");
++                  }
++                  if ((!FIXREVERTER[54] && (row_width <= bytes_to_jump ))
++                  #else
++                  if (0
++                  #endif
++                  )
+                      return;
++                     #ifdef FRCOV
++                     }
++                     #endif
+ 
+                   sp += bytes_to_jump;
+                   dp += bytes_to_jump;
+@@ -3534,8 +4190,23 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+                {
+                   dp[0] = sp[0]; dp[1] = sp[1]; dp[2] = sp[2];
+ 
+-                  if (row_width <= bytes_to_jump)
++                  
++                  #ifdef FRCOV
++                  {if (FIXREVERTER[55]) {
++                    if ((row_width <= bytes_to_jump ) && !(0))
++                      fprintf(stderr, "triggered bug index 55\n");
++                    else
++                      fprintf(stderr, "reached bug index 55\n");
++                  }
++                  if ((!FIXREVERTER[55] && (row_width <= bytes_to_jump ))
++                  #else
++                  if (0
++                  #endif
++                  )
+                      return;
++                     #ifdef FRCOV
++                     }
++                     #endif
+ 
+                   sp += bytes_to_jump;
+                   dp += bytes_to_jump;
+@@ -3579,8 +4250,23 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+                         }
+                         while (c > 0);
+ 
+-                        if (row_width <= bytes_to_jump)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[56]) {
++                          if ((row_width <= bytes_to_jump ) && !(0))
++                            fprintf(stderr, "triggered bug index 56\n");
++                          else
++                            fprintf(stderr, "reached bug index 56\n");
++                        }
++                        if ((!FIXREVERTER[56] && (row_width <= bytes_to_jump ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                            return;
++                           #ifdef FRCOV
++                           }
++                           #endif
+ 
+                         dp32 += skip;
+                         sp32 += skip;
+@@ -3621,8 +4307,23 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+                         }
+                         while (c > 0);
+ 
+-                        if (row_width <= bytes_to_jump)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[57]) {
++                          if ((row_width <= bytes_to_jump ) && !(0))
++                            fprintf(stderr, "triggered bug index 57\n");
++                          else
++                            fprintf(stderr, "reached bug index 57\n");
++                        }
++                        if ((!FIXREVERTER[57] && (row_width <= bytes_to_jump ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                            return;
++                           #ifdef FRCOV
++                           }
++                           #endif
+ 
+                         dp16 += skip;
+                         sp16 += skip;
+@@ -3646,14 +4347,44 @@ png_combine_row(png_const_structrp png_ptr, png_bytep dp, int display)
+                {
+                   memcpy(dp, sp, bytes_to_copy);
+ 
+-                  if (row_width <= bytes_to_jump)
++                  
++                  #ifdef FRCOV
++                  {if (FIXREVERTER[58]) {
++                    if ((row_width <= bytes_to_jump ) && !(0))
++                      fprintf(stderr, "triggered bug index 58\n");
++                    else
++                      fprintf(stderr, "reached bug index 58\n");
++                  }
++                  if ((!FIXREVERTER[58] && (row_width <= bytes_to_jump ))
++                  #else
++                  if (0
++                  #endif
++                  )
+                      return;
++                     #ifdef FRCOV
++                     }
++                     #endif
+ 
+                   sp += bytes_to_jump;
+                   dp += bytes_to_jump;
+                   row_width -= bytes_to_jump;
+-                  if (bytes_to_copy > row_width)
++                  
++                  #ifdef FRCOV
++                  {if (FIXREVERTER[59]) {
++                    if ((bytes_to_copy > row_width ) && !(0))
++                      fprintf(stderr, "triggered bug index 59\n");
++                    else
++                      fprintf(stderr, "reached bug index 59\n");
++                  }
++                  if ((!FIXREVERTER[59] && (bytes_to_copy > row_width ))
++                  #else
++                  if (0
++                  #endif
++                  )
+                      bytes_to_copy = (unsigned int)/*SAFE*/row_width;
++                     #ifdef FRCOV
++                     }
++                     #endif
+                }
+          }
+ 
+@@ -3686,8 +4417,23 @@ png_do_read_interlace(png_row_infop row_info, png_bytep row, int pass,
+    static const unsigned int png_pass_inc[7] = {8, 8, 4, 4, 2, 2, 1};
+ 
+    png_debug(1, "in png_do_read_interlace");
+-   if (row != NULL && row_info != NULL)
+-   {
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[60]) {
++     fprintf(stderr, "reached bug index 60\n");
++   }
++   if ((FIXREVERTER[60] && (row != (void *) 0 )) || (!FIXREVERTER[60] && (row != (void *) 0 && row_info != (void *) 0 ))
++   #else
++   if (row != (void *) 0 
++   #endif
++   )
++   {
++     
++   #ifdef FRCOV
++     if (!(row_info != (void *) 0 ))
++       fprintf(stderr, "triggered bug index 60\n");
++     #endif
++   
+       png_uint_32 final_width;
+ 
+       final_width = row_info->width * png_pass_inc[pass];
+@@ -3918,6 +4664,9 @@ png_do_read_interlace(png_row_infop row_info, png_bytep row, int pass,
+       row_info->width = final_width;
+       row_info->rowbytes = PNG_ROWBYTES(row_info->pixel_depth, final_width);
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ #ifndef PNG_READ_PACKSWAP_SUPPORTED
+    PNG_UNUSED(transformations)  /* Silence compiler warning */
+ #endif
+@@ -4025,7 +4774,22 @@ png_read_filter_row_paeth_1byte_pixel(png_row_infop row_info, png_bytep row,
+       {
+          pa = pb; a = b;
+       }
+-      if (pc < pa) a = c;
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[61]) {
++        if ((pc < pa ) && !(0))
++          fprintf(stderr, "triggered bug index 61\n");
++        else
++          fprintf(stderr, "reached bug index 61\n");
++      }
++      if ((!FIXREVERTER[61] && (pc < pa ))
++      #else
++      if (0
++      #endif
++      ) a = c;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       /* Calculate the current pixel in a, and move the previous row pixel to c
+        * for the next time round the loop
+@@ -4080,7 +4844,22 @@ png_read_filter_row_paeth_multibyte_pixel(png_row_infop row_info, png_bytep row,
+       {
+          pa = pb; a = b;
+       }
+-      if (pc < pa) a = c;
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[62]) {
++        if ((pc < pa ) && !(0))
++          fprintf(stderr, "triggered bug index 62\n");
++        else
++          fprintf(stderr, "reached bug index 62\n");
++      }
++      if ((!FIXREVERTER[62] && (pc < pa ))
++      #else
++      if (0
++      #endif
++      ) a = c;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       a += *row;
+       *row++ = (png_byte)a;
+@@ -4132,13 +4911,31 @@ png_read_filter_row(png_structrp pp, png_row_infop row_info, png_bytep row,
+     * PNG_FILTER_OPTIMIZATIONS to a function that overrides the generic
+     * implementations.  See png_init_filter_functions above.
+     */
+-   if (filter > PNG_FILTER_VALUE_NONE && filter < PNG_FILTER_VALUE_LAST)
+-   {
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[63]) {
++     fprintf(stderr, "reached bug index 63\n");
++   }
++   if ((FIXREVERTER[63] && (filter > 0 )) || (!FIXREVERTER[63] && (filter > 0 && filter < 5 ))
++   #else
++   if (filter > 0 
++   #endif
++   )
++   {
++     
++   #ifdef FRCOV
++     if (!(filter < 5 ))
++       fprintf(stderr, "triggered bug index 63\n");
++     #endif
++   
+       if (pp->read_filter[0] == NULL)
+          png_init_filter_functions(pp);
+ 
+       pp->read_filter[filter-1](row_info, row, prev_row);
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ }
+ 
+ #ifdef PNG_SEQUENTIAL_READ_SUPPORTED
+@@ -4461,8 +5258,23 @@ png_read_start_row(png_structrp png_ptr)
+ 
+       else if (png_ptr->color_type == PNG_COLOR_TYPE_GRAY)
+       {
+-         if (max_pixel_depth < 8)
++         
++         #ifdef FRCOV
++         {if (FIXREVERTER[68]) {
++           if ((max_pixel_depth < 8 ) && !(0))
++             fprintf(stderr, "triggered bug index 68\n");
++           else
++             fprintf(stderr, "reached bug index 68\n");
++         }
++         if ((!FIXREVERTER[68] && (max_pixel_depth < 8 ))
++         #else
++         if (0
++         #endif
++         )
+             max_pixel_depth = 8;
++            #ifdef FRCOV
++            }
++            #endif
+ 
+          if (png_ptr->num_trans != 0)
+             max_pixel_depth *= 2;
+@@ -4568,8 +5380,23 @@ defined(PNG_USER_TRANSFORM_PTR_SUPPORTED)
+       unsigned int user_pixel_depth = png_ptr->user_transform_depth *
+          png_ptr->user_transform_channels;
+ 
+-      if (user_pixel_depth > max_pixel_depth)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[69]) {
++        if ((user_pixel_depth > max_pixel_depth ) && !(0))
++          fprintf(stderr, "triggered bug index 69\n");
++        else
++          fprintf(stderr, "reached bug index 69\n");
++      }
++      if ((!FIXREVERTER[69] && (user_pixel_depth > max_pixel_depth ))
++      #else
++      if (0
++      #endif
++      )
+          max_pixel_depth = user_pixel_depth;
++         #ifdef FRCOV
++         }
++         #endif
+    }
+ #endif
+ 
+diff --git a/pngset.c b/pngset.c
+index 9f4489bcf..97387c9ce 100644
+--- a/pngset.c
++++ b/pngset.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngset.c - storage of image information into info struct
+  *
+@@ -27,8 +34,23 @@ png_set_bKGD(png_const_structrp png_ptr, png_inforp info_ptr,
+ {
+    png_debug1(1, "in %s storage function", "bKGD");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL || background == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[126]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 || background == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 126\n");
++     else
++       fprintf(stderr, "reached bug index 126\n");
++   }
++   if ((!FIXREVERTER[126] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 || background == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    info_ptr->background = *background;
+    info_ptr->valid |= PNG_INFO_bKGD;
+@@ -152,8 +174,23 @@ png_set_eXIf_1(png_const_structrp png_ptr, png_inforp info_ptr,
+ 
+    png_debug1(1, "in %s storage function", "eXIf");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[129]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 129\n");
++     else
++       fprintf(stderr, "reached bug index 129\n");
++   }
++   if ((!FIXREVERTER[129] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    if (info_ptr->exif)
+    {
+@@ -166,11 +203,26 @@ png_set_eXIf_1(png_const_structrp png_ptr, png_inforp info_ptr,
+    info_ptr->exif = png_voidcast(png_bytep, png_malloc_warn(png_ptr,
+        info_ptr->num_exif));
+ 
+-   if (info_ptr->exif == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[130]) {
++     if ((info_ptr -> exif == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 130\n");
++     else
++       fprintf(stderr, "reached bug index 130\n");
++   }
++   if ((!FIXREVERTER[130] && (info_ptr -> exif == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_warning(png_ptr, "Insufficient memory for eXIf chunk data");
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    info_ptr->free_me |= PNG_FREE_EXIF;
+ 
+@@ -214,17 +266,46 @@ png_set_hIST(png_const_structrp png_ptr, png_inforp info_ptr,
+ 
+    png_debug1(1, "in %s storage function", "hIST");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[132]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 132\n");
++     else
++       fprintf(stderr, "reached bug index 132\n");
++   }
++   if ((!FIXREVERTER[132] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
+-
+-   if (info_ptr->num_palette == 0 || info_ptr->num_palette
+-       > PNG_MAX_PALETTE_LENGTH)
++      #ifdef FRCOV
++      }
++      #endif
++
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[133]) {
++     if ((info_ptr -> num_palette == 0 || info_ptr -> num_palette > 256 ) && !(0))
++       fprintf(stderr, "triggered bug index 133\n");
++     else
++       fprintf(stderr, "reached bug index 133\n");
++   }
++   if ((!FIXREVERTER[133] && (info_ptr -> num_palette == 0 || info_ptr -> num_palette > 256 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_warning(png_ptr,
+           "Invalid palette size, hIST allocation skipped");
+ 
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_free_data(png_ptr, info_ptr, PNG_FREE_HIST, 0);
+ 
+@@ -234,12 +315,27 @@ png_set_hIST(png_const_structrp png_ptr, png_inforp info_ptr,
+    info_ptr->hist = png_voidcast(png_uint_16p, png_malloc_warn(png_ptr,
+        PNG_MAX_PALETTE_LENGTH * (sizeof (png_uint_16))));
+ 
+-   if (info_ptr->hist == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[134]) {
++     if ((info_ptr -> hist == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 134\n");
++     else
++       fprintf(stderr, "reached bug index 134\n");
++   }
++   if ((!FIXREVERTER[134] && (info_ptr -> hist == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_warning(png_ptr, "Insufficient memory for hIST chunk data");
+ 
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    info_ptr->free_me |= PNG_FREE_HIST;
+ 
+@@ -258,8 +354,23 @@ png_set_IHDR(png_const_structrp png_ptr, png_inforp info_ptr,
+ {
+    png_debug1(1, "in %s storage function", "IHDR");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[135]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 135\n");
++     else
++       fprintf(stderr, "reached bug index 135\n");
++   }
++   if ((!FIXREVERTER[135] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    info_ptr->width = width;
+    info_ptr->height = height;
+@@ -297,8 +408,23 @@ png_set_oFFs(png_const_structrp png_ptr, png_inforp info_ptr,
+ {
+    png_debug1(1, "in %s storage function", "oFFs");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[136]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 136\n");
++     else
++       fprintf(stderr, "reached bug index 136\n");
++   }
++   if ((!FIXREVERTER[136] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    info_ptr->x_offset = offset_x;
+    info_ptr->y_offset = offset_y;
+@@ -329,19 +455,49 @@ png_set_pCAL(png_const_structrp png_ptr, png_inforp info_ptr,
+    /* TODO: validate format of calibration name and unit name */
+ 
+    /* Check that the type matches the specification. */
+-   if (type < 0 || type > 3)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[137]) {
++     if ((type < 0 || type > 3 ) && !(0))
++       fprintf(stderr, "triggered bug index 137\n");
++     else
++       fprintf(stderr, "reached bug index 137\n");
++   }
++   if ((!FIXREVERTER[137] && (type < 0 || type > 3 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_report(png_ptr, "Invalid pCAL equation type",
+             PNG_CHUNK_WRITE_ERROR);
+       return;
+    }
+-
+-   if (nparams < 0 || nparams > 255)
++   #ifdef FRCOV
++   }
++   #endif
++
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[138]) {
++     if ((nparams < 0 || nparams > 255 ) && !(0))
++       fprintf(stderr, "triggered bug index 138\n");
++     else
++       fprintf(stderr, "reached bug index 138\n");
++   }
++   if ((!FIXREVERTER[138] && (nparams < 0 || nparams > 255 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_report(png_ptr, "Invalid pCAL parameter count",
+             PNG_CHUNK_WRITE_ERROR);
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    /* Validate params[nparams] */
+    for (i=0; i<nparams; ++i)
+@@ -358,12 +514,27 @@ png_set_pCAL(png_const_structrp png_ptr, png_inforp info_ptr,
+    info_ptr->pcal_purpose = png_voidcast(png_charp,
+        png_malloc_warn(png_ptr, length));
+ 
+-   if (info_ptr->pcal_purpose == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[139]) {
++     if ((info_ptr -> pcal_purpose == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 139\n");
++     else
++       fprintf(stderr, "reached bug index 139\n");
++   }
++   if ((!FIXREVERTER[139] && (info_ptr -> pcal_purpose == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_report(png_ptr, "Insufficient memory for pCAL purpose",
+             PNG_CHUNK_WRITE_ERROR);
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    memcpy(info_ptr->pcal_purpose, purpose, length);
+ 
+@@ -380,24 +551,54 @@ png_set_pCAL(png_const_structrp png_ptr, png_inforp info_ptr,
+    info_ptr->pcal_units = png_voidcast(png_charp,
+        png_malloc_warn(png_ptr, length));
+ 
+-   if (info_ptr->pcal_units == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[140]) {
++     if ((info_ptr -> pcal_units == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 140\n");
++     else
++       fprintf(stderr, "reached bug index 140\n");
++   }
++   if ((!FIXREVERTER[140] && (info_ptr -> pcal_units == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_warning(png_ptr, "Insufficient memory for pCAL units");
+ 
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    memcpy(info_ptr->pcal_units, units, length);
+ 
+    info_ptr->pcal_params = png_voidcast(png_charpp, png_malloc_warn(png_ptr,
+        (size_t)(((unsigned int)nparams + 1) * (sizeof (png_charp)))));
+ 
+-   if (info_ptr->pcal_params == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[141]) {
++     if ((info_ptr -> pcal_params == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 141\n");
++     else
++       fprintf(stderr, "reached bug index 141\n");
++   }
++   if ((!FIXREVERTER[141] && (info_ptr -> pcal_params == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_warning(png_ptr, "Insufficient memory for pCAL params");
+ 
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    memset(info_ptr->pcal_params, 0, ((unsigned int)nparams + 1) *
+        (sizeof (png_charp)));
+@@ -434,8 +635,23 @@ png_set_sCAL_s(png_const_structrp png_ptr, png_inforp info_ptr,
+ 
+    png_debug1(1, "in %s storage function", "sCAL");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[142]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 142\n");
++     else
++       fprintf(stderr, "reached bug index 142\n");
++   }
++   if ((!FIXREVERTER[142] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* Double check the unit (should never get here with an invalid
+     * unit unless this is an API call.)
+@@ -460,12 +676,27 @@ png_set_sCAL_s(png_const_structrp png_ptr, png_inforp info_ptr,
+    info_ptr->scal_s_width = png_voidcast(png_charp,
+        png_malloc_warn(png_ptr, lengthw));
+ 
+-   if (info_ptr->scal_s_width == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[144]) {
++     if ((info_ptr -> scal_s_width == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 144\n");
++     else
++       fprintf(stderr, "reached bug index 144\n");
++   }
++   if ((!FIXREVERTER[144] && (info_ptr -> scal_s_width == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_warning(png_ptr, "Memory allocation failed while processing sCAL");
+ 
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    memcpy(info_ptr->scal_s_width, swidth, lengthw);
+ 
+@@ -558,8 +789,23 @@ png_set_pHYs(png_const_structrp png_ptr, png_inforp info_ptr,
+ {
+    png_debug1(1, "in %s storage function", "pHYs");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[145]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 145\n");
++     else
++       fprintf(stderr, "reached bug index 145\n");
++   }
++   if ((!FIXREVERTER[145] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    info_ptr->x_pixels_per_unit = res_x;
+    info_ptr->y_pixels_per_unit = res_y;
+@@ -577,8 +823,23 @@ png_set_PLTE(png_structrp png_ptr, png_inforp info_ptr,
+ 
+    png_debug1(1, "in %s storage function", "PLTE");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[146]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 146\n");
++     else
++       fprintf(stderr, "reached bug index 146\n");
++   }
++   if ((!FIXREVERTER[146] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    max_palette_length = (info_ptr->color_type == PNG_COLOR_TYPE_PALETTE) ?
+       (1 << info_ptr->bit_depth) : PNG_MAX_PALETTE_LENGTH;
+@@ -640,8 +901,23 @@ png_set_sBIT(png_const_structrp png_ptr, png_inforp info_ptr,
+ {
+    png_debug1(1, "in %s storage function", "sBIT");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL || sig_bit == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[147]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 || sig_bit == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 147\n");
++     else
++       fprintf(stderr, "reached bug index 147\n");
++   }
++   if ((!FIXREVERTER[147] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 || sig_bit == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    info_ptr->sig_bit = *sig_bit;
+    info_ptr->valid |= PNG_INFO_sBIT;
+@@ -778,8 +1054,23 @@ png_set_text_2(png_const_structrp png_ptr, png_inforp info_ptr,
+    png_debug1(1, "in %lx storage function", png_ptr == NULL ? 0xabadca11U :
+       (unsigned long)png_ptr->chunk_name);
+ 
+-   if (png_ptr == NULL || info_ptr == NULL || num_text <= 0 || text_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[154]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 || num_text <= 0 || text_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 154\n");
++     else
++       fprintf(stderr, "reached bug index 154\n");
++   }
++   if ((!FIXREVERTER[154] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 || num_text <= 0 || text_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return(0);
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* Make sure we have enough space in the "text" array in info_struct
+     * to hold all of the incoming text_ptr objects.  This compare can't overflow
+@@ -813,13 +1104,28 @@ png_set_text_2(png_const_structrp png_ptr, png_inforp info_ptr,
+              sizeof *new_text));
+       }
+ 
+-      if (new_text == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[155]) {
++        if ((new_text == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 155\n");
++        else
++          fprintf(stderr, "reached bug index 155\n");
++      }
++      if ((!FIXREVERTER[155] && (new_text == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_chunk_report(png_ptr, "too many text chunks",
+              PNG_CHUNK_WRITE_ERROR);
+ 
+          return 1;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       png_free(png_ptr, info_ptr->text);
+ 
+@@ -902,13 +1208,28 @@ png_set_text_2(png_const_structrp png_ptr, png_inforp info_ptr,
+       textp->key = png_voidcast(png_charp,png_malloc_base(png_ptr,
+           key_len + text_length + lang_len + lang_key_len + 4));
+ 
+-      if (textp->key == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[156]) {
++        if ((textp -> key == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 156\n");
++        else
++          fprintf(stderr, "reached bug index 156\n");
++      }
++      if ((!FIXREVERTER[156] && (textp -> key == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_chunk_report(png_ptr, "text chunk: out of memory",
+              PNG_CHUNK_WRITE_ERROR);
+ 
+          return 1;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       png_debug2(2, "Allocated %lu bytes at %p in png_set_text",
+           (unsigned long)(png_uint_32)
+@@ -996,9 +1317,24 @@ png_set_tRNS(png_structrp png_ptr, png_inforp info_ptr,
+ {
+    png_debug1(1, "in %s storage function", "tRNS");
+ 
+-   if (png_ptr == NULL || info_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[157]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 157\n");
++     else
++       fprintf(stderr, "reached bug index 157\n");
++   }
++   if ((!FIXREVERTER[157] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+ 
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    if (trans_alpha != NULL)
+    {
+@@ -1043,8 +1379,23 @@ png_set_tRNS(png_structrp png_ptr, png_inforp info_ptr,
+ 
+       info_ptr->trans_color = *trans_color;
+ 
+-      if (num_trans == 0)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[159]) {
++        if ((num_trans == 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 159\n");
++        else
++          fprintf(stderr, "reached bug index 159\n");
++      }
++      if ((!FIXREVERTER[159] && (num_trans == 0 ))
++      #else
++      if (0
++      #endif
++      )
+          num_trans = 1;
++         #ifdef FRCOV
++         }
++         #endif
+    }
+ 
+    info_ptr->num_trans = (png_uint_16)num_trans;
+@@ -1072,8 +1423,23 @@ png_set_sPLT(png_const_structrp png_ptr,
+ {
+    png_sPLT_tp np;
+ 
+-   if (png_ptr == NULL || info_ptr == NULL || nentries <= 0 || entries == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[160]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 || entries == (void *) 0 ) && !(nentries <= 0 ))
++       fprintf(stderr, "triggered bug index 160\n");
++     else
++       fprintf(stderr, "reached bug index 160\n");
++   }
++   if ((FIXREVERTER[160] && (nentries <= 0 )) || (!FIXREVERTER[160] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 || nentries <= 0 || entries == (void *) 0 ))
++   #else
++   if (nentries <= 0 
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* Use the internal realloc function, which checks for all the possible
+     * overflows.  Notice that the parameters are (int) and (size_t)
+@@ -1082,13 +1448,28 @@ png_set_sPLT(png_const_structrp png_ptr,
+        info_ptr->splt_palettes, info_ptr->splt_palettes_num, nentries,
+        sizeof *np));
+ 
+-   if (np == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[161]) {
++     if ((np == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 161\n");
++     else
++       fprintf(stderr, "reached bug index 161\n");
++   }
++   if ((!FIXREVERTER[161] && (np == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       /* Out of memory or too many chunks */
+       png_chunk_report(png_ptr, "too many sPLT chunks", PNG_CHUNK_WRITE_ERROR);
+ 
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_free(png_ptr, info_ptr->splt_palettes);
+    info_ptr->splt_palettes = np;
+@@ -1101,13 +1482,28 @@ png_set_sPLT(png_const_structrp png_ptr,
+       size_t length;
+ 
+       /* Skip invalid input entries */
+-      if (entries->name == NULL || entries->entries == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[162]) {
++        if ((entries -> name == (void *) 0 || entries -> entries == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 162\n");
++        else
++          fprintf(stderr, "reached bug index 162\n");
++      }
++      if ((!FIXREVERTER[162] && (entries -> name == (void *) 0 || entries -> entries == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          /* png_handle_sPLT doesn't do this, so this is an app error */
+          png_app_error(png_ptr, "png_set_sPLT: invalid sPLT");
+          /* Just skip the invalid entry */
+          continue;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       np->depth = entries->depth;
+ 
+@@ -1117,8 +1513,23 @@ png_set_sPLT(png_const_structrp png_ptr,
+       length = strlen(entries->name) + 1;
+       np->name = png_voidcast(png_charp, png_malloc_base(png_ptr, length));
+ 
+-      if (np->name == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[163]) {
++        if ((np -> name == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 163\n");
++        else
++          fprintf(stderr, "reached bug index 163\n");
++      }
++      if ((!FIXREVERTER[163] && (np -> name == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+          break;
++         #ifdef FRCOV
++         }
++         #endif
+ 
+       memcpy(np->name, entries->name, length);
+ 
+@@ -1129,12 +1540,27 @@ png_set_sPLT(png_const_structrp png_ptr,
+       np->entries = png_voidcast(png_sPLT_entryp, png_malloc_array(png_ptr,
+           entries->nentries, sizeof (png_sPLT_entry)));
+ 
+-      if (np->entries == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[164]) {
++        if ((np -> entries == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 164\n");
++        else
++          fprintf(stderr, "reached bug index 164\n");
++      }
++      if ((!FIXREVERTER[164] && (np -> entries == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+       {
+          png_free(png_ptr, np->name);
+          np->name = NULL;
+          break;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       np->nentries = entries->nentries;
+       /* This multiply can't overflow because png_malloc_array has already
+@@ -1202,9 +1628,23 @@ png_set_unknown_chunks(png_const_structrp png_ptr,
+ {
+    png_unknown_chunkp np;
+ 
+-   if (png_ptr == NULL || info_ptr == NULL || num_unknowns <= 0 ||
+-       unknowns == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[165]) {
++     if ((png_ptr == (void *) 0 || info_ptr == (void *) 0 || unknowns == (void *) 0 ) && !(num_unknowns <= 0 ))
++       fprintf(stderr, "triggered bug index 165\n");
++     else
++       fprintf(stderr, "reached bug index 165\n");
++   }
++   if ((FIXREVERTER[165] && (num_unknowns <= 0 )) || (!FIXREVERTER[165] && (png_ptr == (void *) 0 || info_ptr == (void *) 0 || num_unknowns <= 0 || unknowns == (void *) 0 ))
++   #else
++   if (num_unknowns <= 0 
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    /* Check for the failure cases where support has been disabled at compile
+     * time.  This code is hardly ever compiled - it's here because
+@@ -1240,13 +1680,28 @@ png_set_unknown_chunks(png_const_structrp png_ptr,
+        info_ptr->unknown_chunks, info_ptr->unknown_chunks_num, num_unknowns,
+        sizeof *np));
+ 
+-   if (np == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[166]) {
++     if ((np == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 166\n");
++     else
++       fprintf(stderr, "reached bug index 166\n");
++   }
++   if ((!FIXREVERTER[166] && (np == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+    {
+       png_chunk_report(png_ptr, "too many unknown chunks",
+           PNG_CHUNK_WRITE_ERROR);
+ 
+       return;
+    }
++   #ifdef FRCOV
++   }
++   #endif
+ 
+    png_free(png_ptr, info_ptr->unknown_chunks);
+    info_ptr->unknown_chunks = np; /* safe because it is initialized */
+@@ -1274,13 +1729,28 @@ png_set_unknown_chunks(png_const_structrp png_ptr,
+          np->data = png_voidcast(png_bytep,
+              png_malloc_base(png_ptr, unknowns->size));
+ 
+-         if (np->data == NULL)
++         
++         #ifdef FRCOV
++         {if (FIXREVERTER[167]) {
++           if ((np -> data == (void *) 0 ) && !(0))
++             fprintf(stderr, "triggered bug index 167\n");
++           else
++             fprintf(stderr, "reached bug index 167\n");
++         }
++         if ((!FIXREVERTER[167] && (np -> data == (void *) 0 ))
++         #else
++         if (0
++         #endif
++         )
+          {
+             png_chunk_report(png_ptr, "unknown chunk: out of memory",
+                 PNG_CHUNK_WRITE_ERROR);
+             /* But just skip storing the unknown chunk */
+             continue;
+          }
++         #ifdef FRCOV
++         }
++         #endif
+ 
+          memcpy(np->data, unknowns->data, unknowns->size);
+          np->size = unknowns->size;
+diff --git a/pngtrans.c b/pngtrans.c
+index 1100f46eb..f991fd836 100644
+--- a/pngtrans.c
++++ b/pngtrans.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ 
+ /* pngtrans.c - transforms the data in a row (used by both readers and writers)
+  *
+@@ -51,8 +58,23 @@ png_set_packing(png_structrp png_ptr)
+ {
+    png_debug(1, "in png_set_packing");
+ 
+-   if (png_ptr == NULL)
++   
++   #ifdef FRCOV
++   {if (FIXREVERTER[243]) {
++     if ((png_ptr == (void *) 0 ) && !(0))
++       fprintf(stderr, "triggered bug index 243\n");
++     else
++       fprintf(stderr, "reached bug index 243\n");
++   }
++   if ((!FIXREVERTER[243] && (png_ptr == (void *) 0 ))
++   #else
++   if (0
++   #endif
++   )
+       return;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+    if (png_ptr->bit_depth < 8)
+    {
+@@ -733,23 +755,83 @@ png_do_check_palette_indexes(png_structrp png_ptr, png_row_infop row_info)
+             {
+               int i = ((*rp >> padding) & 0x03);
+ 
+-              if (i > png_ptr->num_palette_max)
++              
++              #ifdef FRCOV
++              {if (FIXREVERTER[251]) {
++                if ((i > png_ptr -> num_palette_max  ) && !(0))
++                  fprintf(stderr, "triggered bug index 251\n");
++                else
++                  fprintf(stderr, "reached bug index 251\n");
++              }
++              if ((!FIXREVERTER[251] && (i > png_ptr -> num_palette_max  ))
++              #else
++              if (0
++              #endif
++              )
+                  png_ptr->num_palette_max = i;
++                 #ifdef FRCOV
++                 }
++                 #endif
+ 
+               i = (((*rp >> padding) >> 2) & 0x03);
+ 
+-              if (i > png_ptr->num_palette_max)
++              
++              #ifdef FRCOV
++              {if (FIXREVERTER[252]) {
++                if ((i > png_ptr -> num_palette_max  ) && !(0))
++                  fprintf(stderr, "triggered bug index 252\n");
++                else
++                  fprintf(stderr, "reached bug index 252\n");
++              }
++              if ((!FIXREVERTER[252] && (i > png_ptr -> num_palette_max  ))
++              #else
++              if (0
++              #endif
++              )
+                  png_ptr->num_palette_max = i;
++                 #ifdef FRCOV
++                 }
++                 #endif
+ 
+               i = (((*rp >> padding) >> 4) & 0x03);
+ 
+-              if (i > png_ptr->num_palette_max)
++              
++              #ifdef FRCOV
++              {if (FIXREVERTER[253]) {
++                if ((i > png_ptr -> num_palette_max  ) && !(0))
++                  fprintf(stderr, "triggered bug index 253\n");
++                else
++                  fprintf(stderr, "reached bug index 253\n");
++              }
++              if ((!FIXREVERTER[253] && (i > png_ptr -> num_palette_max  ))
++              #else
++              if (0
++              #endif
++              )
+                  png_ptr->num_palette_max = i;
++                 #ifdef FRCOV
++                 }
++                 #endif
+ 
+               i = (((*rp >> padding) >> 6) & 0x03);
+ 
+-              if (i > png_ptr->num_palette_max)
++              
++              #ifdef FRCOV
++              {if (FIXREVERTER[254]) {
++                if ((i > png_ptr -> num_palette_max  ) && !(0))
++                  fprintf(stderr, "triggered bug index 254\n");
++                else
++                  fprintf(stderr, "reached bug index 254\n");
++              }
++              if ((!FIXREVERTER[254] && (i > png_ptr -> num_palette_max  ))
++              #else
++              if (0
++              #endif
++              )
+                  png_ptr->num_palette_max = i;
++                 #ifdef FRCOV
++                 }
++                 #endif
+ 
+               padding = 0;
+             }
+@@ -763,13 +845,43 @@ png_do_check_palette_indexes(png_structrp png_ptr, png_row_infop row_info)
+             {
+               int i = ((*rp >> padding) & 0x0f);
+ 
+-              if (i > png_ptr->num_palette_max)
++              
++              #ifdef FRCOV
++              {if (FIXREVERTER[255]) {
++                if ((i > png_ptr -> num_palette_max  ) && !(0))
++                  fprintf(stderr, "triggered bug index 255\n");
++                else
++                  fprintf(stderr, "reached bug index 255\n");
++              }
++              if ((!FIXREVERTER[255] && (i > png_ptr -> num_palette_max  ))
++              #else
++              if (0
++              #endif
++              )
+                  png_ptr->num_palette_max = i;
++                 #ifdef FRCOV
++                 }
++                 #endif
+ 
+               i = (((*rp >> padding) >> 4) & 0x0f);
+ 
+-              if (i > png_ptr->num_palette_max)
++              
++              #ifdef FRCOV
++              {if (FIXREVERTER[256]) {
++                if ((i > png_ptr -> num_palette_max  ) && !(0))
++                  fprintf(stderr, "triggered bug index 256\n");
++                else
++                  fprintf(stderr, "reached bug index 256\n");
++              }
++              if ((!FIXREVERTER[256] && (i > png_ptr -> num_palette_max  ))
++              #else
++              if (0
++              #endif
++              )
+                  png_ptr->num_palette_max = i;
++                 #ifdef FRCOV
++                 }
++                 #endif
+ 
+               padding = 0;
+             }

@@ -1,0 +1,12 @@
+commit: c145a6c14978f73bb484c955eb9f84203efcb12e
+fuzz_target: tiffcp
+project: libtiff
+type: bug
+unsupported_fuzzers:
+  - aflcc
+  - afl_qemu
+  - aflplusplus_qemu
+  - honggfuzz_qemu
+  - klee
+  - lafintel
+  - weizz_qemu

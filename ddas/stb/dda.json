@@ -1,0 +1,7271 @@
+[
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__pic_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "76",
+        "file": "/src/stb/stb_image.h",
+        "line": "6234",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "76",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6234",
+        "order": 4,
+        "tag": "traceVarAssignNum[]",
+        "val": "req_comp"
+      }
+    ],
+    "index": 109,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "35",
+          "file": "/src/stb/stb_image.h",
+          "line": "6264"
+        },
+        "start": {
+          "col": "23",
+          "file": "/src/stb/stb_image.h",
+          "line": "6264"
+        }
+      },
+      "end": {
+        "col": "35",
+        "file": "/src/stb/stb_image.h",
+        "line": "6264"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "6264"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "76",
+        "file": "/src/stb/stb_image.h",
+        "line": "6234",
+        "order": 1,
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "col": "76",
+        "file": "/src/stb/stb_image.h",
+        "line": "6234",
+        "order": 4,
+        "val": "req_comp"
+      },
+      {
+        "order": 5,
+        "val": ";"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_decode_block_prog_ac",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2250",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "r"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 30,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "19",
+          "file": "/src/stb/stb_image.h",
+          "line": "2290"
+        },
+        "start": {
+          "col": "31",
+          "file": "/src/stb/stb_image.h",
+          "line": "2287"
+        }
+      },
+      "end": {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "2290"
+      },
+      "start": {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "2287"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "2250",
+        "order": 1,
+        "val": "r"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_gif_raster",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6421",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "avail"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 113,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "/src/stb/stb_image.h",
+          "line": "6478"
+        },
+        "start": {
+          "col": "34",
+          "file": "/src/stb/stb_image.h",
+          "line": "6476"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "/src/stb/stb_image.h",
+        "line": "6478"
+      },
+      "start": {
+        "col": "16",
+        "file": "/src/stb/stb_image.h",
+        "line": "6476"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "36",
+        "file": "/src/stb/stb_image.h",
+        "line": "6421",
+        "order": 1,
+        "val": "avail"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "8192"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_decode_block_prog_ac",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2209",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 27,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "75",
+          "file": "/src/stb/stb_image.h",
+          "line": "2210"
+        },
+        "start": {
+          "col": "25",
+          "file": "/src/stb/stb_image.h",
+          "line": "2210"
+        }
+      },
+      "end": {
+        "col": "75",
+        "file": "/src/stb/stb_image.h",
+        "line": "2210"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "2210"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "2209",
+        "order": 1,
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__parse_huffman_block",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4130",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 56,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "70",
+          "file": "/src/stb/stb_image.h",
+          "line": "4149"
+        },
+        "start": {
+          "col": "21",
+          "file": "/src/stb/stb_image.h",
+          "line": "4149"
+        }
+      },
+      "end": {
+        "col": "70",
+        "file": "/src/stb/stb_image.h",
+        "line": "4149"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4149"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4130",
+        "order": 1,
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_frame_header",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "24",
+        "file": "/src/stb/stb_image.h",
+        "line": "745",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "img_y"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "3150",
+        "offset": 1,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "s"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 41,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "134",
+          "file": "/src/stb/stb_image.h",
+          "line": "3154"
+        },
+        "start": {
+          "col": "54",
+          "file": "/src/stb/stb_image.h",
+          "line": "3154"
+        }
+      },
+      "end": {
+        "col": "134",
+        "file": "/src/stb/stb_image.h",
+        "line": "3154"
+      },
+      "start": {
+        "col": "35",
+        "file": "/src/stb/stb_image.h",
+        "line": "3154"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "3150",
+        "order": 1,
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "24",
+        "file": "/src/stb/stb_image.h",
+        "line": "745",
+        "offset": 1,
+        "order": 3,
+        "val": "img_y"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "0"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__parse_huffman_block",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4130",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 55,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "4144"
+        },
+        "start": {
+          "col": "24",
+          "file": "/src/stb/stb_image.h",
+          "line": "4141"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4144"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4141"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4130",
+        "order": 1,
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "256"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__parse_huffman_block",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4130",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 54,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "70",
+          "file": "/src/stb/stb_image.h",
+          "line": "4132"
+        },
+        "start": {
+          "col": "21",
+          "file": "/src/stb/stb_image.h",
+          "line": "4132"
+        }
+      },
+      "end": {
+        "col": "70",
+        "file": "/src/stb/stb_image.h",
+        "line": "4132"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4132"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4130",
+        "order": 1,
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_decode_block_prog_ac",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2251",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 28,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "75",
+          "file": "/src/stb/stb_image.h",
+          "line": "2252"
+        },
+        "start": {
+          "col": "25",
+          "file": "/src/stb/stb_image.h",
+          "line": "2252"
+        }
+      },
+      "end": {
+        "col": "75",
+        "file": "/src/stb/stb_image.h",
+        "line": "2252"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "2252"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "2251",
+        "order": 1,
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__resample_row_hv_2_simd",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "99",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "3386",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "w"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 49,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "/src/stb/stb_image.h",
+          "line": "3394"
+        },
+        "start": {
+          "col": "16",
+          "file": "/src/stb/stb_image.h",
+          "line": "3391"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "3394"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "3391"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "99",
+        "file": "/src/stb/stb_image.h",
+        "line": "3386",
+        "order": 1,
+        "val": "w"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_gif_raster",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "22",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6454",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "code"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6421",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "avail"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 114,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "75",
+          "file": "/src/stb/stb_image.h",
+          "line": "6484"
+        },
+        "start": {
+          "col": "16",
+          "file": "/src/stb/stb_image.h",
+          "line": "6484"
+        }
+      },
+      "end": {
+        "col": "75",
+        "file": "/src/stb/stb_image.h",
+        "line": "6484"
+      },
+      "start": {
+        "col": "20",
+        "file": "/src/stb/stb_image.h",
+        "line": "6483"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "22",
+        "file": "/src/stb/stb_image.h",
+        "line": "6454",
+        "order": 1,
+        "val": "code"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "col": "36",
+        "file": "/src/stb/stb_image.h",
+        "line": "6421",
+        "order": 3,
+        "val": "avail"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__at_eof",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "751",
+        "offset": 6,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "read_from_callbacks"
+      },
+      {
+        "col": "52",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1529",
+        "offset": 6,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "s"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 9,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "47",
+          "file": "/src/stb/stb_image.h",
+          "line": "1535"
+        },
+        "start": {
+          "col": "40",
+          "file": "/src/stb/stb_image.h",
+          "line": "1535"
+        }
+      },
+      "end": {
+        "col": "47",
+        "file": "/src/stb/stb_image.h",
+        "line": "1535"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "1535"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "52",
+        "file": "/src/stb/stb_image.h",
+        "line": "1529",
+        "order": 1,
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "751",
+        "offset": 6,
+        "order": 3,
+        "val": "read_from_callbacks"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "0"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_decode_block",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2105",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "t"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 22,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "65",
+          "file": "/src/stb/stb_image.h",
+          "line": "2109"
+        },
+        "start": {
+          "col": "15",
+          "file": "/src/stb/stb_image.h",
+          "line": "2109"
+        }
+      },
+      "end": {
+        "col": "65",
+        "file": "/src/stb/stb_image.h",
+        "line": "2109"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "2109"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "2105",
+        "order": 1,
+        "val": "t"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_marker",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "3017",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "tc"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "3018",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "th"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 34,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "83",
+          "file": "/src/stb/stb_image.h",
+          "line": "3019"
+        },
+        "start": {
+          "col": "35",
+          "file": "/src/stb/stb_image.h",
+          "line": "3019"
+        }
+      },
+      "end": {
+        "col": "83",
+        "file": "/src/stb/stb_image.h",
+        "line": "3019"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "3019"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "3017",
+        "order": 1,
+        "val": "tc"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "3018",
+        "order": 5,
+        "val": "th"
+      },
+      {
+        "order": 6,
+        "val": ">"
+      },
+      {
+        "order": 7,
+        "val": "3"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__hdr_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6865",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6862",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "width"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 119,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "142",
+          "file": "/src/stb/stb_image.h",
+          "line": "6946"
+        },
+        "start": {
+          "col": "28",
+          "file": "/src/stb/stb_image.h",
+          "line": "6946"
+        }
+      },
+      "end": {
+        "col": "142",
+        "file": "/src/stb/stb_image.h",
+        "line": "6946"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "6946"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "6865",
+        "order": 1,
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "6862",
+        "order": 3,
+        "val": "width"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__compute_huffman_codes",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4174",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "n"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "4179",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "ntot"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 60,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "67",
+          "file": "/src/stb/stb_image.h",
+          "line": "4211"
+        },
+        "start": {
+          "col": "19",
+          "file": "/src/stb/stb_image.h",
+          "line": "4211"
+        }
+      },
+      "end": {
+        "col": "67",
+        "file": "/src/stb/stb_image.h",
+        "line": "4211"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "4211"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4174",
+        "order": 1,
+        "val": "n"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "4179",
+        "order": 3,
+        "val": "ntot"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__skip",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "46",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1545",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "n"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 10,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "/src/stb/stb_image.h",
+          "line": "1550"
+        },
+        "start": {
+          "col": "15",
+          "file": "/src/stb/stb_image.h",
+          "line": "1547"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1550"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1547"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "46",
+        "file": "/src/stb/stb_image.h",
+        "line": "1545",
+        "order": 1,
+        "val": "n"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_frame_header",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "745",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "img_x"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "3150",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "s"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 42,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "95",
+          "file": "/src/stb/stb_image.h",
+          "line": "3155"
+        },
+        "start": {
+          "col": "54",
+          "file": "/src/stb/stb_image.h",
+          "line": "3155"
+        }
+      },
+      "end": {
+        "col": "95",
+        "file": "/src/stb/stb_image.h",
+        "line": "3155"
+      },
+      "start": {
+        "col": "35",
+        "file": "/src/stb/stb_image.h",
+        "line": "3155"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "3150",
+        "order": 1,
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "745",
+        "offset": 0,
+        "order": 3,
+        "val": "img_x"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "0"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__bmp_info",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "7033",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 120,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "14",
+          "file": "/src/stb/stb_image.h",
+          "line": "7040"
+        },
+        "start": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "7040"
+        }
+      },
+      "end": {
+        "col": "14",
+        "file": "/src/stb/stb_image.h",
+        "line": "7040"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "7039"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "7033",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_marker",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "3001",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "t"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 33,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "71",
+          "file": "/src/stb/stb_image.h",
+          "line": "3003"
+        },
+        "start": {
+          "col": "24",
+          "file": "/src/stb/stb_image.h",
+          "line": "3003"
+        }
+      },
+      "end": {
+        "col": "71",
+        "file": "/src/stb/stb_image.h",
+        "line": "3003"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "3003"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "3001",
+        "order": 1,
+        "val": "t"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "3"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__bmp_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "psize"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "psize"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 92,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "103",
+          "file": "/src/stb/stb_image.h",
+          "line": "5347"
+        },
+        "start": {
+          "col": "38",
+          "file": "/src/stb/stb_image.h",
+          "line": "5347"
+        }
+      },
+      "end": {
+        "col": "103",
+        "file": "/src/stb/stb_image.h",
+        "line": "5347"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "5347"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 1,
+        "val": "psize"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 5,
+        "val": "psize"
+      },
+      {
+        "order": 6,
+        "val": ">"
+      },
+      {
+        "order": 7,
+        "val": "256"
+      },
+      {
+        "order": 8,
+        "val": "less3"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_marker",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "col": "52",
+        "file": "/src/stb/stb_image.h",
+        "line": "2984",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "m"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2986",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "L"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "&&"
+      }
+    ],
+    "index": 35,
+    "pattern": "COND_EXEC",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "3077"
+        },
+        "start": {
+          "col": "40",
+          "file": "/src/stb/stb_image.h",
+          "line": "3062"
+        }
+      },
+      "end": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "3077"
+      },
+      "start": {
+        "col": "14",
+        "file": "/src/stb/stb_image.h",
+        "line": "3062"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "52",
+        "file": "/src/stb/stb_image.h",
+        "line": "2984",
+        "order": 1,
+        "val": "m"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "238"
+      },
+      {
+        "order": 4,
+        "val": "&&"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "2986",
+        "order": 5,
+        "val": "L"
+      },
+      {
+        "order": 6,
+        "val": ">="
+      },
+      {
+        "order": 7,
+        "val": "12"
+      },
+      {
+        "order": 8,
+        "val": ";"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__zhuffman_decode_slowpath",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4063",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 52,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "25",
+          "file": "/src/stb/stb_image.h",
+          "line": "4070"
+        },
+        "start": {
+          "col": "17",
+          "file": "/src/stb/stb_image.h",
+          "line": "4070"
+        }
+      },
+      "end": {
+        "col": "25",
+        "file": "/src/stb/stb_image.h",
+        "line": "4070"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "4070"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4063",
+        "order": 1,
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "16"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__out_gif_code",
+      "param": [
+        64,
+        16
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "15",
+        "file": "/src/stb/stb_image.h",
+        "line": "6304",
+        "offset": 22,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "cur_y"
+      },
+      {
+        "col": "15",
+        "file": "/src/stb/stb_image.h",
+        "line": "6303",
+        "offset": 20,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "max_y"
+      },
+      {
+        "col": "43",
+        "file": "/src/stb/stb_image.h",
+        "line": "6379",
+        "offset": 22,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "g"
+      },
+      {
+        "col": "43",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6379",
+        "offset": 20,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "g"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 110,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "30",
+          "file": "/src/stb/stb_image.h",
+          "line": "6389"
+        },
+        "start": {
+          "col": "30",
+          "file": "/src/stb/stb_image.h",
+          "line": "6389"
+        }
+      },
+      "end": {
+        "col": "30",
+        "file": "/src/stb/stb_image.h",
+        "line": "6389"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "6389"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "43",
+        "file": "/src/stb/stb_image.h",
+        "line": "6379",
+        "order": 1,
+        "val": "g"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "15",
+        "file": "/src/stb/stb_image.h",
+        "line": "6304",
+        "offset": 22,
+        "order": 3,
+        "val": "cur_y"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "43",
+        "file": "/src/stb/stb_image.h",
+        "line": "6379",
+        "order": 5,
+        "val": "g"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "15",
+        "file": "/src/stb/stb_image.h",
+        "line": "6303",
+        "offset": 20,
+        "order": 7,
+        "val": "max_y"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__compute_huffman_codes",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4174",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "n"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 58,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "74",
+          "file": "/src/stb/stb_image.h",
+          "line": "4198"
+        },
+        "start": {
+          "col": "25",
+          "file": "/src/stb/stb_image.h",
+          "line": "4198"
+        }
+      },
+      "end": {
+        "col": "74",
+        "file": "/src/stb/stb_image.h",
+        "line": "4198"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "4198"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4174",
+        "order": 1,
+        "val": "n"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__hdr_gettoken",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6810",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 4,
+        "tag": "arith[]",
+        "val": "-"
+      }
+    ],
+    "index": 117,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "6822"
+        },
+        "start": {
+          "col": "38",
+          "file": "/src/stb/stb_image.h",
+          "line": "6817"
+        }
+      },
+      "end": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "6822"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "6817"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "6810",
+        "order": 1,
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "1024"
+      },
+      {
+        "order": 4,
+        "val": "-"
+      },
+      {
+        "order": 5,
+        "val": "1"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__pic_load_core",
+      "param": [
+        64,
+        32,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 15,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6126",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "num_packets"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "arith[]",
+        "val": "/"
+      }
+    ],
+    "index": 106,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "61",
+          "file": "/src/stb/stb_image.h",
+          "line": "6135"
+        },
+        "start": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "6135"
+        }
+      },
+      "end": {
+        "col": "61",
+        "file": "/src/stb/stb_image.h",
+        "line": "6135"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "6134"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "6126",
+        "order": 1,
+        "val": "num_packets"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "sizeof"
+      },
+      {
+        "order": 4,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "/src/stb/stb_image.h",
+        "line": "6127",
+        "order": 5,
+        "val": "packets"
+      },
+      {
+        "order": 6,
+        "val": ")"
+      },
+      {
+        "order": 7,
+        "val": "/"
+      },
+      {
+        "order": 8,
+        "val": "sizeof"
+      },
+      {
+        "order": 9,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "/src/stb/stb_image.h",
+        "line": "6127",
+        "order": 10,
+        "val": "packets"
+      },
+      {
+        "order": 11,
+        "val": "["
+      },
+      {
+        "order": 12,
+        "val": "0"
+      },
+      {
+        "order": 13,
+        "val": "]"
+      },
+      {
+        "order": 14,
+        "val": ")"
+      },
+      {
+        "order": 15,
+        "val": "return"
+      },
+      {
+        "order": 16,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__resample_row_h_2",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "94",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "3331",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "w"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 47,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "/src/stb/stb_image.h",
+          "line": "3341"
+        },
+        "start": {
+          "col": "16",
+          "file": "/src/stb/stb_image.h",
+          "line": "3337"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "3341"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "3337"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "94",
+        "file": "/src/stb/stb_image.h",
+        "line": "3331",
+        "order": 1,
+        "val": "w"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_huff_decode",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2005",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "1879",
+        "offset": 13,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "code_bits"
+      },
+      {
+        "col": "59",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1993",
+        "offset": 13,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "j"
+      }
+    ],
+    "index": 19,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "18",
+          "file": "/src/stb/stb_image.h",
+          "line": "2007"
+        },
+        "start": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "2007"
+        }
+      },
+      "end": {
+        "col": "18",
+        "file": "/src/stb/stb_image.h",
+        "line": "2007"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "2006"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "2005",
+        "order": 1,
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "59",
+        "file": "/src/stb/stb_image.h",
+        "line": "1993",
+        "order": 3,
+        "val": "j"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "1879",
+        "offset": 13,
+        "order": 5,
+        "val": "code_bits"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__psd_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5870",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "out"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 105,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "31",
+          "file": "/src/stb/stb_image.h",
+          "line": "6051"
+        },
+        "start": {
+          "col": "24",
+          "file": "/src/stb/stb_image.h",
+          "line": "6051"
+        }
+      },
+      "end": {
+        "col": "31",
+        "file": "/src/stb/stb_image.h",
+        "line": "6051"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "6051"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "5870",
+        "order": 1,
+        "val": "out"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__grow_buffer_unsafe",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1976",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "c"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 18,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "1982"
+        },
+        "start": {
+          "col": "22",
+          "file": "/src/stb/stb_image.h",
+          "line": "1978"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "1982"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "1978"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "14",
+        "file": "/src/stb/stb_image.h",
+        "line": "1976",
+        "order": 1,
+        "val": "c"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__do_png",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5055",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "result"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 86,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "37",
+          "file": "/src/stb/stb_image.h",
+          "line": "5070"
+        },
+        "start": {
+          "col": "30",
+          "file": "/src/stb/stb_image.h",
+          "line": "5070"
+        }
+      },
+      "end": {
+        "col": "37",
+        "file": "/src/stb/stb_image.h",
+        "line": "5070"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "5070"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "5055",
+        "order": 1,
+        "val": "result"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__gif_load_next",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 16,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "25",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "x"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "w"
+      },
+      {
+        "col": "28",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 9,
+        "tag": "traceVarNumCmp[]",
+        "val": "y"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 11,
+        "tag": "traceVarNumCmp[]",
+        "val": "h"
+      },
+      {
+        "order": 2,
+        "tag": "arith[]",
+        "val": "+"
+      },
+      {
+        "order": 10,
+        "tag": "arith[]",
+        "val": "+"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 12,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "6291",
+        "offset": 0,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "w"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "6291",
+        "offset": 1,
+        "order": 15,
+        "tag": "traceVarNumCmpField[]",
+        "val": "h"
+      },
+      {
+        "col": "66",
+        "file": "/src/stb/stb_image.h",
+        "line": "6503",
+        "offset": 0,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "g"
+      },
+      {
+        "col": "66",
+        "file": "/src/stb/stb_image.h",
+        "line": "6503",
+        "offset": 1,
+        "order": 13,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "g"
+      },
+      {
+        "order": 8,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 115,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "73",
+          "file": "/src/stb/stb_image.h",
+          "line": "6580"
+        },
+        "start": {
+          "col": "16",
+          "file": "/src/stb/stb_image.h",
+          "line": "6580"
+        }
+      },
+      "end": {
+        "col": "73",
+        "file": "/src/stb/stb_image.h",
+        "line": "6580"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "6579"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "25",
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 1,
+        "val": "x"
+      },
+      {
+        "order": 2,
+        "val": "+"
+      },
+      {
+        "col": "31",
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 3,
+        "val": "w"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "col": "66",
+        "file": "/src/stb/stb_image.h",
+        "line": "6503",
+        "order": 5,
+        "val": "g"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "6291",
+        "offset": 0,
+        "order": 7,
+        "val": "w"
+      },
+      {
+        "order": 8,
+        "val": "||"
+      },
+      {
+        "col": "28",
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 9,
+        "val": "y"
+      },
+      {
+        "order": 10,
+        "val": "+"
+      },
+      {
+        "col": "34",
+        "file": "/src/stb/stb_image.h",
+        "line": "6572",
+        "order": 11,
+        "val": "h"
+      },
+      {
+        "order": 12,
+        "val": ">"
+      },
+      {
+        "col": "66",
+        "file": "/src/stb/stb_image.h",
+        "line": "6503",
+        "order": 13,
+        "val": "g"
+      },
+      {
+        "order": 14,
+        "val": "->"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "6291",
+        "offset": 1,
+        "order": 15,
+        "val": "h"
+      },
+      {
+        "order": 16,
+        "val": "return"
+      },
+      {
+        "order": 17,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__compute_huffman_codes",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4190",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "c"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4190",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "c"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 57,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "78",
+          "file": "/src/stb/stb_image.h",
+          "line": "4191"
+        },
+        "start": {
+          "col": "29",
+          "file": "/src/stb/stb_image.h",
+          "line": "4191"
+        }
+      },
+      "end": {
+        "col": "78",
+        "file": "/src/stb/stb_image.h",
+        "line": "4191"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "4191"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4190",
+        "order": 1,
+        "val": "c"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4190",
+        "order": 5,
+        "val": "c"
+      },
+      {
+        "order": 6,
+        "val": ">="
+      },
+      {
+        "order": 7,
+        "val": "19"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_huff_decode",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1996",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "k"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "1879",
+        "offset": 13,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "code_bits"
+      },
+      {
+        "col": "59",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1993",
+        "offset": 13,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "j"
+      }
+    ],
+    "index": 21,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "15",
+          "file": "/src/stb/stb_image.h",
+          "line": "2030"
+        },
+        "start": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "2030"
+        }
+      },
+      "end": {
+        "col": "15",
+        "file": "/src/stb/stb_image.h",
+        "line": "2030"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "2029"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "1996",
+        "order": 1,
+        "val": "k"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "59",
+        "file": "/src/stb/stb_image.h",
+        "line": "1993",
+        "order": 3,
+        "val": "j"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "1879",
+        "offset": 13,
+        "order": 5,
+        "val": "code_bits"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__parse_png_file",
+      "param": [
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "25",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4976",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 80,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "151",
+          "file": "/src/stb/stb_image.h",
+          "line": "4981"
+        },
+        "start": {
+          "col": "107",
+          "file": "/src/stb/stb_image.h",
+          "line": "4981"
+        }
+      },
+      "end": {
+        "col": "151",
+        "file": "/src/stb/stb_image.h",
+        "line": "4981"
+      },
+      "start": {
+        "col": "92",
+        "file": "/src/stb/stb_image.h",
+        "line": "4981"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "25",
+        "file": "/src/stb/stb_image.h",
+        "line": "4976",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__compute_huffman_codes",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "4179",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "ntot"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4174",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "n"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4190",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "c"
+      },
+      {
+        "order": 2,
+        "tag": "arith[]",
+        "val": "-"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 59,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "77",
+          "file": "/src/stb/stb_image.h",
+          "line": "4206"
+        },
+        "start": {
+          "col": "28",
+          "file": "/src/stb/stb_image.h",
+          "line": "4206"
+        }
+      },
+      "end": {
+        "col": "77",
+        "file": "/src/stb/stb_image.h",
+        "line": "4206"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4206"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "4179",
+        "order": 1,
+        "val": "ntot"
+      },
+      {
+        "order": 2,
+        "val": "-"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4174",
+        "order": 3,
+        "val": "n"
+      },
+      {
+        "order": 4,
+        "val": "<"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4190",
+        "order": 5,
+        "val": "c"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__hdr_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "79",
+        "file": "/src/stb/stb_image.h",
+        "line": "6857",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "79",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6857",
+        "order": 4,
+        "tag": "traceVarAssignNum[]",
+        "val": "req_comp"
+      }
+    ],
+    "index": 118,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "34",
+          "file": "/src/stb/stb_image.h",
+          "line": "6900"
+        },
+        "start": {
+          "col": "23",
+          "file": "/src/stb/stb_image.h",
+          "line": "6900"
+        }
+      },
+      "end": {
+        "col": "34",
+        "file": "/src/stb/stb_image.h",
+        "line": "6900"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "6900"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "79",
+        "file": "/src/stb/stb_image.h",
+        "line": "6857",
+        "order": 1,
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "col": "79",
+        "file": "/src/stb/stb_image.h",
+        "line": "6857",
+        "order": 4,
+        "val": "req_comp"
+      },
+      {
+        "order": 5,
+        "val": ";"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__create_png_image_raw",
+      "param": [
+        64,
+        64,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4507",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "filter"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 65,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "57",
+          "file": "/src/stb/stb_image.h",
+          "line": "4510"
+        },
+        "start": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "4510"
+        }
+      },
+      "end": {
+        "col": "57",
+        "file": "/src/stb/stb_image.h",
+        "line": "4510"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "4509"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4507",
+        "order": 1,
+        "val": "filter"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "4"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__pic_info",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 15,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "7120",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "num_packets"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "arith[]",
+        "val": "/"
+      }
+    ],
+    "index": 124,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "/src/stb/stb_image.h",
+          "line": "7151"
+        },
+        "start": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "7151"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "/src/stb/stb_image.h",
+        "line": "7151"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "7150"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "7120",
+        "order": 1,
+        "val": "num_packets"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "sizeof"
+      },
+      {
+        "order": 4,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "/src/stb/stb_image.h",
+        "line": "7121",
+        "order": 5,
+        "val": "packets"
+      },
+      {
+        "order": 6,
+        "val": ")"
+      },
+      {
+        "order": 7,
+        "val": "/"
+      },
+      {
+        "order": 8,
+        "val": "sizeof"
+      },
+      {
+        "order": 9,
+        "val": "("
+      },
+      {
+        "col": "21",
+        "file": "/src/stb/stb_image.h",
+        "line": "7121",
+        "order": 10,
+        "val": "packets"
+      },
+      {
+        "order": 11,
+        "val": "["
+      },
+      {
+        "order": 12,
+        "val": "0"
+      },
+      {
+        "order": 13,
+        "val": "]"
+      },
+      {
+        "order": 14,
+        "val": ")"
+      },
+      {
+        "order": 15,
+        "val": "return"
+      },
+      {
+        "order": 16,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__load_and_postprocess_8bit",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1169",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "result"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 6,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "14",
+          "file": "/src/stb/stb_image.h",
+          "line": "1172"
+        },
+        "start": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "1172"
+        }
+      },
+      "end": {
+        "col": "14",
+        "file": "/src/stb/stb_image.h",
+        "line": "1172"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1171"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "1169",
+        "order": 1,
+        "val": "result"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__get8",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "755",
+        "offset": 9,
+        "order": 3,
+        "tag": "traceVarPtrRangeField[]",
+        "val": "img_buffer"
+      },
+      {
+        "col": "26",
+        "file": "/src/stb/stb_image.h",
+        "line": "755",
+        "offset": 10,
+        "order": 7,
+        "tag": "traceVarPtrRangeField[]",
+        "val": "img_buffer_end"
+      },
+      {
+        "col": "54",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1515",
+        "offset": 9,
+        "order": 1,
+        "tag": "traceVarPtrRangeBase[]",
+        "val": "s"
+      },
+      {
+        "col": "54",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1515",
+        "offset": 10,
+        "order": 5,
+        "tag": "traceVarPtrRangeBase[]",
+        "val": "s"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 8,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "28",
+          "file": "/src/stb/stb_image.h",
+          "line": "1518"
+        },
+        "start": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "1518"
+        }
+      },
+      "end": {
+        "col": "28",
+        "file": "/src/stb/stb_image.h",
+        "line": "1518"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1517"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "54",
+        "file": "/src/stb/stb_image.h",
+        "line": "1515",
+        "order": 1,
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "755",
+        "offset": 9,
+        "order": 3,
+        "val": "img_buffer"
+      },
+      {
+        "order": 4,
+        "val": "<"
+      },
+      {
+        "col": "54",
+        "file": "/src/stb/stb_image.h",
+        "line": "1515",
+        "order": 5,
+        "val": "s"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "26",
+        "file": "/src/stb/stb_image.h",
+        "line": "755",
+        "offset": 10,
+        "order": 7,
+        "val": "img_buffer_end"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__expand_png_palette",
+      "param": [
+        64,
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4787",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 67,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "63",
+          "file": "/src/stb/stb_image.h",
+          "line": "4790"
+        },
+        "start": {
+          "col": "19",
+          "file": "/src/stb/stb_image.h",
+          "line": "4790"
+        }
+      },
+      "end": {
+        "col": "63",
+        "file": "/src/stb/stb_image.h",
+        "line": "4790"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "4790"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "4787",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__create_png_image_raw",
+      "param": [
+        64,
+        64,
+        32,
+        32,
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "4482",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "j"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4507",
+        "order": 4,
+        "tag": "traceVarAssignNum[]",
+        "val": "filter"
+      }
+    ],
+    "index": 66,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "51",
+          "file": "/src/stb/stb_image.h",
+          "line": "4521"
+        },
+        "start": {
+          "col": "19",
+          "file": "/src/stb/stb_image.h",
+          "line": "4521"
+        }
+      },
+      "end": {
+        "col": "51",
+        "file": "/src/stb/stb_image.h",
+        "line": "4521"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "4521"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "4482",
+        "order": 1,
+        "val": "j"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "4507",
+        "order": 4,
+        "val": "filter"
+      },
+      {
+        "order": 5,
+        "val": ";"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__pnm_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "7204",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "out"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 125,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "31",
+          "file": "/src/stb/stb_image.h",
+          "line": "7223"
+        },
+        "start": {
+          "col": "24",
+          "file": "/src/stb/stb_image.h",
+          "line": "7223"
+        }
+      },
+      "end": {
+        "col": "31",
+        "file": "/src/stb/stb_image.h",
+        "line": "7223"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "7223"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "7204",
+        "order": 1,
+        "val": "out"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_decode_block",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2136",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 24,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "29",
+          "file": "/src/stb/stb_image.h",
+          "line": "2141"
+        },
+        "start": {
+          "col": "29",
+          "file": "/src/stb/stb_image.h",
+          "line": "2141"
+        }
+      },
+      "end": {
+        "col": "29",
+        "file": "/src/stb/stb_image.h",
+        "line": "2141"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "2141"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "14",
+        "file": "/src/stb/stb_image.h",
+        "line": "2136",
+        "order": 1,
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "order": 3,
+        "val": "240"
+      },
+      {
+        "order": 4,
+        "val": "break"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__parse_png_file",
+      "param": [
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "21",
+        "file": "/src/stb/stb_image.h",
+        "line": "4439",
+        "offset": 2,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "expanded"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4879",
+        "offset": 2,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "z"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 83,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "45",
+          "file": "/src/stb/stb_image.h",
+          "line": "4998"
+        },
+        "start": {
+          "col": "38",
+          "file": "/src/stb/stb_image.h",
+          "line": "4998"
+        }
+      },
+      "end": {
+        "col": "45",
+        "file": "/src/stb/stb_image.h",
+        "line": "4998"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "4998"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "44",
+        "file": "/src/stb/stb_image.h",
+        "line": "4879",
+        "order": 1,
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "21",
+        "file": "/src/stb/stb_image.h",
+        "line": "4439",
+        "offset": 2,
+        "order": 3,
+        "val": "expanded"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "return"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__zexpand",
+      "param": [
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4095",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "q"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 53,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "63",
+          "file": "/src/stb/stb_image.h",
+          "line": "4105"
+        },
+        "start": {
+          "col": "19",
+          "file": "/src/stb/stb_image.h",
+          "line": "4105"
+        }
+      },
+      "end": {
+        "col": "63",
+        "file": "/src/stb/stb_image.h",
+        "line": "4105"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "4105"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "4095",
+        "order": 1,
+        "val": "q"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__process_gif_raster",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "16",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "6419",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 112,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "26",
+          "file": "/src/stb/stb_image.h",
+          "line": "6448"
+        },
+        "start": {
+          "col": "16",
+          "file": "/src/stb/stb_image.h",
+          "line": "6448"
+        }
+      },
+      "end": {
+        "col": "26",
+        "file": "/src/stb/stb_image.h",
+        "line": "6448"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "6447"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "16",
+        "file": "/src/stb/stb_image.h",
+        "line": "6419",
+        "order": 1,
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__parse_png_file",
+      "param": [
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "4439",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "idata"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4879",
+        "offset": 1,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "z"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 82,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "75",
+          "file": "/src/stb/stb_image.h",
+          "line": "4993"
+        },
+        "start": {
+          "col": "35",
+          "file": "/src/stb/stb_image.h",
+          "line": "4993"
+        }
+      },
+      "end": {
+        "col": "75",
+        "file": "/src/stb/stb_image.h",
+        "line": "4993"
+      },
+      "start": {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "4993"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "44",
+        "file": "/src/stb/stb_image.h",
+        "line": "4879",
+        "order": 1,
+        "val": "z"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "4439",
+        "offset": 1,
+        "order": 3,
+        "val": "idata"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "return"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_decode_block",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2136",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 23,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "72",
+          "file": "/src/stb/stb_image.h",
+          "line": "2137"
+        },
+        "start": {
+          "col": "22",
+          "file": "/src/stb/stb_image.h",
+          "line": "2137"
+        }
+      },
+      "end": {
+        "col": "72",
+        "file": "/src/stb/stb_image.h",
+        "line": "2137"
+      },
+      "start": {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "2137"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "14",
+        "file": "/src/stb/stb_image.h",
+        "line": "2136",
+        "order": 1,
+        "val": "rs"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__bmp_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5205",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "bpp"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "5303",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "info"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 6,
+        "tag": "traceVarAssignNum[]",
+        "val": "psize"
+      }
+    ],
+    "index": 91,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "64",
+          "file": "/src/stb/stb_image.h",
+          "line": "5324"
+        },
+        "start": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "5324"
+        }
+      },
+      "end": {
+        "col": "64",
+        "file": "/src/stb/stb_image.h",
+        "line": "5324"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "5323"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "5303",
+        "order": 1,
+        "val": "info"
+      },
+      {
+        "order": 2,
+        "val": "."
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5205",
+        "offset": 0,
+        "order": 3,
+        "val": "bpp"
+      },
+      {
+        "order": 4,
+        "val": "<"
+      },
+      {
+        "order": 5,
+        "val": "16"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 6,
+        "val": "psize"
+      },
+      {
+        "order": 7,
+        "val": ";"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__clamp",
+      "param": [
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2301",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "x"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 32,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "27",
+          "file": "/src/stb/stb_image.h",
+          "line": "2306"
+        },
+        "start": {
+          "col": "20",
+          "file": "/src/stb/stb_image.h",
+          "line": "2306"
+        }
+      },
+      "end": {
+        "col": "27",
+        "file": "/src/stb/stb_image.h",
+        "line": "2306"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "2306"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "44",
+        "file": "/src/stb/stb_image.h",
+        "line": "2301",
+        "order": 1,
+        "val": "x"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "255"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__convert_format16",
+      "param": [
+        64,
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "18",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1714",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "good"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 15,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "/src/stb/stb_image.h",
+          "line": "1723"
+        },
+        "start": {
+          "col": "22",
+          "file": "/src/stb/stb_image.h",
+          "line": "1720"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1723"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1720"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "18",
+        "file": "/src/stb/stb_image.h",
+        "line": "1714",
+        "order": 1,
+        "val": "good"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__convert_format",
+      "param": [
+        64,
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1657",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "good"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 13,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "/src/stb/stb_image.h",
+          "line": "1666"
+        },
+        "start": {
+          "col": "22",
+          "file": "/src/stb/stb_image.h",
+          "line": "1663"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1666"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1663"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "1657",
+        "order": 1,
+        "val": "good"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__parse_png_file",
+      "param": [
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "col": "61",
+        "file": "/src/stb/stb_image.h",
+        "line": "4879",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "15",
+        "file": "/src/stb/stb_image.h",
+        "line": "746",
+        "offset": 3,
+        "order": 6,
+        "tag": "traceVarAssignNumField[]",
+        "val": "img_out_n"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "4886",
+        "offset": 3,
+        "order": 4,
+        "tag": "traceVarAssignNumBase[]",
+        "val": "s"
+      }
+    ],
+    "index": 84,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "50",
+          "file": "/src/stb/stb_image.h",
+          "line": "5018"
+        },
+        "start": {
+          "col": "35",
+          "file": "/src/stb/stb_image.h",
+          "line": "5018"
+        }
+      },
+      "end": {
+        "col": "50",
+        "file": "/src/stb/stb_image.h",
+        "line": "5018"
+      },
+      "start": {
+        "col": "16",
+        "file": "/src/stb/stb_image.h",
+        "line": "5018"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "61",
+        "file": "/src/stb/stb_image.h",
+        "line": "4879",
+        "order": 1,
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "order": 3,
+        "val": "3"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "4886",
+        "order": 4,
+        "val": "s"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "15",
+        "file": "/src/stb/stb_image.h",
+        "line": "746",
+        "offset": 3,
+        "order": 6,
+        "val": "img_out_n"
+      },
+      {
+        "order": 7,
+        "val": ";"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__hdr_to_ldr",
+      "param": [
+        64,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1786",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "output"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 17,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "93",
+          "file": "/src/stb/stb_image.h",
+          "line": "1789"
+        },
+        "start": {
+          "col": "24",
+          "file": "/src/stb/stb_image.h",
+          "line": "1789"
+        }
+      },
+      "end": {
+        "col": "93",
+        "file": "/src/stb/stb_image.h",
+        "line": "1789"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1789"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "1786",
+        "order": 1,
+        "val": "output"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__bmp_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5205",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "bpp"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "5303",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "info"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 6,
+        "tag": "traceVarAssignNum[]",
+        "val": "psize"
+      }
+    ],
+    "index": 90,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "57",
+          "file": "/src/stb/stb_image.h",
+          "line": "5321"
+        },
+        "start": {
+          "col": "10",
+          "file": "/src/stb/stb_image.h",
+          "line": "5321"
+        }
+      },
+      "end": {
+        "col": "57",
+        "file": "/src/stb/stb_image.h",
+        "line": "5321"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "5320"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "5303",
+        "order": 1,
+        "val": "info"
+      },
+      {
+        "order": 2,
+        "val": "."
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5205",
+        "offset": 0,
+        "order": 3,
+        "val": "bpp"
+      },
+      {
+        "order": 4,
+        "val": "<"
+      },
+      {
+        "order": 5,
+        "val": "24"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5301",
+        "order": 6,
+        "val": "psize"
+      },
+      {
+        "order": 7,
+        "val": ";"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__clamp",
+      "param": [
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2301",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "x"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 31,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "25",
+          "file": "/src/stb/stb_image.h",
+          "line": "2305"
+        },
+        "start": {
+          "col": "18",
+          "file": "/src/stb/stb_image.h",
+          "line": "2305"
+        }
+      },
+      "end": {
+        "col": "25",
+        "file": "/src/stb/stb_image.h",
+        "line": "2305"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "2305"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "44",
+        "file": "/src/stb/stb_image.h",
+        "line": "2301",
+        "order": 1,
+        "val": "x"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__psd_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5866",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "channelCount"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5866",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "channelCount"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 102,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "95",
+          "file": "/src/stb/stb_image.h",
+          "line": "5887"
+        },
+        "start": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "5887"
+        }
+      },
+      "end": {
+        "col": "95",
+        "file": "/src/stb/stb_image.h",
+        "line": "5887"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "5886"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5866",
+        "order": 1,
+        "val": "channelCount"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "8",
+        "file": "/src/stb/stb_image.h",
+        "line": "5866",
+        "order": 5,
+        "val": "channelCount"
+      },
+      {
+        "order": 6,
+        "val": ">"
+      },
+      {
+        "order": 7,
+        "val": "16"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__resample_row_hv_2",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "94",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "3361",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "w"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 48,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "/src/stb/stb_image.h",
+          "line": "3368"
+        },
+        "start": {
+          "col": "16",
+          "file": "/src/stb/stb_image.h",
+          "line": "3365"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "3368"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "3365"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "94",
+        "file": "/src/stb/stb_image.h",
+        "line": "3361",
+        "order": 1,
+        "val": "w"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__bmp_load",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5298",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "out"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 95,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "31",
+          "file": "/src/stb/stb_image.h",
+          "line": "5470"
+        },
+        "start": {
+          "col": "24",
+          "file": "/src/stb/stb_image.h",
+          "line": "5470"
+        }
+      },
+      "end": {
+        "col": "31",
+        "file": "/src/stb/stb_image.h",
+        "line": "5470"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "5470"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "5298",
+        "order": 1,
+        "val": "out"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__convert_16_to_8",
+      "param": [
+        64,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1100",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "reduced"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 4,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "72",
+          "file": "/src/stb/stb_image.h",
+          "line": "1103"
+        },
+        "start": {
+          "col": "25",
+          "file": "/src/stb/stb_image.h",
+          "line": "1103"
+        }
+      },
+      "end": {
+        "col": "72",
+        "file": "/src/stb/stb_image.h",
+        "line": "1103"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1103"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "/src/stb/stb_image.h",
+        "line": "1100",
+        "order": 1,
+        "val": "reduced"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_decode_block_prog_ac",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "2250",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 29,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "79",
+          "file": "/src/stb/stb_image.h",
+          "line": "2267"
+        },
+        "start": {
+          "col": "28",
+          "file": "/src/stb/stb_image.h",
+          "line": "2267"
+        }
+      },
+      "end": {
+        "col": "79",
+        "file": "/src/stb/stb_image.h",
+        "line": "2267"
+      },
+      "start": {
+        "col": "16",
+        "file": "/src/stb/stb_image.h",
+        "line": "2267"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "/src/stb/stb_image.h",
+        "line": "2250",
+        "order": 1,
+        "val": "s"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__convert_format16",
+      "param": [
+        64,
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "80",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1711",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "req_comp"
+      },
+      {
+        "col": "69",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1711",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "img_n"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 14,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "34",
+          "file": "/src/stb/stb_image.h",
+          "line": "1716"
+        },
+        "start": {
+          "col": "27",
+          "file": "/src/stb/stb_image.h",
+          "line": "1716"
+        }
+      },
+      "end": {
+        "col": "34",
+        "file": "/src/stb/stb_image.h",
+        "line": "1716"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1716"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "80",
+        "file": "/src/stb/stb_image.h",
+        "line": "1711",
+        "order": 1,
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "col": "69",
+        "file": "/src/stb/stb_image.h",
+        "line": "1711",
+        "order": 3,
+        "val": "img_n"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__jpeg_huff_decode",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1996",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "k"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 20,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "/src/stb/stb_image.h",
+          "line": "2027"
+        },
+        "start": {
+          "col": "17",
+          "file": "/src/stb/stb_image.h",
+          "line": "2023"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "2027"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "2023"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "/src/stb/stb_image.h",
+        "line": "1996",
+        "order": 1,
+        "val": "k"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "17"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__do_png",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "69",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5053",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "req_comp"
+      },
+      {
+        "col": "69",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "5053",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 85,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "90",
+          "file": "/src/stb/stb_image.h",
+          "line": "5056"
+        },
+        "start": {
+          "col": "38",
+          "file": "/src/stb/stb_image.h",
+          "line": "5056"
+        }
+      },
+      "end": {
+        "col": "90",
+        "file": "/src/stb/stb_image.h",
+        "line": "5056"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "5056"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "69",
+        "file": "/src/stb/stb_image.h",
+        "line": "5053",
+        "order": 1,
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "69",
+        "file": "/src/stb/stb_image.h",
+        "line": "5053",
+        "order": 5,
+        "val": "req_comp"
+      },
+      {
+        "order": 6,
+        "val": ">"
+      },
+      {
+        "order": 7,
+        "val": "4"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__convert_format",
+      "param": [
+        64,
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "80",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1654",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "req_comp"
+      },
+      {
+        "col": "69",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1654",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "img_n"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 12,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "34",
+          "file": "/src/stb/stb_image.h",
+          "line": "1659"
+        },
+        "start": {
+          "col": "27",
+          "file": "/src/stb/stb_image.h",
+          "line": "1659"
+        }
+      },
+      "end": {
+        "col": "34",
+        "file": "/src/stb/stb_image.h",
+        "line": "1659"
+      },
+      "start": {
+        "col": "4",
+        "file": "/src/stb/stb_image.h",
+        "line": "1659"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "80",
+        "file": "/src/stb/stb_image.h",
+        "line": "1654",
+        "order": 1,
+        "val": "req_comp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "col": "69",
+        "file": "/src/stb/stb_image.h",
+        "line": "1654",
+        "order": 3,
+        "val": "img_n"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/stb",
+    "fileName": "/src/stb/stb_image.h",
+    "func": {
+      "name": "stbi__skip",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "1552",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "blen"
+      },
+      {
+        "col": "46",
+        "crash": true,
+        "file": "/src/stb/stb_image.h",
+        "line": "1545",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "n"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 11,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "7",
+          "file": "/src/stb/stb_image.h",
+          "line": "1557"
+        },
+        "start": {
+          "col": "21",
+          "file": "/src/stb/stb_image.h",
+          "line": "1553"
+        }
+      },
+      "end": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "1557"
+      },
+      "start": {
+        "col": "7",
+        "file": "/src/stb/stb_image.h",
+        "line": "1553"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "/src/stb/stb_image.h",
+        "line": "1552",
+        "order": 1,
+        "val": "blen"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "col": "46",
+        "file": "/src/stb/stb_image.h",
+        "line": "1545",
+        "order": 3,
+        "val": "n"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1290 @@
+diff --git a/ossfuzz/matio_fuzzer.cpp b/ossfuzz/matio_fuzzer.cpp
+index 573e2de..64938c7 100644
+--- a/ossfuzz/matio_fuzzer.cpp
++++ b/ossfuzz/matio_fuzzer.cpp
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#define FIXREVERTER_SIZE 161
++short FIXREVERTER[FIXREVERTER_SIZE];
++#endif
+ // Copyright 2019 Google Inc.
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+@@ -22,7 +26,41 @@
+ #include "fuzzer_temp_file.h"
+ #include "matio_wrap.h"
+ 
++
++#ifdef FRCOV
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#endif
+ extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
++  
++  #ifdef FRCOV
++  char *fixReverterEnv = getenv("FIXREVERTER");
++  char *fixReverterToken = strtok(fixReverterEnv, " ");
++  if (fixReverterToken == NULL) {
++    for (int i = 0; i < FIXREVERTER_SIZE; i++)
++      FIXREVERTER[i] = 1;
++  } else if (!strcmp("on", fixReverterToken)) {
++    for (int i = 0; i < FIXREVERTER_SIZE; i++)
++      FIXREVERTER[i] = 0;
++    fixReverterToken = strtok(NULL, " ");
++    while (fixReverterToken != NULL) {
++      FIXREVERTER[atoi(fixReverterToken)] = 1;
++      fixReverterToken = strtok(NULL, " ");
++    }
++  } else if (!strcmp("off", fixReverterToken)) {
++    for (int i = 0; i < FIXREVERTER_SIZE; i++)
++      FIXREVERTER[i] = 1;
++    fixReverterToken = strtok(NULL, " ");
++    while (fixReverterToken != NULL) {
++      FIXREVERTER[atoi(fixReverterToken)] = 0;
++      fixReverterToken = strtok(NULL, " ");
++    }
++  } else {
++    fprintf(stderr, "[FIXREVERTER] - first token must be on or off\n");
++    exit(0);
++  }
++  #endif
+   FuzzerTemporaryFile temp_file(data, size);
+ 
+   return MatioRead(temp_file.filename());
+diff --git a/src/inflate.c b/src/inflate.c
+index a589da0..620f3cc 100644
+--- a/src/inflate.c
++++ b/src/inflate.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /** @file inflate.c
+  * @brief Functions to inflate data/tags
+  * @ingroup MAT
+@@ -243,8 +250,23 @@ InflateVarTag(mat_t *mat, matvar_t *matvar, void *buf)
+     int    err;
+     size_t bytesread = 0, readresult = 1;
+ 
+-    if ( buf == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[7]) {
++      if ((buf == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 7\n");
++      else
++        fprintf(stderr, "reached bug index 7\n");
++    }
++    if ((!FIXREVERTER[7] && (buf == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     if ( !matvar->internal->z->avail_in ) {
+         matvar->internal->z->avail_in = 1;
+@@ -295,8 +317,23 @@ InflateArrayFlags(mat_t *mat, matvar_t *matvar, void *buf)
+     int    err;
+     size_t bytesread = 0, readresult = 1;
+ 
+-    if ( buf == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[10]) {
++      if ((buf == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 10\n");
++      else
++        fprintf(stderr, "reached bug index 10\n");
++    }
++    if ((!FIXREVERTER[10] && (buf == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     if ( !matvar->internal->z->avail_in ) {
+         matvar->internal->z->avail_in = 1;
+@@ -352,8 +389,23 @@ InflateRankDims(mat_t *mat, matvar_t *matvar, void *buf, size_t nbytes, mat_uint
+     int    err, rank, i;
+     size_t bytesread = 0, readresult = 1;
+ 
+-    if ( buf == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[13]) {
++      if ((buf == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 13\n");
++      else
++        fprintf(stderr, "reached bug index 13\n");
++    }
++    if ((!FIXREVERTER[13] && (buf == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     if ( !matvar->internal->z->avail_in ) {
+         matvar->internal->z->avail_in = 1;
+@@ -458,8 +510,23 @@ InflateVarName(mat_t *mat, matvar_t *matvar, void *buf, int N)
+     int    err;
+     size_t bytesread = 0, readresult = 1;
+ 
+-    if ( buf == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[18]) {
++      if ((buf == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 18\n");
++      else
++        fprintf(stderr, "reached bug index 18\n");
++    }
++    if ((!FIXREVERTER[18] && (buf == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     if ( !matvar->internal->z->avail_in ) {
+         matvar->internal->z->avail_in = 1;
+@@ -566,8 +633,23 @@ InflateDataType(mat_t *mat, z_streamp z, void *buf)
+     int    err;
+     size_t bytesread = 0, readresult = 1;
+ 
+-    if ( buf == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[24]) {
++      if ((buf == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 24\n");
++      else
++        fprintf(stderr, "reached bug index 24\n");
++    }
++    if ((!FIXREVERTER[24] && (buf == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     if ( !z->avail_in ) {
+         z->avail_in = 1;
+@@ -619,11 +701,41 @@ InflateData(mat_t *mat, z_streamp z, void *buf, unsigned int nBytes)
+     int    err;
+     unsigned int bytesread = 0;
+ 
+-    if ( buf == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[27]) {
++      if ((buf == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 27\n");
++      else
++        fprintf(stderr, "reached bug index 27\n");
++    }
++    if ((!FIXREVERTER[27] && (buf == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
+-    if ( nBytes == 0 ) {
++        #ifdef FRCOV
++        }
++        #endif
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[28]) {
++      if ((nBytes == 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 28\n");
++      else
++        fprintf(stderr, "reached bug index 28\n");
++    }
++    if ((!FIXREVERTER[28] && (nBytes == 0 ))
++    #else
++    if (0
++    #endif
++     ) {
+         return bytesread;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     if ( !z->avail_in ) {
+         if ( nBytes > READ_BLOCK_SIZE ) {
+diff --git a/src/mat.c b/src/mat.c
+index 4227c9c..5dd9444 100644
+--- a/src/mat.c
++++ b/src/mat.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /** @file mat.c
+  * Matlab MAT file functions
+  * @ingroup MAT
+@@ -73,8 +80,23 @@ ReadData(mat_t *mat, matvar_t *matvar)
+     else if ( mat->version == MAT_FT_MAT73 )
+         return Mat_VarRead73(mat,matvar);
+ #endif
+-    else if ( mat->version == MAT_FT_MAT4 )
++    else 
++    #ifdef FRCOV
++    {if (FIXREVERTER[37]) {
++      if ((mat -> version == MAT_FT_MAT4 ) && !(0))
++        fprintf(stderr, "triggered bug index 37\n");
++      else
++        fprintf(stderr, "reached bug index 37\n");
++    }
++    if ((!FIXREVERTER[37] && (mat -> version == MAT_FT_MAT4 ))
++    #else
++    if (0
++    #endif
++     )
+         return Mat_VarRead4(mat,matvar);
++        #ifdef FRCOV
++        }
++        #endif
+     return 1;
+ }
+ 
+@@ -379,11 +401,26 @@ Mat_Open(const char *matname,int mode)
+     }
+ 
+     mat = (mat_t*)malloc(sizeof(*mat));
+-    if ( NULL == mat ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[38]) {
++      if (((void *) 0 == mat ) && !(0))
++        fprintf(stderr, "triggered bug index 38\n");
++      else
++        fprintf(stderr, "reached bug index 38\n");
++    }
++    if ((!FIXREVERTER[38] && ((void *) 0 == mat ))
++    #else
++    if (0
++    #endif
++     ) {
+         fclose(fp);
+         Mat_Critical("Couldn't allocate memory for the MAT file");
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     mat->fp = fp;
+     mat->header        = (char*)calloc(128,sizeof(char));
+@@ -477,8 +514,23 @@ Mat_Open(const char *matname,int mode)
+         }
+     }
+ 
+-    if ( NULL == mat )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[39]) {
++      if (((void *) 0 == mat ) && !(0))
++        fprintf(stderr, "triggered bug index 39\n");
++      else
++        fprintf(stderr, "reached bug index 39\n");
++    }
++    if ((!FIXREVERTER[39] && ((void *) 0 == mat ))
++    #else
++    if (0
++    #endif
++     )
+         return mat;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     mat->filename = strdup_printf("%s",matname);
+     mat->mode = mode;
+@@ -625,13 +677,43 @@ Mat_GetDir(mat_t *mat, size_t *n)
+ {
+     char ** dir = NULL;
+ 
+-    if ( NULL == n )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[42]) {
++      if (((void *) 0 == n ) && !(0))
++        fprintf(stderr, "triggered bug index 42\n");
++      else
++        fprintf(stderr, "reached bug index 42\n");
++    }
++    if ((!FIXREVERTER[42] && ((void *) 0 == n ))
++    #else
++    if (0
++    #endif
++     )
+         return dir;
+-
+-    if ( NULL == mat ) {
++        #ifdef FRCOV
++        }
++        #endif
++
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[43]) {
++      if (((void *) 0 == mat ) && !(0))
++        fprintf(stderr, "triggered bug index 43\n");
++      else
++        fprintf(stderr, "reached bug index 43\n");
++    }
++    if ((!FIXREVERTER[43] && ((void *) 0 == mat ))
++    #else
++    if (0
++    #endif
++     ) {
+         *n = 0;
+         return dir;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     if ( NULL == mat->dir ) {
+         matvar_t *matvar = NULL;
+@@ -639,16 +721,46 @@ Mat_GetDir(mat_t *mat, size_t *n)
+         if ( mat->version == MAT_FT_MAT73 ) {
+             size_t i = 0;
+             size_t fpos = mat->next_index;
+-            if ( mat->num_datasets == 0 ) {
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[44]) {
++              if ((mat -> num_datasets == 0 ) && !(0))
++                fprintf(stderr, "triggered bug index 44\n");
++              else
++                fprintf(stderr, "reached bug index 44\n");
++            }
++            if ((!FIXREVERTER[44] && (mat -> num_datasets == 0 ))
++            #else
++            if (0
++            #endif
++             ) {
+                 *n = 0;
+                 return dir;
+             }
++            #ifdef FRCOV
++            }
++            #endif
+             mat->dir = (char**)calloc(mat->num_datasets, sizeof(char*));
+-            if ( NULL == mat->dir ) {
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[45]) {
++              if (((void *) 0 == mat -> dir ) && !(0))
++                fprintf(stderr, "triggered bug index 45\n");
++              else
++                fprintf(stderr, "reached bug index 45\n");
++            }
++            if ((!FIXREVERTER[45] && ((void *) 0 == mat -> dir ))
++            #else
++            if (0
++            #endif
++             ) {
+                 *n = 0;
+                 Mat_Critical("Couldn't allocate memory for the directory");
+                 return dir;
+             }
++            #ifdef FRCOV
++            }
++            #endif
+             mat->next_index = 0;
+             while ( mat->next_index < mat->num_datasets ) {
+                 matvar = Mat_VarReadNextInfo(mat);
+@@ -1502,8 +1614,23 @@ Mat_VarFree(matvar_t *matvar)
+ {
+     size_t nelems = 0;
+ 
+-    if ( NULL == matvar )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[55]) {
++      if (((void *) 0 == matvar ) && !(0))
++        fprintf(stderr, "triggered bug index 55\n");
++      else
++        fprintf(stderr, "reached bug index 55\n");
++    }
++    if ((!FIXREVERTER[55] && ((void *) 0 == matvar ))
++    #else
++    if (0
++    #endif
++     )
+         return;
++        #ifdef FRCOV
++        }
++        #endif
+     if ( NULL != matvar->dims ) {
+         nelems = 1;
+         SafeMulDims(matvar, &nelems);
+@@ -2334,8 +2461,23 @@ matvar_t *
+ Mat_VarReadNextInfo( mat_t *mat )
+ {
+     matvar_t *matvar;
+-    if ( mat == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[61]) {
++      if ((mat == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 61\n");
++      else
++        fprintf(stderr, "reached bug index 61\n");
++    }
++    if ((!FIXREVERTER[61] && (mat == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return NULL;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     switch ( mat->version ) {
+         case MAT_FT_MAT5:
+diff --git a/src/mat4.c b/src/mat4.c
+index 28a1bcf..063a725 100644
+--- a/src/mat4.c
++++ b/src/mat4.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /** @file mat4.c
+  * Matlab MAT version 4 file functions
+  * @ingroup MAT
+@@ -68,11 +75,26 @@ Mat_Create4(const char* matname)
+         return NULL;
+ 
+     mat = (mat_t*)malloc(sizeof(*mat));
+-    if ( NULL == mat ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[67]) {
++      if (((void *) 0 == mat ) && !(0))
++        fprintf(stderr, "triggered bug index 67\n");
++      else
++        fprintf(stderr, "reached bug index 67\n");
++    }
++    if ((!FIXREVERTER[67] && ((void *) 0 == mat ))
++    #else
++    if (0
++    #endif
++     ) {
+         fclose(fp);
+         Mat_Critical("Couldn't allocate memory for the MAT file");
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     mat->fp            = fp;
+     mat->header        = NULL;
+@@ -953,10 +975,25 @@ Mat_VarReadNextInfo4(mat_t *mat)
+     tmp -= M*1000;
+     O = (int)floor(tmp / 100.0);
+     /* O must be zero */
+-    if ( 0 != O ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[70]) {
++      if ((0 != O ) && !(0))
++        fprintf(stderr, "triggered bug index 70\n");
++      else
++        fprintf(stderr, "reached bug index 70\n");
++    }
++    if ((!FIXREVERTER[70] && (0 != O ))
++    #else
++    if (0
++    #endif
++     ) {
+         Mat_VarFree(matvar);
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     tmp -= O*100;
+     data_type = (int)floor(tmp / 10.0);
+@@ -1004,10 +1041,25 @@ Mat_VarReadNextInfo4(mat_t *mat)
+ 
+     matvar->rank = 2;
+     matvar->dims = (size_t*)calloc(2, sizeof(*matvar->dims));
+-    if ( NULL == matvar->dims ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[71]) {
++      if (((void *) 0 == matvar -> dims ) && !(0))
++        fprintf(stderr, "triggered bug index 71\n");
++      else
++        fprintf(stderr, "reached bug index 71\n");
++    }
++    if ((!FIXREVERTER[71] && ((void *) 0 == matvar -> dims ))
++    #else
++    if (0
++    #endif
++     ) {
+         Mat_VarFree(matvar);
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     readresult = fread(&tmp,sizeof(int),1,(FILE*)mat->fp);
+     if ( mat->byteswap )
+         Mat_int32Swap(&tmp);
+@@ -1042,15 +1094,45 @@ Mat_VarReadNextInfo4(mat_t *mat)
+     if ( mat->byteswap )
+         Mat_int32Swap(&tmp);
+     /* Check that the length of the variable name is at least 1 */
+-    if ( tmp < 1 ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[76]) {
++      if ((tmp < 1 ) && !(0))
++        fprintf(stderr, "triggered bug index 76\n");
++      else
++        fprintf(stderr, "reached bug index 76\n");
++    }
++    if ((!FIXREVERTER[76] && (tmp < 1 ))
++    #else
++    if (0
++    #endif
++     ) {
+         Mat_VarFree(matvar);
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     matvar->name = (char*)malloc(tmp);
+-    if ( NULL == matvar->name ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[77]) {
++      if (((void *) 0 == matvar -> name ) && !(0))
++        fprintf(stderr, "triggered bug index 77\n");
++      else
++        fprintf(stderr, "reached bug index 77\n");
++    }
++    if ((!FIXREVERTER[77] && ((void *) 0 == matvar -> name ))
++    #else
++    if (0
++    #endif
++     ) {
+         Mat_VarFree(matvar);
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     readresult = fread(matvar->name,1,tmp,(FILE*)mat->fp);
+     if ( tmp != readresult ) {
+         Mat_VarFree(matvar);
+diff --git a/src/mat5.c b/src/mat5.c
+index b2e651f..09aa084 100644
+--- a/src/mat5.c
++++ b/src/mat5.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /** @file mat5.c
+  * Matlab MAT version 5 file functions
+  * @ingroup MAT
+@@ -565,10 +572,25 @@ Mat_Create5(const char *matname,const char *hdr_str)
+         return NULL;
+ 
+     mat = (mat_t*)malloc(sizeof(*mat));
+-    if ( mat == NULL ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[109]) {
++      if ((mat == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 109\n");
++      else
++        fprintf(stderr, "reached bug index 109\n");
++    }
++    if ((!FIXREVERTER[109] && (mat == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     ) {
+         fclose(fp);
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     mat->fp            = NULL;
+     mat->header        = NULL;
+@@ -908,11 +930,26 @@ ReadNextCell( mat_t *mat, matvar_t *matvar )
+     }
+ 
+     matvar->data = calloc(nelems, matvar->data_size);
+-    if ( NULL == matvar->data ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[119]) {
++      if (((void *) 0 == matvar -> data ) && !(0))
++        fprintf(stderr, "triggered bug index 119\n");
++      else
++        fprintf(stderr, "reached bug index 119\n");
++    }
++    if ((!FIXREVERTER[119] && ((void *) 0 == matvar -> data ))
++    #else
++    if (0
++    #endif
++     ) {
+         if ( NULL != matvar->name )
+             Mat_Critical("Couldn't allocate memory for %s->data", matvar->name);
+         return bytesread;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     cells = (matvar_t **)matvar->data;
+ 
+     if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
+@@ -1297,10 +1334,25 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
+             return bytesread;
+ 
+         matvar->data = calloc(nelems_x_nfields, matvar->data_size);
+-        if ( NULL == matvar->data ) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[120]) {
++          if (((void *) 0 == matvar -> data ) && !(0))
++            fprintf(stderr, "triggered bug index 120\n");
++          else
++            fprintf(stderr, "reached bug index 120\n");
++        }
++        if ((!FIXREVERTER[120] && ((void *) 0 == matvar -> data ))
++        #else
++        if (0
++        #endif
++         ) {
+             Mat_Critical("Couldn't allocate memory for the data");
+             return bytesread;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         fields = (matvar_t**)matvar->data;
+         for ( i = 0; i < nelems; i++ ) {
+@@ -1520,8 +1572,23 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
+             return bytesread;
+ 
+         matvar->data = malloc(matvar->nbytes);
+-        if ( NULL == matvar->data )
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[122]) {
++          if (((void *) 0 == matvar -> data ) && !(0))
++            fprintf(stderr, "triggered bug index 122\n");
++          else
++            fprintf(stderr, "reached bug index 122\n");
++        }
++        if ((!FIXREVERTER[122] && ((void *) 0 == matvar -> data ))
++        #else
++        if (0
++        #endif
++         )
+             return bytesread;
++            #ifdef FRCOV
++            }
++            #endif
+ 
+         fields = (matvar_t**)matvar->data;
+         for ( i = 0; i < nelems; i++ ) {
+@@ -2937,14 +3004,44 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
+                 break;
+             }
+             matvar->data = calloc(matvar->nbytes+1, 1);
+-            if ( NULL == matvar->data ) {
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[138]) {
++              if (((void *) 0 == matvar -> data ) && !(0))
++                fprintf(stderr, "triggered bug index 138\n");
++              else
++                fprintf(stderr, "reached bug index 138\n");
++            }
++            if ((!FIXREVERTER[138] && ((void *) 0 == matvar -> data ))
++            #else
++            if (0
++            #endif
++             ) {
+                 Mat_Critical("Couldn't allocate memory for the data");
+                 err = 1;
+                 break;
+             }
+-            if ( 0 == matvar->nbytes ) {
++            #ifdef FRCOV
++            }
++            #endif
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[139]) {
++              if ((0 == matvar -> nbytes ) && !(0))
++                fprintf(stderr, "triggered bug index 139\n");
++              else
++                fprintf(stderr, "reached bug index 139\n");
++            }
++            if ((!FIXREVERTER[139] && (0 == matvar -> nbytes ))
++            #else
++            if (0
++            #endif
++             ) {
+                 break;
+             }
++            #ifdef FRCOV
++            }
++            #endif
+             {
+                 size_t nbytes;
+                 err = SafeMul(&nbytes, nelems, matvar->data_size);
+@@ -2999,11 +3096,26 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
+             matvar_t **cells;
+             size_t i;
+ 
+-            if ( NULL == matvar->data ) {
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[140]) {
++              if (((void *) 0 == matvar -> data ) && !(0))
++                fprintf(stderr, "triggered bug index 140\n");
++              else
++                fprintf(stderr, "reached bug index 140\n");
++            }
++            if ((!FIXREVERTER[140] && ((void *) 0 == matvar -> data ))
++            #else
++            if (0
++            #endif
++             ) {
+                 Mat_Critical("Data is NULL for cell array %s",matvar->name);
+                 err = 1;
+                 break;
+             }
++            #ifdef FRCOV
++            }
++            #endif
+             cells = (matvar_t **)matvar->data;
+             for ( i = 0; i < nelems; i++ ) {
+                 if ( NULL != cells[i] ) {
+@@ -3021,11 +3133,26 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
+ 
+             matvar->data_size = sizeof(mat_sparse_t);
+             matvar->data      = malloc(matvar->data_size);
+-            if ( matvar->data == NULL ) {
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[141]) {
++              if ((matvar -> data == (void *) 0 ) && !(0))
++                fprintf(stderr, "triggered bug index 141\n");
++              else
++                fprintf(stderr, "reached bug index 141\n");
++            }
++            if ((!FIXREVERTER[141] && (matvar -> data == (void *) 0 ))
++            #else
++            if (0
++            #endif
++             ) {
+                 Mat_Critical("Mat_VarRead5: Allocation of data pointer failed");
+                 err = 1;
+                 break;
+             }
++            #ifdef FRCOV
++            }
++            #endif
+             data = (mat_sparse_t*)matvar->data;
+             data->nzmax  = matvar->nbytes;
+             (void)fseek((FILE*)mat->fp,matvar->internal->datapos,SEEK_SET);
+@@ -3078,18 +3205,48 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
+ #endif
+             {
+                 size_t s_type = Mat_SizeOf(packed_type);
+-                if ( s_type == 0 )
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[142]) {
++                  if ((s_type == 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 142\n");
++                  else
++                    fprintf(stderr, "reached bug index 142\n");
++                }
++                if ((!FIXREVERTER[142] && (s_type == 0 ))
++                #else
++                if (0
++                #endif
++                 )
+                     break;
++                    #ifdef FRCOV
++                    }
++                    #endif
+                 data->ndata = N / s_type;
+             }
+             if ( matvar->isComplex ) {
+                 mat_complex_split_t *complex_data =
+                     ComplexMalloc(data->ndata*Mat_SizeOf(matvar->data_type));
+-                if ( NULL == complex_data ) {
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[143]) {
++                  if (((void *) 0 == complex_data ) && !(0))
++                    fprintf(stderr, "triggered bug index 143\n");
++                  else
++                    fprintf(stderr, "reached bug index 143\n");
++                }
++                if ((!FIXREVERTER[143] && ((void *) 0 == complex_data ))
++                #else
++                if (0
++                #endif
++                 ) {
+                     Mat_Critical("Couldn't allocate memory for the complex sparse data");
+                     err = 1;
+                     break;
+                 }
++                #ifdef FRCOV
++                }
++                #endif
+                 if ( matvar->compression == MAT_COMPRESSION_NONE ) {
+ #if defined(EXTENDED_SPARSE)
+                     switch ( matvar->data_type ) {
+@@ -3365,11 +3522,26 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
+                 data->data = complex_data;
+             } else { /* isComplex */
+                 data->data = malloc(data->ndata*Mat_SizeOf(matvar->data_type));
+-                if ( data->data == NULL ) {
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[144]) {
++                  if ((data -> data == (void *) 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 144\n");
++                  else
++                    fprintf(stderr, "reached bug index 144\n");
++                }
++                if ((!FIXREVERTER[144] && (data -> data == (void *) 0 ))
++                #else
++                if (0
++                #endif
++                 ) {
+                     Mat_Critical("Couldn't allocate memory for the sparse data");
+                     err = 1;
+                     break;
+                 }
++                #ifdef FRCOV
++                }
++                #endif
+                 if ( matvar->compression == MAT_COMPRESSION_NONE ) {
+ #if defined(EXTENDED_SPARSE)
+                     switch ( matvar->data_type ) {
+@@ -3543,11 +3715,26 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
+                 }
+ 
+                 complex_data = ComplexMalloc(matvar->nbytes);
+-                if ( NULL == complex_data ) {
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[145]) {
++                  if (((void *) 0 == complex_data ) && !(0))
++                    fprintf(stderr, "triggered bug index 145\n");
++                  else
++                    fprintf(stderr, "reached bug index 145\n");
++                }
++                if ((!FIXREVERTER[145] && ((void *) 0 == complex_data ))
++                #else
++                if (0
++                #endif
++                 ) {
+                     Mat_Critical("Couldn't allocate memory for the complex data");
+                     err = 1;
+                     break;
+                 }
++                #ifdef FRCOV
++                }
++                #endif
+ 
+                 Mat_VarReadNumeric5(mat,matvar,complex_data->Re,nelems);
+                 Mat_VarReadNumeric5(mat,matvar,complex_data->Im,nelems);
+@@ -3560,11 +3747,26 @@ Mat_VarRead5(mat_t *mat, matvar_t *matvar)
+                 }
+ 
+                 matvar->data = malloc(matvar->nbytes);
+-                if ( NULL == matvar->data ) {
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[146]) {
++                  if (((void *) 0 == matvar -> data ) && !(0))
++                    fprintf(stderr, "triggered bug index 146\n");
++                  else
++                    fprintf(stderr, "reached bug index 146\n");
++                }
++                if ((!FIXREVERTER[146] && ((void *) 0 == matvar -> data ))
++                #else
++                if (0
++                #endif
++                 ) {
+                     Mat_Critical("Couldn't allocate memory for the data");
+                     err = 1;
+                     break;
+                 }
++                #ifdef FRCOV
++                }
++                #endif
+                 Mat_VarReadNumeric5(mat,matvar,matvar->data,nelems);
+             }
+         default:
+@@ -4780,8 +4982,23 @@ Mat_VarReadNextInfo5( mat_t *mat )
+     matvar_t *matvar = NULL;
+     mat_uint32_t array_flags;
+ 
+-    if ( mat == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[156]) {
++      if ((mat == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 156\n");
++      else
++        fprintf(stderr, "reached bug index 156\n");
++    }
++    if ((!FIXREVERTER[156] && (mat == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return NULL;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     fpos = ftell((FILE*)mat->fp);
+     if ( fpos == -1L ) {
+@@ -4805,10 +5022,25 @@ Mat_VarReadNextInfo5( mat_t *mat )
+             long     bytesread = 0;
+ 
+             matvar = Mat_VarCalloc();
+-            if ( NULL == matvar ) {
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[158]) {
++              if (((void *) 0 == matvar ) && !(0))
++                fprintf(stderr, "triggered bug index 158\n");
++              else
++                fprintf(stderr, "reached bug index 158\n");
++            }
++            if ((!FIXREVERTER[158] && ((void *) 0 == matvar ))
++            #else
++            if (0
++            #endif
++             ) {
+                 Mat_Critical("Couldn't allocate memory");
+                 break;
+             }
++            #ifdef FRCOV
++            }
++            #endif
+ 
+             matvar->compression = MAT_COMPRESSION_ZLIB;
+             matvar->internal->z = (z_streamp)calloc(1,sizeof(z_stream));
+@@ -4959,10 +5191,25 @@ Mat_VarReadNextInfo5( mat_t *mat )
+             }
+ 
+             matvar = Mat_VarCalloc();
+-            if ( NULL == matvar ) {
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[160]) {
++              if (((void *) 0 == matvar ) && !(0))
++                fprintf(stderr, "triggered bug index 160\n");
++              else
++                fprintf(stderr, "reached bug index 160\n");
++            }
++            if ((!FIXREVERTER[160] && ((void *) 0 == matvar ))
++            #else
++            if (0
++            #endif
++             ) {
+                 Mat_Critical("Couldn't allocate memory");
+                 break;
+             }
++            #ifdef FRCOV
++            }
++            #endif
+ 
+             /* Array flags */
+             if ( buf[0] == MAT_T_UINT32 ) {
+diff --git a/src/mat73.c b/src/mat73.c
+index 1068f53..248b936 100644
+--- a/src/mat73.c
++++ b/src/mat73.c
+@@ -1,4 +1,11 @@
+-﻿/** @file mat73.c
++﻿#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
++/** @file mat73.c
+  * Matlab MAT version 7.3 file functions
+  * @ingroup MAT
+  */
+@@ -1044,8 +1051,23 @@ Mat_H5ReadNextReferenceData(hid_t ref_id,matvar_t *matvar,mat_t *mat)
+ {
+     size_t nelems = 1;
+ 
+-    if ( ref_id < 0 || matvar == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[83]) {
++      if ((matvar == (void *) 0 ) && !(ref_id < 0 ))
++        fprintf(stderr, "triggered bug index 83\n");
++      else
++        fprintf(stderr, "reached bug index 83\n");
++    }
++    if ((FIXREVERTER[83] && (ref_id < 0 )) || (!FIXREVERTER[83] && (ref_id < 0 || matvar == (void *) 0 ))
++    #else
++    if (ref_id < 0 
++    #endif
++     )
+         return;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     /* If the datatype with references is a cell, we've already read info into
+      * the variable data, so just loop over each cell element and call
+@@ -2249,11 +2271,26 @@ Mat_Create73(const char *matname,const char *hdr_str)
+     (void)fseek(fp,0,SEEK_SET);
+ 
+     mat = (mat_t*)malloc(sizeof(*mat));
+-    if ( mat == NULL ) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[89]) {
++      if ((mat == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 89\n");
++      else
++        fprintf(stderr, "reached bug index 89\n");
++    }
++    if ((!FIXREVERTER[89] && (mat == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     ) {
+         fclose(fp);
+         H5Pclose(plist_ap);
+         return NULL;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     mat->fp            = NULL;
+     mat->header        = NULL;
+@@ -2350,8 +2387,23 @@ Mat_VarRead73(mat_t *mat,matvar_t *matvar)
+                 return err;
+             }
+ 
+-            if ( nelems < 1 )
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[90]) {
++              if ((nelems < 1 ) && !(0))
++                fprintf(stderr, "triggered bug index 90\n");
++              else
++                fprintf(stderr, "reached bug index 90\n");
++            }
++            if ((!FIXREVERTER[90] && (nelems < 1 ))
++            #else
++            if (0
++            #endif
++             )
+                 break;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+             if ( NULL != matvar->internal->hdf5_name ) {
+                 ref_id = H5Dopen(fid,matvar->internal->hdf5_name,H5P_DEFAULT);
+@@ -2755,19 +2807,64 @@ Mat_VarReadNextInfo73( mat_t *mat )
+     herr_t  herr;
+     struct ReadNextIterData mat_data;
+ 
+-    if ( mat == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[94]) {
++      if ((mat == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 94\n");
++      else
++        fprintf(stderr, "reached bug index 94\n");
++    }
++    if ((!FIXREVERTER[94] && (mat == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return NULL;
+-
+-    if ( mat->next_index >= mat->num_datasets )
++        #ifdef FRCOV
++        }
++        #endif
++
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[95]) {
++      if ((mat -> next_index >= mat -> num_datasets ) && !(0))
++        fprintf(stderr, "triggered bug index 95\n");
++      else
++        fprintf(stderr, "reached bug index 95\n");
++    }
++    if ((!FIXREVERTER[95] && (mat -> next_index >= mat -> num_datasets ))
++    #else
++    if (0
++    #endif
++     )
+         return NULL;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     id = *(hid_t*)mat->fp;
+     idx = (hsize_t)mat->next_index;
+     mat_data.mat = mat;
+     mat_data.matvar = NULL;
+     herr = H5Literate(id, H5_INDEX_NAME, H5_ITER_NATIVE, &idx, Mat_VarReadNextInfoIterate, (void*)&mat_data);
+-    if ( herr > 0 )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[96]) {
++      if ((herr > 0  ) && !(0))
++        fprintf(stderr, "triggered bug index 96\n");
++      else
++        fprintf(stderr, "reached bug index 96\n");
++    }
++    if ((!FIXREVERTER[96] && (herr > 0  ))
++    #else
++    if (0
++    #endif
++     )
+         mat->next_index = (size_t)idx;
++        #ifdef FRCOV
++        }
++        #endif
+     return mat_data.matvar;
+ }
+ 
+diff --git a/src/read_data.c b/src/read_data.c
+index dbb82e8..f28f0c9 100644
+--- a/src/read_data.c
++++ b/src/read_data.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /** @file read_data.c
+  * Matlab MAT version 5 file functions
+  * @ingroup MAT
+@@ -324,8 +331,23 @@ ReadCompressedCharData(mat_t *mat,z_streamp z,char *data,
+     int nBytes = 0;
+     unsigned int data_size;
+ 
+-    if ( mat == NULL || data == NULL || mat->fp == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[30]) {
++      if ((mat == (void *) 0 || data == (void *) 0 || mat -> fp == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 30\n");
++      else
++        fprintf(stderr, "reached bug index 30\n");
++    }
++    if ((!FIXREVERTER[30] && (mat == (void *) 0 || data == (void *) 0 || mat -> fp == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     data_size = (unsigned int)Mat_SizeOf(data_type);
+ 
+@@ -360,8 +382,23 @@ ReadCharData(mat_t *mat,char *data,enum matio_types data_type,int len)
+     int bytesread = 0;
+     size_t data_size;
+ 
+-    if ( mat == NULL || data == NULL || mat->fp == NULL )
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[31]) {
++      if ((mat == (void *) 0 || data == (void *) 0 || mat -> fp == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 31\n");
++      else
++        fprintf(stderr, "reached bug index 31\n");
++    }
++    if ((!FIXREVERTER[31] && (mat == (void *) 0 || data == (void *) 0 || mat -> fp == (void *) 0 ))
++    #else
++    if (0
++    #endif
++     )
+         return 0;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+     data_size = Mat_SizeOf(data_type);
+ 

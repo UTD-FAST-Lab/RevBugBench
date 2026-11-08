@@ -1,0 +1,4763 @@
+[
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_VarFree",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "mat.c",
+        "line": "1501",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 55,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "mat.c",
+          "line": "1506"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat.c",
+          "line": "1506"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "mat.c",
+        "line": "1506"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "1505"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "23",
+        "file": "mat.c",
+        "line": "1501",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_GetDir",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "mat.c",
+        "line": "624",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 43,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat.c",
+          "line": "634"
+        },
+        "start": {
+          "col": "24",
+          "file": "mat.c",
+          "line": "631"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "634"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "631"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "19",
+        "file": "mat.c",
+        "line": "624",
+        "order": 4,
+        "val": "mat"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "12",
+        "file": "./matio.h",
+        "line": "186",
+        "offset": 0,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "nbytes"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "2794",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "matvar"
+      }
+    ],
+    "index": 139,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat5.c",
+          "line": "2947"
+        },
+        "start": {
+          "col": "40",
+          "file": "mat5.c",
+          "line": "2945"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "2947"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "2945"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "0"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "col": "36",
+        "file": "mat5.c",
+        "line": "2794",
+        "order": 3,
+        "val": "matvar"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio.h",
+        "line": "186",
+        "offset": 0,
+        "order": 5,
+        "val": "nbytes"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "2794",
+        "offset": 10,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 140,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat5.c",
+          "line": "3006"
+        },
+        "start": {
+          "col": "41",
+          "file": "mat5.c",
+          "line": "3002"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "3006"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "3002"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "36",
+        "file": "mat5.c",
+        "line": "2794",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_GetDir",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "79",
+        "offset": 11,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "dir"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "mat.c",
+        "line": "624",
+        "offset": 11,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "mat"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 45,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat.c",
+          "line": "651"
+        },
+        "start": {
+          "col": "37",
+          "file": "mat.c",
+          "line": "647"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat.c",
+        "line": "651"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat.c",
+        "line": "647"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "19",
+        "file": "mat.c",
+        "line": "624",
+        "order": 4,
+        "val": "mat"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "79",
+        "offset": 11,
+        "order": 6,
+        "val": "dir"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo5",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "4780",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 158,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat5.c",
+          "line": "4811"
+        },
+        "start": {
+          "col": "35",
+          "file": "mat5.c",
+          "line": "4808"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "4811"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "4808"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "15",
+        "file": "mat5.c",
+        "line": "4780",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "38",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "3086",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "complex_data"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 143,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "mat5.c",
+          "line": "3092"
+        },
+        "start": {
+          "col": "45",
+          "file": "mat5.c",
+          "line": "3088"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3092"
+      },
+      "start": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3088"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "38",
+        "file": "mat5.c",
+        "line": "3086",
+        "order": 4,
+        "val": "complex_data"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "2794",
+        "offset": 10,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 138,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat5.c",
+          "line": "2944"
+        },
+        "start": {
+          "col": "41",
+          "file": "mat5.c",
+          "line": "2940"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "2944"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "2940"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "36",
+        "file": "mat5.c",
+        "line": "2794",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat4.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo4",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "13",
+        "file": "./matio.h",
+        "line": "194",
+        "offset": 8,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "dims"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "mat4.c",
+        "line": "910",
+        "offset": 8,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 71,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat4.c",
+          "line": "1010"
+        },
+        "start": {
+          "col": "33",
+          "file": "mat4.c",
+          "line": "1007"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "1010"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "1007"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "15",
+        "file": "mat4.c",
+        "line": "910",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "13",
+        "file": "./matio.h",
+        "line": "194",
+        "offset": 8,
+        "order": 6,
+        "val": "dims"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "inflate.c",
+    "func": {
+      "name": "InflateVarTag",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "51",
+        "crash": true,
+        "file": "inflate.c",
+        "line": "240",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 7,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "inflate.c",
+          "line": "247"
+        },
+        "start": {
+          "col": "9",
+          "file": "inflate.c",
+          "line": "247"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "inflate.c",
+        "line": "247"
+      },
+      "start": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "246"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "51",
+        "file": "inflate.c",
+        "line": "240",
+        "order": 1,
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat73.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo73",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "mat73.c",
+        "line": "2751",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 94,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "mat73.c",
+          "line": "2759"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat73.c",
+          "line": "2759"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "mat73.c",
+        "line": "2759"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat73.c",
+        "line": "2758"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "mat73.c",
+        "line": "2751",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "inflate.c",
+    "func": {
+      "name": "InflateData",
+      "param": [
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "62",
+        "crash": true,
+        "file": "inflate.c",
+        "line": "616",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "nBytes"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 28,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "inflate.c",
+          "line": "626"
+        },
+        "start": {
+          "col": "24",
+          "file": "inflate.c",
+          "line": "624"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "626"
+      },
+      "start": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "624"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "62",
+        "file": "inflate.c",
+        "line": "616",
+        "order": 1,
+        "val": "nBytes"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "2794",
+        "offset": 10,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 146,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "mat5.c",
+          "line": "3567"
+        },
+        "start": {
+          "col": "45",
+          "file": "mat5.c",
+          "line": "3563"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3567"
+      },
+      "start": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3563"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "36",
+        "file": "mat5.c",
+        "line": "2794",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat73.c",
+    "func": {
+      "name": "Mat_Create73",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "12",
+        "crash": true,
+        "file": "mat73.c",
+        "line": "2218",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 89,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat73.c",
+          "line": "2256"
+        },
+        "start": {
+          "col": "24",
+          "file": "mat73.c",
+          "line": "2252"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat73.c",
+        "line": "2256"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat73.c",
+        "line": "2252"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "12",
+        "file": "mat73.c",
+        "line": "2218",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "read_data.c",
+    "func": {
+      "name": "ReadCompressedCharData",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 17,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "read_data.c",
+        "line": "321",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "col": "53",
+        "crash": true,
+        "file": "read_data.c",
+        "line": "321",
+        "order": 6,
+        "tag": "traceVarNullCheck[]",
+        "val": "data"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 14,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "66",
+        "offset": 0,
+        "order": 13,
+        "tag": "traceVarNullCheckField[]",
+        "val": "fp"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "read_data.c",
+        "line": "321",
+        "offset": 0,
+        "order": 11,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "mat"
+      },
+      {
+        "order": 10,
+        "tag": "logic[]",
+        "val": "||"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 30,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "read_data.c",
+          "line": "328"
+        },
+        "start": {
+          "col": "9",
+          "file": "read_data.c",
+          "line": "328"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "read_data.c",
+        "line": "328"
+      },
+      "start": {
+        "col": "5",
+        "file": "read_data.c",
+        "line": "327"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "read_data.c",
+        "line": "321",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "53",
+        "file": "read_data.c",
+        "line": "321",
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "=="
+      },
+      {
+        "order": 8,
+        "val": "(void *)"
+      },
+      {
+        "order": 9,
+        "val": "0"
+      },
+      {
+        "order": 10,
+        "val": "||"
+      },
+      {
+        "col": "31",
+        "file": "read_data.c",
+        "line": "321",
+        "order": 11,
+        "val": "mat"
+      },
+      {
+        "order": 12,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "66",
+        "offset": 0,
+        "order": 13,
+        "val": "fp"
+      },
+      {
+        "order": 14,
+        "val": "=="
+      },
+      {
+        "order": 15,
+        "val": "(void *)"
+      },
+      {
+        "order": 16,
+        "val": "0"
+      },
+      {
+        "order": 17,
+        "val": "return"
+      },
+      {
+        "order": 18,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo5",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "4780",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 160,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat5.c",
+          "line": "4965"
+        },
+        "start": {
+          "col": "35",
+          "file": "mat5.c",
+          "line": "4962"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "4965"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "4962"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "15",
+        "file": "mat5.c",
+        "line": "4780",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_GetDir",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "32",
+        "crash": true,
+        "file": "mat.c",
+        "line": "624",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "n"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 42,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "mat.c",
+          "line": "629"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat.c",
+          "line": "629"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "mat.c",
+        "line": "629"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "628"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "32",
+        "file": "mat.c",
+        "line": "624",
+        "order": 4,
+        "val": "n"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "inflate.c",
+    "func": {
+      "name": "InflateRankDims",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "53",
+        "crash": true,
+        "file": "inflate.c",
+        "line": "348",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 13,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "inflate.c",
+          "line": "356"
+        },
+        "start": {
+          "col": "9",
+          "file": "inflate.c",
+          "line": "356"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "inflate.c",
+        "line": "356"
+      },
+      "start": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "355"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "53",
+        "file": "inflate.c",
+        "line": "348",
+        "order": 1,
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "ReadNextStructField",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "1211",
+        "offset": 10,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 122,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "20",
+          "file": "mat5.c",
+          "line": "1524"
+        },
+        "start": {
+          "col": "13",
+          "file": "mat5.c",
+          "line": "1524"
+        }
+      },
+      "end": {
+        "col": "20",
+        "file": "mat5.c",
+        "line": "1524"
+      },
+      "start": {
+        "col": "9",
+        "file": "mat5.c",
+        "line": "1523"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "44",
+        "file": "mat5.c",
+        "line": "1211",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "return"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_Create5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "12",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "551",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 109,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat5.c",
+          "line": "571"
+        },
+        "start": {
+          "col": "24",
+          "file": "mat5.c",
+          "line": "568"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat5.c",
+        "line": "571"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat5.c",
+        "line": "568"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "12",
+        "file": "mat5.c",
+        "line": "551",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_GetDir",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "75",
+        "offset": 9,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "num_datasets"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "mat.c",
+        "line": "624",
+        "offset": 9,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "mat"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 44,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat.c",
+          "line": "645"
+        },
+        "start": {
+          "col": "43",
+          "file": "mat.c",
+          "line": "642"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat.c",
+        "line": "645"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat.c",
+        "line": "642"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "19",
+        "file": "mat.c",
+        "line": "624",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "75",
+        "offset": 9,
+        "order": 3,
+        "val": "num_datasets"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "0"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_Open",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "12",
+        "crash": true,
+        "file": "mat.c",
+        "line": "347",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 39,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "mat.c",
+          "line": "481"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat.c",
+          "line": "481"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "mat.c",
+        "line": "481"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "480"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "12",
+        "file": "mat.c",
+        "line": "347",
+        "order": 4,
+        "val": "mat"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "inflate.c",
+    "func": {
+      "name": "InflateArrayFlags",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "55",
+        "crash": true,
+        "file": "inflate.c",
+        "line": "292",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 10,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "inflate.c",
+          "line": "299"
+        },
+        "start": {
+          "col": "9",
+          "file": "inflate.c",
+          "line": "299"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "inflate.c",
+        "line": "299"
+      },
+      "start": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "298"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "55",
+        "file": "inflate.c",
+        "line": "292",
+        "order": 1,
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat4.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo4",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "mat4.c",
+        "line": "907",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "tmp"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 76,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat4.c",
+          "line": "1048"
+        },
+        "start": {
+          "col": "20",
+          "file": "mat4.c",
+          "line": "1045"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "1048"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "1045"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "mat4.c",
+        "line": "907",
+        "order": 1,
+        "val": "tmp"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat73.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo73",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "74",
+        "offset": 8,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "next_index"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "75",
+        "offset": 9,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "num_datasets"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "mat73.c",
+        "line": "2751",
+        "offset": 8,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "mat"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "mat73.c",
+        "line": "2751",
+        "offset": 9,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "mat"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 95,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "mat73.c",
+          "line": "2762"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat73.c",
+          "line": "2762"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "mat73.c",
+        "line": "2762"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat73.c",
+        "line": "2761"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "mat73.c",
+        "line": "2751",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "74",
+        "offset": 8,
+        "order": 3,
+        "val": "next_index"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "31",
+        "file": "mat73.c",
+        "line": "2751",
+        "order": 5,
+        "val": "mat"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "75",
+        "offset": 9,
+        "order": 7,
+        "val": "num_datasets"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "38",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "3537",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "complex_data"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 145,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "mat5.c",
+          "line": "3550"
+        },
+        "start": {
+          "col": "45",
+          "file": "mat5.c",
+          "line": "3546"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3550"
+      },
+      "start": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3546"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "38",
+        "file": "mat5.c",
+        "line": "3537",
+        "order": 4,
+        "val": "complex_data"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "inflate.c",
+    "func": {
+      "name": "InflateData",
+      "param": [
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "inflate.c",
+        "line": "616",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 27,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "inflate.c",
+          "line": "623"
+        },
+        "start": {
+          "col": "9",
+          "file": "inflate.c",
+          "line": "623"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "inflate.c",
+        "line": "623"
+      },
+      "start": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "622"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "44",
+        "file": "inflate.c",
+        "line": "616",
+        "order": 1,
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "ReadNextStructField",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "1211",
+        "offset": 10,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 120,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "mat5.c",
+          "line": "1303"
+        },
+        "start": {
+          "col": "37",
+          "file": "mat5.c",
+          "line": "1300"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "mat5.c",
+        "line": "1303"
+      },
+      "start": {
+        "col": "9",
+        "file": "mat5.c",
+        "line": "1300"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "44",
+        "file": "mat5.c",
+        "line": "1211",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "29",
+        "crash": true,
+        "file": "mat.c",
+        "line": "2334",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 61,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "mat.c",
+          "line": "2338"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat.c",
+          "line": "2338"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "mat.c",
+        "line": "2338"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "2337"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "29",
+        "file": "mat.c",
+        "line": "2334",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "ReadNextCell",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "37",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "891",
+        "offset": 10,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 119,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat5.c",
+          "line": "915"
+        },
+        "start": {
+          "col": "33",
+          "file": "mat5.c",
+          "line": "911"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat5.c",
+        "line": "915"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat5.c",
+        "line": "911"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "37",
+        "file": "mat5.c",
+        "line": "891",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "read_data.c",
+    "func": {
+      "name": "ReadCharData",
+      "param": [
+        64,
+        64,
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 17,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "21",
+        "crash": true,
+        "file": "read_data.c",
+        "line": "358",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "read_data.c",
+        "line": "358",
+        "order": 6,
+        "tag": "traceVarNullCheck[]",
+        "val": "data"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 14,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "66",
+        "offset": 0,
+        "order": 13,
+        "tag": "traceVarNullCheckField[]",
+        "val": "fp"
+      },
+      {
+        "col": "21",
+        "crash": true,
+        "file": "read_data.c",
+        "line": "358",
+        "offset": 0,
+        "order": 11,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "mat"
+      },
+      {
+        "order": 10,
+        "tag": "logic[]",
+        "val": "||"
+      },
+      {
+        "order": 5,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 31,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "read_data.c",
+          "line": "364"
+        },
+        "start": {
+          "col": "9",
+          "file": "read_data.c",
+          "line": "364"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "read_data.c",
+        "line": "364"
+      },
+      "start": {
+        "col": "5",
+        "file": "read_data.c",
+        "line": "363"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "21",
+        "file": "read_data.c",
+        "line": "358",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "||"
+      },
+      {
+        "col": "31",
+        "file": "read_data.c",
+        "line": "358",
+        "order": 6,
+        "val": "data"
+      },
+      {
+        "order": 7,
+        "val": "=="
+      },
+      {
+        "order": 8,
+        "val": "(void *)"
+      },
+      {
+        "order": 9,
+        "val": "0"
+      },
+      {
+        "order": 10,
+        "val": "||"
+      },
+      {
+        "col": "21",
+        "file": "read_data.c",
+        "line": "358",
+        "order": 11,
+        "val": "mat"
+      },
+      {
+        "order": 12,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "66",
+        "offset": 0,
+        "order": 13,
+        "val": "fp"
+      },
+      {
+        "order": 14,
+        "val": "=="
+      },
+      {
+        "order": 15,
+        "val": "(void *)"
+      },
+      {
+        "order": 16,
+        "val": "0"
+      },
+      {
+        "order": 17,
+        "val": "return"
+      },
+      {
+        "order": 18,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat73.c",
+    "func": {
+      "name": "Mat_VarRead73",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "20",
+        "crash": true,
+        "file": "mat73.c",
+        "line": "2344",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "nelems"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 90,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "mat73.c",
+          "line": "2354"
+        },
+        "start": {
+          "col": "17",
+          "file": "mat73.c",
+          "line": "2354"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "mat73.c",
+        "line": "2354"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat73.c",
+        "line": "2353"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "20",
+        "file": "mat73.c",
+        "line": "2344",
+        "order": 1,
+        "val": "nelems"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "break"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "inflate.c",
+    "func": {
+      "name": "InflateVarName",
+      "param": [
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "52",
+        "crash": true,
+        "file": "inflate.c",
+        "line": "455",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 18,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "inflate.c",
+          "line": "462"
+        },
+        "start": {
+          "col": "9",
+          "file": "inflate.c",
+          "line": "462"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "inflate.c",
+        "line": "462"
+      },
+      "start": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "461"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "52",
+        "file": "inflate.c",
+        "line": "455",
+        "order": 1,
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat4.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo4",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "195",
+        "offset": 9,
+        "order": 6,
+        "tag": "traceVarNullCheckField[]",
+        "val": "name"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "mat4.c",
+        "line": "910",
+        "offset": 9,
+        "order": 4,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 77,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat4.c",
+          "line": "1053"
+        },
+        "start": {
+          "col": "33",
+          "file": "mat4.c",
+          "line": "1050"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "1053"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "1050"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "15",
+        "file": "mat4.c",
+        "line": "910",
+        "order": 4,
+        "val": "matvar"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "195",
+        "offset": 9,
+        "order": 6,
+        "val": "name"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "ReadData",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "70",
+        "offset": 4,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "version"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "mat.c",
+        "line": "66",
+        "offset": 4,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "mat"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "5",
+        "file": "./matio.h",
+        "line": "68",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "MAT_FT_MAT4"
+      }
+    ],
+    "index": 37,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "39",
+          "file": "mat.c",
+          "line": "77"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat.c",
+          "line": "77"
+        }
+      },
+      "end": {
+        "col": "39",
+        "file": "mat.c",
+        "line": "77"
+      },
+      "start": {
+        "col": "10",
+        "file": "mat.c",
+        "line": "76"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "mat.c",
+        "line": "66",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "70",
+        "offset": 4,
+        "order": 3,
+        "val": "version"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "col": "5",
+        "file": "./matio.h",
+        "line": "68",
+        "order": 5,
+        "val": "MAT_FT_MAT4"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat73.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo73",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "13",
+        "file": "mat73.c",
+        "line": "2755",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "herr"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "74",
+        "offset": 8,
+        "order": 6,
+        "tag": "traceVarAssignNumField[]",
+        "val": "next_index"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "mat73.c",
+        "line": "2751",
+        "offset": 8,
+        "order": 4,
+        "tag": "traceVarAssignNumBase[]",
+        "val": "mat"
+      }
+    ],
+    "index": 96,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "35",
+          "file": "mat73.c",
+          "line": "2770"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat73.c",
+          "line": "2770"
+        }
+      },
+      "end": {
+        "col": "35",
+        "file": "mat73.c",
+        "line": "2770"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat73.c",
+        "line": "2769"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "mat73.c",
+        "line": "2755",
+        "order": 1,
+        "val": "herr"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "col": "31",
+        "file": "mat73.c",
+        "line": "2751",
+        "order": 4,
+        "val": "mat"
+      },
+      {
+        "order": 5,
+        "val": "->"
+      },
+      {
+        "col": "12",
+        "file": "./matio_private.h",
+        "line": "74",
+        "offset": 8,
+        "order": 6,
+        "val": "next_index"
+      },
+      {
+        "order": 7,
+        "val": ";"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat4.c",
+    "func": {
+      "name": "Mat_Create4",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "12",
+        "crash": true,
+        "file": "mat4.c",
+        "line": "56",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 67,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat4.c",
+          "line": "75"
+        },
+        "start": {
+          "col": "24",
+          "file": "mat4.c",
+          "line": "71"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "75"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "71"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "12",
+        "file": "mat4.c",
+        "line": "56",
+        "order": 4,
+        "val": "mat"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat.c",
+    "func": {
+      "name": "Mat_Open",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "12",
+        "crash": true,
+        "file": "mat.c",
+        "line": "347",
+        "order": 4,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 3,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 38,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat.c",
+          "line": "386"
+        },
+        "start": {
+          "col": "24",
+          "file": "mat.c",
+          "line": "382"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "386"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat.c",
+        "line": "382"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "(void *)"
+      },
+      {
+        "order": 2,
+        "val": "0"
+      },
+      {
+        "order": 3,
+        "val": "=="
+      },
+      {
+        "col": "12",
+        "file": "mat.c",
+        "line": "347",
+        "order": 4,
+        "val": "mat"
+      },
+      {
+        "order": 5,
+        "val": "less3"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo5",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "4775",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 156,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "mat5.c",
+          "line": "4784"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat5.c",
+          "line": "4784"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "mat5.c",
+        "line": "4784"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat5.c",
+        "line": "4783"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "mat5.c",
+        "line": "4775",
+        "order": 1,
+        "val": "mat"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "36",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "2794",
+        "offset": 10,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "matvar"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 141,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "mat5.c",
+          "line": "3028"
+        },
+        "start": {
+          "col": "41",
+          "file": "mat5.c",
+          "line": "3024"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "3028"
+      },
+      "start": {
+        "col": "13",
+        "file": "mat5.c",
+        "line": "3024"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "36",
+        "file": "mat5.c",
+        "line": "2794",
+        "order": 1,
+        "val": "matvar"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "196",
+        "offset": 10,
+        "order": 3,
+        "val": "data"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat4.c",
+    "func": {
+      "name": "Mat_VarReadNextInfo4",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "mat4.c",
+        "line": "906",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "O"
+      }
+    ],
+    "index": 70,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "5",
+          "file": "mat4.c",
+          "line": "959"
+        },
+        "start": {
+          "col": "19",
+          "file": "mat4.c",
+          "line": "956"
+        }
+      },
+      "end": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "959"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat4.c",
+        "line": "956"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "order": 1,
+        "val": "0"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "col": "17",
+        "file": "mat4.c",
+        "line": "906",
+        "order": 3,
+        "val": "O"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "inflate.c",
+    "func": {
+      "name": "InflateDataType",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "inflate.c",
+        "line": "563",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 24,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "16",
+          "file": "inflate.c",
+          "line": "570"
+        },
+        "start": {
+          "col": "9",
+          "file": "inflate.c",
+          "line": "570"
+        }
+      },
+      "end": {
+        "col": "16",
+        "file": "inflate.c",
+        "line": "570"
+      },
+      "start": {
+        "col": "5",
+        "file": "inflate.c",
+        "line": "569"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "inflate.c",
+        "line": "563",
+        "order": 1,
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat73.c",
+    "func": {
+      "name": "Mat_H5ReadNextReferenceData",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 9,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "35",
+        "file": "mat73.c",
+        "line": "1043",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "ref_id"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "52",
+        "crash": true,
+        "file": "mat73.c",
+        "line": "1043",
+        "order": 5,
+        "tag": "traceVarNullCheck[]",
+        "val": "matvar"
+      },
+      {
+        "order": 6,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 83,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "9",
+          "file": "mat73.c",
+          "line": "1048"
+        },
+        "start": {
+          "col": "9",
+          "file": "mat73.c",
+          "line": "1048"
+        }
+      },
+      "end": {
+        "col": "9",
+        "file": "mat73.c",
+        "line": "1048"
+      },
+      "start": {
+        "col": "5",
+        "file": "mat73.c",
+        "line": "1047"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "35",
+        "file": "mat73.c",
+        "line": "1043",
+        "order": 1,
+        "val": "ref_id"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "52",
+        "file": "mat73.c",
+        "line": "1043",
+        "order": 5,
+        "val": "matvar"
+      },
+      {
+        "order": 6,
+        "val": "=="
+      },
+      {
+        "order": 7,
+        "val": "(void *)"
+      },
+      {
+        "order": 8,
+        "val": "0"
+      },
+      {
+        "order": 9,
+        "val": "return"
+      },
+      {
+        "order": 10,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "24",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "3080",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "s_type"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 142,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "21",
+          "file": "mat5.c",
+          "line": "3082"
+        },
+        "start": {
+          "col": "21",
+          "file": "mat5.c",
+          "line": "3082"
+        }
+      },
+      "end": {
+        "col": "21",
+        "file": "mat5.c",
+        "line": "3082"
+      },
+      "start": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3081"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "24",
+        "file": "mat5.c",
+        "line": "3080",
+        "order": 1,
+        "val": "s_type"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "break"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/matio/src",
+    "fileName": "mat5.c",
+    "func": {
+      "name": "Mat_VarRead5",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "219",
+        "offset": 6,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "data"
+      },
+      {
+        "col": "27",
+        "crash": true,
+        "file": "mat5.c",
+        "line": "3020",
+        "offset": 6,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "data"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 144,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "17",
+          "file": "mat5.c",
+          "line": "3372"
+        },
+        "start": {
+          "col": "43",
+          "file": "mat5.c",
+          "line": "3368"
+        }
+      },
+      "end": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3372"
+      },
+      "start": {
+        "col": "17",
+        "file": "mat5.c",
+        "line": "3368"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "27",
+        "file": "mat5.c",
+        "line": "3020",
+        "order": 1,
+        "val": "data"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./matio.h",
+        "line": "219",
+        "offset": 6,
+        "order": 3,
+        "val": "data"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "less3"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  }
+]

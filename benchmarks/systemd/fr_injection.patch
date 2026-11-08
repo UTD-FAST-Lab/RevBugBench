@@ -1,0 +1,2657 @@
+diff --git a/src/basic/fd-util.c b/src/basic/fd-util.c
+index e571f6616e..24a167ab1a 100644
+--- a/src/basic/fd-util.c
++++ b/src/basic/fd-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -810,8 +817,23 @@ int fd_move_above_stdio(int fd) {
+                 copy = fcntl(fd, F_DUPFD_CLOEXEC, 3);
+         else
+                 copy = fcntl(fd, F_DUPFD, 3);
+-        if (copy < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[137]) {
++          if ((copy < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 137\n");
++          else
++            fprintf(stderr, "reached bug index 137\n");
++        }
++        if ((!FIXREVERTER[137] && (copy < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return fd;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         assert(copy > 2);
+ 
+diff --git a/src/basic/fileio.c b/src/basic/fileio.c
+index 16034fb9e8..cf7099c160 100644
+--- a/src/basic/fileio.c
++++ b/src/basic/fileio.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <ctype.h>
+@@ -259,8 +266,23 @@ int read_one_line_file(const char *fn, char **line) {
+         assert(line);
+ 
+         r = fopen_unlocked(fn, "re", &f);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[406]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 406\n");
++          else
++            fprintf(stderr, "reached bug index 406\n");
++        }
++        if ((!FIXREVERTER[406] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         return read_line(f, LONG_LINE_MAX, line);
+ }
+@@ -814,15 +836,60 @@ int read_line_full(FILE *f, size_t limit, ReadLineFlags flags, char **ret) {
+                         EndOfLineMarker eol;
+                         char c;
+ 
+-                        if (n >= limit)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[419]) {
++                          if ((n >= limit ) && !(0))
++                            fprintf(stderr, "triggered bug index 419\n");
++                          else
++                            fprintf(stderr, "reached bug index 419\n");
++                        }
++                        if ((!FIXREVERTER[419] && (n >= limit ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 return -ENOBUFS;
+-
+-                        if (count >= INT_MAX) /* We couldn't return the counter anymore as "int", hence refuse this */
++                                #ifdef FRCOV
++                                }
++                                #endif
++
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[420]) {
++                          if ((count >= 2147483647 ) && !(0))
++                            fprintf(stderr, "triggered bug index 420\n");
++                          else
++                            fprintf(stderr, "reached bug index 420\n");
++                        }
++                        if ((!FIXREVERTER[420] && (count >= 2147483647 ))
++                        #else
++                        if (0
++                        #endif
++                        ) /* We couldn't return the counter anymore as "int", hence refuse this */
+                                 return -ENOBUFS;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         r = safe_fgetc(f, &c);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[421]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 421\n");
++                          else
++                            fprintf(stderr, "reached bug index 421\n");
++                        }
++                        if ((!FIXREVERTER[421] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 return r;
++                                #ifdef FRCOV
++                                }
++                                #endif
+                         if (r == 0) /* EOF is definitely EOL */
+                                 break;
+ 
+diff --git a/src/basic/fs-util.c b/src/basic/fs-util.c
+index d1c06cf12a..a40f73afd1 100644
+--- a/src/basic/fs-util.c
++++ b/src/basic/fs-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -708,8 +715,23 @@ int inotify_add_watch_fd(int fd, int what, uint32_t mask) {
+         xsprintf(path, "/proc/self/fd/%i", what);
+ 
+         r = inotify_add_watch(fd, path, mask);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[972]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 972\n");
++          else
++            fprintf(stderr, "reached bug index 972\n");
++        }
++        if ((!FIXREVERTER[972] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -errno;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         return r;
+ }
+diff --git a/src/basic/hashmap.c b/src/basic/hashmap.c
+index c7bd7323a1..37f1e5ad69 100644
+--- a/src/basic/hashmap.c
++++ b/src/basic/hashmap.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -653,8 +660,23 @@ static unsigned hashmap_iterate_in_internal_order(HashmapBase *h, Iterator *i) {
+                  * To detect when it happens, we remember the key pointer of the entry we were
+                  * going to iterate next. If it does not match, there was a backward shift.
+                  */
+-                if (e->key != i->next_key)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[578]) {
++                  if ((e -> key != i -> next_key ) && !(0))
++                    fprintf(stderr, "triggered bug index 578\n");
++                  else
++                    fprintf(stderr, "reached bug index 578\n");
++                }
++                if ((!FIXREVERTER[578] && (e -> key != i -> next_key ))
++                #else
++                if (0
++                #endif
++                )
+                         e = bucket_at(h, --i->idx);
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 assert(e->key == i->next_key);
+         }
+@@ -997,10 +1019,40 @@ static int hashmap_base_put_boldly(HashmapBase *h, unsigned idx,
+ 
+         if (may_resize) {
+                 r = resize_buckets(h, 1);
+-                if (r < 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[579]) {
++                  if ((r < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 579\n");
++                  else
++                    fprintf(stderr, "reached bug index 579\n");
++                }
++                if ((!FIXREVERTER[579] && (r < 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return r;
+-                if (r > 0)
++                        #ifdef FRCOV
++                        }
++                        #endif
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[580]) {
++                  if ((r > 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 580\n");
++                  else
++                    fprintf(stderr, "reached bug index 580\n");
++                }
++                if ((!FIXREVERTER[580] && (r > 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         idx = bucket_hash(h, new_entry->p.b.key);
++                        #ifdef FRCOV
++                        }
++                        #endif
+         }
+         assert(n_entries(h) < n_buckets(h));
+ 
+@@ -1146,11 +1198,26 @@ static int resize_buckets(HashmapBase *h, unsigned entries_add) {
+                  * Not much to do if by luck the entry hashes to its current
+                  * location. Just set its DIB.
+                  */
+-                if (optimal_idx == idx) {
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[581]) {
++                  if ((optimal_idx == idx ) && !(0))
++                    fprintf(stderr, "triggered bug index 581\n");
++                  else
++                    fprintf(stderr, "reached bug index 581\n");
++                }
++                if ((!FIXREVERTER[581] && (optimal_idx == idx ))
++                #else
++                if (0
++                #endif
++                ) {
+                         new_dibs[idx] = 0;
+                         n_rehashed++;
+                         continue;
+                 }
++                #ifdef FRCOV
++                }
++                #endif
+ 
+                 new_dibs[idx] = DIB_RAW_FREE;
+                 bucket_move_entry(h, &swap, idx, IDX_PUT);
+diff --git a/src/basic/log.c b/src/basic/log.c
+index a81c350ab4..c5ba3401e8 100644
+--- a/src/basic/log.c
++++ b/src/basic/log.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -88,8 +95,23 @@ static int log_open_console(void) {
+ 
+         if (console_fd < 3) {
+                 console_fd = open_terminal("/dev/console", O_WRONLY|O_NOCTTY|O_CLOEXEC);
+-                if (console_fd < 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[1069]) {
++                  if ((console_fd < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 1069\n");
++                  else
++                    fprintf(stderr, "reached bug index 1069\n");
++                }
++                if ((!FIXREVERTER[1069] && (console_fd < 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return console_fd;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 console_fd = fd_move_above_stdio(console_fd);
+         }
+@@ -123,8 +145,23 @@ static int create_log_socket(int type) {
+         int fd;
+ 
+         fd = socket(AF_UNIX, type|SOCK_CLOEXEC, 0);
+-        if (fd < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1072]) {
++          if ((fd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1072\n");
++          else
++            fprintf(stderr, "reached bug index 1072\n");
++        }
++        if ((!FIXREVERTER[1072] && (fd < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -errno;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         fd = fd_move_above_stdio(fd);
+         (void) fd_inc_sndbuf(fd, SNDBUF_SIZE);
+@@ -339,8 +376,23 @@ static int write_to_console(
+         const char *on = NULL, *off = NULL;
+         size_t n = 0;
+ 
+-        if (console_fd < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1080]) {
++          if ((console_fd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1080\n");
++          else
++            fprintf(stderr, "reached bug index 1080\n");
++        }
++        if ((!FIXREVERTER[1080] && (console_fd < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return 0;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         if (log_target == LOG_TARGET_CONSOLE_PREFIXED) {
+                 xsprintf(prefix, "<%i>", level);
+@@ -373,8 +425,23 @@ static int write_to_console(
+                         log_close_console();
+                         log_open_console();
+ 
+-                        if (console_fd < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1081]) {
++                          if ((console_fd < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1081\n");
++                          else
++                            fprintf(stderr, "reached bug index 1081\n");
++                        }
++                        if ((!FIXREVERTER[1081] && (console_fd < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 return 0;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         if (writev(console_fd, iovec, n) < 0)
+                                 return -errno;
+@@ -1320,8 +1387,23 @@ int log_dup_console(void) {
+         /* Duplicate the fd we use for fd logging if it's < 3 and use the copy from now on. This call is useful
+          * whenever we want to continue logging through the original fd, but want to rearrange stderr. */
+ 
+-        if (console_fd >= 3)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1090]) {
++          if ((console_fd >= 3 ) && !(0))
++            fprintf(stderr, "triggered bug index 1090\n");
++          else
++            fprintf(stderr, "reached bug index 1090\n");
++        }
++        if ((!FIXREVERTER[1090] && (console_fd >= 3 ))
++        #else
++        if (0
++        #endif
++        )
+                 return 0;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         copy = fcntl(console_fd, F_DUPFD_CLOEXEC, 3);
+         if (copy < 0)
+diff --git a/src/basic/process-util.c b/src/basic/process-util.c
+index 3dc3534e1a..18915ce101 100644
+--- a/src/basic/process-util.c
++++ b/src/basic/process-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <ctype.h>
+@@ -158,20 +165,50 @@ int get_process_cmdline(pid_t pid, size_t max_length, bool comm_fallback, char *
+                         if (isprint(c)) {
+ 
+                                 if (space) {
+-                                        if (left <= 2) {
++                                        
++                                        #ifdef FRCOV
++                                        {if (FIXREVERTER[524]) {
++                                          if ((left <= 2 ) && !(0))
++                                            fprintf(stderr, "triggered bug index 524\n");
++                                          else
++                                            fprintf(stderr, "reached bug index 524\n");
++                                        }
++                                        if ((!FIXREVERTER[524] && (left <= 2 ))
++                                        #else
++                                        if (0
++                                        #endif
++                                        ) {
+                                                 dotdotdot = true;
+                                                 break;
+                                         }
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+ 
+                                         *(k++) = ' ';
+                                         left--;
+                                         space = false;
+                                 }
+ 
+-                                if (left <= 1) {
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[525]) {
++                                  if ((left <= 1 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 525\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 525\n");
++                                }
++                                if ((!FIXREVERTER[525] && (left <= 1 ))
++                                #else
++                                if (0
++                                #endif
++                                ) {
+                                         dotdotdot = true;
+                                         break;
+                                 }
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                                 *(k++) = (char) c;
+                                 left--;
+@@ -887,8 +924,23 @@ int getenv_for_pid(pid_t pid, const char *field, char **ret) {
+         r = fopen_unlocked(path, "re", &f);
+         if (r == -ENOENT)
+                 return -ESRCH;
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[545]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 545\n");
++          else
++            fprintf(stderr, "reached bug index 545\n");
++        }
++        if ((!FIXREVERTER[545] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         l = strlen(field);
+         for (;;) {
+@@ -898,10 +950,40 @@ int getenv_for_pid(pid_t pid, const char *field, char **ret) {
+                         return -ENOBUFS;
+ 
+                 r = read_nul_string(f, LONG_LINE_MAX, &line);
+-                if (r < 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[546]) {
++                  if ((r < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 546\n");
++                  else
++                    fprintf(stderr, "reached bug index 546\n");
++                }
++                if ((!FIXREVERTER[546] && (r < 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return r;
+-                if (r == 0)  /* EOF */
++                        #ifdef FRCOV
++                        }
++                        #endif
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[547]) {
++                  if ((r == 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 547\n");
++                  else
++                    fprintf(stderr, "reached bug index 547\n");
++                }
++                if ((!FIXREVERTER[547] && (r == 0 ))
++                #else
++                if (0
++                #endif
++                )  /* EOF */
+                         break;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 sum += r;
+ 
+diff --git a/src/basic/random-util.c b/src/basic/random-util.c
+index b8bbf2d418..737d7f7b96 100644
+--- a/src/basic/random-util.c
++++ b/src/basic/random-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #if defined(__i386__) || defined(__x86_64__)
+@@ -186,8 +193,23 @@ int genuine_random_bytes(void *p, size_t n, RandomFlags flags) {
+         }
+ 
+         fd = open("/dev/urandom", O_RDONLY|O_CLOEXEC|O_NOCTTY);
+-        if (fd < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[597]) {
++          if ((fd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 597\n");
++          else
++            fprintf(stderr, "reached bug index 597\n");
++        }
++        if ((!FIXREVERTER[597] && (fd < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return errno == ENOENT ? -ENOSYS : -errno;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         return loop_read_exact(fd, p, n, true);
+ }
+diff --git a/src/basic/socket-util.c b/src/basic/socket-util.c
+index 32a0d9c5d0..4c5172d5cb 100644
+--- a/src/basic/socket-util.c
++++ b/src/basic/socket-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <arpa/inet.h>
+@@ -1345,8 +1352,23 @@ int sockaddr_un_set_path(struct sockaddr_un *ret, const char *path) {
+          * reference paths in the abstract namespace that include NUL bytes in the name. */
+ 
+         l = strlen(path);
+-        if (l == 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[797]) {
++          if ((l == 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 797\n");
++          else
++            fprintf(stderr, "reached bug index 797\n");
++        }
++        if ((!FIXREVERTER[797] && (l == 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -EINVAL;
++                #ifdef FRCOV
++                }
++                #endif
+         if (!IN_SET(path[0], '/', '@'))
+                 return -EINVAL;
+         if (path[1] == 0)
+diff --git a/src/basic/string-util.c b/src/basic/string-util.c
+index 779048904a..e798218a1e 100644
+--- a/src/basic/string-util.c
++++ b/src/basic/string-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -649,8 +656,23 @@ char *cellescape(char *buf, size_t len, const char *s) {
+          * characters ideally, but the buffer is shorter than that in the first place take what we can get */
+         for (j = 0; j < ELEMENTSOF(last_char_width); j++) {
+ 
+-                if (i + 4 <= len) /* nice, we reached our space goal */
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[1271]) {
++                  if ((i + 4 <= len ) && !(0))
++                    fprintf(stderr, "triggered bug index 1271\n");
++                  else
++                    fprintf(stderr, "reached bug index 1271\n");
++                }
++                if ((!FIXREVERTER[1271] && (i + 4 <= len ))
++                #else
++                if (0
++                #endif
++                ) /* nice, we reached our space goal */
+                         break;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 k = k == 0 ? 3 : k - 1;
+                 if (last_char_width[k] == 0) /* bummer, we reached the beginning of the strings */
+diff --git a/src/basic/terminal-util.c b/src/basic/terminal-util.c
+index cd878551f4..63556d656f 100644
+--- a/src/basic/terminal-util.c
++++ b/src/basic/terminal-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -330,8 +337,23 @@ int open_terminal(const char *name, int mode) {
+ 
+         for (;;) {
+                 fd = open(name, mode, 0);
+-                if (fd >= 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[623]) {
++                  if ((fd >= 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 623\n");
++                  else
++                    fprintf(stderr, "reached bug index 623\n");
++                }
++                if ((!FIXREVERTER[623] && (fd >= 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         break;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 if (errno != EIO)
+                         return -errno;
+diff --git a/src/basic/utf8.c b/src/basic/utf8.c
+index 090c69d140..4993e8199b 100644
+--- a/src/basic/utf8.c
++++ b/src/basic/utf8.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ /* Parts of this file are based on the GLIB utf8 validation functions. The
+@@ -463,12 +470,42 @@ int utf8_encoded_valid_unichar(const char *str, size_t length /* bytes */) {
+         /* We read until NUL, at most length bytes. (size_t) -1 may be used to disable the length check. */
+ 
+         len = utf8_encoded_expected_len(str[0]);
+-        if (len == 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[22]) {
++          if ((len == 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 22\n");
++          else
++            fprintf(stderr, "reached bug index 22\n");
++        }
++        if ((!FIXREVERTER[22] && (len == 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -EINVAL;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         /* Do we have a truncated multi-byte character? */
+-        if (len > length)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[23]) {
++          if ((len > length ) && !(0))
++            fprintf(stderr, "triggered bug index 23\n");
++          else
++            fprintf(stderr, "reached bug index 23\n");
++        }
++        if ((!FIXREVERTER[23] && (len > length ))
++        #else
++        if (0
++        #endif
++        )
+                 return -EINVAL;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         /* ascii is valid */
+         if (len == 1)
+@@ -480,8 +517,23 @@ int utf8_encoded_valid_unichar(const char *str, size_t length /* bytes */) {
+                         return -EINVAL;
+ 
+         r = utf8_encoded_to_unichar(str, &unichar);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[25]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 25\n");
++          else
++            fprintf(stderr, "reached bug index 25\n");
++        }
++        if ((!FIXREVERTER[25] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         /* check if encoded length matches encoded value */
+         if (utf8_unichar_to_encoded_len(unichar) != (int) len)
+diff --git a/src/basic/virt.c b/src/basic/virt.c
+index 84b2d64b25..f1a5fe8fc5 100644
+--- a/src/basic/virt.c
++++ b/src/basic/virt.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #if defined(__i386__) || defined(__x86_64__)
+@@ -497,10 +504,25 @@ int detect_container(void) {
+ 
+         /* Fallback for cases where PID 1 was not systemd (for example, cases where init=/bin/sh is used. */
+         r = getenv_for_pid(1, "container", &m);
+-        if (r > 0) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[388]) {
++          if ((r > 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 388\n");
++          else
++            fprintf(stderr, "reached bug index 388\n");
++        }
++        if ((!FIXREVERTER[388] && (r > 0 ))
++        #else
++        if (0
++        #endif
++        ) {
+                 e = m;
+                 goto translate_name;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+         if (r < 0) /* This only works if we have CAP_SYS_PTRACE, hence let's better ignore failures here */
+                 log_debug_errno(r, "Failed to read $container of PID 1, ignoring: %m");
+ 
+diff --git a/src/fuzz/fuzz-varlink.c b/src/fuzz/fuzz-varlink.c
+index 31c13e2bea..65bc62392d 100644
+--- a/src/fuzz/fuzz-varlink.c
++++ b/src/fuzz/fuzz-varlink.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#define FIXREVERTER_SIZE 1272
++short FIXREVERTER[FIXREVERTER_SIZE];
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <unistd.h>
+@@ -82,7 +86,41 @@ static int idle_callback(sd_event_source *s, void *userdata) {
+         return 0;
+ }
+ 
++
++#ifdef FRCOV
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#endif
+ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
++        
++        #ifdef FRCOV
++        char *fixReverterEnv = getenv("FIXREVERTER");
++        char *fixReverterToken = strtok(fixReverterEnv, " ");
++        if (fixReverterToken == NULL) {
++          for (int i = 0; i < FIXREVERTER_SIZE; i++)
++            FIXREVERTER[i] = 1;
++        } else if (!strcmp("on", fixReverterToken)) {
++          for (int i = 0; i < FIXREVERTER_SIZE; i++)
++            FIXREVERTER[i] = 0;
++          fixReverterToken = strtok(NULL, " ");
++          while (fixReverterToken != NULL) {
++            FIXREVERTER[atoi(fixReverterToken)] = 1;
++            fixReverterToken = strtok(NULL, " ");
++          }
++        } else if (!strcmp("off", fixReverterToken)) {
++          for (int i = 0; i < FIXREVERTER_SIZE; i++)
++            FIXREVERTER[i] = 1;
++          fixReverterToken = strtok(NULL, " ");
++          while (fixReverterToken != NULL) {
++            FIXREVERTER[atoi(fixReverterToken)] = 0;
++            fixReverterToken = strtok(NULL, " ");
++          }
++        } else {
++          fprintf(stderr, "[FIXREVERTER] - first token must be on or off\n");
++          exit(0);
++        }
++        #endif
+         struct iovec server_iov = IOVEC_MAKE((void*) data, size), client_iov = IOVEC_MAKE((void*) data, size);
+         /* Important: the declaration order matters here! we want that the fds are closed on return after the
+          * event sources, hence we declare the fds first, the event sources second */
+diff --git a/src/libsystemd/sd-event/sd-event.c b/src/libsystemd/sd-event/sd-event.c
+index 09285c19d8..4118867573 100644
+--- a/src/libsystemd/sd-event/sd-event.c
++++ b/src/libsystemd/sd-event/sd-event.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <sys/epoll.h>
+@@ -518,8 +525,23 @@ static int event_make_signal_data(
+                 }
+         } else {
+                 r = hashmap_ensure_allocated(&e->signal_data, &uint64_hash_ops);
+-                if (r < 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[467]) {
++                  if ((r < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 467\n");
++                  else
++                    fprintf(stderr, "reached bug index 467\n");
++                }
++                if ((!FIXREVERTER[467] && (r < 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return r;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 d = new(struct signal_data, 1);
+                 if (!d)
+@@ -532,10 +554,25 @@ static int event_make_signal_data(
+                 };
+ 
+                 r = hashmap_put(e->signal_data, &d->priority, d);
+-                if (r < 0) {
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[468]) {
++                  if ((r < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 468\n");
++                  else
++                    fprintf(stderr, "reached bug index 468\n");
++                }
++                if ((!FIXREVERTER[468] && (r < 0 ))
++                #else
++                if (0
++                #endif
++                ) {
+                         free(d);
+                         return r;
+                 }
++                #ifdef FRCOV
++                }
++                #endif
+ 
+                 added = true;
+         }
+@@ -544,10 +581,25 @@ static int event_make_signal_data(
+         assert_se(sigaddset(&ss_copy, sig) >= 0);
+ 
+         r = signalfd(d->fd, &ss_copy, SFD_NONBLOCK|SFD_CLOEXEC);
+-        if (r < 0) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[469]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 469\n");
++          else
++            fprintf(stderr, "reached bug index 469\n");
++        }
++        if ((!FIXREVERTER[469] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        ) {
+                 r = -errno;
+                 goto fail;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         d->sigset = ss_copy;
+ 
+@@ -565,10 +617,25 @@ static int event_make_signal_data(
+         };
+ 
+         r = epoll_ctl(e->epoll_fd, EPOLL_CTL_ADD, d->fd, &ev);
+-        if (r < 0)  {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[471]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 471\n");
++          else
++            fprintf(stderr, "reached bug index 471\n");
++        }
++        if ((!FIXREVERTER[471] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )  {
+                 r = -errno;
+                 goto fail;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         if (ret)
+                 *ret = d;
+@@ -954,8 +1021,23 @@ static int event_setup_timer_fd(
+                 return 0;
+ 
+         fd = timerfd_create(clock, TFD_NONBLOCK|TFD_CLOEXEC);
+-        if (fd < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[473]) {
++          if ((fd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 473\n");
++          else
++            fprintf(stderr, "reached bug index 473\n");
++        }
++        if ((!FIXREVERTER[473] && (fd < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -errno;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         fd = fd_move_above_stdio(fd);
+ 
+@@ -1336,8 +1418,23 @@ static int event_make_inotify_data(
+         }
+ 
+         fd = inotify_init1(IN_NONBLOCK|O_CLOEXEC);
+-        if (fd < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[475]) {
++          if ((fd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 475\n");
++          else
++            fprintf(stderr, "reached bug index 475\n");
++        }
++        if ((!FIXREVERTER[475] && (fd < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -errno;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         fd = fd_move_above_stdio(fd);
+ 
+@@ -1389,8 +1486,23 @@ static int inode_data_compare(const struct inode_data *x, const struct inode_dat
+         assert(y);
+ 
+         r = CMP(x->dev, y->dev);
+-        if (r != 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[478]) {
++          if ((r != 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 478\n");
++          else
++            fprintf(stderr, "reached bug index 478\n");
++        }
++        if ((!FIXREVERTER[478] && (r != 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         return CMP(x->ino, y->ino);
+ }
+@@ -1560,8 +1672,23 @@ static int inode_data_realize_watch(sd_event *e, struct inode_data *d) {
+                 return r;
+ 
+         wd = inotify_add_watch_fd(d->inotify_data->fd, d->fd, combined_mask);
+-        if (wd < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[482]) {
++          if ((wd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 482\n");
++          else
++            fprintf(stderr, "reached bug index 482\n");
++        }
++        if ((!FIXREVERTER[482] && (wd < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -errno;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         if (d->wd < 0) {
+                 r = hashmap_put(d->inotify_data->wd, INT_TO_PTR(wd), d);
+@@ -1572,12 +1699,27 @@ static int inode_data_realize_watch(sd_event *e, struct inode_data *d) {
+ 
+                 d->wd = wd;
+ 
+-        } else if (d->wd != wd) {
++        } else 
++        #ifdef FRCOV
++        {if (FIXREVERTER[484]) {
++          if ((d -> wd != wd ) && !(0))
++            fprintf(stderr, "triggered bug index 484\n");
++          else
++            fprintf(stderr, "reached bug index 484\n");
++        }
++        if ((!FIXREVERTER[484] && (d -> wd != wd ))
++        #else
++        if (0
++        #endif
++        ) {
+ 
+                 log_debug("Weird, the watch descriptor we already knew for this inode changed?");
+                 (void) inotify_rm_watch(d->fd, wd);
+                 return -EINVAL;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         d->combined_mask = combined_mask;
+         return 1;
+@@ -2384,8 +2526,23 @@ static int event_arm_timer(
+         a = prioq_peek(d->earliest);
+         if (!a || a->enabled == SD_EVENT_OFF || a->time.next == USEC_INFINITY) {
+ 
+-                if (d->fd < 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[491]) {
++                  if ((d -> fd < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 491\n");
++                  else
++                    fprintf(stderr, "reached bug index 491\n");
++                }
++                if ((!FIXREVERTER[491] && (d -> fd < 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return 0;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 if (d->next == USEC_INFINITY)
+                         return 0;
+@@ -2532,8 +2689,23 @@ static int process_child(sd_event *e) {
+                 if (s->pending)
+                         continue;
+ 
+-                if (s->enabled == SD_EVENT_OFF)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[497]) {
++                  if ((s -> enabled == SD_EVENT_OFF ) && !(0))
++                    fprintf(stderr, "triggered bug index 497\n");
++                  else
++                    fprintf(stderr, "reached bug index 497\n");
++                }
++                if ((!FIXREVERTER[497] && (s -> enabled == SD_EVENT_OFF ))
++                #else
++                if (0
++                #endif
++                )
+                         continue;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 zero(s->child.siginfo);
+                 r = waitid(P_PID, s->child.pid, &s->child.siginfo,
+@@ -2638,16 +2810,46 @@ static int event_inotify_data_read(sd_event *e, struct inotify_data *d, uint32_t
+                 return 0;
+ 
+         /* Is the read buffer non-empty? If so, let's not read more */
+-        if (d->buffer_filled > 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[503]) {
++          if ((d -> buffer_filled > 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 503\n");
++          else
++            fprintf(stderr, "reached bug index 503\n");
++        }
++        if ((!FIXREVERTER[503] && (d -> buffer_filled > 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return 0;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         n = read(d->fd, &d->buffer, sizeof(d->buffer));
+-        if (n < 0) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[504]) {
++          if ((n < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 504\n");
++          else
++            fprintf(stderr, "reached bug index 504\n");
++        }
++        if ((!FIXREVERTER[504] && (n < 0 ))
++        #else
++        if (0
++        #endif
++        ) {
+                 if (IN_SET(errno, EAGAIN, EINTR))
+                         return 0;
+ 
+                 return -errno;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         assert(n > 0);
+         d->buffer_filled = (size_t) n;
+@@ -2661,8 +2863,23 @@ static void event_inotify_data_drop(sd_event *e, struct inotify_data *d, size_t
+         assert(d);
+         assert(sz <= d->buffer_filled);
+ 
+-        if (sz == 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[505]) {
++          if ((sz == 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 505\n");
++          else
++            fprintf(stderr, "reached bug index 505\n");
++        }
++        if ((!FIXREVERTER[505] && (sz == 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         /* Move the rest to the buffer to the front, in order to get things properly aligned again */
+         memmove(d->buffer.raw, d->buffer.raw + sz, d->buffer_filled - sz);
+@@ -2690,8 +2907,23 @@ static int event_inotify_data_process(sd_event *e, struct inotify_data *d) {
+                         return -EIO;
+ 
+                 sz = offsetof(struct inotify_event, name) + d->buffer.ev.len;
+-                if (d->buffer_filled < sz)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[507]) {
++                  if ((d -> buffer_filled < sz ) && !(0))
++                    fprintf(stderr, "triggered bug index 507\n");
++                  else
++                    fprintf(stderr, "reached bug index 507\n");
++                }
++                if ((!FIXREVERTER[507] && (d -> buffer_filled < sz ))
++                #else
++                if (0
++                #endif
++                )
+                         return -EIO;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 if (d->buffer.ev.mask & IN_Q_OVERFLOW) {
+                         struct inode_data *inode_data;
+@@ -2705,8 +2937,23 @@ static int event_inotify_data_process(sd_event *e, struct inotify_data *d) {
+ 
+                                 LIST_FOREACH(inotify.by_inode_data, s, inode_data->event_sources) {
+ 
+-                                        if (s->enabled == SD_EVENT_OFF)
++                                        
++                                        #ifdef FRCOV
++                                        {if (FIXREVERTER[508]) {
++                                          if ((s -> enabled == SD_EVENT_OFF ) && !(0))
++                                            fprintf(stderr, "triggered bug index 508\n");
++                                          else
++                                            fprintf(stderr, "reached bug index 508\n");
++                                        }
++                                        if ((!FIXREVERTER[508] && (s -> enabled == SD_EVENT_OFF ))
++                                        #else
++                                        if (0
++                                        #endif
++                                        )
+                                                 continue;
++                                                #ifdef FRCOV
++                                                }
++                                                #endif
+ 
+                                         r = source_set_pending(s, true);
+                                         if (r < 0)
+@@ -2741,8 +2988,23 @@ static int event_inotify_data_process(sd_event *e, struct inotify_data *d) {
+                          * sources if IN_IGNORED or IN_UNMOUNT is set. */
+                         LIST_FOREACH(inotify.by_inode_data, s, inode_data->event_sources) {
+ 
+-                                if (s->enabled == SD_EVENT_OFF)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[510]) {
++                                  if ((s -> enabled == SD_EVENT_OFF ) && !(0))
++                                    fprintf(stderr, "triggered bug index 510\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 510\n");
++                                }
++                                if ((!FIXREVERTER[510] && (s -> enabled == SD_EVENT_OFF ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         continue;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+ 
+                                 if ((d->buffer.ev.mask & (IN_IGNORED|IN_UNMOUNT)) == 0 &&
+                                     (s->inotify.mask & d->buffer.ev.mask & IN_ALL_EVENTS) == 0)
+@@ -2804,8 +3066,23 @@ static int source_dispatch(sd_event_source *s) {
+                  * post sources as pending */
+ 
+                 SET_FOREACH(z, s->event->post_sources, i) {
+-                        if (z->enabled == SD_EVENT_OFF)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[515]) {
++                          if ((z -> enabled == SD_EVENT_OFF ) && !(0))
++                            fprintf(stderr, "triggered bug index 515\n");
++                          else
++                            fprintf(stderr, "reached bug index 515\n");
++                        }
++                        if ((!FIXREVERTER[515] && (z -> enabled == SD_EVENT_OFF ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 continue;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         r = source_set_pending(z, true);
+                         if (r < 0)
+@@ -2973,8 +3250,23 @@ static sd_event_source* event_next_pending(sd_event *e) {
+         if (!p)
+                 return NULL;
+ 
+-        if (p->enabled == SD_EVENT_OFF)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[519]) {
++          if ((p -> enabled == SD_EVENT_OFF ) && !(0))
++            fprintf(stderr, "triggered bug index 519\n");
++          else
++            fprintf(stderr, "reached bug index 519\n");
++        }
++        if ((!FIXREVERTER[519] && (p -> enabled == SD_EVENT_OFF ))
++        #else
++        if (0
++        #endif
++        )
+                 return NULL;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         return p;
+ }
+diff --git a/src/libsystemd/sd-id128/id128-util.c b/src/libsystemd/sd-id128/id128-util.c
+index 9ffd594ee6..7b471e502a 100644
+--- a/src/libsystemd/sd-id128/id128-util.c
++++ b/src/libsystemd/sd-id128/id128-util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -132,8 +139,23 @@ int id128_read(const char *p, Id128Format f, sd_id128_t *ret) {
+         _cleanup_close_ int fd = -1;
+ 
+         fd = open(p, O_RDONLY|O_CLOEXEC|O_NOCTTY);
+-        if (fd < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1253]) {
++          if ((fd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1253\n");
++          else
++            fprintf(stderr, "reached bug index 1253\n");
++        }
++        if ((!FIXREVERTER[1253] && (fd < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return -errno;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         return id128_read_fd(fd, f, ret);
+ }
+diff --git a/src/shared/json.c b/src/shared/json.c
+index 073f800b34..df472f7a60 100644
+--- a/src/shared/json.c
++++ b/src/shared/json.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <errno.h>
+@@ -302,8 +309,23 @@ int json_variant_new_integer(JsonVariant **ret, intmax_t i) {
+         }
+ 
+         r = json_variant_new(&v, JSON_VARIANT_INTEGER, sizeof(i));
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[997]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 997\n");
++          else
++            fprintf(stderr, "reached bug index 997\n");
++        }
++        if ((!FIXREVERTER[997] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         v->value.integer = i;
+         *ret = v;
+@@ -322,8 +344,23 @@ int json_variant_new_unsigned(JsonVariant **ret, uintmax_t u) {
+         }
+ 
+         r = json_variant_new(&v, JSON_VARIANT_UNSIGNED, sizeof(u));
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[999]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 999\n");
++          else
++            fprintf(stderr, "reached bug index 999\n");
++        }
++        if ((!FIXREVERTER[999] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         v->value.unsig = u;
+         *ret = v;
+@@ -346,8 +383,23 @@ int json_variant_new_real(JsonVariant **ret, long double d) {
+         }
+ 
+         r = json_variant_new(&v, JSON_VARIANT_REAL, sizeof(d));
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1000]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1000\n");
++          else
++            fprintf(stderr, "reached bug index 1000\n");
++        }
++        if ((!FIXREVERTER[1000] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         v->value.real = d;
+         *ret = v;
+@@ -386,14 +438,44 @@ int json_variant_new_stringn(JsonVariant **ret, const char *s, size_t n) {
+                 n = strlen(s);
+         else if (memchr(s, 0, n)) /* don't allow embedded NUL, as we can't express that in JSON */
+                 return -EINVAL;
+-        if (n == 0) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1001]) {
++          if ((n == 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1001\n");
++          else
++            fprintf(stderr, "reached bug index 1001\n");
++        }
++        if ((!FIXREVERTER[1001] && (n == 0 ))
++        #else
++        if (0
++        #endif
++        ) {
+                 *ret = JSON_VARIANT_MAGIC_EMPTY_STRING;
+                 return 0;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         r = json_variant_new(&v, JSON_VARIANT_STRING, n + 1);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1002]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1002\n");
++          else
++            fprintf(stderr, "reached bug index 1002\n");
++        }
++        if ((!FIXREVERTER[1002] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         memcpy(v->string, s, n);
+         v->string[n] = 0;
+@@ -496,8 +578,23 @@ int json_variant_new_array(JsonVariant **ret, JsonVariant **array, size_t n) {
+                 uint16_t d;
+ 
+                 d = json_variant_depth(c);
+-                if (d >= DEPTH_MAX) /* Refuse too deep nesting */
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[1004]) {
++                  if ((d >= 4 * 1024 ) && !(0))
++                    fprintf(stderr, "triggered bug index 1004\n");
++                  else
++                    fprintf(stderr, "reached bug index 1004\n");
++                }
++                if ((!FIXREVERTER[1004] && (d >= 4 * 1024 ))
++                #else
++                if (0
++                #endif
++                ) /* Refuse too deep nesting */
+                         return -ELNRNG;
++                        #ifdef FRCOV
++                        }
++                        #endif
+                 if (d >= v->depth)
+                         v->depth = d + 1;
+ 
+@@ -590,8 +687,23 @@ int json_variant_new_array_strv(JsonVariant **ret, char **l) {
+                         /* If string is too long, store it as reference. */
+ 
+                         r = json_variant_new_string(&w->reference, l[v->n_elements]);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1008]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1008\n");
++                          else
++                            fprintf(stderr, "reached bug index 1008\n");
++                        }
++                        if ((!FIXREVERTER[1008] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 return r;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         w->is_reference = true;
+                 } else
+@@ -632,8 +744,23 @@ int json_variant_new_object(JsonVariant **ret, JsonVariant **array, size_t n) {
+                         return -EINVAL; /* Every second one needs to be a string, as it is the key name */
+ 
+                 d = json_variant_depth(c);
+-                if (d >= DEPTH_MAX) /* Refuse too deep nesting */
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[1010]) {
++                  if ((d >= 4 * 1024 ) && !(0))
++                    fprintf(stderr, "triggered bug index 1010\n");
++                  else
++                    fprintf(stderr, "reached bug index 1010\n");
++                }
++                if ((!FIXREVERTER[1010] && (d >= 4 * 1024 ))
++                #else
++                if (0
++                #endif
++                ) /* Refuse too deep nesting */
+                         return -ELNRNG;
++                        #ifdef FRCOV
++                        }
++                        #endif
+                 if (d >= v->depth)
+                         v->depth = d + 1;
+ 
+@@ -1309,8 +1436,23 @@ static int json_format(FILE *f, JsonVariant *v, JsonFormatFlags flags, const cha
+                 locale_t loc;
+ 
+                 loc = newlocale(LC_NUMERIC_MASK, "C", (locale_t) 0);
+-                if (loc == (locale_t) 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[1012]) {
++                  if ((loc == (locale_t) 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 1012\n");
++                  else
++                    fprintf(stderr, "reached bug index 1012\n");
++                }
++                if ((!FIXREVERTER[1012] && (loc == (locale_t) 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return -errno;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 if (flags & JSON_FORMAT_COLOR)
+                         fputs(ANSI_HIGHLIGHT_BLUE, f);
+@@ -1569,8 +1711,23 @@ int json_variant_format(JsonVariant *v, JsonFormatFlags flags, char **ret) {
+ 
+                 r = fflush_and_check(f);
+         }
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1016]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1016\n");
++          else
++            fprintf(stderr, "reached bug index 1016\n");
++        }
++        if ((!FIXREVERTER[1016] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         assert(s);
+         *ret = TAKE_PTR(s);
+@@ -1891,8 +2048,23 @@ static int json_parse_string(const char **p, char **ret) {
+                                 int r;
+ 
+                                 r = unhex_ucs2(c + 1, &x);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1023]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1023\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1023\n");
++                                }
++                                if ((!FIXREVERTER[1023] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         return r;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+ 
+                                 c += 5;
+ 
+@@ -1910,8 +2082,23 @@ static int json_parse_string(const char **p, char **ret) {
+                                                 return -EINVAL;
+ 
+                                         r = unhex_ucs2(c + 2, &y);
+-                                        if (r < 0)
++                                        
++                                        #ifdef FRCOV
++                                        {if (FIXREVERTER[1024]) {
++                                          if ((r < 0 ) && !(0))
++                                            fprintf(stderr, "triggered bug index 1024\n");
++                                          else
++                                            fprintf(stderr, "reached bug index 1024\n");
++                                        }
++                                        if ((!FIXREVERTER[1024] && (r < 0 ))
++                                        #else
++                                        if (0
++                                        #endif
++                                        )
+                                                 return r;
++                                                #ifdef FRCOV
++                                                }
++                                                #endif
+ 
+                                         c += 6;
+ 
+@@ -1934,8 +2121,23 @@ static int json_parse_string(const char **p, char **ret) {
+                 }
+ 
+                 len = utf8_encoded_valid_unichar(c, (size_t) -1);
+-                if (len < 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[1025]) {
++                  if ((len < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 1025\n");
++                  else
++                    fprintf(stderr, "reached bug index 1025\n");
++                }
++                if ((!FIXREVERTER[1025] && (len < 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return len;
++                        #ifdef FRCOV
++                        }
++                        #endif
+ 
+                 if (!GREEDY_REALLOC(s, allocated, n + len + 1))
+                         return -ENOMEM;
+@@ -2137,8 +2339,23 @@ int json_tokenize(
+                 } else if (*c == '"') {
+ 
+                         r = json_parse_string(&c, ret_string);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1026]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1026\n");
++                          else
++                            fprintf(stderr, "reached bug index 1026\n");
++                        }
++                        if ((!FIXREVERTER[1026] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 return r;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         *ret_value = JSON_VALUE_NULL;
+                         *state = INT_TO_PTR(STATE_VALUE_POST);
+@@ -2147,8 +2364,23 @@ int json_tokenize(
+                 } else if (strchr("-0123456789", *c)) {
+ 
+                         r = json_parse_number(&c, ret_value);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1027]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1027\n");
++                          else
++                            fprintf(stderr, "reached bug index 1027\n");
++                        }
++                        if ((!FIXREVERTER[1027] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 return r;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         *ret_string = NULL;
+                         *state = INT_TO_PTR(STATE_VALUE_POST);
+@@ -2391,8 +2623,23 @@ static int json_parse_internal(
+                         assert(n_stack > 1);
+ 
+                         r = json_variant_new_object(&add, current->elements, current->n_elements);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1029]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1029\n");
++                          else
++                            fprintf(stderr, "reached bug index 1029\n");
++                        }
++                        if ((!FIXREVERTER[1029] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         line_token = current->line_before;
+                         column_token = current->column_before;
+@@ -2441,8 +2688,23 @@ static int json_parse_internal(
+                         assert(n_stack > 1);
+ 
+                         r = json_variant_new_array(&add, current->elements, current->n_elements);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1030]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1030\n");
++                          else
++                            fprintf(stderr, "reached bug index 1030\n");
++                        }
++                        if ((!FIXREVERTER[1030] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         line_token = current->line_before;
+                         column_token = current->column_before;
+@@ -2458,8 +2720,23 @@ static int json_parse_internal(
+                         }
+ 
+                         r = json_variant_new_string(&add, string);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1031]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1031\n");
++                          else
++                            fprintf(stderr, "reached bug index 1031\n");
++                        }
++                        if ((!FIXREVERTER[1031] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         if (current->expect == EXPECT_TOPLEVEL)
+                                 current->expect = EXPECT_END;
+@@ -2481,8 +2758,23 @@ static int json_parse_internal(
+                         }
+ 
+                         r = json_variant_new_real(&add, value.real);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1032]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1032\n");
++                          else
++                            fprintf(stderr, "reached bug index 1032\n");
++                        }
++                        if ((!FIXREVERTER[1032] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         if (current->expect == EXPECT_TOPLEVEL)
+                                 current->expect = EXPECT_END;
+@@ -2502,8 +2794,23 @@ static int json_parse_internal(
+                         }
+ 
+                         r = json_variant_new_integer(&add, value.integer);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1033]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1033\n");
++                          else
++                            fprintf(stderr, "reached bug index 1033\n");
++                        }
++                        if ((!FIXREVERTER[1033] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         if (current->expect == EXPECT_TOPLEVEL)
+                                 current->expect = EXPECT_END;
+@@ -2523,8 +2830,23 @@ static int json_parse_internal(
+                         }
+ 
+                         r = json_variant_new_unsigned(&add, value.unsig);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1034]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1034\n");
++                          else
++                            fprintf(stderr, "reached bug index 1034\n");
++                        }
++                        if ((!FIXREVERTER[1034] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         if (current->expect == EXPECT_TOPLEVEL)
+                                 current->expect = EXPECT_END;
+@@ -2544,8 +2866,23 @@ static int json_parse_internal(
+                         }
+ 
+                         r = json_variant_new_boolean(&add, value.boolean);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1035]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1035\n");
++                          else
++                            fprintf(stderr, "reached bug index 1035\n");
++                        }
++                        if ((!FIXREVERTER[1035] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         if (current->expect == EXPECT_TOPLEVEL)
+                                 current->expect = EXPECT_END;
+@@ -2565,8 +2902,23 @@ static int json_parse_internal(
+                         }
+ 
+                         r = json_variant_new_null(&add);
+-                        if (r < 0)
++                        
++                        #ifdef FRCOV
++                        {if (FIXREVERTER[1036]) {
++                          if ((r < 0 ) && !(0))
++                            fprintf(stderr, "triggered bug index 1036\n");
++                          else
++                            fprintf(stderr, "reached bug index 1036\n");
++                        }
++                        if ((!FIXREVERTER[1036] && (r < 0 ))
++                        #else
++                        if (0
++                        #endif
++                        )
+                                 goto finish;
++                                #ifdef FRCOV
++                                }
++                                #endif
+ 
+                         if (current->expect == EXPECT_TOPLEVEL)
+                                 current->expect = EXPECT_END;
+@@ -2688,8 +3040,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_string(&add, p);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1038]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1038\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1038\n");
++                                }
++                                if ((!FIXREVERTER[1038] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -2716,8 +3083,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_integer(&add, j);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1039]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1039\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1039\n");
++                                }
++                                if ((!FIXREVERTER[1039] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -2744,8 +3126,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_unsigned(&add, j);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1040]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1040\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1040\n");
++                                }
++                                if ((!FIXREVERTER[1040] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -2772,8 +3169,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_real(&add, d);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1041]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1041\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1041\n");
++                                }
++                                if ((!FIXREVERTER[1041] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -2800,8 +3212,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_boolean(&add, b);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1042]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1042\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1042\n");
++                                }
++                                if ((!FIXREVERTER[1042] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -2825,8 +3252,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_null(&add);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1043]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1043\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1043\n");
++                                }
++                                if ((!FIXREVERTER[1043] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -2881,8 +3323,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+                                  * errors even in suppressed object properties */
+ 
+                                 r = json_parse(l, &add, NULL, NULL);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1044]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1044\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1044\n");
++                                }
++                                if ((!FIXREVERTER[1044] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         } else
+                                 add = JSON_VARIANT_MAGIC_NULL;
+ 
+@@ -2938,8 +3395,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_array(&add, current->elements, current->n_elements);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1045]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1045\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1045\n");
++                                }
++                                if ((!FIXREVERTER[1045] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -2961,8 +3433,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_array_strv(&add, l);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1046]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1046\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1046\n");
++                                }
++                                if ((!FIXREVERTER[1046] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -3018,8 +3505,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_object(&add, current->elements, current->n_elements);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1047]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1047\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1047\n");
++                                }
++                                if ((!FIXREVERTER[1047] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -3041,8 +3543,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (current->n_suppress == 0) {
+                                 r = json_variant_new_string(&add, n);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1048]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1048\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1048\n");
++                                }
++                                if ((!FIXREVERTER[1048] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1;
+@@ -3065,8 +3582,23 @@ int json_buildv(JsonVariant **ret, va_list ap) {
+ 
+                         if (b && current->n_suppress == 0) {
+                                 r = json_variant_new_string(&add, n);
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1049]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1049\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1049\n");
++                                }
++                                if ((!FIXREVERTER[1049] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         goto finish;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+ 
+                         n_subtract = 1; /* we generated one item */
+diff --git a/src/shared/varlink.c b/src/shared/varlink.c
+index 5c5f5077f9..c8a09ec42a 100644
+--- a/src/shared/varlink.c
++++ b/src/shared/varlink.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /* SPDX-License-Identifier: LGPL-2.1+ */
+ 
+ #include <sys/poll.h>
+@@ -447,7 +454,19 @@ static int varlink_write(Varlink *v) {
+         }
+         if (v->prefer_read_write)
+                 n = write(v->fd, v->output_buffer + v->output_buffer_index, v->output_buffer_size);
+-        if (n < 0) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1151]) {
++          if ((n < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1151\n");
++          else
++            fprintf(stderr, "reached bug index 1151\n");
++        }
++        if ((!FIXREVERTER[1151] && (n < 0 ))
++        #else
++        if (0
++        #endif
++        ) {
+                 if (errno == EAGAIN)
+                         return 0;
+ 
+@@ -460,6 +479,9 @@ static int varlink_write(Varlink *v) {
+ 
+                 return -errno;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         v->output_buffer_size -= n;
+ 
+@@ -540,10 +562,25 @@ static int varlink_read(Varlink *v) {
+ 
+                 return -errno;
+         }
+-        if (n == 0) { /* EOF */
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1154]) {
++          if ((n == 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1154\n");
++          else
++            fprintf(stderr, "reached bug index 1154\n");
++        }
++        if ((!FIXREVERTER[1154] && (n == 0 ))
++        #else
++        if (0
++        #endif
++        ) { /* EOF */
+                 v->read_disconnected = true;
+                 return 1;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         v->input_buffer_size += n;
+         v->input_buffer_unscanned += n;
+@@ -825,8 +862,23 @@ static int varlink_dispatch_method(Varlink *v) {
+                 goto invalid;
+ 
+         r = varlink_sanitize_parameters(&parameters);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1158]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1158\n");
++          else
++            fprintf(stderr, "reached bug index 1158\n");
++        }
++        if ((!FIXREVERTER[1158] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 goto fail;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         varlink_set_state(v, (flags & VARLINK_METHOD_MORE)   ? VARLINK_PROCESSING_METHOD_MORE :
+                              (flags & VARLINK_METHOD_ONEWAY) ? VARLINK_PROCESSING_METHOD_ONEWAY :
+@@ -854,16 +906,46 @@ static int varlink_dispatch_method(Varlink *v) {
+                         /* We got an error back from the callback. Propagate it to the client if the method call remains unanswered. */
+                         if (!FLAGS_SET(flags, VARLINK_METHOD_ONEWAY)) {
+                                 r = varlink_errorb(v, VARLINK_ERROR_SYSTEM, JSON_BUILD_OBJECT(JSON_BUILD_PAIR("errno", JSON_BUILD_INTEGER(-r))));
+-                                if (r < 0)
++                                
++                                #ifdef FRCOV
++                                {if (FIXREVERTER[1159]) {
++                                  if ((r < 0 ) && !(0))
++                                    fprintf(stderr, "triggered bug index 1159\n");
++                                  else
++                                    fprintf(stderr, "reached bug index 1159\n");
++                                }
++                                if ((!FIXREVERTER[1159] && (r < 0 ))
++                                #else
++                                if (0
++                                #endif
++                                )
+                                         return r;
++                                        #ifdef FRCOV
++                                        }
++                                        #endif
+                         }
+                 }
+         } else if (!FLAGS_SET(flags, VARLINK_METHOD_ONEWAY)) {
+                 assert(error);
+ 
+                 r = varlink_errorb(v, error, JSON_BUILD_OBJECT(JSON_BUILD_PAIR("method", JSON_BUILD_STRING(method))));
+-                if (r < 0)
++                
++                #ifdef FRCOV
++                {if (FIXREVERTER[1160]) {
++                  if ((r < 0 ) && !(0))
++                    fprintf(stderr, "triggered bug index 1160\n");
++                  else
++                    fprintf(stderr, "reached bug index 1160\n");
++                }
++                if ((!FIXREVERTER[1160] && (r < 0 ))
++                #else
++                if (0
++                #endif
++                )
+                         return r;
++                        #ifdef FRCOV
++                        }
++                        #endif
+         }
+ 
+         switch (v->state) {
+@@ -1209,8 +1291,23 @@ static int varlink_enqueue_json(Varlink *v, JsonVariant *m) {
+         assert(m);
+ 
+         r = json_variant_format(m, 0, &text);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1179]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1179\n");
++          else
++            fprintf(stderr, "reached bug index 1179\n");
++        }
++        if ((!FIXREVERTER[1179] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         if (v->output_buffer_size + r + 1 > VARLINK_BUFFER_MAX)
+                 return -ENOBUFS;
+@@ -1527,18 +1624,63 @@ int varlink_error(Varlink *v, const char *error_id, JsonVariant *parameters) {
+                 return -EBUSY;
+ 
+         r = varlink_sanitize_parameters(&parameters);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1199]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1199\n");
++          else
++            fprintf(stderr, "reached bug index 1199\n");
++        }
++        if ((!FIXREVERTER[1199] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         r = json_build(&m, JSON_BUILD_OBJECT(
+                                        JSON_BUILD_PAIR("error", JSON_BUILD_STRING(error_id)),
+                                        JSON_BUILD_PAIR("parameters", JSON_BUILD_VARIANT(parameters))));
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1200]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1200\n");
++          else
++            fprintf(stderr, "reached bug index 1200\n");
++        }
++        if ((!FIXREVERTER[1200] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         r = varlink_enqueue_json(v, m);
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1201]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1201\n");
++          else
++            fprintf(stderr, "reached bug index 1201\n");
++        }
++        if ((!FIXREVERTER[1201] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         if (IN_SET(v->state, VARLINK_PENDING_METHOD, VARLINK_PENDING_METHOD_MORE)) {
+                 v->current = json_variant_unref(v->current);
+@@ -1561,8 +1703,23 @@ int varlink_errorb(Varlink *v, const char *error_id, ...) {
+         r = json_buildv(&parameters, ap);
+         va_end(ap);
+ 
+-        if (r < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1202]) {
++          if ((r < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1202\n");
++          else
++            fprintf(stderr, "reached bug index 1202\n");
++        }
++        if ((!FIXREVERTER[1202] && (r < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return r;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         return varlink_error(v, error_id, parameters);
+ }
+@@ -1773,8 +1930,23 @@ static int prepare_callback(sd_event_source *s, void *userdata) {
+         assert(v);
+ 
+         e = varlink_get_events(v);
+-        if (e < 0)
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1210]) {
++          if ((e < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1210\n");
++          else
++            fprintf(stderr, "reached bug index 1210\n");
++        }
++        if ((!FIXREVERTER[1210] && (e < 0 ))
++        #else
++        if (0
++        #endif
++        )
+                 return e;
++                #ifdef FRCOV
++                }
++                #endif
+ 
+         r = sd_event_source_set_io_events(v->io_event_source, e);
+         if (r < 0)
+@@ -2077,12 +2249,27 @@ static int connect_callback(sd_event_source *source, int fd, uint32_t revents, v
+         varlink_server_log(ss->server, "New incoming connection.");
+ 
+         cfd = accept4(fd, NULL, NULL, SOCK_NONBLOCK|SOCK_CLOEXEC);
+-        if (cfd < 0) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[1235]) {
++          if ((cfd < 0 ) && !(0))
++            fprintf(stderr, "triggered bug index 1235\n");
++          else
++            fprintf(stderr, "reached bug index 1235\n");
++        }
++        if ((!FIXREVERTER[1235] && (cfd < 0 ))
++        #else
++        if (0
++        #endif
++        ) {
+                 if (ERRNO_IS_ACCEPT_AGAIN(errno))
+                         return 0;
+ 
+                 return varlink_server_log_errno(ss->server, errno, "Failed to accept incoming socket: %m");
+         }
++        #ifdef FRCOV
++        }
++        #endif
+ 
+         r = varlink_server_add_connection(ss->server, cfd, &v);
+         if (r < 0)

@@ -1,0 +1,3496 @@
+diff --git a/example/reader_util.c b/example/reader_util.c
+index 1376f9b8d..5c55165a4 100644
+--- a/example/reader_util.c
++++ b/example/reader_util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * reader_util.c
+  *
+@@ -495,11 +502,42 @@ int ndpi_workflow_node_cmp(const void *a, const void *b) {
+   const struct ndpi_flow_info *fa = (const struct ndpi_flow_info*)a;
+   const struct ndpi_flow_info *fb = (const struct ndpi_flow_info*)b;
+ 
+-  if(fa->hashval < fb->hashval) return(-1); else if(fa->hashval > fb->hashval) return(1);
++  if(fa->hashval < fb->hashval) return(-1); else 
++  #ifdef FRCOV
++  {if (FIXREVERTER[14]) {
++    if ((fa -> hashval > fb -> hashval ) && !(0))
++      fprintf(stderr, "triggered bug index 14\n");
++    else
++      fprintf(stderr, "reached bug index 14\n");
++  }
++  if ((!FIXREVERTER[14] && (fa -> hashval > fb -> hashval ))
++  #else
++  if (0
++  #endif
++  ) return(1);
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   /* Flows have the same hash */
+ 
+-  if(fa->vlan_id   < fb->vlan_id   ) return(-1); else { if(fa->vlan_id    > fb->vlan_id   ) return(1); }
++  if(fa->vlan_id   < fb->vlan_id   ) return(-1); else { 
++  #ifdef FRCOV
++  {if (FIXREVERTER[15]) {
++    if ((fa -> vlan_id > fb -> vlan_id ) && !(0))
++      fprintf(stderr, "triggered bug index 15\n");
++    else
++      fprintf(stderr, "reached bug index 15\n");
++  }
++  if ((!FIXREVERTER[15] && (fa -> vlan_id > fb -> vlan_id ))
++  #else
++  if (0
++  #endif
++     ) return(1);
++  #ifdef FRCOV
++  }
++  #endif
++}
+   if(fa->protocol  < fb->protocol  ) return(-1); else { if(fa->protocol   > fb->protocol  ) return(1); }
+ 
+   if(
+@@ -519,10 +557,74 @@ int ndpi_workflow_node_cmp(const void *a, const void *b) {
+      )
+     return(0);
+ 
+-  if(fa->src_ip   < fb->src_ip  ) return(-1); else { if(fa->src_ip   > fb->src_ip  ) return(1); }
+-  if(fa->src_port < fb->src_port) return(-1); else { if(fa->src_port > fb->src_port) return(1); }
+-  if(fa->dst_ip   < fb->dst_ip  ) return(-1); else { if(fa->dst_ip   > fb->dst_ip  ) return(1); }
+-  if(fa->dst_port < fb->dst_port) return(-1); else { if(fa->dst_port > fb->dst_port) return(1); }
++  if(fa->src_ip   < fb->src_ip  ) return(-1); else { 
++  #ifdef FRCOV
++  {if (FIXREVERTER[16]) {
++    if ((fa -> src_ip > fb -> src_ip ) && !(0))
++      fprintf(stderr, "triggered bug index 16\n");
++    else
++      fprintf(stderr, "reached bug index 16\n");
++  }
++  if ((!FIXREVERTER[16] && (fa -> src_ip > fb -> src_ip ))
++  #else
++  if (0
++  #endif
++    ) return(1);
++  #ifdef FRCOV
++  }
++  #endif
++}
++  if(fa->src_port < fb->src_port) return(-1); else { 
++  #ifdef FRCOV
++  {if (FIXREVERTER[17]) {
++    if ((fa -> src_port > fb -> src_port ) && !(0))
++      fprintf(stderr, "triggered bug index 17\n");
++    else
++      fprintf(stderr, "reached bug index 17\n");
++  }
++  if ((!FIXREVERTER[17] && (fa -> src_port > fb -> src_port ))
++  #else
++  if (0
++  #endif
++  ) return(1);
++  #ifdef FRCOV
++  }
++  #endif
++}
++  if(fa->dst_ip   < fb->dst_ip  ) return(-1); else { 
++  #ifdef FRCOV
++  {if (FIXREVERTER[18]) {
++    if ((fa -> dst_ip > fb -> dst_ip ) && !(0))
++      fprintf(stderr, "triggered bug index 18\n");
++    else
++      fprintf(stderr, "reached bug index 18\n");
++  }
++  if ((!FIXREVERTER[18] && (fa -> dst_ip > fb -> dst_ip ))
++  #else
++  if (0
++  #endif
++    ) return(1);
++  #ifdef FRCOV
++  }
++  #endif
++}
++  if(fa->dst_port < fb->dst_port) return(-1); else { 
++  #ifdef FRCOV
++  {if (FIXREVERTER[19]) {
++    if ((fa -> dst_port > fb -> dst_port ) && !(0))
++      fprintf(stderr, "triggered bug index 19\n");
++    else
++      fprintf(stderr, "reached bug index 19\n");
++  }
++  if ((!FIXREVERTER[19] && (fa -> dst_port > fb -> dst_port ))
++  #else
++  if (0
++  #endif
++  ) return(1);
++  #ifdef FRCOV
++  }
++  #endif
++}
+ 
+   return(0); /* notreached */
+ }
+@@ -831,10 +933,28 @@ static struct ndpi_flow_info *get_ndpi_flow_info(struct ndpi_workflow * workflow
+       }
+       newflow->entropy.src2dst_pkt_count++;
+       // Non zero app data.
+-      if (l4_data_len != 0XFEEDFACE && l4_data_len != 0) {
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[22]) {
++        fprintf(stderr, "reached bug index 22\n");
++      }
++      if ((FIXREVERTER[22] && (l4_data_len != -17958194 )) || (!FIXREVERTER[22] && (l4_data_len != -17958194 && l4_data_len != 0 ))
++      #else
++      if (l4_data_len != -17958194 
++      #endif
++      ) {
++        
++      #ifdef FRCOV
++        if (!(l4_data_len != 0 ))
++          fprintf(stderr, "triggered bug index 22\n");
++        #endif
++      
+         newflow->entropy.src2dst_opackets++;
+         newflow->entropy.src2dst_l4_bytes += l4_data_len;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+       return newflow;
+     }
+   } else {
+@@ -1263,8 +1383,23 @@ static struct ndpi_proto packet_processing(struct ndpi_workflow * workflow,
+       }
+     }
+ 
+-    if(flow->first_seen == 0)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[25]) {
++      if ((flow -> first_seen == 0  ) && !(0))
++        fprintf(stderr, "triggered bug index 25\n");
++      else
++        fprintf(stderr, "reached bug index 25\n");
++    }
++    if ((!FIXREVERTER[25] && (flow -> first_seen == 0  ))
++    #else
++    if (0
++    #endif
++    )
+       flow->first_seen = time;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+     flow->last_seen = time;
+ 
+@@ -1578,7 +1713,22 @@ ether_type_check:
+   iph = (struct ndpi_iphdr *) &packet[ip_offset];
+ 
+   /* just work on Ethernet packets that contain IP */
+-  if(type == ETH_P_IP && header->caplen >= ip_offset) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[27]) {
++    fprintf(stderr, "reached bug index 27\n");
++  }
++  if ((FIXREVERTER[27] && (type == 2048 )) || (!FIXREVERTER[27] && (type == 2048 && header -> caplen >= ip_offset ))
++  #else
++  if (type == 2048 
++  #endif
++  ) {
++    
++  #ifdef FRCOV
++    if (!(header -> caplen >= ip_offset ))
++      fprintf(stderr, "triggered bug index 27\n");
++    #endif
++  
+     frag_off = ntohs(iph->frag_off);
+ 
+     proto = iph->protocol;
+@@ -1592,6 +1742,9 @@ ether_type_check:
+       }
+     }
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   if(iph->version == IPVERSION) {
+     ip_len = ((u_int16_t)iph->ihl * 4);
+diff --git a/fuzz/fuzz_ndpi_reader.c b/fuzz/fuzz_ndpi_reader.c
+index aee2a0b64..8baefa976 100644
+--- a/fuzz/fuzz_ndpi_reader.c
++++ b/fuzz/fuzz_ndpi_reader.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#define FIXREVERTER_SIZE 282
++short FIXREVERTER[FIXREVERTER_SIZE];
++#endif
+ #include "reader_util.h"
+ 
+ #include <pcap/pcap.h>
+@@ -37,7 +41,41 @@ int bufferToFile(const char * name, const uint8_t *Data, size_t Size) {
+     return 0;
+ }
+ 
++
++#ifdef FRCOV
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#endif
+ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
++    
++    #ifdef FRCOV
++    char *fixReverterEnv = getenv("FIXREVERTER");
++    char *fixReverterToken = strtok(fixReverterEnv, " ");
++    if (fixReverterToken == NULL) {
++      for (int i = 0; i < FIXREVERTER_SIZE; i++)
++        FIXREVERTER[i] = 1;
++    } else if (!strcmp("on", fixReverterToken)) {
++      for (int i = 0; i < FIXREVERTER_SIZE; i++)
++        FIXREVERTER[i] = 0;
++      fixReverterToken = strtok(NULL, " ");
++      while (fixReverterToken != NULL) {
++        FIXREVERTER[atoi(fixReverterToken)] = 1;
++        fixReverterToken = strtok(NULL, " ");
++      }
++    } else if (!strcmp("off", fixReverterToken)) {
++      for (int i = 0; i < FIXREVERTER_SIZE; i++)
++        FIXREVERTER[i] = 1;
++      fixReverterToken = strtok(NULL, " ");
++      while (fixReverterToken != NULL) {
++        FIXREVERTER[atoi(fixReverterToken)] = 0;
++        fixReverterToken = strtok(NULL, " ");
++      }
++    } else {
++      fprintf(stderr, "[FIXREVERTER] - first token must be on or off\n");
++      exit(0);
++    }
++    #endif
+     pcap_t * pkts;
+     const u_char *pkt;
+     struct pcap_pkthdr *header;
+diff --git a/src/lib/ndpi_analyze.c b/src/lib/ndpi_analyze.c
+index d1335bb64..cad0814cc 100644
+--- a/src/lib/ndpi_analyze.c
++++ b/src/lib/ndpi_analyze.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * ndpi_analyze.c
+  *
+@@ -41,7 +48,22 @@ void ndpi_init_data_analysis(struct ndpi_analyze_struct *ret, u_int16_t _max_ser
+ 
+   memset(ret, 0, sizeof(struct ndpi_analyze_struct));
+   
+-  if(_max_series_len > MAX_SERIES_LEN) _max_series_len = MAX_SERIES_LEN;
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[129]) {
++    if ((_max_series_len > 512 ) && !(0))
++      fprintf(stderr, "triggered bug index 129\n");
++    else
++      fprintf(stderr, "reached bug index 129\n");
++  }
++  if ((!FIXREVERTER[129] && (_max_series_len > 512 ))
++  #else
++  if (0
++  #endif
++  ) _max_series_len = MAX_SERIES_LEN;
++  #ifdef FRCOV
++  }
++  #endif
+   ret->num_values_array_len = _max_series_len;
+ 
+   if(ret->num_values_array_len > 0) {
+diff --git a/src/lib/ndpi_main.c b/src/lib/ndpi_main.c
+index 088847c8a..5d09c9aa6 100644
+--- a/src/lib/ndpi_main.c
++++ b/src/lib/ndpi_main.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * ndpi_main.c
+  *
+@@ -444,7 +451,22 @@ static int ndpi_string_to_automa(struct ndpi_detection_module_struct *ndpi_str,
+     return(-1);
+   }
+ 
+-  if(automa->ac_automa == NULL) return(-2);
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[58]) {
++    if ((automa -> ac_automa == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 58\n");
++    else
++      fprintf(stderr, "reached bug index 58\n");
++  }
++  if ((!FIXREVERTER[58] && (automa -> ac_automa == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  ) return(-2);
++  #ifdef FRCOV
++  }
++  #endif
+   ac_pattern.astring = value,
+     ac_pattern.rep.number = protocol_id,
+     ac_pattern.rep.category = (u_int16_t)category,
+@@ -1864,8 +1886,23 @@ static int ac_match_handler(AC_MATCH_t *m, AC_TEXT_t *txt, AC_REP_t *match) {
+ 
+ static int fill_prefix_v4(prefix_t *p, const struct in_addr *a, int b, int mb) {
+   do {
+-    if(b < 0 || b > mb)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[59]) {
++      if ((b < 0 || b > mb ) && !(0))
++        fprintf(stderr, "triggered bug index 59\n");
++      else
++        fprintf(stderr, "reached bug index 59\n");
++    }
++    if ((!FIXREVERTER[59] && (b < 0 || b > mb ))
++    #else
++    if (0
++    #endif
++    )
+       return(-1);
++      #ifdef FRCOV
++      }
++      #endif
+ 
+     memset(p, 0, sizeof(prefix_t));
+     memcpy(&p->add.sin, a, (mb+7)/8);
+@@ -1923,8 +1960,23 @@ u_int8_t ndpi_is_tor_flow(struct ndpi_detection_module_struct *ndpi_str,
+ 
+   if(packet->tcp != NULL) {
+     if(packet->iph) {
+-      if(flow->guessed_host_protocol_id == NDPI_PROTOCOL_TOR)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[61]) {
++        if ((flow -> guessed_host_protocol_id == NDPI_PROTOCOL_TOR ) && !(0))
++          fprintf(stderr, "triggered bug index 61\n");
++        else
++          fprintf(stderr, "reached bug index 61\n");
++      }
++      if ((!FIXREVERTER[61] && (flow -> guessed_host_protocol_id == NDPI_PROTOCOL_TOR ))
++      #else
++      if (0
++      #endif
++      )
+ 	return(1);
++	#ifdef FRCOV
++	}
++	#endif
+     }
+   }
+ 
+@@ -2198,12 +2250,27 @@ struct ndpi_detection_module_struct *ndpi_init_detection_module(ndpi_init_prefs
+   struct ndpi_detection_module_struct *ndpi_str = ndpi_malloc(sizeof(struct ndpi_detection_module_struct));
+   int i;
+ 
+-  if(ndpi_str == NULL) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[65]) {
++    if ((ndpi_str == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 65\n");
++    else
++      fprintf(stderr, "reached bug index 65\n");
++  }
++  if ((!FIXREVERTER[65] && (ndpi_str == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  ) {
+ #ifdef NDPI_ENABLE_DEBUG_MESSAGES
+     NDPI_LOG_ERR(ndpi_str, "ndpi_init_detection_module initial malloc failed for ndpi_str\n");
+ #endif /* NDPI_ENABLE_DEBUG_MESSAGES */
+     return(NULL);
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   memset(ndpi_str, 0, sizeof(struct ndpi_detection_module_struct));
+ 
+@@ -4200,8 +4267,23 @@ ndpi_protocol ndpi_detection_giveup(struct ndpi_detection_module_struct *ndpi_st
+ 
+   *protocol_was_guessed = 0;
+ 
+-  if(flow == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[74]) {
++    if ((flow == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 74\n");
++    else
++      fprintf(stderr, "reached bug index 74\n");
++  }
++  if ((!FIXREVERTER[74] && (flow == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return(ret);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   /* Init defaults */
+   ret.master_protocol = flow->detected_protocol_stack[1], ret.app_protocol = flow->detected_protocol_stack[0];
+@@ -4266,8 +4348,23 @@ ndpi_protocol ndpi_detection_giveup(struct ndpi_detection_module_struct *ndpi_st
+ 				      &ret_match,
+ 				      NDPI_PROTOCOL_DNS);
+ 
+-	  if(ret_match.protocol_id != NDPI_PROTOCOL_UNKNOWN)
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[75]) {
++	    if ((ret_match . protocol_id != NDPI_PROTOCOL_UNKNOWN ) && !(0))
++	      fprintf(stderr, "triggered bug index 75\n");
++	    else
++	      fprintf(stderr, "reached bug index 75\n");
++	  }
++	  if ((!FIXREVERTER[75] && (ret_match . protocol_id != NDPI_PROTOCOL_UNKNOWN ))
++	  #else
++	  if (0
++	  #endif
++	  )
+ 	    guessed_host_protocol_id = ret_match.protocol_id;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 	}
+ 
+ 	ndpi_int_change_protocol(ndpi_str, flow,
+@@ -4327,10 +4424,40 @@ void ndpi_process_extra_packet(struct ndpi_detection_module_struct *ndpi_str,
+ 			       const u_int64_t current_tick_l,
+ 			       struct ndpi_id_struct *src,
+ 			       struct ndpi_id_struct *dst) {
+-  if(flow == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[76]) {
++    if ((flow == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 76\n");
++    else
++      fprintf(stderr, "reached bug index 76\n");
++  }
++  if ((!FIXREVERTER[76] && (flow == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+-  if(flow->server_id == NULL) flow->server_id = dst; /* Default */
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[77]) {
++    if ((flow -> server_id == (void *) 0  ) && !(0))
++      fprintf(stderr, "triggered bug index 77\n");
++    else
++      fprintf(stderr, "reached bug index 77\n");
++  }
++  if ((!FIXREVERTER[77] && (flow -> server_id == (void *) 0  ))
++  #else
++  if (0
++  #endif
++  ) flow->server_id = dst;
++  #ifdef FRCOV
++  }
++  #endif /* Default */
+ 
+   /* need at least 20 bytes for ip header */
+   if(packetlen < 20) {
+@@ -4400,13 +4527,43 @@ int ndpi_load_hostname_category(struct ndpi_detection_module_struct *ndpi_str,
+ 				const char *name_to_add, ndpi_protocol_category_t category) {
+   char *name;
+ 
+-  if(name_to_add == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[79]) {
++    if ((name_to_add == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 79\n");
++    else
++      fprintf(stderr, "reached bug index 79\n");
++  }
++  if ((!FIXREVERTER[79] && (name_to_add == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return(-1);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   name = ndpi_strdup(name_to_add);
+ 
+-  if(name == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[80]) {
++    if ((name == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 80\n");
++    else
++      fprintf(stderr, "reached bug index 80\n");
++  }
++  if ((!FIXREVERTER[80] && (name == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return(-1);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+ #if 0
+   printf("===> %s() Loading %s as %u\n", __FUNCTION__, name, category);
+@@ -4608,10 +4765,25 @@ void ndpi_fill_protocol_category(struct ndpi_detection_module_struct *ndpi_str,
+ 				 struct ndpi_flow_struct *flow,
+ 				 ndpi_protocol *ret) {
+   if(ndpi_str->custom_categories.categories_loaded) {
+-    if(flow->guessed_header_category != NDPI_PROTOCOL_CATEGORY_UNSPECIFIED) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[81]) {
++      if ((flow -> guessed_header_category != NDPI_PROTOCOL_CATEGORY_UNSPECIFIED ) && !(0))
++        fprintf(stderr, "triggered bug index 81\n");
++      else
++        fprintf(stderr, "reached bug index 81\n");
++    }
++    if ((!FIXREVERTER[81] && (flow -> guessed_header_category != NDPI_PROTOCOL_CATEGORY_UNSPECIFIED ))
++    #else
++    if (0
++    #endif
++    ) {
+       flow->category = ret->category = flow->guessed_header_category;
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     if(flow->host_server_name[0] != '\0') {
+       unsigned long id;
+@@ -4706,7 +4878,22 @@ ndpi_protocol ndpi_detection_process_packet(struct ndpi_detection_module_struct
+   /* Init default */
+   ret.master_protocol = flow->detected_protocol_stack[1], ret.app_protocol = flow->detected_protocol_stack[0];
+ 
+-  if(flow->server_id == NULL) flow->server_id = dst; /* Default */
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[84]) {
++    if ((flow -> server_id == (void *) 0  ) && !(0))
++      fprintf(stderr, "triggered bug index 84\n");
++    else
++      fprintf(stderr, "reached bug index 84\n");
++  }
++  if ((!FIXREVERTER[84] && (flow -> server_id == (void *) 0  ))
++  #else
++  if (0
++  #endif
++  ) flow->server_id = dst;
++  #ifdef FRCOV
++  }
++  #endif /* Default */
+ 
+   if(flow->detected_protocol_stack[0] != NDPI_PROTOCOL_UNKNOWN) {
+     if(flow->check_extra_packets) {
+@@ -4799,13 +4986,28 @@ ndpi_protocol ndpi_detection_process_packet(struct ndpi_detection_module_struct
+     } else
+       flow->guessed_header_category = NDPI_PROTOCOL_CATEGORY_UNSPECIFIED;
+ 
+-    if(flow->guessed_protocol_id >= NDPI_MAX_SUPPORTED_PROTOCOLS) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[85]) {
++      if ((flow -> guessed_protocol_id >= NDPI_LAST_IMPLEMENTED_PROTOCOL ) && !(0))
++        fprintf(stderr, "triggered bug index 85\n");
++      else
++        fprintf(stderr, "reached bug index 85\n");
++    }
++    if ((!FIXREVERTER[85] && (flow -> guessed_protocol_id >= NDPI_LAST_IMPLEMENTED_PROTOCOL ))
++    #else
++    if (0
++    #endif
++    ) {
+       /* This is a custom protocol and it has priority over everything else */
+       ret.master_protocol = NDPI_PROTOCOL_UNKNOWN,
+ 	ret.app_protocol = flow->guessed_protocol_id ? flow->guessed_protocol_id : flow->guessed_host_protocol_id;
+       ndpi_fill_protocol_category(ndpi_str, flow, &ret);
+       goto invalidate_ptr;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     if(user_defined_proto && flow->guessed_protocol_id != NDPI_PROTOCOL_UNKNOWN) {
+       if(flow->packet.iph) {
+@@ -4887,8 +5089,23 @@ ndpi_protocol ndpi_detection_process_packet(struct ndpi_detection_module_struct
+   if(flow->detected_protocol_stack[1] != NDPI_PROTOCOL_UNKNOWN) {
+     ret.master_protocol = flow->detected_protocol_stack[1], ret.app_protocol = flow->detected_protocol_stack[0];
+ 
+-    if(ret.app_protocol == ret.master_protocol)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[86]) {
++      if ((ret . app_protocol == ret . master_protocol  ) && !(0))
++        fprintf(stderr, "triggered bug index 86\n");
++      else
++        fprintf(stderr, "reached bug index 86\n");
++    }
++    if ((!FIXREVERTER[86] && (ret . app_protocol == ret . master_protocol  ))
++    #else
++    if (0
++    #endif
++    )
+       ret.master_protocol = NDPI_PROTOCOL_UNKNOWN;
++      #ifdef FRCOV
++      }
++      #endif
+   } else
+     ret.app_protocol = flow->detected_protocol_stack[0];
+ 
+@@ -5076,8 +5293,23 @@ u_int32_t ndpi_bytestream_to_ipv4(const u_int8_t * str, u_int16_t max_chars_to_r
+   val = val + (c << 8);
+   oldread = read;
+   c = ndpi_bytestream_to_number(&str[read], max_chars_to_read - read, &read);
+-  if(c > 255 || oldread == read || max_chars_to_read == read)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[88]) {
++    if ((oldread == read || max_chars_to_read == read ) && !(c > 255 ))
++      fprintf(stderr, "triggered bug index 88\n");
++    else
++      fprintf(stderr, "reached bug index 88\n");
++  }
++  if ((FIXREVERTER[88] && (c > 255 )) || (!FIXREVERTER[88] && (c > 255 || oldread == read || max_chars_to_read == read ))
++  #else
++  if (c > 255 
++  #endif
++  )
+     return(0);
++    #ifdef FRCOV
++    }
++    #endif
+   val = val + c;
+ 
+   *bytes_read = *bytes_read + read;
+@@ -5100,17 +5332,59 @@ void ndpi_parse_packet_line_info(struct ndpi_detection_module_struct *ndpi_str,
+   packet->packet_lines_parsed_complete = 1;
+   ndpi_reset_packet_line_info(packet);
+ 
+-  if((packet->payload_packet_len < 3)
+-     || (packet->payload == NULL))
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[89]) {
++    if ((packet -> payload_packet_len < 3 || packet -> payload == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 89\n");
++    else
++      fprintf(stderr, "reached bug index 89\n");
++  }
++  if ((!FIXREVERTER[89] && (packet -> payload_packet_len < 3 || packet -> payload == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   packet->line[packet->parsed_lines].ptr = packet->payload;
+   packet->line[packet->parsed_lines].len = 0;
+ 
+-  for(a = 0; (a < packet->payload_packet_len)
+-	&& (packet->parsed_lines < NDPI_MAX_PARSE_LINES_PER_PACKET); a++) {
+-    if((a + 1) >= packet->payload_packet_len)
+-      return; /* Return if only one byte remains (prevent invalid reads past end-of-buffer) */
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[92])
++    fprintf(stderr, "reached bug index 92\n");
++  for (a = 0; (FIXREVERTER[92] && (a < packet -> payload_packet_len )) || (!FIXREVERTER[92] && (a < packet -> payload_packet_len && packet -> parsed_lines < 64 ))
++  #else
++  for (a = 0; a < packet -> payload_packet_len 
++  #endif
++  ; a++) {
++	  
++	#ifdef FRCOV
++	  if (!(packet -> parsed_lines < 64 ))
++	    fprintf(stderr, "triggered bug index 92\n");
++	  #endif
++	
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[90]) {
++      if ((a + 1 >= packet -> payload_packet_len ) && !(0))
++        fprintf(stderr, "triggered bug index 90\n");
++      else
++        fprintf(stderr, "reached bug index 90\n");
++    }
++    if ((!FIXREVERTER[90] && (a + 1 >= packet -> payload_packet_len ))
++    #else
++    if (0
++    #endif
++    )
++      return;
++      #ifdef FRCOV
++      }
++      #endif /* Return if only one byte remains (prevent invalid reads past end-of-buffer) */
+ 
+     if(get_u_int16_t(packet->payload, a) == ntohs(0x0d0a)) { /* If end of line char sequence CR+NL "\r\n", process line */
+       packet->line[packet->parsed_lines].len = (u_int16_t)(((unsigned long) &packet->payload[a]) - ((unsigned long) packet->line[packet->parsed_lines].ptr));
+@@ -5309,8 +5583,23 @@ void ndpi_parse_packet_line_info(struct ndpi_detection_module_struct *ndpi_str,
+         packet->empty_line_position_set = 1;
+       }
+ 
+-      if(packet->parsed_lines >= (NDPI_MAX_PARSE_LINES_PER_PACKET - 1))
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[91]) {
++        if ((packet -> parsed_lines >= 64 - 1 ) && !(0))
++          fprintf(stderr, "triggered bug index 91\n");
++        else
++          fprintf(stderr, "reached bug index 91\n");
++      }
++      if ((!FIXREVERTER[91] && (packet -> parsed_lines >= 64 - 1 ))
++      #else
++      if (0
++      #endif
++      )
+         return;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+       packet->parsed_lines++;
+       packet->line[packet->parsed_lines].ptr = &packet->payload[a + 2];
+@@ -5319,6 +5608,9 @@ void ndpi_parse_packet_line_info(struct ndpi_detection_module_struct *ndpi_str,
+       a++; /* next char in the payload */
+     }
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   if(packet->parsed_lines >= 1) {
+     packet->line[packet->parsed_lines].len
+@@ -5343,8 +5635,23 @@ void ndpi_parse_packet_line_info_any(struct ndpi_detection_module_struct *ndpi_s
+   packet->packet_lines_parsed_complete = 1;
+   packet->parsed_lines = 0;
+ 
+-  if(packet->payload_packet_len == 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[93]) {
++    if ((packet -> payload_packet_len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 93\n");
++    else
++      fprintf(stderr, "reached bug index 93\n");
++  }
++  if ((!FIXREVERTER[93] && (packet -> payload_packet_len == 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   packet->line[packet->parsed_lines].ptr = packet->payload;
+   packet->line[packet->parsed_lines].len = 0;
+@@ -5358,15 +5665,45 @@ void ndpi_parse_packet_line_info_any(struct ndpi_detection_module_struct *ndpi_s
+       if(a > 0 && packet->payload[a-1] == 0x0d)
+         packet->line[packet->parsed_lines].len--;
+ 
+-      if(packet->parsed_lines >= (NDPI_MAX_PARSE_LINES_PER_PACKET - 1))
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[94]) {
++        if ((packet -> parsed_lines >= 64 - 1 ) && !(0))
++          fprintf(stderr, "triggered bug index 94\n");
++        else
++          fprintf(stderr, "reached bug index 94\n");
++      }
++      if ((!FIXREVERTER[94] && (packet -> parsed_lines >= 64 - 1 ))
++      #else
++      if (0
++      #endif
++      )
+         break;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+       packet->parsed_lines++;
+       packet->line[packet->parsed_lines].ptr = &packet->payload[a + 1];
+       packet->line[packet->parsed_lines].len = 0;
+ 
+-      if((a + 1) >= packet->payload_packet_len)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[95]) {
++        if ((a + 1 >= packet -> payload_packet_len ) && !(0))
++          fprintf(stderr, "triggered bug index 95\n");
++        else
++          fprintf(stderr, "reached bug index 95\n");
++      }
++      if ((!FIXREVERTER[95] && (a + 1 >= packet -> payload_packet_len ))
++      #else
++      if (0
++      #endif
++      )
+         break;
++        #ifdef FRCOV
++        }
++        #endif
+ 
+       //a++;
+     }
+@@ -5562,19 +5899,68 @@ void ndpi_int_change_protocol(struct ndpi_detection_module_struct *ndpi_str,
+      && (lower_detected_protocol != NDPI_PROTOCOL_UNKNOWN))
+     upper_detected_protocol = lower_detected_protocol;
+ 
+-  if(upper_detected_protocol == lower_detected_protocol)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[97]) {
++    if ((upper_detected_protocol == lower_detected_protocol ) && !(0))
++      fprintf(stderr, "triggered bug index 97\n");
++    else
++      fprintf(stderr, "reached bug index 97\n");
++  }
++  if ((!FIXREVERTER[97] && (upper_detected_protocol == lower_detected_protocol ))
++  #else
++  if (0
++  #endif
++  )
+     lower_detected_protocol = NDPI_PROTOCOL_UNKNOWN;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+-  if((upper_detected_protocol != NDPI_PROTOCOL_UNKNOWN)
+-     && (lower_detected_protocol == NDPI_PROTOCOL_UNKNOWN)) {
+-    if((flow->guessed_host_protocol_id != NDPI_PROTOCOL_UNKNOWN)
+-       && (upper_detected_protocol != flow->guessed_host_protocol_id)) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[99]) {
++    fprintf(stderr, "reached bug index 99\n");
++  }
++  if ((FIXREVERTER[99] && (upper_detected_protocol != NDPI_PROTOCOL_UNKNOWN )) || (!FIXREVERTER[99] && (upper_detected_protocol != NDPI_PROTOCOL_UNKNOWN && lower_detected_protocol == NDPI_PROTOCOL_UNKNOWN ))
++  #else
++  if (upper_detected_protocol != NDPI_PROTOCOL_UNKNOWN 
++  #endif
++  ) {
++       
++     #ifdef FRCOV
++       if (!(lower_detected_protocol == NDPI_PROTOCOL_UNKNOWN ))
++         fprintf(stderr, "triggered bug index 99\n");
++       #endif
++     
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[98]) {
++      fprintf(stderr, "reached bug index 98\n");
++    }
++    if ((FIXREVERTER[98] && (flow -> guessed_host_protocol_id != NDPI_PROTOCOL_UNKNOWN )) || (!FIXREVERTER[98] && (flow -> guessed_host_protocol_id != NDPI_PROTOCOL_UNKNOWN && upper_detected_protocol != flow -> guessed_host_protocol_id ))
++    #else
++    if (flow -> guessed_host_protocol_id != NDPI_PROTOCOL_UNKNOWN 
++    #endif
++    ) {
++         
++       #ifdef FRCOV
++         if (!(upper_detected_protocol != flow -> guessed_host_protocol_id ))
++           fprintf(stderr, "triggered bug index 98\n");
++         #endif
++       
+       if(ndpi_str->proto_defaults[upper_detected_protocol].can_have_a_subprotocol) {
+ 	lower_detected_protocol = upper_detected_protocol;
+ 	upper_detected_protocol = flow->guessed_host_protocol_id;
+       }
+     }
++    #ifdef FRCOV
++    }
++    #endif
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   ndpi_int_change_flow_protocol(ndpi_str, flow,
+ 				upper_detected_protocol, lower_detected_protocol);
+@@ -6180,8 +6566,23 @@ int ndpi_match_string_subprotocol(struct ndpi_detection_module_struct *ndpi_str,
+   ndpi_automa *automa = is_host_match ? &ndpi_str->host_automa : &ndpi_str->content_automa;
+   AC_REP_t match = { NDPI_PROTOCOL_UNKNOWN, NDPI_PROTOCOL_CATEGORY_UNSPECIFIED, NDPI_PROTOCOL_UNRATED };
+ 
+-  if((automa->ac_automa == NULL) || (string_to_match_len == 0))
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[103]) {
++    if ((automa -> ac_automa == (void *) 0 || string_to_match_len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 103\n");
++    else
++      fprintf(stderr, "reached bug index 103\n");
++  }
++  if ((!FIXREVERTER[103] && (automa -> ac_automa == (void *) 0 || string_to_match_len == 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return(NDPI_PROTOCOL_UNKNOWN);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   if(!automa->ac_automa_finalized) {
+     printf("[%s:%d] [NDPI] Internal error: please call ndpi_finalize_initalization()\n", __FILE__, __LINE__);
+@@ -6386,8 +6787,23 @@ int ndpi_match_bigram(struct ndpi_detection_module_struct *ndpi_str,
+   AC_REP_t match = { NDPI_PROTOCOL_UNKNOWN, NDPI_PROTOCOL_CATEGORY_UNSPECIFIED, NDPI_PROTOCOL_UNRATED };
+   int rc;
+ 
+-  if((automa->ac_automa == NULL) || (bigram_to_match == NULL))
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[106]) {
++    if ((automa -> ac_automa == (void *) 0 || bigram_to_match == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 106\n");
++    else
++      fprintf(stderr, "reached bug index 106\n");
++  }
++  if ((!FIXREVERTER[106] && (automa -> ac_automa == (void *) 0 || bigram_to_match == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return(-1);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   if(!automa->ac_automa_finalized) {
+     printf("[%s:%d] [NDPI] Internal error: please call ndpi_finalize_initalization()\n", __FILE__, __LINE__);
+@@ -6402,7 +6818,24 @@ int ndpi_match_bigram(struct ndpi_detection_module_struct *ndpi_str,
+     in case rc == 0 (i.e. no match), we need to check if there is a partial match
+     and in this case return it
+   */
+-  if((rc == 0) && (match.number != 0)) rc = 1;
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[107]) {
++    fprintf(stderr, "reached bug index 107\n");
++  }
++  if ((FIXREVERTER[107] && (rc == 0 )) || (!FIXREVERTER[107] && (rc == 0 && match . number != 0 ))
++  #else
++  if (rc == 0 
++  #endif
++  ) 
++  #ifdef FRCOV
++  {if (!(match . number != 0 ))
++    fprintf(stderr, "triggered bug index 107\n");
++  #endif
++  rc = 1;
++  #ifdef FRCOV
++  }}
++  #endif
+ 
+   return(rc ? match.number : 0);
+ }
+diff --git a/src/lib/ndpi_utils.c b/src/lib/ndpi_utils.c
+index 7d9c60104..91510d5e5 100644
+--- a/src/lib/ndpi_utils.c
++++ b/src/lib/ndpi_utils.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * ndpi_utils.c
+  *
+@@ -81,8 +88,23 @@ void * ndpi_tsearch(const void *vkey, void **vrootp,
+   char *key = (char *)vkey;
+   ndpi_node **rootp = (ndpi_node **)vrootp;
+ 
+-  if(rootp == (ndpi_node **)0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[122]) {
++    if ((rootp == (ndpi_node **) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 122\n");
++    else
++      fprintf(stderr, "reached bug index 122\n");
++  }
++  if ((!FIXREVERTER[122] && (rootp == (ndpi_node **) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return ((void *)0);
++    #ifdef FRCOV
++    }
++    #endif
+   while (*rootp != (ndpi_node *)0) {	/* Knuth's T1: */
+     int r;
+ 
+@@ -175,8 +197,23 @@ void * ndpi_tfind(const void *vkey, void *vrootp,
+   char *key = (char *)vkey;
+   ndpi_node **rootp = (ndpi_node **)vrootp;
+ 
+-  if(rootp == (ndpi_node **)0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[124]) {
++    if ((rootp == (ndpi_node **) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 124\n");
++    else
++      fprintf(stderr, "reached bug index 124\n");
++  }
++  if ((!FIXREVERTER[124] && (rootp == (ndpi_node **) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return ((ndpi_node *)0);
++    #ifdef FRCOV
++    }
++    #endif
+   while (*rootp != (ndpi_node *)0) {	/* T1: */
+     int r;
+     if((r = (*compar)(key, (*rootp)->key)) == 0)	/* T2: */
+@@ -764,12 +801,29 @@ void ndpi_user_pwd_payload_copy(u_int8_t *dest, u_int dest_len,
+ 				const u_int8_t *src, u_int src_len) {
+   u_int i, j=0, k = dest_len-1;
+ 
+-  for(i=offset; (i<src_len) && (j<=k); i++) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[126])
++    fprintf(stderr, "reached bug index 126\n");
++  for (i = offset; (FIXREVERTER[126] && (i < src_len )) || (!FIXREVERTER[126] && (i < src_len && j <= k ))
++  #else
++  for (i = offset; i < src_len 
++  #endif
++  ; i++) {
++    
++  #ifdef FRCOV
++    if (!(j <= k ))
++      fprintf(stderr, "triggered bug index 126\n");
++    #endif
++  
+     if((j == k) || (src[i] < ' '))
+       break;
+ 
+     dest[j++] = src[i];
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   dest[j <=k ? j : k] = '\0';
+ }
+@@ -813,8 +867,23 @@ u_char* ndpi_base64_decode(const u_char *src, size_t len, size_t *out_len) {
+ 
+   olen = count / 4 * 3;
+   pos = out = ndpi_malloc(olen);
+-  if (out == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[127]) {
++    if ((out == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 127\n");
++    else
++      fprintf(stderr, "reached bug index 127\n");
++  }
++  if ((!FIXREVERTER[127] && (out == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return NULL;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   count = 0;
+   for (i = 0; i < len; i++) {
+diff --git a/src/lib/protocols/afp.c b/src/lib/protocols/afp.c
+index 79b4b0bf9..219edd6b6 100644
+--- a/src/lib/protocols/afp.c
++++ b/src/lib/protocols/afp.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * afp.c
+  *
+@@ -50,7 +57,19 @@ void ndpi_search_afp(struct ndpi_detection_module_struct *ndpi_struct, struct nd
+   if (packet->payload_packet_len >= sizeof(struct afpHeader)) {
+     struct afpHeader *h = (struct afpHeader*)packet->payload;
+ 
+-    if(packet->payload_packet_len > 128) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[12]) {
++      if ((packet -> payload_packet_len > 128 ) && !(0))
++        fprintf(stderr, "triggered bug index 12\n");
++      else
++        fprintf(stderr, "reached bug index 12\n");
++    }
++    if ((!FIXREVERTER[12] && (packet -> payload_packet_len > 128 ))
++    #else
++    if (0
++    #endif
++    ) {
+       /*
+ 	When we transfer a large data chunk, unless we have observed
+ 	the initial connection, we need to discard these packets
+@@ -58,6 +77,9 @@ void ndpi_search_afp(struct ndpi_detection_module_struct *ndpi_struct, struct nd
+       */
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     /*
+      * this will detect the OpenSession command of the Data Stream Interface (DSI) protocol
+diff --git a/src/lib/protocols/ajp.c b/src/lib/protocols/ajp.c
+index bd86f0c91..88764cff5 100644
+--- a/src/lib/protocols/ajp.c
++++ b/src/lib/protocols/ajp.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * ajp.c
+  *
+@@ -75,10 +82,25 @@ static void ndpi_check_ajp(struct ndpi_detection_module_struct *ndpi_struct,
+   struct ajp_header ajp_hdr;
+   struct ndpi_packet_struct *packet = &flow->packet;
+ 
+-  if (packet->payload_packet_len < sizeof(ajp_hdr)) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[167]) {
++    if ((packet -> payload_packet_len < sizeof ( ajp_hdr ) ) && !(0))
++      fprintf(stderr, "triggered bug index 167\n");
++    else
++      fprintf(stderr, "reached bug index 167\n");
++  }
++  if ((!FIXREVERTER[167] && (packet -> payload_packet_len < sizeof ( ajp_hdr ) ))
++  #else
++  if (0
++  #endif
++  ) {
+     NDPI_EXCLUDE_PROTO(ndpi_struct, flow);
+     return;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   memcpy(&ajp_hdr, packet->payload, sizeof(struct ajp_header));
+   
+diff --git a/src/lib/protocols/bittorrent.c b/src/lib/protocols/bittorrent.c
+index a1ade79b2..06e1b2e39 100644
+--- a/src/lib/protocols/bittorrent.c
++++ b/src/lib/protocols/bittorrent.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * bittorrent.c
+  *
+@@ -357,9 +364,24 @@ static void ndpi_int_search_bittorrent_tcp(struct ndpi_detection_module_struct *
+ {
+   struct ndpi_packet_struct *packet = &flow->packet;
+ 
+-  if(packet->payload_packet_len == 0) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[111]) {
++    if ((packet -> payload_packet_len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 111\n");
++    else
++      fprintf(stderr, "reached bug index 111\n");
++  }
++  if ((!FIXREVERTER[111] && (packet -> payload_packet_len == 0 ))
++  #else
++  if (0
++  #endif
++  ) {
+     return;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   if(flow->bittorrent_stage == 0 && packet->payload_packet_len != 0) {
+     /* exclude stage 0 detection from next run */
+diff --git a/src/lib/protocols/capwap.c b/src/lib/protocols/capwap.c
+index bfad1a593..763b6e901 100644
+--- a/src/lib/protocols/capwap.c
++++ b/src/lib/protocols/capwap.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * capwap.c
+  *
+@@ -68,8 +75,23 @@ static void ndpi_search_setup_capwap(struct ndpi_detection_module_struct *ndpi_s
+ 
+     msg_len = ntohs(*(u_int16_t*)&packet->payload[offset]);
+ 
+-    if((msg_len+to_add) == packet->payload_packet_len)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[137]) {
++      if ((msg_len + to_add == packet -> payload_packet_len ) && !(0))
++        fprintf(stderr, "triggered bug index 137\n");
++      else
++        fprintf(stderr, "reached bug index 137\n");
++    }
++    if ((!FIXREVERTER[137] && (msg_len + to_add == packet -> payload_packet_len ))
++    #else
++    if (0
++    #endif
++    )
+       goto capwap_found;
++      #ifdef FRCOV
++      }
++      #endif
+   }
+   
+   if(
+diff --git a/src/lib/protocols/checkmk.c b/src/lib/protocols/checkmk.c
+index 64adbdb0e..d572d263b 100644
+--- a/src/lib/protocols/checkmk.c
++++ b/src/lib/protocols/checkmk.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * checkmk.c
+  *
+@@ -42,7 +49,19 @@ void ndpi_search_checkmk(struct ndpi_detection_module_struct *ndpi_struct,
+ 
+   if (packet->payload_packet_len >= 15) {
+ 
+-    if(packet->payload_packet_len > 128) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[255]) {
++      if ((packet -> payload_packet_len > 128 ) && !(0))
++        fprintf(stderr, "triggered bug index 255\n");
++      else
++        fprintf(stderr, "reached bug index 255\n");
++    }
++    if ((!FIXREVERTER[255] && (packet -> payload_packet_len > 128 ))
++    #else
++    if (0
++    #endif
++    ) {
+       /*
+ 	When we transfer a large data chunk, unless we have observed
+ 	the initial connection, we need to discard these packets
+@@ -50,6 +69,9 @@ void ndpi_search_checkmk(struct ndpi_detection_module_struct *ndpi_struct,
+       */
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     /*
+      * this will detect the OpenSession command of the Data Stream Interface (DSI) protocol
+diff --git a/src/lib/protocols/directdownloadlink.c b/src/lib/protocols/directdownloadlink.c
+index bd15a5245..ac4e51728 100644
+--- a/src/lib/protocols/directdownloadlink.c
++++ b/src/lib/protocols/directdownloadlink.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * directdownloadlink.c
+  *
+@@ -59,10 +66,25 @@ u_int8_t search_ddl_domains(struct ndpi_detection_module_struct *ndpi_struct, st
+   u_int16_t i = 1;
+   u_int16_t host_line_len_without_port;
+ 
+-  if (packet->payload_packet_len < 100) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[277]) {
++    if ((packet -> payload_packet_len < 100 ) && !(0))
++      fprintf(stderr, "triggered bug index 277\n");
++    else
++      fprintf(stderr, "reached bug index 277\n");
++  }
++  if ((!FIXREVERTER[277] && (packet -> payload_packet_len < 100 ))
++  #else
++  if (0
++  #endif
++  ) {
+     NDPI_LOG_DBG2(ndpi_struct, "DDL: Packet too small\n");
+     goto end_ddl_nothing_found;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+ 
+ 
+diff --git a/src/lib/protocols/drda.c b/src/lib/protocols/drda.c
+index e0d6bbc23..00de0b423 100644
+--- a/src/lib/protocols/drda.c
++++ b/src/lib/protocols/drda.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * drda.c
+  *
+@@ -73,7 +80,22 @@ void ndpi_search_drda(struct ndpi_detection_module_struct *ndpi_struct,
+ 	  
+ 	  count += len;
+ 	}
+-	if(count != payload_len) goto no_drda;
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[1]) {
++	  if ((count != payload_len ) && !(0))
++	    fprintf(stderr, "triggered bug index 1\n");
++	  else
++	    fprintf(stderr, "reached bug index 1\n");
++	}
++	if ((!FIXREVERTER[1] && (count != payload_len ))
++	#else
++	if (0
++	#endif
++	) goto no_drda;
++	#ifdef FRCOV
++	}
++	#endif
+       }
+       NDPI_LOG_INFO(ndpi_struct, "found DRDA\n");
+       ndpi_set_detected_protocol(ndpi_struct, flow, NDPI_PROTOCOL_DRDA, NDPI_PROTOCOL_UNKNOWN);
+diff --git a/src/lib/protocols/ftp_data.c b/src/lib/protocols/ftp_data.c
+index 8d4330db1..1bd87752c 100644
+--- a/src/lib/protocols/ftp_data.c
++++ b/src/lib/protocols/ftp_data.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * ftp_data.c
+  *
+@@ -74,8 +81,23 @@ static int ndpi_match_file_header(struct ndpi_detection_module_struct *ndpi_stru
+   u_int32_t payload_len = packet->payload_packet_len;
+ 
+   /* A FTP packet is pretty long so 256 is a bit conservative but it should be OK */
+-  if(packet->payload_packet_len < 256)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[281]) {
++    if ((packet -> payload_packet_len < 256 ) && !(0))
++      fprintf(stderr, "triggered bug index 281\n");
++    else
++      fprintf(stderr, "reached bug index 281\n");
++  }
++  if ((!FIXREVERTER[281] && (packet -> payload_packet_len < 256 ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   /* RIFF is a meta-format for storing AVI and WAV files */
+   if(ndpi_match_strprefix(packet->payload, payload_len, "RIFF"))
+diff --git a/src/lib/protocols/gnutella.c b/src/lib/protocols/gnutella.c
+index 77d7691c3..4bf678ec5 100644
+--- a/src/lib/protocols/gnutella.c
++++ b/src/lib/protocols/gnutella.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * gnutella.c
+  *
+@@ -82,22 +89,73 @@ void ndpi_search_gnutella(struct ndpi_detection_module_struct *ndpi_struct, stru
+       NDPI_LOG_DBG2(ndpi_struct, "save dst connection packet detected\n");
+       dst->gnutella_ts = packet->tick_timestamp;
+     }
+-    if (src != NULL && (packet->tick_timestamp - src->gnutella_ts) > ndpi_struct->gnutella_timeout) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[4]) {
++      fprintf(stderr, "reached bug index 4\n");
++    }
++    if ((FIXREVERTER[4] && (src != (void *) 0 )) || (!FIXREVERTER[4] && (src != (void *) 0 && packet -> tick_timestamp - src -> gnutella_ts > ndpi_struct -> gnutella_timeout ))
++    #else
++    if (src != (void *) 0 
++    #endif
++    ) {
++      
++    #ifdef FRCOV
++      if (!(packet -> tick_timestamp - src -> gnutella_ts > ndpi_struct -> gnutella_timeout ))
++        fprintf(stderr, "triggered bug index 4\n");
++      #endif
++    
+       src->detected_gnutella_udp_port1 = 0;
+       src->detected_gnutella_udp_port2 = 0;
+     }
+-    if (dst != NULL && (packet->tick_timestamp - dst->gnutella_ts) > ndpi_struct->gnutella_timeout) {
++    #ifdef FRCOV
++    }
++    #endif
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[5]) {
++      fprintf(stderr, "reached bug index 5\n");
++    }
++    if ((FIXREVERTER[5] && (dst != (void *) 0 )) || (!FIXREVERTER[5] && (dst != (void *) 0 && packet -> tick_timestamp - dst -> gnutella_ts > ndpi_struct -> gnutella_timeout ))
++    #else
++    if (dst != (void *) 0 
++    #endif
++    ) {
++      
++    #ifdef FRCOV
++      if (!(packet -> tick_timestamp - dst -> gnutella_ts > ndpi_struct -> gnutella_timeout ))
++        fprintf(stderr, "triggered bug index 5\n");
++      #endif
++    
+       dst->detected_gnutella_udp_port1 = 0;
+       dst->detected_gnutella_udp_port2 = 0;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     return;
+   }
+ 
+   /* skip packets without payload */
+-  if (packet->payload_packet_len < 2) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[6]) {
++    if ((packet -> payload_packet_len < 2 ) && !(0))
++      fprintf(stderr, "triggered bug index 6\n");
++    else
++      fprintf(stderr, "reached bug index 6\n");
++  }
++  if ((!FIXREVERTER[6] && (packet -> payload_packet_len < 2 ))
++  #else
++  if (0
++  #endif
++  ) {
+     return;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+   if (packet->tcp != NULL) {
+     /* this case works asymmetrically */
+     if (packet->payload_packet_len > 10 && memcmp(packet->payload, "GNUTELLA/", 9) == 0) {
+diff --git a/src/lib/protocols/http.c b/src/lib/protocols/http.c
+index 14be88246..0bc39811e 100644
+--- a/src/lib/protocols/http.c
++++ b/src/lib/protocols/http.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * http.c
+  *
+@@ -393,8 +400,23 @@ static void check_content_type_and_change_protocol(struct ndpi_detection_module_
+     ndpi_http_parse_subprotocol(ndpi_struct, flow);
+ #endif
+ 
+-  if(flow->guessed_protocol_id == NDPI_PROTOCOL_UNKNOWN)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[156]) {
++    if ((flow -> guessed_protocol_id == NDPI_PROTOCOL_UNKNOWN  ) && !(0))
++      fprintf(stderr, "triggered bug index 156\n");
++    else
++      fprintf(stderr, "reached bug index 156\n");
++  }
++  if ((!FIXREVERTER[156] && (flow -> guessed_protocol_id == NDPI_PROTOCOL_UNKNOWN  ))
++  #else
++  if (0
++  #endif
++  )
+     flow->guessed_protocol_id = NDPI_PROTOCOL_HTTP;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   /* check for accept line */
+   if(packet->accept_line.ptr != NULL) {
+@@ -573,15 +595,48 @@ static void ndpi_check_http_tcp(struct ndpi_detection_module_struct *ndpi_struct
+       ookla_found:
+         ndpi_int_http_add_connection(ndpi_struct, flow, NDPI_PROTOCOL_OOKLA, NDPI_PROTOCOL_CATEGORY_WEB);
+ 
+-	if(ndpi_struct->ookla_cache == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[157]) {
++	  if ((ndpi_struct -> ookla_cache == (void *) 0  ) && !(0))
++	    fprintf(stderr, "triggered bug index 157\n");
++	  else
++	    fprintf(stderr, "reached bug index 157\n");
++	}
++	if ((!FIXREVERTER[157] && (ndpi_struct -> ookla_cache == (void *) 0  ))
++	#else
++	if (0
++	#endif
++	)
+ 	  ndpi_struct->ookla_cache = ndpi_lru_cache_init(1024);
++	  #ifdef FRCOV
++	  }
++	  #endif
+ 
+-	if(packet->iph != NULL && ndpi_struct->ookla_cache != NULL) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[158]) {
++	  fprintf(stderr, "reached bug index 158\n");
++	}
++	if ((FIXREVERTER[158] && (ndpi_struct -> ookla_cache != (void *) 0 )) || (!FIXREVERTER[158] && (packet -> iph != (void *) 0 && ndpi_struct -> ookla_cache != (void *) 0 ))
++	#else
++	if (ndpi_struct -> ookla_cache != (void *) 0 
++	#endif
++	) {
++	  
++	#ifdef FRCOV
++	  if (!(packet -> iph != (void *) 0 ))
++	    fprintf(stderr, "triggered bug index 158\n");
++	  #endif
++	
+ 	  if(packet->tcp->source == htons(8080))
+ 	    ndpi_lru_add_to_cache(ndpi_struct->ookla_cache, packet->iph->saddr, 1 /* dummy */);
+ 	  else
+ 	    ndpi_lru_add_to_cache(ndpi_struct->ookla_cache, packet->iph->daddr, 1 /* dummy */);
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+         return;
+       }
+@@ -822,11 +877,26 @@ static void ndpi_check_http_tcp(struct ndpi_detection_module_struct *ndpi_struct
+ static void ndpi_search_http_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+ 				 struct ndpi_flow_struct *flow) {
+   /* Break after 20 packets. */
+-  if(flow->packet_counter > 20) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[159]) {
++    if ((flow -> packet_counter > 20 ) && !(0))
++      fprintf(stderr, "triggered bug index 159\n");
++    else
++      fprintf(stderr, "reached bug index 159\n");
++  }
++  if ((!FIXREVERTER[159] && (flow -> packet_counter > 20 ))
++  #else
++  if (0
++  #endif
++  ) {
+     NDPI_EXCLUDE_PROTO(ndpi_struct, flow);
+     http_bitmask_exclude_other(flow);
+     return;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   NDPI_LOG_DBG(ndpi_struct, "search HTTP\n");
+   ndpi_check_http_tcp(ndpi_struct, flow);
+diff --git a/src/lib/protocols/iax.c b/src/lib/protocols/iax.c
+index 5e03baf50..c4cf17eb7 100644
+--- a/src/lib/protocols/iax.c
++++ b/src/lib/protocols/iax.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * iax.c
+  *
+@@ -73,9 +80,24 @@ static void ndpi_search_setup_iax(struct ndpi_detection_module_struct *ndpi_stru
+ 	ndpi_int_iax_add_connection(ndpi_struct, flow);
+ 	return;
+       }
+-      if (packet_len > packet->payload_packet_len) {
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[9]) {
++        if ((packet_len > packet -> payload_packet_len ) && !(0))
++          fprintf(stderr, "triggered bug index 9\n");
++        else
++          fprintf(stderr, "reached bug index 9\n");
++      }
++      if ((!FIXREVERTER[9] && (packet_len > packet -> payload_packet_len ))
++      #else
++      if (0
++      #endif
++      ) {
+ 	break;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+     }
+ 
+   }
+diff --git a/src/lib/protocols/icecast.c b/src/lib/protocols/icecast.c
+index 4cd3cc05d..ac2297b17 100644
+--- a/src/lib/protocols/icecast.c
++++ b/src/lib/protocols/icecast.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * icecast.c
+  *
+@@ -64,7 +71,22 @@ void ndpi_search_icecast_tcp(struct ndpi_detection_module_struct *ndpi_struct, s
+     goto icecast_exclude;
+   }
+ 
+-  if(flow == NULL) return;
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[160]) {
++    if ((flow == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 160\n");
++    else
++      fprintf(stderr, "reached bug index 160\n");
++  }
++  if ((!FIXREVERTER[160] && (flow == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  ) return;
++  #ifdef FRCOV
++  }
++  #endif
+     
+   if((packet->packet_direction == flow->setup_packet_direction)
+       && (flow->packet_counter < 10)) {
+diff --git a/src/lib/protocols/irc.c b/src/lib/protocols/irc.c
+index ed86aed42..ff7697acf 100644
+--- a/src/lib/protocols/irc.c
++++ b/src/lib/protocols/irc.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * irc.c
+  *
+@@ -113,9 +120,24 @@ static u_int8_t ndpi_check_for_cmd(struct ndpi_detection_module_struct *ndpi_str
+   struct ndpi_packet_struct *packet = &flow->packet;
+   u_int16_t i;
+ 
+-  if (packet->payload_packet_len < 4) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[143]) {
++    if ((packet -> payload_packet_len < 4 ) && !(0))
++      fprintf(stderr, "triggered bug index 143\n");
++    else
++      fprintf(stderr, "reached bug index 143\n");
++  }
++  if ((!FIXREVERTER[143] && (packet -> payload_packet_len < 4 ))
++  #else
++  if (0
++  #endif
++  ) {
+     return 0;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   for (i = 0; i < packet->payload_packet_len - 4; i++) {
+     if (packet->payload[i] == 'c') {
+@@ -726,9 +748,24 @@ void ndpi_search_irc_tcp(struct ndpi_detection_module_struct *ndpi_struct, struc
+ 			}
+ 			src->irc_ts = packet->tick_timestamp;
+ 		      }
+-		      if (dst == NULL) {
++		      
++		      #ifdef FRCOV
++		      {if (FIXREVERTER[145]) {
++		        if ((dst == (void *) 0 ) && !(0))
++		          fprintf(stderr, "triggered bug index 145\n");
++		        else
++		          fprintf(stderr, "reached bug index 145\n");
++		      }
++		      if ((!FIXREVERTER[145] && (dst == (void *) 0 ))
++		      #else
++		      if (0
++		      #endif
++		      ) {
+ 			break;
+ 		      }
++		      #ifdef FRCOV
++		      }
++		      #endif
+ 		    }
+ 		    if (dst != NULL) {
+ 		      port = ntohs_ndpi_bytestream_to_number
+diff --git a/src/lib/protocols/jabber.c b/src/lib/protocols/jabber.c
+index 6ee96e5af..8716f6949 100644
+--- a/src/lib/protocols/jabber.c
++++ b/src/lib/protocols/jabber.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * jabber.c
+  *
+@@ -130,10 +137,25 @@ void ndpi_search_jabber_tcp(struct ndpi_detection_module_struct *ndpi_struct, st
+     u_int16_t j_port = 0;
+     /* check for google jabber voip connections ... */
+     /* need big packet */
+-    if (packet->payload_packet_len < 100) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[171]) {
++      if ((packet -> payload_packet_len < 100 ) && !(0))
++        fprintf(stderr, "triggered bug index 171\n");
++      else
++        fprintf(stderr, "reached bug index 171\n");
++    }
++    if ((!FIXREVERTER[171] && (packet -> payload_packet_len < 100 ))
++    #else
++    if (0
++    #endif
++    ) {
+       NDPI_LOG_DBG2(ndpi_struct, "packet too small, return\n");
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     /* need message to or type for file-transfer */
+     if (memcmp(packet->payload, "<iq from=\"", 8) == 0 || memcmp(packet->payload, "<iq from=\'", 8) == 0) {
+       NDPI_LOG_DBG2(ndpi_struct, "JABBER <iq from=\"\n");
+@@ -194,9 +216,24 @@ void ndpi_search_jabber_tcp(struct ndpi_detection_module_struct *ndpi_struct, st
+ 	  break;
+ 	}
+       }
+-      if (x >= lastlen) {
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[172]) {
++        if ((x >= lastlen ) && !(0))
++          fprintf(stderr, "triggered bug index 172\n");
++        else
++          fprintf(stderr, "reached bug index 172\n");
++      }
++      if ((!FIXREVERTER[172] && (x >= lastlen ))
++      #else
++      if (0
++      #endif
++      ) {
+ 	return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+ 
+       lastlen = packet->payload_packet_len - 10;
+       for (; x < lastlen; x++) {
+diff --git a/src/lib/protocols/kerberos.c b/src/lib/protocols/kerberos.c
+index 5eb7626e7..733243321 100644
+--- a/src/lib/protocols/kerberos.c
++++ b/src/lib/protocols/kerberos.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * kerberos.c
+  *
+@@ -216,8 +223,23 @@ void ndpi_search_kerberos(struct ndpi_detection_module_struct *ndpi_struct,
+ 		    u_int8_t num_cname = 0;
+ 
+ 		    while(++num_cname <= 2) {
+-		      if(cname_len > sizeof(cname_str)-1)
++		      
++		      #ifdef FRCOV
++		      {if (FIXREVERTER[146]) {
++		        if ((cname_len > sizeof ( cname_str ) - 1 ) && !(0))
++		          fprintf(stderr, "triggered bug index 146\n");
++		        else
++		          fprintf(stderr, "reached bug index 146\n");
++		      }
++		      if ((!FIXREVERTER[146] && (cname_len > sizeof ( cname_str ) - 1 ))
++		      #else
++		      if (0
++		      #endif
++		      )
+ 			cname_len = sizeof(cname_str)-1;
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 		      strncpy(cname_str, (char*)&packet->payload[name_offset+1], cname_len);
+ 		      cname_str[cname_len] = '\0';
+@@ -254,8 +276,23 @@ void ndpi_search_kerberos(struct ndpi_detection_module_struct *ndpi_struct,
+ 		    if((realm_offset+realm_len) < packet->payload_packet_len) {
+ 		      char realm_str[48];
+ 
+-		      if(realm_len > sizeof(realm_str)-1)
++		      
++		      #ifdef FRCOV
++		      {if (FIXREVERTER[147]) {
++		        if ((realm_len > sizeof ( realm_str ) - 1 ) && !(0))
++		          fprintf(stderr, "triggered bug index 147\n");
++		        else
++		          fprintf(stderr, "reached bug index 147\n");
++		      }
++		      if ((!FIXREVERTER[147] && (realm_len > sizeof ( realm_str ) - 1 ))
++		      #else
++		      if (0
++		      #endif
++		      )
+ 			realm_len = sizeof(realm_str)-1;
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 		      realm_offset += 1;
+ 
+@@ -295,8 +332,23 @@ void ndpi_search_kerberos(struct ndpi_detection_module_struct *ndpi_struct,
+ 		  if((realm_len+name_offset) < packet->payload_packet_len) {
+ 		    char realm_str[48];
+ 
+-		    if(realm_len > sizeof(realm_str)-1)
++		    
++		    #ifdef FRCOV
++		    {if (FIXREVERTER[148]) {
++		      if ((realm_len > sizeof ( realm_str ) - 1 ) && !(0))
++		        fprintf(stderr, "triggered bug index 148\n");
++		      else
++		        fprintf(stderr, "reached bug index 148\n");
++		    }
++		    if ((!FIXREVERTER[148] && (realm_len > sizeof ( realm_str ) - 1 ))
++		    #else
++		    if (0
++		    #endif
++		    )
+ 		      realm_len = sizeof(realm_str)-1;
++		      #ifdef FRCOV
++		      }
++		      #endif
+ 
+ 		    name_offset += 1;
+ 
+diff --git a/src/lib/protocols/lotus_notes.c b/src/lib/protocols/lotus_notes.c
+index 344c24f50..401ed5295 100644
+--- a/src/lib/protocols/lotus_notes.c
++++ b/src/lib/protocols/lotus_notes.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * lotus_notes.c
+  *
+@@ -33,7 +40,22 @@ static void ndpi_check_lotus_notes(struct ndpi_detection_module_struct *ndpi_str
+   // const u_int8_t *packet_payload = packet->payload;
+   u_int32_t payload_len = packet->payload_packet_len;
+ 
+-  if(packet->tcp == NULL)  return;
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[55]) {
++    if ((packet -> tcp == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 55\n");
++    else
++      fprintf(stderr, "reached bug index 55\n");
++  }
++  if ((!FIXREVERTER[55] && (packet -> tcp == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )  return;
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   flow->l4.tcp.lotus_notes_packet_id++;
+   
+diff --git a/src/lib/protocols/mail_imap.c b/src/lib/protocols/mail_imap.c
+index 99b386205..3de513b02 100644
+--- a/src/lib/protocols/mail_imap.c
++++ b/src/lib/protocols/mail_imap.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * mail_imap.c
+  *
+@@ -69,7 +76,21 @@ void ndpi_search_mail_imap_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+ 
+       if(flow->l4.tcp.mail_imap_stage < 4) {
+ 	// search for the first space character (end of the tag)
+-	while (i < 20 && i < packet->payload_packet_len) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[150])
++	  fprintf(stderr, "reached bug index 150\n");
++	while ((FIXREVERTER[150] && (i < 20 )) || (!FIXREVERTER[150] && (i < 20 && i < packet -> payload_packet_len ))
++	#else
++	while (i < 20 
++	#endif
++	) {
++	  
++	#ifdef FRCOV
++	  if (!(i < packet -> payload_packet_len ))
++	    fprintf(stderr, "triggered bug index 150\n");
++	  #endif
++	
+ 	  if(i > 0 && packet->payload[i] == ' ') {
+ 	    space_pos = i;
+ 	    break;
+@@ -81,13 +102,45 @@ void ndpi_search_mail_imap_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+ 	  }
+ 	  i++;
+ 	}
+-	if(space_pos == 0 || space_pos == (packet->payload_packet_len - 1)) {
++	#ifdef FRCOV
++	}
++	#endif
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[151]) {
++	  if ((space_pos == 0 || space_pos == packet -> payload_packet_len - 1 ) && !(0))
++	    fprintf(stderr, "triggered bug index 151\n");
++	  else
++	    fprintf(stderr, "reached bug index 151\n");
++	}
++	if ((!FIXREVERTER[151] && (space_pos == 0 || space_pos == packet -> payload_packet_len - 1 ))
++	#else
++	if (0
++	#endif
++	) {
+ 	  goto imap_excluded;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	// now walk over a possible mail number to the next space
+ 	i++;
+ 	if(i < packet->payload_packet_len && (packet->payload[i] >= '0' && packet->payload[i] <= '9')) {
+-	  while (i < 20 && i < packet->payload_packet_len) {
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[152])
++	    fprintf(stderr, "reached bug index 152\n");
++	  while ((FIXREVERTER[152] && (i < 20 )) || (!FIXREVERTER[152] && (i < 20 && i < packet -> payload_packet_len ))
++	  #else
++	  while (i < 20 
++	  #endif
++	  ) {
++	    
++	  #ifdef FRCOV
++	    if (!(i < packet -> payload_packet_len ))
++	      fprintf(stderr, "triggered bug index 152\n");
++	    #endif
++	  
+ 	    if(i > 0 && packet->payload[i] == ' ') {
+ 	      space_pos = i;
+ 	      break;
+@@ -97,9 +150,27 @@ void ndpi_search_mail_imap_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+ 	    }
+ 	    i++;
+ 	  }
+-	  if(space_pos == 0 || space_pos == (packet->payload_packet_len - 1)) {
++	  #ifdef FRCOV
++	  }
++	  #endif
++	  
++	  #ifdef FRCOV
++	  {if (FIXREVERTER[153]) {
++	    if ((space_pos == 0 || space_pos == packet -> payload_packet_len - 1 ) && !(0))
++	      fprintf(stderr, "triggered bug index 153\n");
++	    else
++	      fprintf(stderr, "reached bug index 153\n");
++	  }
++	  if ((!FIXREVERTER[153] && (space_pos == 0 || space_pos == packet -> payload_packet_len - 1 ))
++	  #else
++	  if (0
++	  #endif
++	  ) {
+ 	    goto imap_excluded;
+ 	  }
++	  #ifdef FRCOV
++	  }
++	  #endif
+ 	}
+ 	command_start = space_pos + 1;
+ 	/* command = &(packet->payload[command_start]); */
+diff --git a/src/lib/protocols/mgcp.c b/src/lib/protocols/mgcp.c
+index 54e065655..dd06f6472 100644
+--- a/src/lib/protocols/mgcp.c
++++ b/src/lib/protocols/mgcp.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * mgcp.c
+  *
+@@ -44,7 +51,22 @@ void ndpi_search_mgcp(struct ndpi_detection_module_struct *ndpi_struct, struct n
+   NDPI_LOG_DBG(ndpi_struct, "search MGCP\n");
+ 
+   do {
+-    if (packet->payload_packet_len < 8) break;
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[271]) {
++      if ((packet -> payload_packet_len < 8 ) && !(0))
++        fprintf(stderr, "triggered bug index 271\n");
++      else
++        fprintf(stderr, "reached bug index 271\n");
++    }
++    if ((!FIXREVERTER[271] && (packet -> payload_packet_len < 8 ))
++    #else
++    if (0
++    #endif
++    ) break;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     /* packet must end with 0x0d0a or with 0x0a */
+     if (packet->payload[packet->payload_packet_len - 1] != 0x0a) break;
+diff --git a/src/lib/protocols/nest_log_sink.c b/src/lib/protocols/nest_log_sink.c
+index 347841d13..7982a4f9e 100644
+--- a/src/lib/protocols/nest_log_sink.c
++++ b/src/lib/protocols/nest_log_sink.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * nest_log_sink.c
+  *
+@@ -41,10 +48,25 @@ void ndpi_search_nest_log_sink(
+ 
+     NDPI_LOG_DBG(ndpi_struct, "search nest_log_sink\n");
+ 
+-    if (packet->payload_packet_len < NEST_LOG_SINK_MIN_LEN) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[136]) {
++      if ((packet -> payload_packet_len < 8 ) && !(0))
++        fprintf(stderr, "triggered bug index 136\n");
++      else
++        fprintf(stderr, "reached bug index 136\n");
++    }
++    if ((!FIXREVERTER[136] && (packet -> payload_packet_len < 8 ))
++    #else
++    if (0
++    #endif
++    ) {
+         NDPI_EXCLUDE_PROTO(ndpi_struct, flow);
+         return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     if (ntohs(packet->tcp->source) != NEST_LOG_SINK_PORT &&
+             ntohs(packet->tcp->dest) != NEST_LOG_SINK_PORT) {
+diff --git a/src/lib/protocols/quic.c b/src/lib/protocols/quic.c
+index 5c565e5a1..cea1e6434 100644
+--- a/src/lib/protocols/quic.c
++++ b/src/lib/protocols/quic.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * quic.c
+  *
+@@ -134,10 +141,27 @@ void ndpi_search_quic(struct ndpi_detection_module_struct *ndpi_struct,
+ 	      
+ 	      if(len > max_len) len = max_len;
+ 	      
+-	      while((len > 0) && (sni_offset < udp_len)) {
++	      
++	      #ifdef FRCOV
++	      {if (FIXREVERTER[155])
++	        fprintf(stderr, "reached bug index 155\n");
++	      while ((FIXREVERTER[155] && (len > 0 )) || (!FIXREVERTER[155] && (len > 0 && sni_offset < udp_len ))
++	      #else
++	      while (len > 0 
++	      #endif
++	      ) {
++	        
++	      #ifdef FRCOV
++	        if (!(sni_offset < udp_len ))
++	          fprintf(stderr, "triggered bug index 155\n");
++	        #endif
++	      
+ 		flow->host_server_name[j++] = packet->payload[sni_offset];
+ 		sni_offset++, len--;
+ 	      }
++	      #ifdef FRCOV
++	      }
++	      #endif
+ 	      
+ 	      ndpi_match_host_subprotocol(ndpi_struct, flow, 
+ 					  (char *)flow->host_server_name,
+diff --git a/src/lib/protocols/smpp.c b/src/lib/protocols/smpp.c
+index 472049931..cfa9fa147 100644
+--- a/src/lib/protocols/smpp.c
++++ b/src/lib/protocols/smpp.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * smpp.c
+  * 
+@@ -45,10 +52,25 @@ void ndpi_search_smpp_tcp(struct ndpi_detection_module_struct* ndpi_struct,
+   if (flow->packet.detected_protocol_stack[0] != NDPI_PROTOCOL_SMPP){
+     struct ndpi_packet_struct* packet = &flow->packet;
+     // min SMPP packet length = 16 bytes
+-    if (packet->payload_packet_len < 16) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[278]) {
++      if ((packet -> payload_packet_len < 16 ) && !(0))
++        fprintf(stderr, "triggered bug index 278\n");
++      else
++        fprintf(stderr, "reached bug index 278\n");
++    }
++    if ((!FIXREVERTER[278] && (packet -> payload_packet_len < 16 ))
++    #else
++    if (0
++    #endif
++    ) {
+       NDPI_EXCLUDE_PROTO(ndpi_struct, flow);
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     // get PDU length
+     u_int32_t pdu_l = ntohl(get_u_int32_t(packet->payload, 0));
+ 
+@@ -84,10 +106,25 @@ void ndpi_search_smpp_tcp(struct ndpi_detection_module_struct* ndpi_struct,
+ 	       total_pdu_l, pdu_c, packet->payload_packet_len);
+ 
+       // verify multi PDU total length
+-      if(total_pdu_l != packet->payload_packet_len){
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[280]) {
++        if ((total_pdu_l != packet -> payload_packet_len ) && !(0))
++          fprintf(stderr, "triggered bug index 280\n");
++        else
++          fprintf(stderr, "reached bug index 280\n");
++      }
++      if ((!FIXREVERTER[280] && (total_pdu_l != packet -> payload_packet_len ))
++      #else
++      if (0
++      #endif
++      ){
+ 	// return, will try the next TCP segment
+ 	return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+     }
+ 
+     // *** check PDU type ***
+diff --git a/src/lib/protocols/soulseek.c b/src/lib/protocols/soulseek.c
+index a08774bb8..741a7463c 100644
+--- a/src/lib/protocols/soulseek.c
++++ b/src/lib/protocols/soulseek.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * soulseek.c
+  *
+@@ -59,12 +66,27 @@ void ndpi_search_soulseek_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+ 		 != 0 ? 1 : 0, (long long unsigned int) packet->tick_timestamp,
+ 		      (long long unsigned int) dst->soulseek_last_safe_access_time);
+ 
+-      if(packet->payload_packet_len == 431) {
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[48]) {
++        if ((packet -> payload_packet_len == 431 ) && !(0))
++          fprintf(stderr, "triggered bug index 48\n");
++        else
++          fprintf(stderr, "reached bug index 48\n");
++      }
++      if ((!FIXREVERTER[48] && (packet -> payload_packet_len == 431 ))
++      #else
++      if (0
++      #endif
++      ) {
+ 	if(dst != NULL) {
+ 	  dst->soulseek_last_safe_access_time = packet->tick_timestamp;
+ 	}
+ 	return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+       if(packet->payload_packet_len == 12 && get_l32(packet->payload, 4) == 0x02) {
+ 	if(src != NULL) {
+ 	  src->soulseek_last_safe_access_time = packet->tick_timestamp;
+@@ -240,10 +262,25 @@ void ndpi_search_soulseek_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+ 	NDPI_LOG_INFO(ndpi_struct, "found soulseek\n");
+ 	SOULSEEK_DETECT;	
+ 	return;
+-      } else if(packet->payload_packet_len == 4) {
++      } else 
++      #ifdef FRCOV
++      {if (FIXREVERTER[51]) {
++        if ((packet -> payload_packet_len == 4 ) && !(0))
++          fprintf(stderr, "triggered bug index 51\n");
++        else
++          fprintf(stderr, "reached bug index 51\n");
++      }
++      if ((!FIXREVERTER[51] && (packet -> payload_packet_len == 4 ))
++      #else
++      if (0
++      #endif
++      ) {
+ 	flow->l4.tcp.soulseek_stage = 3;
+ 	return;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+     } else if(flow->l4.tcp.soulseek_stage == 1 + packet->packet_direction) {
+       if(packet->payload_packet_len > 8) {
+ 	if(packet->payload[4] == 0x03 && get_l32(packet->payload, 5) == 0x00000031) {
+diff --git a/src/lib/protocols/starcraft.c b/src/lib/protocols/starcraft.c
+index 144a69c3c..131237b2b 100644
+--- a/src/lib/protocols/starcraft.c
++++ b/src/lib/protocols/starcraft.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+ * starcraft.c
+ * 
+@@ -29,8 +36,23 @@
+ /* Sender or receiver are one of the known login portals? */
+ u_int8_t sc2_match_logon_ip(struct ndpi_packet_struct* packet)
+ {
+-  if (packet->iph == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[251]) {
++    if ((packet -> iph == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 251\n");
++    else
++      fprintf(stderr, "reached bug index 251\n");
++  }
++  if ((!FIXREVERTER[251] && (packet -> iph == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return 0;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   u_int32_t source_ip = ntohl(packet->iph->saddr);
+   u_int32_t dest_ip = ntohl(packet->iph->daddr);
+@@ -104,8 +126,23 @@ u_int8_t ndpi_check_starcraft_udp(struct ndpi_detection_module_struct* ndpi_stru
+ 	flow->starcraft_udp_stage = 7;
+       break;
+     case 7:
+-      if (packet->payload_packet_len == 484)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[252]) {
++        if ((packet -> payload_packet_len == 484 ) && !(0))
++          fprintf(stderr, "triggered bug index 252\n");
++        else
++          fprintf(stderr, "reached bug index 252\n");
++      }
++      if ((!FIXREVERTER[252] && (packet -> payload_packet_len == 484 ))
++      #else
++      if (0
++      #endif
++      )
+ 	return 1;
++	#ifdef FRCOV
++	}
++	#endif
+       break;
+     }
+ 
+diff --git a/src/lib/protocols/stun.c b/src/lib/protocols/stun.c
+index fd783d099..35c064de4 100644
+--- a/src/lib/protocols/stun.c
++++ b/src/lib/protocols/stun.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * stun.c
+  *
+@@ -516,8 +523,23 @@ void ndpi_search_stun(struct ndpi_detection_module_struct *ndpi_struct, struct n
+   if(ndpi_int_check_stun(ndpi_struct, flow, packet->payload,
+ 			 packet->payload_packet_len) == NDPI_IS_STUN) {
+   udp_stun_match:
+-    if(flow->guessed_protocol_id == NDPI_PROTOCOL_UNKNOWN)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[135]) {
++      if ((flow -> guessed_protocol_id == NDPI_PROTOCOL_UNKNOWN  ) && !(0))
++        fprintf(stderr, "triggered bug index 135\n");
++      else
++        fprintf(stderr, "reached bug index 135\n");
++    }
++    if ((!FIXREVERTER[135] && (flow -> guessed_protocol_id == NDPI_PROTOCOL_UNKNOWN  ))
++    #else
++    if (0
++    #endif
++    )
+       flow->guessed_protocol_id = NDPI_PROTOCOL_STUN;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+     if(flow->guessed_host_protocol_id == NDPI_PROTOCOL_UNKNOWN) {
+       flow->guessed_host_protocol_id = flow->guessed_protocol_id;
+diff --git a/src/lib/protocols/teamviewer.c b/src/lib/protocols/teamviewer.c
+index b3b26ad52..e3e2c21ff 100644
+--- a/src/lib/protocols/teamviewer.c
++++ b/src/lib/protocols/teamviewer.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * teamviewer.c
+  *
+@@ -63,7 +70,22 @@ void ndpi_search_teamview(struct ndpi_detection_module_struct *ndpi_struct, stru
+     }
+   }
+ 
+-  if(packet->payload_packet_len == 0) return;
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[250]) {
++    if ((packet -> payload_packet_len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 250\n");
++    else
++      fprintf(stderr, "reached bug index 250\n");
++  }
++  if ((!FIXREVERTER[250] && (packet -> payload_packet_len == 0 ))
++  #else
++  if (0
++  #endif
++  ) return;
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   if (packet->udp != NULL) {
+     if (packet->payload_packet_len > 13) {
+diff --git a/src/lib/protocols/telegram.c b/src/lib/protocols/telegram.c
+index 87abcde80..7b7041f4d 100644
+--- a/src/lib/protocols/telegram.c
++++ b/src/lib/protocols/telegram.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * telegram.c
+  *
+@@ -44,8 +51,23 @@ void ndpi_search_telegram(struct ndpi_detection_module_struct *ndpi_struct, stru
+   
+   NDPI_LOG_DBG(ndpi_struct, "search telegram\n");
+ 
+-  if (packet->payload_packet_len == 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[141]) {
++    if ((packet -> payload_packet_len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 141\n");
++    else
++      fprintf(stderr, "reached bug index 141\n");
++  }
++  if ((!FIXREVERTER[141] && (packet -> payload_packet_len == 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return;
++    #ifdef FRCOV
++    }
++    #endif
+   if (packet->tcp != NULL) {
+     if (packet->payload_packet_len > 56) {
+       dport = ntohs(packet->tcp->dest);
+diff --git a/src/lib/protocols/telnet.c b/src/lib/protocols/telnet.c
+index 0848ef467..0c6154934 100644
+--- a/src/lib/protocols/telnet.c
++++ b/src/lib/protocols/telnet.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * telnet.c
+  *
+@@ -139,8 +146,23 @@ u_int8_t search_iac(struct ndpi_detection_module_struct *ndpi_struct,
+   printf("==> %s()\n", __FUNCTION__);
+ #endif
+ 
+-  if(packet->payload_packet_len < 3)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[3]) {
++    if ((packet -> payload_packet_len < 3 ) && !(0))
++      fprintf(stderr, "triggered bug index 3\n");
++    else
++      fprintf(stderr, "reached bug index 3\n");
++  }
++  if ((!FIXREVERTER[3] && (packet -> payload_packet_len < 3 ))
++  #else
++  if (0
++  #endif
++  )
+     return(0);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   if(!((packet->payload[0] == 0xff)
+        && (packet->payload[1] > 0xf9)
+diff --git a/src/lib/protocols/tls.c b/src/lib/protocols/tls.c
+index d4f60d973..0379e2f22 100644
+--- a/src/lib/protocols/tls.c
++++ b/src/lib/protocols/tls.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * tls.c - SSL/TLS/DTLS dissector
+  *
+@@ -506,8 +513,23 @@ static int ndpi_search_tls_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+ 	 packet->payload_packet_len);
+ #endif
+ 
+-  if(packet->payload_packet_len == 0)
+-    return(1); /* Keep working */
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[264]) {
++    if ((packet -> payload_packet_len == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 264\n");
++    else
++      fprintf(stderr, "reached bug index 264\n");
++  }
++  if ((!FIXREVERTER[264] && (packet -> payload_packet_len == 0 ))
++  #else
++  if (0
++  #endif
++  )
++    return(1);
++    #ifdef FRCOV
++    }
++    #endif /* Keep working */
+ 
+   ndpi_search_tls_tcp_memory(ndpi_struct, flow);
+ 
+@@ -533,10 +555,25 @@ static int ndpi_search_tls_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+       break;
+     }
+ 
+-    if(len == 0) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[265]) {
++      if ((len == 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 265\n");
++      else
++        fprintf(stderr, "reached bug index 265\n");
++    }
++    if ((!FIXREVERTER[265] && (len == 0 ))
++    #else
++    if (0
++    #endif
++    ) {
+       something_went_wrong = 1;
+       break;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     
+ #ifdef DEBUG_TLS_MEMORY
+     printf("[TLS Mem] Processing %u bytes message\n", len);
+@@ -559,10 +596,25 @@ static int ndpi_search_tls_tcp(struct ndpi_detection_module_struct *ndpi_struct,
+       
+       packet->payload = block, packet->payload_packet_len = block_len+4;
+ 
+-      if((processed+packet->payload_packet_len) > len) {
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[266]) {
++        if ((processed + packet -> payload_packet_len > len ) && !(0))
++          fprintf(stderr, "triggered bug index 266\n");
++        else
++          fprintf(stderr, "reached bug index 266\n");
++      }
++      if ((!FIXREVERTER[266] && (processed + packet -> payload_packet_len > len ))
++      #else
++      if (0
++      #endif
++      ) {
+ 	something_went_wrong = 1;
+ 	break;
+       }
++      #ifdef FRCOV
++      }
++      #endif
+       
+ #ifdef DEBUG_TLS_MEMORY
+       printf("*** [TLS Mem] Processing %u bytes block [%02X %02X %02X %02X %02X]\n",
+@@ -635,8 +687,23 @@ static int ndpi_search_tls_udp(struct ndpi_detection_module_struct *ndpi_struct,
+   // handshake_type = packet->payload[13];
+   handshake_len  = (packet->payload[14] << 16) + (packet->payload[15] << 8) + packet->payload[16];
+ 
+-  if((handshake_len+25) != packet->payload_packet_len)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[267]) {
++    if ((handshake_len + 25 != packet -> payload_packet_len ) && !(0))
++      fprintf(stderr, "triggered bug index 267\n");
++    else
++      fprintf(stderr, "reached bug index 267\n");
++  }
++  if ((!FIXREVERTER[267] && (handshake_len + 25 != packet -> payload_packet_len ))
++  #else
++  if (0
++  #endif
++  )
+     goto no_dtls;
++    #ifdef FRCOV
++    }
++    #endif
+   
+   /* Overwriting packet payload */
+   p = packet->payload, p_len = packet->payload_packet_len; /* Backup */  
+@@ -762,8 +829,23 @@ int processClientServerHello(struct ndpi_detection_module_struct *ndpi_struct,
+ 	  offset += session_id_len+1;
+       }
+ 
+-      if((offset+3) > packet->payload_packet_len)
+-	return(0); /* Not found */
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[268]) {
++        if ((offset + 3 > packet -> payload_packet_len ) && !(0))
++          fprintf(stderr, "triggered bug index 268\n");
++        else
++          fprintf(stderr, "reached bug index 268\n");
++      }
++      if ((!FIXREVERTER[268] && (offset + 3 > packet -> payload_packet_len ))
++      #else
++      if (0
++      #endif
++      )
++	return(0);
++	#ifdef FRCOV
++	}
++	#endif /* Not found */
+ 
+       ja3.num_cipher = 1, ja3.cipher[0] = ntohs(*((u_int16_t*)&packet->payload[offset]));
+       flow->protos.stun_ssl.ssl.server_unsafe_cipher = ndpi_is_safe_ssl_cipher(ja3.cipher[0]);
+@@ -788,7 +870,22 @@ int processClientServerHello(struct ndpi_detection_module_struct *ndpi_struct,
+       for(i=0; i<extension_len; ) {
+ 	u_int16_t extension_id, extension_len;
+ 
+-	if(offset >= (packet->payload_packet_len+4)) break;
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[269]) {
++	  if ((offset >= packet -> payload_packet_len + 4 ) && !(0))
++	    fprintf(stderr, "triggered bug index 269\n");
++	  else
++	    fprintf(stderr, "reached bug index 269\n");
++	}
++	if ((!FIXREVERTER[269] && (offset >= packet -> payload_packet_len + 4 ))
++	#else
++	if (0
++	#endif
++	) break;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	extension_id  = ntohs(*((u_int16_t*)&packet->payload[offset]));
+ 	extension_len = ntohs(*((u_int16_t*)&packet->payload[offset+2]));
+@@ -1147,10 +1244,25 @@ int processClientServerHello(struct ndpi_detection_module_struct *ndpi_struct,
+ 		   (extensions_len+offset), total_len);
+ #endif
+ 	  }
+-	} else if(offset == total_len) {
++	} else 
++	#ifdef FRCOV
++	{if (FIXREVERTER[270]) {
++	  if ((offset == total_len ) && !(0))
++	    fprintf(stderr, "triggered bug index 270\n");
++	  else
++	    fprintf(stderr, "reached bug index 270\n");
++	}
++	if ((!FIXREVERTER[270] && (offset == total_len ))
++	#else
++	if (0
++	#endif
++	) {
+ 	  /* SSL does not have extensions etc */
+ 	  goto compute_ja3c;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+       } else {
+ #ifdef DEBUG_TLS
+ 	printf("[JA3] Client: invalid length detected\n");
+diff --git a/src/lib/protocols/whatsapp.c b/src/lib/protocols/whatsapp.c
+index 608e6576e..211c283ee 100644
+--- a/src/lib/protocols/whatsapp.c
++++ b/src/lib/protocols/whatsapp.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * whatsapp.c
+  *
+@@ -35,8 +42,23 @@ void ndpi_search_whatsapp(struct ndpi_detection_module_struct *ndpi_struct,
+ 
+   if(flow->l4.tcp.wa_matched_so_far < sizeof(whatsapp_sequence)) {
+     size_t match_len = sizeof(whatsapp_sequence) - flow->l4.tcp.wa_matched_so_far;
+-    if(packet->payload_packet_len < match_len)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[138]) {
++      if ((packet -> payload_packet_len < match_len ) && !(0))
++        fprintf(stderr, "triggered bug index 138\n");
++      else
++        fprintf(stderr, "reached bug index 138\n");
++    }
++    if ((!FIXREVERTER[138] && (packet -> payload_packet_len < match_len ))
++    #else
++    if (0
++    #endif
++    )
+ 	    match_len = packet->payload_packet_len;
++	    #ifdef FRCOV
++	    }
++	    #endif
+ 
+     if(!memcmp(packet->payload, &whatsapp_sequence[flow->l4.tcp.wa_matched_so_far], match_len)) {
+       flow->l4.tcp.wa_matched_so_far += match_len;
+diff --git a/src/lib/protocols/whoisdas.c b/src/lib/protocols/whoisdas.c
+index 6ccac8c77..06210507a 100644
+--- a/src/lib/protocols/whoisdas.c
++++ b/src/lib/protocols/whoisdas.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * whoisdas.c
+  *
+@@ -40,10 +47,27 @@ void ndpi_search_whois_das(struct ndpi_detection_module_struct *ndpi_struct, str
+ 	u_int max_len = sizeof(flow->host_server_name) - 1;
+ 	u_int i, j;
+ 
+-	for(i=strlen((const char *)flow->host_server_name), j=0; (i<max_len) && (j<packet->payload_packet_len); i++, j++) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[54])
++	  fprintf(stderr, "reached bug index 54\n");
++	for (i = strlen((const char *)flow->host_server_name) , j = 0; (FIXREVERTER[54] && (i < max_len )) || (!FIXREVERTER[54] && (i < max_len && j < packet -> payload_packet_len ))
++	#else
++	for (i = strlen((const char *)flow->host_server_name) , j = 0; i < max_len 
++	#endif
++	; i++, j++) {
++	  
++	#ifdef FRCOV
++	  if (!(j < packet -> payload_packet_len ))
++	    fprintf(stderr, "triggered bug index 54\n");
++	  #endif
++	
+ 	  if((packet->payload[j] == '\n') || (packet->payload[j] == '\r')) break;	  
+ 	  flow->host_server_name[i] = packet->payload[j];
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	
+ 	flow->host_server_name[i] = '\0';
+ 	
+diff --git a/src/lib/protocols/wireguard.c b/src/lib/protocols/wireguard.c
+index 902113bf4..0e136765c 100644
+--- a/src/lib/protocols/wireguard.c
++++ b/src/lib/protocols/wireguard.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * wireguard.c
+  *
+@@ -65,10 +72,25 @@ void ndpi_search_wireguard(struct ndpi_detection_module_struct
+    * Thus, packet->payload will be at least 32 bytes in size.
+    * Note that handshake packets have a slightly different structure, but they are larger.
+    */
+-  if (packet->payload_packet_len < 32) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[209]) {
++    if ((packet -> payload_packet_len < 32 ) && !(0))
++      fprintf(stderr, "triggered bug index 209\n");
++    else
++      fprintf(stderr, "reached bug index 209\n");
++  }
++  if ((!FIXREVERTER[209] && (packet -> payload_packet_len < 32 ))
++  #else
++  if (0
++  #endif
++  ) {
+     NDPI_EXCLUDE_PROTO(ndpi_struct, flow);
+     return;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+   /*
+    * The next three bytes after the message type are reserved and set to zero.
+    */
+diff --git a/src/lib/protocols/yahoo.c b/src/lib/protocols/yahoo.c
+index ceb9d48b6..6411aa0e8 100644
+--- a/src/lib/protocols/yahoo.c
++++ b/src/lib/protocols/yahoo.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * yahoo.c
+  *
+@@ -70,15 +77,45 @@ u_int8_t check_ymsg(const u_int8_t * payload, u_int16_t payload_packet_len)
+     
+     yahoo_len_parsed += 20 + ylen;	/* possible overflow here: 20 + ylen = 0x10000 --> 0 --> infinite loop */
+ 
+-    if(ylen >= payload_packet_len || yahoo_len_parsed >= payload_packet_len)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[162]) {
++      if ((ylen >= payload_packet_len || yahoo_len_parsed >= payload_packet_len ) && !(0))
++        fprintf(stderr, "triggered bug index 162\n");
++      else
++        fprintf(stderr, "reached bug index 162\n");
++    }
++    if ((!FIXREVERTER[162] && (ylen >= payload_packet_len || yahoo_len_parsed >= payload_packet_len ))
++    #else
++    if (0
++    #endif
++    )
+       break;
++      #ifdef FRCOV
++      }
++      #endif
+ 
+     yahoo = (struct ndpi_yahoo_header *) (payload + yahoo_len_parsed);
+   }
+   while(memcmp(yahoo->YMSG_str, "YMSG", 4) == 0);
+ 
+-  if(yahoo_len_parsed == payload_packet_len)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[163]) {
++    if ((yahoo_len_parsed == payload_packet_len ) && !(0))
++      fprintf(stderr, "triggered bug index 163\n");
++    else
++      fprintf(stderr, "reached bug index 163\n");
++  }
++  if ((!FIXREVERTER[163] && (yahoo_len_parsed == payload_packet_len ))
++  #else
++  if (0
++  #endif
++  )
+     return 1;
++    #ifdef FRCOV
++    }
++    #endif
+   
+   return 0;
+ }
+diff --git a/src/lib/third_party/src/ahocorasick.c b/src/lib/third_party/src/ahocorasick.c
+index 27134c0cc..0f0565365 100644
+--- a/src/lib/third_party/src/ahocorasick.c
++++ b/src/lib/third_party/src/ahocorasick.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * ahocorasick.c: implementation of ahocorasick library's functions
+  * This file is part of multifast.
+@@ -84,8 +91,23 @@ AC_ERROR_t ac_automata_add (AC_AUTOMATA_t * thiz, AC_PATTERN_t * patt)
+   if (!patt->length)
+     return ACERR_ZERO_PATTERN;
+ 
+-  if (patt->length > AC_PATTRN_MAX_LENGTH)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[2]) {
++    if ((patt -> length > 1024 ) && !(0))
++      fprintf(stderr, "triggered bug index 2\n");
++    else
++      fprintf(stderr, "reached bug index 2\n");
++  }
++  if ((!FIXREVERTER[2] && (patt -> length > 1024 ))
++  #else
++  if (0
++  #endif
++  )
+     return ACERR_LONG_PATTERN;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   for (i=0; i<patt->length; i++)
+   {
+diff --git a/src/lib/third_party/src/ndpi_md5.c b/src/lib/third_party/src/ndpi_md5.c
+index fefe9d65f..fbce9333c 100644
+--- a/src/lib/third_party/src/ndpi_md5.c
++++ b/src/lib/third_party/src/ndpi_md5.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+   Contributed code pasted here to make nDPI self-contained with no
+   external dependencies
+@@ -149,10 +156,25 @@ void ndpi_MD5Update(ndpi_MD5_CTX *ctx, unsigned char const *buf, unsigned len) {
+     unsigned char *p = (unsigned char *) ctx->in + t;
+ 
+     t = 64 - t;
+-    if (len < t) {
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[246]) {
++      if ((len < t ) && !(0))
++        fprintf(stderr, "triggered bug index 246\n");
++      else
++        fprintf(stderr, "reached bug index 246\n");
++    }
++    if ((!FIXREVERTER[246] && (len < t ))
++    #else
++    if (0
++    #endif
++    ) {
+       memcpy(p, buf, len);
+       return;
+     }
++    #ifdef FRCOV
++    }
++    #endif
+     memcpy(p, buf, t);
+     byte_reverse(ctx->in, 16);
+     MD5Transform(ctx->buf, (u_int32_t *) ctx->in);
+diff --git a/src/lib/third_party/src/ndpi_patricia.c b/src/lib/third_party/src/ndpi_patricia.c
+index 2bc4f869c..e000064b7 100644
+--- a/src/lib/third_party/src/ndpi_patricia.c
++++ b/src/lib/third_party/src/ndpi_patricia.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * $Id: patricia.c,v 1.7 2005/12/07 20:46:41 dplonka Exp $
+  * Dave Plonka <plonka@doit.wisc.edu>
+@@ -68,8 +75,23 @@ void ndpi_DeleteEntry(void *a) {
+ u_char *
+ ndpi_prefix_tochar (prefix_t * prefix)
+ {
+-  if(prefix == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[187]) {
++    if ((prefix == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 187\n");
++    else
++      fprintf(stderr, "reached bug index 187\n");
++  }
++  if ((!FIXREVERTER[187] && (prefix == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return (NULL);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   return ((u_char *) & prefix->add.sin);
+ }
+@@ -331,12 +353,42 @@ ndpi_ascii2prefix (int family, char *string)
+ prefix_t *
+ ndpi_Ref_Prefix (prefix_t * prefix)
+ {
+-  if(prefix == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[193]) {
++    if ((prefix == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 193\n");
++    else
++      fprintf(stderr, "reached bug index 193\n");
++  }
++  if ((!FIXREVERTER[193] && (prefix == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return (NULL);
+-  if(prefix->ref_count == 0) {
++    #ifdef FRCOV
++    }
++    #endif
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[194]) {
++    if ((prefix -> ref_count == 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 194\n");
++    else
++      fprintf(stderr, "reached bug index 194\n");
++  }
++  if ((!FIXREVERTER[194] && (prefix -> ref_count == 0 ))
++  #else
++  if (0
++  #endif
++  ) {
+     /* make a copy in case of a static prefix */
+     return (ndpi_New_Prefix2 (prefix->family, &prefix->add, prefix->bitlen, NULL));
+   }
++  #ifdef FRCOV
++  }
++  #endif
+   prefix->ref_count++;
+   /* fprintf(stderr, "[A %s, %d]\n", ndpi_prefix_toa (prefix), prefix->ref_count); */
+   return (prefix);
+@@ -345,17 +397,47 @@ ndpi_Ref_Prefix (prefix_t * prefix)
+ void 
+ ndpi_Deref_Prefix (prefix_t * prefix)
+ {
+-  if(prefix == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[195]) {
++    if ((prefix == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 195\n");
++    else
++      fprintf(stderr, "reached bug index 195\n");
++  }
++  if ((!FIXREVERTER[195] && (prefix == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return;
++    #ifdef FRCOV
++    }
++    #endif
+   /* for secure programming, raise an assert. no static prefix can call this */
+   assert (prefix->ref_count > 0);
+ 
+   prefix->ref_count--;
+   assert (prefix->ref_count >= 0);
+-  if(prefix->ref_count <= 0) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[196]) {
++    if ((prefix -> ref_count <= 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 196\n");
++    else
++      fprintf(stderr, "reached bug index 196\n");
++  }
++  if ((!FIXREVERTER[196] && (prefix -> ref_count <= 0 ))
++  #else
++  if (0
++  #endif
++  ) {
+     ndpi_DeleteEntry (prefix);
+     return;
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ }
+ 
+ /* #define PATRICIA_DEBUG 1 */
+@@ -556,8 +638,23 @@ ndpi_patricia_search_best2 (patricia_tree_t *patricia, prefix_t *prefix, int inc
+   assert (prefix);
+   assert (prefix->bitlen <= patricia->maxbits);
+ 
+-  if(patricia->head == NULL)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[200]) {
++    if ((patricia -> head == (void *) 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 200\n");
++    else
++      fprintf(stderr, "reached bug index 200\n");
++  }
++  if ((!FIXREVERTER[200] && (patricia -> head == (void *) 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return (NULL);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   node = patricia->head;
+   addr = prefix_touchar (prefix);
+@@ -596,8 +693,23 @@ ndpi_patricia_search_best2 (patricia_tree_t *patricia, prefix_t *prefix, int inc
+       node = node->l;
+     }
+ 
+-    if(node == NULL)
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[201]) {
++      if ((node == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 201\n");
++      else
++        fprintf(stderr, "reached bug index 201\n");
++    }
++    if ((!FIXREVERTER[201] && (node == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    )
+       break;
++      #ifdef FRCOV
++      }
++      #endif
+   }
+ 
+   if(inclusive && node && node->prefix)
+@@ -613,8 +725,23 @@ ndpi_patricia_search_best2 (patricia_tree_t *patricia, prefix_t *prefix, int inc
+     fprintf (stderr, "patricia_search_best: stop at %u\n", node->bit);
+ #endif /* PATRICIA_DEBUG */
+ 
+-  if(cnt <= 0)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[202]) {
++    if ((cnt <= 0 ) && !(0))
++      fprintf(stderr, "triggered bug index 202\n");
++    else
++      fprintf(stderr, "reached bug index 202\n");
++  }
++  if ((!FIXREVERTER[202] && (cnt <= 0 ))
++  #else
++  if (0
++  #endif
++  )
+     return (NULL);
++    #ifdef FRCOV
++    }
++    #endif
+ 
+   while (--cnt >= 0) {
+     node = stack[cnt];
+@@ -679,8 +806,23 @@ ndpi_patricia_lookup (patricia_tree_t *patricia, prefix_t *prefix)
+ 
+     if(node->bit < patricia->maxbits &&
+ 	BIT_TEST (addr[node->bit >> 3], 0x80 >> (node->bit & 0x07))) {
+-      if(node->r == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[203]) {
++        if ((node -> r == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 203\n");
++        else
++          fprintf(stderr, "reached bug index 203\n");
++      }
++      if ((!FIXREVERTER[203] && (node -> r == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	break;
++	#ifdef FRCOV
++	}
++	#endif
+ #ifdef PATRICIA_DEBUG
+       if(node->prefix)
+ 	fprintf (stderr, "patricia_lookup: take right %s/%d\n", 
+@@ -691,8 +833,23 @@ ndpi_patricia_lookup (patricia_tree_t *patricia, prefix_t *prefix)
+       node = node->r;
+     }
+     else {
+-      if(node->l == NULL)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[204]) {
++        if ((node -> l == (void *) 0 ) && !(0))
++          fprintf(stderr, "triggered bug index 204\n");
++        else
++          fprintf(stderr, "reached bug index 204\n");
++      }
++      if ((!FIXREVERTER[204] && (node -> l == (void *) 0 ))
++      #else
++      if (0
++      #endif
++      )
+ 	break;
++	#ifdef FRCOV
++	}
++	#endif
+ #ifdef PATRICIA_DEBUG
+       if(node->prefix)
+ 	fprintf (stderr, "patricia_lookup: take left %s/%d\n", 
+@@ -733,8 +890,23 @@ ndpi_patricia_lookup (patricia_tree_t *patricia, prefix_t *prefix)
+     differ_bit = i * 8 + j;
+     break;
+   }
+-  if(differ_bit > check_bit)
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[205]) {
++    if ((differ_bit > check_bit ) && !(0))
++      fprintf(stderr, "triggered bug index 205\n");
++    else
++      fprintf(stderr, "reached bug index 205\n");
++  }
++  if ((!FIXREVERTER[205] && (differ_bit > check_bit ))
++  #else
++  if (0
++  #endif
++  )
+     differ_bit = check_bit;
++    #ifdef FRCOV
++    }
++    #endif
+ #ifdef PATRICIA_DEBUG
+   fprintf (stderr, "patricia_lookup: differ_bit %d\n", differ_bit);
+ #endif /* PATRICIA_DEBUG */
+@@ -778,7 +950,19 @@ ndpi_patricia_lookup (patricia_tree_t *patricia, prefix_t *prefix)
+   new_node->data = NULL;
+   patricia->num_active_node++;
+ 
+-  if(node->bit == differ_bit) {
++  
++  #ifdef FRCOV
++  {if (FIXREVERTER[206]) {
++    if ((node -> bit == differ_bit ) && !(0))
++      fprintf(stderr, "triggered bug index 206\n");
++    else
++      fprintf(stderr, "reached bug index 206\n");
++  }
++  if ((!FIXREVERTER[206] && (node -> bit == differ_bit ))
++  #else
++  if (0
++  #endif
++  ) {
+     new_node->parent = node;
+     if(node->bit < patricia->maxbits &&
+ 	BIT_TEST (addr[node->bit >> 3], 0x80 >> (node->bit & 0x07))) {
+@@ -795,6 +979,9 @@ ndpi_patricia_lookup (patricia_tree_t *patricia, prefix_t *prefix)
+ #endif /* PATRICIA_DEBUG */
+     return (new_node);
+   }
++  #ifdef FRCOV
++  }
++  #endif
+ 
+   if(bitlen == differ_bit) {
+     if(bitlen < patricia->maxbits &&
+diff --git a/src/lib/third_party/src/node.c b/src/lib/third_party/src/node.c
+index 96e25e8af..9a4255a5c 100644
+--- a/src/lib/third_party/src/node.c
++++ b/src/lib/third_party/src/node.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * node.c: implementation of automata node
+  * This file is part of multifast.
+@@ -146,15 +153,45 @@ int node_has_matchstr (AC_NODE_t * thiz, AC_PATTERN_t * newstr)
+     {
+       str = &thiz->matched_patterns[i];
+ 
+-      if (str->length != newstr->length)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[44]) {
++        if ((str -> length != newstr -> length ) && !(0))
++          fprintf(stderr, "triggered bug index 44\n");
++        else
++          fprintf(stderr, "reached bug index 44\n");
++      }
++      if ((!FIXREVERTER[44] && (str -> length != newstr -> length ))
++      #else
++      if (0
++      #endif
++      )
+ 	continue;
++	#ifdef FRCOV
++	}
++	#endif
+ 
+       for (j=0; j<(int)str->length; j++)
+ 	if(str->astring[j] != newstr->astring[j])
+ 	  continue;
+ 
+-      if (j == str->length)
++      
++      #ifdef FRCOV
++      {if (FIXREVERTER[45]) {
++        if ((j == str -> length ) && !(0))
++          fprintf(stderr, "triggered bug index 45\n");
++        else
++          fprintf(stderr, "reached bug index 45\n");
++      }
++      if ((!FIXREVERTER[45] && (j == str -> length ))
++      #else
++      if (0
++      #endif
++      )
+ 	return 1;
++	#ifdef FRCOV
++	}
++	#endif
+     }
+   return 0;
+ }

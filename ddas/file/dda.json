@@ -1,0 +1,6704 @@
+[
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_dir",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "12",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "663",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "j"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 37,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "689"
+        },
+        "start": {
+          "col": "28",
+          "file": "cdf.c",
+          "line": "686"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "689"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "686"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "12",
+        "file": "cdf.c",
+        "line": "663",
+        "order": 1,
+        "val": "j"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "order": 3,
+        "val": "10000"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_unpack_catalog",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1152",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "reclen"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 59,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "1186"
+        },
+        "start": {
+          "col": "20",
+          "file": "cdf.c",
+          "line": "1183"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "1186"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "1183"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "cdf.c",
+        "line": "1152",
+        "order": 1,
+        "val": "reclen"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "14"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "encoding.c",
+    "func": {
+      "name": "file_looks_utf8",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "encoding.c",
+        "line": "315",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "col": "50",
+        "file": "encoding.c",
+        "line": "313",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "nbytes"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 76,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "encoding.c",
+          "line": "361"
+        },
+        "start": {
+          "col": "6",
+          "file": "encoding.c",
+          "line": "361"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "encoding.c",
+        "line": "361"
+      },
+      "start": {
+        "col": "5",
+        "file": "encoding.c",
+        "line": "360"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "encoding.c",
+        "line": "315",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "50",
+        "file": "encoding.c",
+        "line": "313",
+        "order": 3,
+        "val": "nbytes"
+      },
+      {
+        "order": 4,
+        "val": "goto"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "readelf.c",
+    "func": {
+      "name": "file_tryelf",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "notecount"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 8,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "48",
+          "file": "./elfclass.h",
+          "line": "81"
+        },
+        "start": {
+          "col": "3",
+          "file": "./elfclass.h",
+          "line": "81"
+        }
+      },
+      "end": {
+        "col": "48",
+        "file": "./elfclass.h",
+        "line": "81"
+      },
+      "start": {
+        "col": "2",
+        "file": "./elfclass.h",
+        "line": "80"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "val": "notecount"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_get_property_info_pos",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "869",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "q"
+      },
+      {
+        "col": "38",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "865",
+        "order": 3,
+        "tag": "traceVarPtrRange[]",
+        "val": "e"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 47,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "890"
+        },
+        "start": {
+          "col": "14",
+          "file": "cdf.c",
+          "line": "887"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "890"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "887"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "cdf.c",
+        "line": "869",
+        "order": 1,
+        "val": "q"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "38",
+        "file": "cdf.c",
+        "line": "865",
+        "order": 3,
+        "val": "e"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_find_stream",
+      "param": [
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "839",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 44,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "21",
+          "file": "cdf.c",
+          "line": "847"
+        },
+        "start": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "847"
+        }
+      },
+      "end": {
+        "col": "21",
+        "file": "cdf.c",
+        "line": "847"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "846"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "cdf.c",
+        "line": "839",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "fsmagic.c",
+    "func": {
+      "name": "file_fsmagic",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "16",
+        "crash": true,
+        "file": "fsmagic.c",
+        "line": "361",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 98,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "13",
+          "file": "fsmagic.c",
+          "line": "366"
+        },
+        "start": {
+          "col": "5",
+          "file": "fsmagic.c",
+          "line": "366"
+        }
+      },
+      "end": {
+        "col": "13",
+        "file": "fsmagic.c",
+        "line": "366"
+      },
+      "start": {
+        "col": "4",
+        "file": "fsmagic.c",
+        "line": "365"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "16",
+        "file": "fsmagic.c",
+        "line": "361",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "magic.c",
+    "func": {
+      "name": "magic_setflags",
+      "param": [
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "magic.c",
+        "line": "567",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 89,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "magic.c",
+          "line": "570"
+        },
+        "start": {
+          "col": "3",
+          "file": "magic.c",
+          "line": "570"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "magic.c",
+        "line": "570"
+      },
+      "start": {
+        "col": "2",
+        "file": "magic.c",
+        "line": "569"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "magic.c",
+        "line": "567",
+        "order": 1,
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_long_sector_chain",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "8",
+        "file": "./cdf.h",
+        "line": "129",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "sst_tab"
+      },
+      {
+        "col": "70",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "557",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "scn"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 30,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "29",
+          "file": "cdf.c",
+          "line": "574"
+        },
+        "start": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "574"
+        }
+      },
+      "end": {
+        "col": "29",
+        "file": "cdf.c",
+        "line": "574"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "573"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "70",
+        "file": "cdf.c",
+        "line": "557",
+        "order": 1,
+        "val": "scn"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "8",
+        "file": "./cdf.h",
+        "line": "129",
+        "offset": 0,
+        "order": 3,
+        "val": "sst_tab"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "return"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_property_info",
+      "param": [
+        64,
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "956",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "inp"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 51,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "cdf.c",
+          "line": "982"
+        },
+        "start": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "982"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "cdf.c",
+        "line": "982"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "981"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "23",
+        "file": "cdf.c",
+        "line": "956",
+        "order": 1,
+        "val": "inp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "goto"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_header",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "66",
+        "offset": 6,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "h_short_sec_size_p2"
+      },
+      {
+        "col": "55",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "365",
+        "offset": 6,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "h"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 22,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "389"
+        },
+        "start": {
+          "col": "35",
+          "file": "cdf.c",
+          "line": "385"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "389"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "385"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "55",
+        "file": "cdf.c",
+        "line": "365",
+        "order": 1,
+        "val": "h"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "66",
+        "offset": 6,
+        "order": 3,
+        "val": "h_short_sec_size_p2"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "order": 5,
+        "val": "20"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "funcs.c",
+    "func": {
+      "name": "file_printable",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "funcs.c",
+        "line": "628",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "ptr"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "funcs.c",
+        "line": "628",
+        "order": 3,
+        "tag": "traceVarPtrRange[]",
+        "val": "eptr"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "order": 4,
+        "tag": "arith[]",
+        "val": "-"
+      }
+    ],
+    "index": 19,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "funcs.c",
+          "line": "637"
+        },
+        "start": {
+          "col": "4",
+          "file": "funcs.c",
+          "line": "637"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "funcs.c",
+        "line": "637"
+      },
+      "start": {
+        "col": "3",
+        "file": "funcs.c",
+        "line": "636"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "funcs.c",
+        "line": "628",
+        "order": 1,
+        "val": "ptr"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "14",
+        "file": "funcs.c",
+        "line": "628",
+        "order": 3,
+        "val": "eptr"
+      },
+      {
+        "order": 4,
+        "val": "-"
+      },
+      {
+        "order": 5,
+        "val": "3"
+      },
+      {
+        "order": 6,
+        "val": "break"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "magic.c",
+    "func": {
+      "name": "magic_load",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "magic.c",
+        "line": "298",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 78,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "magic.c",
+          "line": "301"
+        },
+        "start": {
+          "col": "3",
+          "file": "magic.c",
+          "line": "301"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "magic.c",
+        "line": "301"
+      },
+      "start": {
+        "col": "2",
+        "file": "magic.c",
+        "line": "300"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "magic.c",
+        "line": "298",
+        "order": 1,
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "magic.c",
+    "func": {
+      "name": "magic_error",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "magic.c",
+        "line": "542",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 86,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "magic.c",
+          "line": "545"
+        },
+        "start": {
+          "col": "3",
+          "file": "magic.c",
+          "line": "545"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "magic.c",
+        "line": "545"
+      },
+      "start": {
+        "col": "2",
+        "file": "magic.c",
+        "line": "544"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "magic.c",
+        "line": "542",
+        "order": 1,
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "readelf.c",
+    "func": {
+      "name": "file_tryelf",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "phnum"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "435",
+        "offset": 16,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "elf_phnum_max"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1707",
+        "offset": 16,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "ms"
+      }
+    ],
+    "index": 4,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "47",
+          "file": "./elfclass.h",
+          "line": "41"
+        },
+        "start": {
+          "col": "4",
+          "file": "./elfclass.h",
+          "line": "41"
+        }
+      },
+      "end": {
+        "col": "47",
+        "file": "./elfclass.h",
+        "line": "41"
+      },
+      "start": {
+        "col": "3",
+        "file": "./elfclass.h",
+        "line": "40"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "val": "phnum"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "31",
+        "file": "readelf.c",
+        "line": "1707",
+        "order": 3,
+        "val": "ms"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "435",
+        "offset": 16,
+        "order": 5,
+        "val": "elf_phnum_max"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "softmagic.c",
+    "func": {
+      "name": "varexpand",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "softmagic.c",
+        "line": "458",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "l"
+      },
+      {
+        "col": "51",
+        "file": "softmagic.c",
+        "line": "455",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 63,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "softmagic.c",
+          "line": "492"
+        },
+        "start": {
+          "col": "4",
+          "file": "softmagic.c",
+          "line": "492"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "softmagic.c",
+        "line": "492"
+      },
+      "start": {
+        "col": "3",
+        "file": "softmagic.c",
+        "line": "491"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "softmagic.c",
+        "line": "458",
+        "order": 1,
+        "val": "l"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "51",
+        "file": "softmagic.c",
+        "line": "455",
+        "order": 3,
+        "val": "len"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "readelf.c",
+    "func": {
+      "name": "file_tryelf",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "24",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "shnum"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "434",
+        "offset": 15,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "elf_shnum_max"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1707",
+        "offset": 15,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "ms"
+      }
+    ],
+    "index": 6,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "39",
+          "file": "./elfclass.h",
+          "line": "57"
+        },
+        "start": {
+          "col": "4",
+          "file": "./elfclass.h",
+          "line": "57"
+        }
+      },
+      "end": {
+        "col": "39",
+        "file": "./elfclass.h",
+        "line": "57"
+      },
+      "start": {
+        "col": "3",
+        "file": "./elfclass.h",
+        "line": "56"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "24",
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "val": "shnum"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "31",
+        "file": "readelf.c",
+        "line": "1707",
+        "order": 3,
+        "val": "ms"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "434",
+        "offset": 15,
+        "order": 5,
+        "val": "elf_shnum_max"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "print.c",
+    "func": {
+      "name": "file_fmttime",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "8",
+        "crash": true,
+        "file": "print.c",
+        "line": "235",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "pp"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 93,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "print.c",
+          "line": "259"
+        },
+        "start": {
+          "col": "3",
+          "file": "print.c",
+          "line": "259"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "print.c",
+        "line": "259"
+      },
+      "start": {
+        "col": "2",
+        "file": "print.c",
+        "line": "258"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "8",
+        "file": "print.c",
+        "line": "235",
+        "order": 1,
+        "val": "pp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "goto"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "print.c",
+    "func": {
+      "name": "file_fmttime",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "print.c",
+        "line": "237",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "tm"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 92,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "print.c",
+          "line": "255"
+        },
+        "start": {
+          "col": "3",
+          "file": "print.c",
+          "line": "255"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "print.c",
+        "line": "255"
+      },
+      "start": {
+        "col": "2",
+        "file": "print.c",
+        "line": "254"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "print.c",
+        "line": "237",
+        "order": 1,
+        "val": "tm"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "goto"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_short_sector_chain",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "8",
+        "file": "./cdf.h",
+        "line": "129",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "sst_tab"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "607",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "scn"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 33,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "29",
+          "file": "cdf.c",
+          "line": "620"
+        },
+        "start": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "620"
+        }
+      },
+      "end": {
+        "col": "29",
+        "file": "cdf.c",
+        "line": "620"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "619"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "cdf.c",
+        "line": "607",
+        "order": 1,
+        "val": "scn"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "8",
+        "file": "./cdf.h",
+        "line": "129",
+        "offset": 0,
+        "order": 3,
+        "val": "sst_tab"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "return"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_user_stream",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "6",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "824",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<="
+      }
+    ],
+    "index": 43,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "829"
+        },
+        "start": {
+          "col": "14",
+          "file": "cdf.c",
+          "line": "826"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "829"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "826"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "6",
+        "file": "cdf.c",
+        "line": "824",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": "<="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_get_property_info_pos",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "869",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "q"
+      },
+      {
+        "col": "20",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "865",
+        "order": 3,
+        "tag": "traceVarPtrRange[]",
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 46,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "885"
+        },
+        "start": {
+          "col": "13",
+          "file": "cdf.c",
+          "line": "882"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "885"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "882"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "cdf.c",
+        "line": "869",
+        "order": 1,
+        "val": "q"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "col": "20",
+        "file": "cdf.c",
+        "line": "865",
+        "order": 3,
+        "val": "p"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "encoding.c",
+    "func": {
+      "name": "file_encoding",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "13",
+        "file": "encoding.c",
+        "line": "70",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ulen"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "13",
+        "crash": true,
+        "file": "encoding.c",
+        "line": "70",
+        "order": 5,
+        "tag": "traceVarAssignNull[]",
+        "val": "ulen"
+      }
+    ],
+    "index": 75,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "encoding.c",
+          "line": "83"
+        },
+        "start": {
+          "col": "3",
+          "file": "encoding.c",
+          "line": "83"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "encoding.c",
+        "line": "83"
+      },
+      "start": {
+        "col": "2",
+        "file": "encoding.c",
+        "line": "82"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "13",
+        "file": "encoding.c",
+        "line": "70",
+        "order": 1,
+        "val": "ulen"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "col": "13",
+        "file": "encoding.c",
+        "line": "70",
+        "order": 5,
+        "val": "ulen"
+      },
+      {
+        "order": 6,
+        "val": ";"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "compress.c",
+    "func": {
+      "name": "sread",
+      "param": [
+        32,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "compress.c",
+        "line": "341",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "fd"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 68,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "compress.c",
+          "line": "350"
+        },
+        "start": {
+          "col": "3",
+          "file": "compress.c",
+          "line": "350"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "compress.c",
+        "line": "350"
+      },
+      "start": {
+        "col": "2",
+        "file": "compress.c",
+        "line": "349"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "compress.c",
+        "line": "341",
+        "order": 1,
+        "val": "fd"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "goto"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "is_tar.c",
+    "func": {
+      "name": "file_is_tar",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "6",
+        "crash": true,
+        "file": "is_tar.c",
+        "line": "71",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "tar"
+      },
+      {
+        "col": "6",
+        "crash": true,
+        "file": "is_tar.c",
+        "line": "71",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "tar"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 9,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "is_tar.c",
+          "line": "79"
+        },
+        "start": {
+          "col": "3",
+          "file": "is_tar.c",
+          "line": "79"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "is_tar.c",
+        "line": "79"
+      },
+      "start": {
+        "col": "2",
+        "file": "is_tar.c",
+        "line": "78"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "6",
+        "file": "is_tar.c",
+        "line": "71",
+        "order": 1,
+        "val": "tar"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "6",
+        "file": "is_tar.c",
+        "line": "71",
+        "order": 5,
+        "val": "tar"
+      },
+      {
+        "order": 6,
+        "val": ">"
+      },
+      {
+        "order": 7,
+        "val": "3"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_property_info",
+      "param": [
+        64,
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "12",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "955",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "o4"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1056",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "l"
+      },
+      {
+        "col": "36",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "left"
+      },
+      {
+        "order": 2,
+        "tag": "arith[]",
+        "val": "+"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 54,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "cdf.c",
+          "line": "1064"
+        },
+        "start": {
+          "col": "6",
+          "file": "cdf.c",
+          "line": "1064"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "cdf.c",
+        "line": "1064"
+      },
+      "start": {
+        "col": "5",
+        "file": "cdf.c",
+        "line": "1063"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "12",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 1,
+        "val": "o4"
+      },
+      {
+        "order": 2,
+        "val": "+"
+      },
+      {
+        "col": "14",
+        "file": "cdf.c",
+        "line": "1056",
+        "order": 3,
+        "val": "l"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "col": "36",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 5,
+        "val": "left"
+      },
+      {
+        "order": 6,
+        "val": "goto"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_property_info",
+      "param": [
+        64,
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "16",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "955",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "nelements"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 52,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "cdf.c",
+          "line": "1011"
+        },
+        "start": {
+          "col": "24",
+          "file": "cdf.c",
+          "line": "1008"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "cdf.c",
+        "line": "1011"
+      },
+      "start": {
+        "col": "4",
+        "file": "cdf.c",
+        "line": "1008"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "16",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 1,
+        "val": "nelements"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "ascmagic.c",
+    "func": {
+      "name": "file_ascmagic_with_encoding",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "ascmagic.c",
+        "line": "105",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "nbytes"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<="
+      }
+    ],
+    "index": 71,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "ascmagic.c",
+          "line": "133"
+        },
+        "start": {
+          "col": "19",
+          "file": "ascmagic.c",
+          "line": "130"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "ascmagic.c",
+        "line": "133"
+      },
+      "start": {
+        "col": "2",
+        "file": "ascmagic.c",
+        "line": "130"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "ascmagic.c",
+        "line": "105",
+        "order": 1,
+        "val": "nbytes"
+      },
+      {
+        "order": 2,
+        "val": "<="
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "der.c",
+    "func": {
+      "name": "der_offs",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "der.c",
+        "line": "244",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "offs"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "der.c",
+        "line": "251",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "tlen"
+      },
+      {
+        "col": "56",
+        "file": "der.c",
+        "line": "241",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "nbytes"
+      },
+      {
+        "order": 2,
+        "tag": "arith[]",
+        "val": "+"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 12,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "der.c",
+          "line": "266"
+        },
+        "start": {
+          "col": "4",
+          "file": "der.c",
+          "line": "266"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "der.c",
+        "line": "266"
+      },
+      "start": {
+        "col": "3",
+        "file": "der.c",
+        "line": "265"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "der.c",
+        "line": "244",
+        "order": 1,
+        "val": "offs"
+      },
+      {
+        "order": 2,
+        "val": "+"
+      },
+      {
+        "col": "11",
+        "file": "der.c",
+        "line": "251",
+        "order": 3,
+        "val": "tlen"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "col": "56",
+        "file": "der.c",
+        "line": "241",
+        "order": 5,
+        "val": "nbytes"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "der.c",
+    "func": {
+      "name": "der_cmp",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "16",
+        "file": "der.c",
+        "line": "280",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "tlen"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "der.c",
+        "line": "295",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "slen"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 13,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "der.c",
+          "line": "321"
+        },
+        "start": {
+          "col": "4",
+          "file": "der.c",
+          "line": "321"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "der.c",
+        "line": "321"
+      },
+      "start": {
+        "col": "3",
+        "file": "der.c",
+        "line": "320"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "16",
+        "file": "der.c",
+        "line": "280",
+        "order": 1,
+        "val": "tlen"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "col": "9",
+        "file": "der.c",
+        "line": "295",
+        "order": 3,
+        "val": "slen"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_property_info",
+      "param": [
+        64,
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "27",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "j"
+      },
+      {
+        "col": "16",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "nelements"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "955",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "160",
+        "offset": 1,
+        "order": 9,
+        "tag": "traceVarNumCmpField[]",
+        "val": "sh_properties"
+      },
+      {
+        "col": "23",
+        "file": "cdf.c",
+        "line": "953",
+        "offset": 1,
+        "order": 7,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "sh"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "&&"
+      }
+    ],
+    "index": 55,
+    "pattern": "COND_EXEC",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "cdf.c",
+          "line": "1080"
+        },
+        "start": {
+          "col": "4",
+          "file": "cdf.c",
+          "line": "1055"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "cdf.c",
+        "line": "1080"
+      },
+      "start": {
+        "col": "4",
+        "file": "cdf.c",
+        "line": "1053"
+      },
+      "type": "for"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "for"
+      },
+      {
+        "col": "27",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 1,
+        "val": "j"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "col": "16",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 3,
+        "val": "nelements"
+      },
+      {
+        "order": 4,
+        "val": "&&"
+      },
+      {
+        "col": "9",
+        "file": "cdf.c",
+        "line": "955",
+        "order": 5,
+        "val": "i"
+      },
+      {
+        "order": 6,
+        "val": "<"
+      },
+      {
+        "col": "23",
+        "file": "cdf.c",
+        "line": "953",
+        "order": 7,
+        "val": "sh"
+      },
+      {
+        "order": 8,
+        "val": "."
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "160",
+        "offset": 1,
+        "order": 9,
+        "val": "sh_properties"
+      },
+      {
+        "order": 10,
+        "val": ";"
+      },
+      {
+        "order": 11,
+        "val": "rof"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_sat",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "434",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "120",
+        "offset": 1,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "sat_len"
+      },
+      {
+        "col": "66",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "432",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "sat"
+      }
+    ],
+    "index": 26,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "cdf.c",
+          "line": "494"
+        },
+        "start": {
+          "col": "27",
+          "file": "cdf.c",
+          "line": "489"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "cdf.c",
+        "line": "494"
+      },
+      "start": {
+        "col": "4",
+        "file": "cdf.c",
+        "line": "489"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "cdf.c",
+        "line": "434",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "66",
+        "file": "cdf.c",
+        "line": "432",
+        "order": 3,
+        "val": "sat"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "120",
+        "offset": 1,
+        "order": 5,
+        "val": "sat_len"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf_time.c",
+    "func": {
+      "name": "cdf_getday",
+      "param": [
+        32,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "26",
+        "crash": true,
+        "file": "cdf_time.c",
+        "line": "67",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "days"
+      },
+      {
+        "col": "7",
+        "crash": true,
+        "file": "cdf_time.c",
+        "line": "72",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "sub"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 1,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "cdf_time.c",
+          "line": "74"
+        },
+        "start": {
+          "col": "4",
+          "file": "cdf_time.c",
+          "line": "74"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "cdf_time.c",
+        "line": "74"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf_time.c",
+        "line": "73"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "26",
+        "file": "cdf_time.c",
+        "line": "67",
+        "order": 1,
+        "val": "days"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "col": "7",
+        "file": "cdf_time.c",
+        "line": "72",
+        "order": 3,
+        "val": "sub"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_unpack_catalog",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "273",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "ce_namlen"
+      },
+      {
+        "col": "24",
+        "file": "cdf.c",
+        "line": "1175",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "cep"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "12",
+        "file": "cdf.c",
+        "line": "1176",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "rlen"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "273",
+        "offset": 0,
+        "order": 8,
+        "tag": "traceVarAssignNumField[]",
+        "val": "ce_namlen"
+      },
+      {
+        "col": "24",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1175",
+        "offset": 0,
+        "order": 6,
+        "tag": "traceVarAssignNumBase[]",
+        "val": "cep"
+      }
+    ],
+    "index": 60,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "21",
+          "file": "cdf.c",
+          "line": "1191"
+        },
+        "start": {
+          "col": "4",
+          "file": "cdf.c",
+          "line": "1191"
+        }
+      },
+      "end": {
+        "col": "21",
+        "file": "cdf.c",
+        "line": "1191"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "1190"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "24",
+        "file": "cdf.c",
+        "line": "1175",
+        "order": 1,
+        "val": "cep"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "273",
+        "offset": 0,
+        "order": 3,
+        "val": "ce_namlen"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "col": "12",
+        "file": "cdf.c",
+        "line": "1176",
+        "order": 5,
+        "val": "rlen"
+      },
+      {
+        "col": "24",
+        "file": "cdf.c",
+        "line": "1175",
+        "order": 6,
+        "val": "cep"
+      },
+      {
+        "order": 7,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "273",
+        "offset": 0,
+        "order": 8,
+        "val": "ce_namlen"
+      },
+      {
+        "order": 9,
+        "val": ";"
+      },
+      {
+        "order": 10,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "encoding.c",
+    "func": {
+      "name": "file_encoding",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "71",
+        "file": "encoding.c",
+        "line": "69",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ubuf"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "71",
+        "crash": true,
+        "file": "encoding.c",
+        "line": "69",
+        "order": 5,
+        "tag": "traceVarAssignNull[]",
+        "val": "ubuf"
+      }
+    ],
+    "index": 74,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "encoding.c",
+          "line": "81"
+        },
+        "start": {
+          "col": "3",
+          "file": "encoding.c",
+          "line": "81"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "encoding.c",
+        "line": "81"
+      },
+      "start": {
+        "col": "2",
+        "file": "encoding.c",
+        "line": "80"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "71",
+        "file": "encoding.c",
+        "line": "69",
+        "order": 1,
+        "val": "ubuf"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "col": "71",
+        "file": "encoding.c",
+        "line": "69",
+        "order": 5,
+        "val": "ubuf"
+      },
+      {
+        "order": 6,
+        "val": ";"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_ssat",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "15",
+        "file": "./cdf.h",
+        "line": "119",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "sat_tab"
+      },
+      {
+        "col": "38",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "715",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "ssat"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 38,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "cdf.c",
+          "line": "728"
+        },
+        "start": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "728"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "cdf.c",
+        "line": "728"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "727"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "38",
+        "file": "cdf.c",
+        "line": "715",
+        "order": 1,
+        "val": "ssat"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "15",
+        "file": "./cdf.h",
+        "line": "119",
+        "offset": 0,
+        "order": 3,
+        "val": "sat_tab"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "goto"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "fsmagic.c",
+    "func": {
+      "name": "file_fsmagic",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "fsmagic.c",
+        "line": "103",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "fn"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 97,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "fsmagic.c",
+          "line": "115"
+        },
+        "start": {
+          "col": "3",
+          "file": "fsmagic.c",
+          "line": "115"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "fsmagic.c",
+        "line": "115"
+      },
+      "start": {
+        "col": "2",
+        "file": "fsmagic.c",
+        "line": "114"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "fsmagic.c",
+        "line": "103",
+        "order": 1,
+        "val": "fn"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "readcdf.c",
+    "func": {
+      "name": "file_trycdf",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "col": "6",
+        "file": "readcdf.c",
+        "line": "550",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "readcdf.c",
+        "line": "551",
+        "order": 4,
+        "tag": "traceVarAssignNull[]",
+        "val": "expn"
+      }
+    ],
+    "index": 99,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "readcdf.c",
+          "line": "652"
+        },
+        "start": {
+          "col": "4",
+          "file": "readcdf.c",
+          "line": "652"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "readcdf.c",
+        "line": "652"
+      },
+      "start": {
+        "col": "3",
+        "file": "readcdf.c",
+        "line": "651"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "6",
+        "file": "readcdf.c",
+        "line": "550",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "col": "14",
+        "file": "readcdf.c",
+        "line": "551",
+        "order": 4,
+        "val": "expn"
+      },
+      {
+        "order": 5,
+        "val": ";"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_ssat",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "9",
+        "file": "cdf.c",
+        "line": "717",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "120",
+        "offset": 1,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "sat_len"
+      },
+      {
+        "col": "38",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "715",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "ssat"
+      }
+    ],
+    "index": 40,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "740"
+        },
+        "start": {
+          "col": "27",
+          "file": "cdf.c",
+          "line": "735"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "740"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "735"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "cdf.c",
+        "line": "717",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "38",
+        "file": "cdf.c",
+        "line": "715",
+        "order": 3,
+        "val": "ssat"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "120",
+        "offset": 1,
+        "order": 5,
+        "val": "sat_len"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "readelf.c",
+    "func": {
+      "name": "file_tryelf",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "24",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "shnum"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "434",
+        "offset": 15,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "elf_shnum_max"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1707",
+        "offset": 15,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "ms"
+      }
+    ],
+    "index": 7,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "47",
+          "file": "./elfclass.h",
+          "line": "67"
+        },
+        "start": {
+          "col": "4",
+          "file": "./elfclass.h",
+          "line": "67"
+        }
+      },
+      "end": {
+        "col": "47",
+        "file": "./elfclass.h",
+        "line": "67"
+      },
+      "start": {
+        "col": "3",
+        "file": "./elfclass.h",
+        "line": "66"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "24",
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "val": "shnum"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "31",
+        "file": "readelf.c",
+        "line": "1707",
+        "order": 3,
+        "val": "ms"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "434",
+        "offset": 15,
+        "order": 5,
+        "val": "elf_shnum_max"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_short_stream",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "14",
+        "file": "./cdf.h",
+        "line": "111",
+        "offset": 11,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "d_stream_first_sector"
+      },
+      {
+        "col": "25",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "762",
+        "offset": 11,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "d"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 42,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "781"
+        },
+        "start": {
+          "col": "36",
+          "file": "cdf.c",
+          "line": "778"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "781"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "778"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "25",
+        "file": "cdf.c",
+        "line": "762",
+        "order": 1,
+        "val": "d"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "14",
+        "file": "./cdf.h",
+        "line": "111",
+        "offset": 11,
+        "order": 3,
+        "val": "d_stream_first_sector"
+      },
+      {
+        "order": 4,
+        "val": "<"
+      },
+      {
+        "order": 5,
+        "val": "0"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "readelf.c",
+    "func": {
+      "name": "file_tryelf",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "17",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "phnum"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "435",
+        "offset": 16,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "elf_phnum_max"
+      },
+      {
+        "col": "31",
+        "crash": true,
+        "file": "readelf.c",
+        "line": "1707",
+        "offset": 16,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "ms"
+      }
+    ],
+    "index": 5,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "39",
+          "file": "./elfclass.h",
+          "line": "54"
+        },
+        "start": {
+          "col": "4",
+          "file": "./elfclass.h",
+          "line": "54"
+        }
+      },
+      "end": {
+        "col": "39",
+        "file": "./elfclass.h",
+        "line": "54"
+      },
+      "start": {
+        "col": "3",
+        "file": "./elfclass.h",
+        "line": "53"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "17",
+        "file": "readelf.c",
+        "line": "1723",
+        "order": 1,
+        "val": "phnum"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "31",
+        "file": "readelf.c",
+        "line": "1707",
+        "order": 3,
+        "val": "ms"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./file.h",
+        "line": "435",
+        "offset": 16,
+        "order": 5,
+        "val": "elf_phnum_max"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "softmagic.c",
+    "func": {
+      "name": "varexpand",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "softmagic.c",
+        "line": "458",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "l"
+      },
+      {
+        "col": "51",
+        "file": "softmagic.c",
+        "line": "455",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 64,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "softmagic.c",
+          "line": "501"
+        },
+        "start": {
+          "col": "3",
+          "file": "softmagic.c",
+          "line": "501"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "softmagic.c",
+        "line": "501"
+      },
+      "start": {
+        "col": "2",
+        "file": "softmagic.c",
+        "line": "500"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "softmagic.c",
+        "line": "458",
+        "order": 1,
+        "val": "l"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "51",
+        "file": "softmagic.c",
+        "line": "455",
+        "order": 3,
+        "val": "len"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_unpack_catalog",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1152",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "reclen"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 56,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "cdf.c",
+          "line": "1159"
+        },
+        "start": {
+          "col": "4",
+          "file": "cdf.c",
+          "line": "1159"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "cdf.c",
+        "line": "1159"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "1158"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "cdf.c",
+        "line": "1152",
+        "order": 1,
+        "val": "reclen"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "break"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_grow_info",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "897",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "inp"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 48,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "cdf.c",
+          "line": "908"
+        },
+        "start": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "908"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "cdf.c",
+        "line": "908"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "907"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "23",
+        "file": "cdf.c",
+        "line": "897",
+        "order": 1,
+        "val": "inp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "goto"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "magic.c",
+    "func": {
+      "name": "magic_file",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "30",
+        "crash": true,
+        "file": "magic.c",
+        "line": "393",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 84,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "magic.c",
+          "line": "396"
+        },
+        "start": {
+          "col": "3",
+          "file": "magic.c",
+          "line": "396"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "magic.c",
+        "line": "396"
+      },
+      "start": {
+        "col": "2",
+        "file": "magic.c",
+        "line": "395"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "30",
+        "file": "magic.c",
+        "line": "393",
+        "order": 1,
+        "val": "ms"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_property_info",
+      "param": [
+        64,
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "956",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "inp"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 53,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "cdf.c",
+          "line": "1048"
+        },
+        "start": {
+          "col": "6",
+          "file": "cdf.c",
+          "line": "1048"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "cdf.c",
+        "line": "1048"
+      },
+      "start": {
+        "col": "5",
+        "file": "cdf.c",
+        "line": "1047"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "23",
+        "file": "cdf.c",
+        "line": "956",
+        "order": 1,
+        "val": "inp"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "goto"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_count_chain",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "51",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "518",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "sid"
+      },
+      {
+        "col": "14",
+        "file": "cdf.c",
+        "line": "521",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "maxsector"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 28,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "540"
+        },
+        "start": {
+          "col": "25",
+          "file": "cdf.c",
+          "line": "537"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "540"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "537"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "51",
+        "file": "cdf.c",
+        "line": "518",
+        "order": 1,
+        "val": "sid"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "14",
+        "file": "cdf.c",
+        "line": "521",
+        "order": 3,
+        "val": "maxsector"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_property_info",
+      "param": [
+        64,
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "950",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "offs"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 4,
+        "tag": "arith[]",
+        "val": "/"
+      }
+    ],
+    "index": 49,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "961"
+        },
+        "start": {
+          "col": "29",
+          "file": "cdf.c",
+          "line": "958"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "961"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "958"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "14",
+        "file": "cdf.c",
+        "line": "950",
+        "order": 1,
+        "val": "offs"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "order": 3,
+        "val": "-1"
+      },
+      {
+        "order": 4,
+        "val": "/"
+      },
+      {
+        "order": 5,
+        "val": "4"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_long_sector_chain",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "31",
+        "file": "cdf.c",
+        "line": "559",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "130",
+        "offset": 1,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "sst_len"
+      },
+      {
+        "col": "70",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "557",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "scn"
+      }
+    ],
+    "index": 32,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "586"
+        },
+        "start": {
+          "col": "26",
+          "file": "cdf.c",
+          "line": "581"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "586"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "581"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "31",
+        "file": "cdf.c",
+        "line": "559",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "70",
+        "file": "cdf.c",
+        "line": "557",
+        "order": 3,
+        "val": "scn"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "130",
+        "offset": 1,
+        "order": 5,
+        "val": "sst_len"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "der.c",
+    "func": {
+      "name": "gettag",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "der.c",
+        "line": "141",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "tag"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 11,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "der.c",
+          "line": "149"
+        },
+        "start": {
+          "col": "3",
+          "file": "der.c",
+          "line": "149"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "der.c",
+        "line": "149"
+      },
+      "start": {
+        "col": "2",
+        "file": "der.c",
+        "line": "148"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "der.c",
+        "line": "141",
+        "order": 1,
+        "val": "tag"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "order": 3,
+        "val": "31"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_get_property_info_pos",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "20",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "865",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "p"
+      },
+      {
+        "col": "38",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "865",
+        "order": 3,
+        "tag": "traceVarPtrRange[]",
+        "val": "e"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 45,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "874"
+        },
+        "start": {
+          "col": "14",
+          "file": "cdf.c",
+          "line": "871"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "874"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "871"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "20",
+        "file": "cdf.c",
+        "line": "865",
+        "order": 1,
+        "val": "p"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "38",
+        "file": "cdf.c",
+        "line": "865",
+        "order": 3,
+        "val": "e"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_unpack_catalog",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1148",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "b"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1149",
+        "order": 3,
+        "tag": "traceVarPtrRange[]",
+        "val": "eb"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 57,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "7",
+          "file": "cdf.c",
+          "line": "1162"
+        },
+        "start": {
+          "col": "7",
+          "file": "cdf.c",
+          "line": "1162"
+        }
+      },
+      "end": {
+        "col": "7",
+        "file": "cdf.c",
+        "line": "1162"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "1161"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "14",
+        "file": "cdf.c",
+        "line": "1148",
+        "order": 1,
+        "val": "b"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "19",
+        "file": "cdf.c",
+        "line": "1149",
+        "order": 3,
+        "val": "eb"
+      },
+      {
+        "order": 4,
+        "val": "break"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_unpack_catalog",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1149",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "nb"
+      },
+      {
+        "col": "19",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "1149",
+        "order": 3,
+        "tag": "traceVarPtrRange[]",
+        "val": "eb"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 61,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "1199"
+        },
+        "start": {
+          "col": "16",
+          "file": "cdf.c",
+          "line": "1196"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "1199"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "1196"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "14",
+        "file": "cdf.c",
+        "line": "1149",
+        "order": 1,
+        "val": "nb"
+      },
+      {
+        "order": 2,
+        "val": ">"
+      },
+      {
+        "col": "19",
+        "file": "cdf.c",
+        "line": "1149",
+        "order": 3,
+        "val": "eb"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "funcs.c",
+    "func": {
+      "name": "file_buffer",
+      "param": [
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "29",
+        "crash": true,
+        "file": "funcs.c",
+        "line": "205",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "nb"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 17,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "funcs.c",
+          "line": "224"
+        },
+        "start": {
+          "col": "22",
+          "file": "funcs.c",
+          "line": "221"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "funcs.c",
+        "line": "224"
+      },
+      "start": {
+        "col": "9",
+        "file": "funcs.c",
+        "line": "221"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "29",
+        "file": "funcs.c",
+        "line": "205",
+        "order": 1,
+        "val": "nb"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "1"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_short_stream",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "761",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "125",
+        "offset": 1,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "dir_len"
+      },
+      {
+        "col": "44",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "758",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "dir"
+      }
+    ],
+    "index": 41,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "773"
+        },
+        "start": {
+          "col": "25",
+          "file": "cdf.c",
+          "line": "770"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "773"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "770"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "cdf.c",
+        "line": "761",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "col": "44",
+        "file": "cdf.c",
+        "line": "758",
+        "order": 3,
+        "val": "dir"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "125",
+        "offset": 1,
+        "order": 5,
+        "val": "dir_len"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_property_info",
+      "param": [
+        64,
+        64,
+        32,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "159",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "sh_len"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "953",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "sh"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 6,
+        "tag": "arith[]",
+        "val": "/"
+      }
+    ],
+    "index": 50,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "970"
+        },
+        "start": {
+          "col": "35",
+          "file": "cdf.c",
+          "line": "967"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "970"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "967"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "23",
+        "file": "cdf.c",
+        "line": "953",
+        "order": 1,
+        "val": "sh"
+      },
+      {
+        "order": 2,
+        "val": "."
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "159",
+        "offset": 0,
+        "order": 3,
+        "val": "sh_len"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "order": 5,
+        "val": "-1"
+      },
+      {
+        "order": 6,
+        "val": "/"
+      },
+      {
+        "order": 7,
+        "val": "64"
+      },
+      {
+        "order": 8,
+        "val": "less3"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_count_chain",
+      "param": [
+        64,
+        32,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "520",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 29,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "547"
+        },
+        "start": {
+          "col": "14",
+          "file": "cdf.c",
+          "line": "543"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "547"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "543"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "cdf.c",
+        "line": "520",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_dir",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 7,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "19",
+        "file": "./cdf.h",
+        "line": "124",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNullCheckField[]",
+        "val": "dir_tab"
+      },
+      {
+        "col": "38",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "661",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNullCheckBase[]",
+        "val": "dir"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 36,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "cdf.c",
+          "line": "678"
+        },
+        "start": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "678"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "cdf.c",
+        "line": "678"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "677"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "38",
+        "file": "cdf.c",
+        "line": "661",
+        "order": 1,
+        "val": "dir"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "19",
+        "file": "./cdf.h",
+        "line": "124",
+        "offset": 0,
+        "order": 3,
+        "val": "dir_tab"
+      },
+      {
+        "order": 4,
+        "val": "=="
+      },
+      {
+        "order": 5,
+        "val": "(void *)"
+      },
+      {
+        "order": 6,
+        "val": "0"
+      },
+      {
+        "order": 7,
+        "val": "return"
+      },
+      {
+        "order": 8,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "softmagic.c",
+    "func": {
+      "name": "varexpand",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "softmagic.c",
+        "line": "458",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "l"
+      },
+      {
+        "col": "51",
+        "file": "softmagic.c",
+        "line": "455",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 62,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "12",
+          "file": "softmagic.c",
+          "line": "463"
+        },
+        "start": {
+          "col": "4",
+          "file": "softmagic.c",
+          "line": "463"
+        }
+      },
+      "end": {
+        "col": "12",
+        "file": "softmagic.c",
+        "line": "463"
+      },
+      "start": {
+        "col": "3",
+        "file": "softmagic.c",
+        "line": "462"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "softmagic.c",
+        "line": "458",
+        "order": 1,
+        "val": "l"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "51",
+        "file": "softmagic.c",
+        "line": "455",
+        "order": 3,
+        "val": "len"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_header",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "65",
+        "offset": 5,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "h_sec_size_p2"
+      },
+      {
+        "col": "55",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "365",
+        "offset": 5,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "h"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">"
+      }
+    ],
+    "index": 21,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "384"
+        },
+        "start": {
+          "col": "29",
+          "file": "cdf.c",
+          "line": "381"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "384"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "381"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "55",
+        "file": "cdf.c",
+        "line": "365",
+        "order": 1,
+        "val": "h"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "65",
+        "offset": 5,
+        "order": 3,
+        "val": "h_sec_size_p2"
+      },
+      {
+        "order": 4,
+        "val": ">"
+      },
+      {
+        "order": 5,
+        "val": "20"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_header",
+      "param": [
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "59",
+        "offset": 0,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "h_magic"
+      },
+      {
+        "col": "55",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "365",
+        "offset": 0,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "h"
+      },
+      {
+        "order": 4,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 20,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "cdf.c",
+          "line": "380"
+        },
+        "start": {
+          "col": "31",
+          "file": "cdf.c",
+          "line": "374"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "380"
+      },
+      "start": {
+        "col": "2",
+        "file": "cdf.c",
+        "line": "374"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "55",
+        "file": "cdf.c",
+        "line": "365",
+        "order": 1,
+        "val": "h"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "11",
+        "file": "./cdf.h",
+        "line": "59",
+        "offset": 0,
+        "order": 3,
+        "val": "h_magic"
+      },
+      {
+        "order": 4,
+        "val": "!="
+      },
+      {
+        "order": 5,
+        "val": "-2226271756974174256"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/file/src",
+    "fileName": "cdf.c",
+    "func": {
+      "name": "cdf_read_short_sector_chain",
+      "param": [
+        64,
+        64,
+        64,
+        32,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "37",
+        "file": "cdf.c",
+        "line": "609",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "130",
+        "offset": 1,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "sst_len"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "cdf.c",
+        "line": "607",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "scn"
+      }
+    ],
+    "index": 35,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "cdf.c",
+          "line": "632"
+        },
+        "start": {
+          "col": "26",
+          "file": "cdf.c",
+          "line": "627"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "632"
+      },
+      "start": {
+        "col": "3",
+        "file": "cdf.c",
+        "line": "627"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "37",
+        "file": "cdf.c",
+        "line": "609",
+        "order": 1,
+        "val": "i"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "48",
+        "file": "cdf.c",
+        "line": "607",
+        "order": 3,
+        "val": "scn"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "9",
+        "file": "./cdf.h",
+        "line": "130",
+        "offset": 1,
+        "order": 5,
+        "val": "sst_len"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  }
+]

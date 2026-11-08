@@ -1,0 +1,12 @@
+commit: a37d4836519517bdce6cb9d956092321eca3e73b
+fuzz_target: libpng_read_fuzzer
+project: libpng
+type: bug
+unsupported_fuzzers:
+  - aflcc
+  - afl_qemu
+  - aflplusplus_qemu
+  - honggfuzz_qemu
+  - klee
+  - lafintel
+  - weizz_qemu

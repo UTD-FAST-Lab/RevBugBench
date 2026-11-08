@@ -1,0 +1,1546 @@
+diff --git a/src/ascmagic.c b/src/ascmagic.c
+index fd38f1bc..f9aebe8d 100644
+--- a/src/ascmagic.c
++++ b/src/ascmagic.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Ian F. Darwin 1986-1995.
+  * Software written by Ian F. Darwin and others;
+@@ -127,10 +134,25 @@ file_ascmagic_with_encoding(struct magic_set *ms,
+ 	nbytes = trim_nuls(buf, nbytes);
+ 
+ 	/* If we have fewer than 2 bytes, give up. */
+-	if (nbytes <= 1) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[71]) {
++	  if ((nbytes <= 1 ) && !(0))
++	    fprintf(stderr, "triggered bug index 71\n");
++	  else
++	    fprintf(stderr, "reached bug index 71\n");
++	}
++	if ((!FIXREVERTER[71] && (nbytes <= 1 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		rv = 0;
+ 		goto done;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	if (ulen > 0 && (ms->flags & MAGIC_NO_CHECK_SOFT) == 0) {
+ 		/* Convert ubuf to UTF-8 and try text soft magic */
+diff --git a/src/cdf.c b/src/cdf.c
+index 3cba3ac5..03a6ee93 100644
+--- a/src/cdf.c
++++ b/src/cdf.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*-
+  * Copyright (c) 2008 Christos Zoulas
+  * All rights reserved.
+@@ -371,22 +378,67 @@ cdf_read_header(const cdf_info_t *info, cdf_header_t *h)
+ 		return -1;
+ 	cdf_unpack_header(h, buf);
+ 	cdf_swap_header(h);
+-	if (h->h_magic != CDF_MAGIC) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[20]) {
++	  if ((h -> h_magic != -2226271756974174256 ) && !(0))
++	    fprintf(stderr, "triggered bug index 20\n");
++	  else
++	    fprintf(stderr, "reached bug index 20\n");
++	}
++	if ((!FIXREVERTER[20] && (h -> h_magic != -2226271756974174256 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("Bad magic %#" INT64_T_FORMAT "x != %#"
+ 		    INT64_T_FORMAT "x\n",
+ 		    (unsigned long long)h->h_magic,
+ 		    (unsigned long long)CDF_MAGIC));
+ 		goto out;
+ 	}
+-	if (h->h_sec_size_p2 > 20) {
++	#ifdef FRCOV
++	}
++	#endif
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[21]) {
++	  if ((h -> h_sec_size_p2 > 20 ) && !(0))
++	    fprintf(stderr, "triggered bug index 21\n");
++	  else
++	    fprintf(stderr, "reached bug index 21\n");
++	}
++	if ((!FIXREVERTER[21] && (h -> h_sec_size_p2 > 20 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("Bad sector size %hu\n", h->h_sec_size_p2));
+ 		goto out;
+ 	}
+-	if (h->h_short_sec_size_p2 > 20) {
++	#ifdef FRCOV
++	}
++	#endif
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[22]) {
++	  if ((h -> h_short_sec_size_p2 > 20 ) && !(0))
++	    fprintf(stderr, "triggered bug index 22\n");
++	  else
++	    fprintf(stderr, "reached bug index 22\n");
++	}
++	if ((!FIXREVERTER[22] && (h -> h_short_sec_size_p2 > 20 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("Bad short sector size %hu\n",
+ 		    h->h_short_sec_size_p2));
+ 		goto out;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	return 0;
+ out:
+ 	errno = EFTYPE;
+@@ -486,12 +538,27 @@ cdf_read_sat(const cdf_info_t *info, cdf_header_t *h, cdf_sat_t *sat)
+ 			sec = CDF_TOLE4((uint32_t)msa[k]);
+ 			if (sec < 0)
+ 				goto out;
+-			if (i >= sat->sat_len) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[26]) {
++			  if ((i >= sat -> sat_len ) && !(0))
++			    fprintf(stderr, "triggered bug index 26\n");
++			  else
++			    fprintf(stderr, "reached bug index 26\n");
++			}
++			if ((!FIXREVERTER[26] && (i >= sat -> sat_len ))
++			#else
++			if (0
++			#endif
++			) {
+ 			    DPRINTF(("Out of bounds reading MSA %"
+ 				SIZE_T_FORMAT "u >= %" SIZE_T_FORMAT "u",
+ 				i, sat->sat_len));
+ 			    goto out3;
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			if (cdf_read_sector(info, sat->sat_tab, ss * i, ss, h,
+ 			    sec) != (ssize_t)ss) {
+ 				DPRINTF(("Reading sector %d",
+@@ -534,17 +601,47 @@ cdf_count_chain(const cdf_sat_t *sat, cdf_secid_t sid, size_t size)
+ 			DPRINTF(("Counting chain loop limit"));
+ 			goto out;
+ 		}
+-		if (sid >= maxsector) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[28]) {
++		  if ((sid >= maxsector ) && !(0))
++		    fprintf(stderr, "triggered bug index 28\n");
++		  else
++		    fprintf(stderr, "reached bug index 28\n");
++		}
++		if ((!FIXREVERTER[28] && (sid >= maxsector ))
++		#else
++		if (0
++		#endif
++		) {
+ 			DPRINTF(("Sector %d >= %d\n", sid, maxsector));
+ 			goto out;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		sid = CDF_TOLE4((uint32_t)sat->sat_tab[sid]);
+ 	}
+-	if (i == 0) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[29]) {
++	  if ((i == 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 29\n");
++	  else
++	    fprintf(stderr, "reached bug index 29\n");
++	}
++	if ((!FIXREVERTER[29] && (i == 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF((" none, sid: %d\n", sid));
+ 		goto out;
+ 
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	DPRINTF(("\n"));
+ 	return i;
+ out:
+@@ -570,20 +667,50 @@ cdf_read_long_sector_chain(const cdf_info_t *info, const cdf_header_t *h,
+ 		goto out;
+ 
+ 	scn->sst_tab = CDF_CALLOC(scn->sst_len, ss);
+-	if (scn->sst_tab == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[30]) {
++	  if ((scn -> sst_tab == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 30\n");
++	  else
++	    fprintf(stderr, "reached bug index 30\n");
++	}
++	if ((!FIXREVERTER[30] && (scn -> sst_tab == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return cdf_zero_stream(scn);
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	for (j = i = 0; sid >= 0; i++, j++) {
+ 		if (j >= CDF_LOOP_LIMIT) {
+ 			DPRINTF(("Read long sector chain loop limit"));
+ 			goto out;
+ 		}
+-		if (i >= scn->sst_len) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[32]) {
++		  if ((i >= scn -> sst_len ) && !(0))
++		    fprintf(stderr, "triggered bug index 32\n");
++		  else
++		    fprintf(stderr, "reached bug index 32\n");
++		}
++		if ((!FIXREVERTER[32] && (i >= scn -> sst_len ))
++		#else
++		if (0
++		#endif
++		) {
+ 			DPRINTF(("Out of bounds reading long sector chain "
+ 			    "%" SIZE_T_FORMAT "u > %" SIZE_T_FORMAT "u\n", i,
+ 			    scn->sst_len));
+ 			goto out;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		if ((nr = cdf_read_sector(info, scn->sst_tab, i * ss, ss, h,
+ 		    sid)) != (ssize_t)ss) {
+ 			if (i == scn->sst_len - 1 && nr > 0) {
+@@ -616,20 +743,50 @@ cdf_read_short_sector_chain(const cdf_header_t *h,
+ 		goto out;
+ 
+ 	scn->sst_tab = CDF_CALLOC(scn->sst_len, ss);
+-	if (scn->sst_tab == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[33]) {
++	  if ((scn -> sst_tab == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 33\n");
++	  else
++	    fprintf(stderr, "reached bug index 33\n");
++	}
++	if ((!FIXREVERTER[33] && (scn -> sst_tab == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return cdf_zero_stream(scn);
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	for (j = i = 0; sid >= 0; i++, j++) {
+ 		if (j >= CDF_LOOP_LIMIT) {
+ 			DPRINTF(("Read short sector chain loop limit"));
+ 			goto out;
+ 		}
+-		if (i >= scn->sst_len) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[35]) {
++		  if ((i >= scn -> sst_len ) && !(0))
++		    fprintf(stderr, "triggered bug index 35\n");
++		  else
++		    fprintf(stderr, "reached bug index 35\n");
++		}
++		if ((!FIXREVERTER[35] && (i >= scn -> sst_len ))
++		#else
++		if (0
++		#endif
++		) {
+ 			DPRINTF(("Out of bounds reading short sector chain "
+ 			    "%" SIZE_T_FORMAT "u > %" SIZE_T_FORMAT "u\n",
+ 			    i, scn->sst_len));
+ 			goto out;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		if (cdf_read_short_sector(sst, scn->sst_tab, i * ss, ss, h,
+ 		    sid) != (ssize_t)ss) {
+ 			DPRINTF(("Reading short sector chain %d", sid));
+@@ -674,8 +831,23 @@ cdf_read_dir(const cdf_info_t *info, const cdf_header_t *h,
+ 	dir->dir_len = ns * nd;
+ 	dir->dir_tab = CAST(cdf_directory_t *,
+ 	    CDF_CALLOC(dir->dir_len, sizeof(dir->dir_tab[0])));
+-	if (dir->dir_tab == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[36]) {
++	  if ((dir -> dir_tab == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 36\n");
++	  else
++	    fprintf(stderr, "reached bug index 36\n");
++	}
++	if ((!FIXREVERTER[36] && (dir -> dir_tab == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return -1;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	if ((buf = CAST(char *, CDF_MALLOC(ss))) == NULL) {
+ 		free(dir->dir_tab);
+@@ -683,10 +855,25 @@ cdf_read_dir(const cdf_info_t *info, const cdf_header_t *h,
+ 	}
+ 
+ 	for (j = i = 0; i < ns; i++, j++) {
+-		if (j >= CDF_LOOP_LIMIT) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[37]) {
++		  if ((j >= 10000 ) && !(0))
++		    fprintf(stderr, "triggered bug index 37\n");
++		  else
++		    fprintf(stderr, "reached bug index 37\n");
++		}
++		if ((!FIXREVERTER[37] && (j >= 10000 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			DPRINTF(("Read dir loop limit"));
+ 			goto out;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		if (cdf_read_sector(info, buf, 0, ss, h, sid) != (ssize_t)ss) {
+ 			DPRINTF(("Reading directory sector %d", sid));
+ 			goto out;
+@@ -724,20 +911,50 @@ cdf_read_ssat(const cdf_info_t *info, const cdf_header_t *h,
+ 		goto out;
+ 
+ 	ssat->sat_tab = CAST(cdf_secid_t *, CDF_CALLOC(ssat->sat_len, ss));
+-	if (ssat->sat_tab == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[38]) {
++	  if ((ssat -> sat_tab == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 38\n");
++	  else
++	    fprintf(stderr, "reached bug index 38\n");
++	}
++	if ((!FIXREVERTER[38] && (ssat -> sat_tab == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		goto out1;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	for (j = i = 0; sid >= 0; i++, j++) {
+ 		if (j >= CDF_LOOP_LIMIT) {
+ 			DPRINTF(("Read short sat sector loop limit"));
+ 			goto out;
+ 		}
+-		if (i >= ssat->sat_len) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[40]) {
++		  if ((i >= ssat -> sat_len ) && !(0))
++		    fprintf(stderr, "triggered bug index 40\n");
++		  else
++		    fprintf(stderr, "reached bug index 40\n");
++		}
++		if ((!FIXREVERTER[40] && (i >= ssat -> sat_len ))
++		#else
++		if (0
++		#endif
++		) {
+ 			DPRINTF(("Out of bounds reading short sector chain "
+ 			    "%" SIZE_T_FORMAT "u > %" SIZE_T_FORMAT "u\n", i,
+ 			    ssat->sat_len));
+ 			goto out;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 		if (cdf_read_sector(info, ssat->sat_tab, i * ss, ss, h, sid) !=
+ 		    (ssize_t)ss) {
+ 			DPRINTF(("Reading short sat sector %d", sid));
+@@ -767,18 +984,48 @@ cdf_read_short_stream(const cdf_info_t *info, const cdf_header_t *h,
+ 			break;
+ 
+ 	/* If the it is not there, just fake it; some docs don't have it */
+-	if (i == dir->dir_len) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[41]) {
++	  if ((i == dir -> dir_len ) && !(0))
++	    fprintf(stderr, "triggered bug index 41\n");
++	  else
++	    fprintf(stderr, "reached bug index 41\n");
++	}
++	if ((!FIXREVERTER[41] && (i == dir -> dir_len ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("Cannot find root storage dir\n"));
+ 		goto out;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	d = &dir->dir_tab[i];
+ 	*root = d;
+ 
+ 	/* If the it is not there, just fake it; some docs don't have it */
+-	if (d->d_stream_first_sector < 0) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[42]) {
++	  if ((d -> d_stream_first_sector < 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 42\n");
++	  else
++	    fprintf(stderr, "reached bug index 42\n");
++	}
++	if ((!FIXREVERTER[42] && (d -> d_stream_first_sector < 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("No first secror in dir\n"));
+ 		goto out;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	return cdf_read_long_sector_chain(info, h, sat,
+ 	    d->d_stream_first_sector, d->d_size, scn);
+@@ -823,10 +1070,25 @@ cdf_read_user_stream(const cdf_info_t *info, const cdf_header_t *h,
+ 	const cdf_directory_t *d;
+ 	int i = cdf_find_stream(dir, name, CDF_DIR_TYPE_USER_STREAM);
+ 
+-	if (i <= 0) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[43]) {
++	  if ((i <= 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 43\n");
++	  else
++	    fprintf(stderr, "reached bug index 43\n");
++	}
++	if ((!FIXREVERTER[43] && (i <= 0 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		memset(scn, 0, sizeof(*scn));
+ 		return -1;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	d = &dir->dir_tab[i - 1];
+ 	return cdf_read_sector_chain(info, h, sat, ssat, sst,
+@@ -843,8 +1105,23 @@ cdf_find_stream(const cdf_dir_t *dir, const char *name, int type)
+ 		    cdf_namecmp(name, dir->dir_tab[i - 1].d_name, name_len)
+ 		    == 0)
+ 			break;
+-	if (i > 0)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[44]) {
++	  if ((i > 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 44\n");
++	  else
++	    fprintf(stderr, "reached bug index 44\n");
++	}
++	if ((!FIXREVERTER[44] && (i > 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return CAST(int, i);
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	DPRINTF(("Cannot find type %d `%s'\n", type, name));
+ 	errno = ESRCH;
+@@ -868,10 +1145,25 @@ cdf_get_property_info_pos(const cdf_stream_t *sst, const cdf_header_t *h,
+ 	size_t ofs;
+ 	const uint8_t *q;
+ 
+-	if (p >= e) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[45]) {
++	  if ((p >= e ) && !(0))
++	    fprintf(stderr, "triggered bug index 45\n");
++	  else
++	    fprintf(stderr, "reached bug index 45\n");
++	}
++	if ((!FIXREVERTER[45] && (p >= e ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("Past end %p < %p\n", e, p));
+ 		return NULL;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	if (cdf_check_stream_offset(sst, h, p, (tail + 1) * sizeof(uint32_t),
+ 	    __LINE__) == -1)
+ 		return NULL;
+@@ -879,15 +1171,45 @@ cdf_get_property_info_pos(const cdf_stream_t *sst, const cdf_header_t *h,
+ 	q = CAST(const uint8_t *, cdf_offset(CAST(const void *, p),
+ 	    ofs - 2 * sizeof(uint32_t)));
+ 
+-	if (q < p) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[46]) {
++	  if ((q < p ) && !(0))
++	    fprintf(stderr, "triggered bug index 46\n");
++	  else
++	    fprintf(stderr, "reached bug index 46\n");
++	}
++	if ((!FIXREVERTER[46] && (q < p ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("Wrapped around %p < %p\n", q, p));
+ 		return NULL;
+ 	}
+-
+-	if (q >= e) {
++	#ifdef FRCOV
++	}
++	#endif
++
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[47]) {
++	  if ((q >= e ) && !(0))
++	    fprintf(stderr, "triggered bug index 47\n");
++	  else
++	    fprintf(stderr, "reached bug index 47\n");
++	}
++	if ((!FIXREVERTER[47] && (q >= e ))
++	#else
++	if (0
++	#endif
++	) {
+ 		DPRINTF(("Ran off the end %p >= %p\n", q, e));
+ 		return NULL;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	return q;
+ }
+ 
+@@ -904,8 +1226,23 @@ cdf_grow_info(cdf_property_info_t **info, size_t *maxcount, size_t incr)
+ 	}
+ 	inp = CAST(cdf_property_info_t *,
+ 	    CDF_REALLOC(*info, newcount * sizeof(*inp)));
+-	if (inp == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[48]) {
++	  if ((inp == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 48\n");
++	  else
++	    fprintf(stderr, "reached bug index 48\n");
++	}
++	if ((!FIXREVERTER[48] && (inp == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		goto out;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	*info = inp;
+ 	*maxcount = newcount;
+@@ -955,19 +1292,49 @@ cdf_read_property_info(const cdf_stream_t *sst, const cdf_header_t *h,
+ 	size_t i, o4, nelements, j, slen, left;
+ 	cdf_property_info_t *inp;
+ 
+-	if (offs > UINT32_MAX / 4) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[49]) {
++	  if ((offs > -1 / 4 ) && !(0))
++	    fprintf(stderr, "triggered bug index 49\n");
++	  else
++	    fprintf(stderr, "reached bug index 49\n");
++	}
++	if ((!FIXREVERTER[49] && (offs > -1 / 4 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		errno = EFTYPE;
+ 		goto out;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	shp = CAST(const cdf_section_header_t *,
+ 	    cdf_offset(sst->sst_tab, offs));
+ 	if (cdf_check_stream_offset(sst, h, shp, sizeof(*shp), __LINE__) == -1)
+ 		goto out;
+ 	sh.sh_len = CDF_TOLE4(shp->sh_len);
+-	if (sh.sh_len > CDF_SHLEN_LIMIT) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[50]) {
++	  if ((sh . sh_len > -1 / 64 ) && !(0))
++	    fprintf(stderr, "triggered bug index 50\n");
++	  else
++	    fprintf(stderr, "reached bug index 50\n");
++	}
++	if ((!FIXREVERTER[50] && (sh . sh_len > -1 / 64 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		errno = EFTYPE;
+ 		goto out;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	if (cdf_check_stream_offset(sst, h, shp, sh.sh_len, __LINE__) == -1)
+ 		goto out;
+@@ -978,8 +1345,23 @@ cdf_read_property_info(const cdf_stream_t *sst, const cdf_header_t *h,
+ 	if (sh.sh_properties > CDF_PROP_LIMIT)
+ 		goto out;
+ 	inp = cdf_grow_info(info, maxcount, sh.sh_properties);
+-	if (inp == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[51]) {
++	  if ((inp == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 51\n");
++	  else
++	    fprintf(stderr, "reached bug index 51\n");
++	}
++	if ((!FIXREVERTER[51] && (inp == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		goto out;
++		#ifdef FRCOV
++		}
++		#endif
+ 	inp += *count;
+ 	*count += sh.sh_properties;
+ 	p = CAST(const uint8_t *, cdf_offset(sst->sst_tab, offs + sizeof(sh)));
+@@ -1005,10 +1387,25 @@ cdf_read_property_info(const cdf_stream_t *sst, const cdf_header_t *h,
+ 				goto out;
+ 			}
+ 			nelements = CDF_GETUINT32(q, 1);
+-			if (nelements == 0) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[52]) {
++			  if ((nelements == 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 52\n");
++			  else
++			    fprintf(stderr, "reached bug index 52\n");
++			}
++			if ((!FIXREVERTER[52] && (nelements == 0 ))
++			#else
++			if (0
++			#endif
++			) {
+ 				DPRINTF(("CDF_VECTOR with nelements == 0\n"));
+ 				goto out;
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			slen = 2;
+ 		} else {
+ 			nelements = 1;
+@@ -1044,15 +1441,44 @@ cdf_read_property_info(const cdf_stream_t *sst, const cdf_header_t *h,
+ 			if (nelements > 1) {
+ 				size_t nelem = inp - *info;
+ 				inp = cdf_grow_info(info, maxcount, nelements);
+-				if (inp == NULL)
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[53]) {
++				  if ((inp == (void *) 0 ) && !(0))
++				    fprintf(stderr, "triggered bug index 53\n");
++				  else
++				    fprintf(stderr, "reached bug index 53\n");
++				}
++				if ((!FIXREVERTER[53] && (inp == (void *) 0 ))
++				#else
++				if (0
++				#endif
++				)
+ 					goto out;
++					#ifdef FRCOV
++					}
++					#endif
+ 				inp += nelem;
+ 			}
+ 			DPRINTF(("nelements = %" SIZE_T_FORMAT "u\n",
+ 			    nelements));
+-			for (j = 0; j < nelements && i < sh.sh_properties;
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[55])
++			  fprintf(stderr, "reached bug index 55\n");
++			for (j = 0; (FIXREVERTER[55] && (j < nelements )) || (!FIXREVERTER[55] && (j < nelements && i < sh . sh_properties ))
++			#else
++			for (j = 0; j < nelements 
++			#endif
++			;
+ 			    j++, i++)
+ 			{
++			  
++			#ifdef FRCOV
++			  if (!(i < sh . sh_properties ))
++			    fprintf(stderr, "triggered bug index 55\n");
++			  #endif
++			
+ 				uint32_t l;
+ 
+ 				if (o4 + sizeof(uint32_t) > left)
+@@ -1060,8 +1486,23 @@ cdf_read_property_info(const cdf_stream_t *sst, const cdf_header_t *h,
+ 
+ 				l = CDF_GETUINT32(q, slen);
+ 				o4 += sizeof(uint32_t);
+-				if (o4 + l > left)
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[54]) {
++				  if ((o4 + l > left ) && !(0))
++				    fprintf(stderr, "triggered bug index 54\n");
++				  else
++				    fprintf(stderr, "reached bug index 54\n");
++				}
++				if ((!FIXREVERTER[54] && (o4 + l > left ))
++				#else
++				if (0
++				#endif
++				)
+ 					goto out;
++					#ifdef FRCOV
++					}
++					#endif
+ 
+ 				inp[i].pi_str.s_len = l;
+ 				inp[i].pi_str.s_buf = CAST(const char *,
+@@ -1078,6 +1519,9 @@ cdf_read_property_info(const cdf_stream_t *sst, const cdf_header_t *h,
+ 				slen += l >> 1;
+ 				o4 = slen * sizeof(uint32_t);
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 			i--;
+ 			break;
+ 		case CDF_CLIPBOARD:
+@@ -1155,11 +1599,41 @@ cdf_unpack_catalog(const cdf_header_t *h, const cdf_stream_t *sst,
+ 	for (nr = 0;; nr++) {
+ 		memcpy(&reclen, b, sizeof(reclen));
+ 		reclen = CDF_TOLE2(reclen);
+-		if (reclen == 0)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[56]) {
++		  if ((reclen == 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 56\n");
++		  else
++		    fprintf(stderr, "reached bug index 56\n");
++		}
++		if ((!FIXREVERTER[56] && (reclen == 0 ))
++		#else
++		if (0
++		#endif
++		)
+ 			break;
++			#ifdef FRCOV
++			}
++			#endif
+ 		b += reclen;
+-		if (b > eb)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[57]) {
++		  if ((b > eb ) && !(0))
++		    fprintf(stderr, "triggered bug index 57\n");
++		  else
++		    fprintf(stderr, "reached bug index 57\n");
++		}
++		if ((!FIXREVERTER[57] && (b > eb ))
++		#else
++		if (0
++		#endif
++		)
+ 		    break;
++		    #ifdef FRCOV
++		    }
++		    #endif
+ 	}
+ 	if (nr == 0)
+ 		return -1;
+@@ -1180,23 +1654,68 @@ cdf_unpack_catalog(const cdf_header_t *h, const cdf_stream_t *sst,
+ 		extract_catalog_field(uint64_t, ce_timestamp, 8);
+ 		reclen = cep->ce_namlen;
+ 
+-		if (reclen < 14) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[59]) {
++		  if ((reclen < 14 ) && !(0))
++		    fprintf(stderr, "triggered bug index 59\n");
++		  else
++		    fprintf(stderr, "reached bug index 59\n");
++		}
++		if ((!FIXREVERTER[59] && (reclen < 14 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			cep->ce_namlen = 0;
+ 			continue;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 		cep->ce_namlen = __arraycount(cep->ce_name) - 1;
+ 		rlen = reclen - 14;
+-		if (cep->ce_namlen > rlen)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[60]) {
++		  if ((cep -> ce_namlen > rlen  ) && !(0))
++		    fprintf(stderr, "triggered bug index 60\n");
++		  else
++		    fprintf(stderr, "reached bug index 60\n");
++		}
++		if ((!FIXREVERTER[60] && (cep -> ce_namlen > rlen  ))
++		#else
++		if (0
++		#endif
++		)
+ 			cep->ce_namlen = rlen;
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 		np = CAST(const uint16_t *, CAST(const void *, (b + 16)));
+ 		nb = CAST(const char *, CAST(const void *,
+ 		    (np + cep->ce_namlen)));
+-		if (nb > eb) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[61]) {
++		  if ((nb > eb ) && !(0))
++		    fprintf(stderr, "triggered bug index 61\n");
++		  else
++		    fprintf(stderr, "reached bug index 61\n");
++		}
++		if ((!FIXREVERTER[61] && (nb > eb ))
++		#else
++		if (0
++		#endif
++		) {
+ 			cep->ce_namlen = 0;
+ 			break;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 		for (k = 0; k < cep->ce_namlen; k++)
+ 			cep->ce_name[k] = np[k]; /* XXX: CDF_TOLE2? */
+diff --git a/src/cdf_time.c b/src/cdf_time.c
+index 4d2088d8..f031dd5c 100644
+--- a/src/cdf_time.c
++++ b/src/cdf_time.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*-
+  * Copyright (c) 2008 Christos Zoulas
+  * All rights reserved.
+@@ -70,8 +77,23 @@ cdf_getday(int year, int days)
+ 
+ 	for (m = 0; m < sizeof(mdays) / sizeof(mdays[0]); m++) {
+ 		int sub = mdays[m] + (m == 1 && isleap(year));
+-		if (days < sub)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[1]) {
++		  if ((days < sub ) && !(0))
++		    fprintf(stderr, "triggered bug index 1\n");
++		  else
++		    fprintf(stderr, "reached bug index 1\n");
++		}
++		if ((!FIXREVERTER[1] && (days < sub ))
++		#else
++		if (0
++		#endif
++		)
+ 			return days;
++			#ifdef FRCOV
++			}
++			#endif
+ 		days -= sub;
+ 	}
+ 	return days;
+diff --git a/src/compress.c b/src/compress.c
+index d229219d..43dd892b 100644
+--- a/src/compress.c
++++ b/src/compress.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Ian F. Darwin 1986-1995.
+  * Software written by Ian F. Darwin and others;
+@@ -346,8 +353,23 @@ sread(int fd, void *buf, size_t n, int canbepipe __attribute__((__unused__)))
+ #endif
+ 	size_t rn = n;
+ 
+-	if (fd == STDIN_FILENO)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[68]) {
++	  if ((fd == 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 68\n");
++	  else
++	    fprintf(stderr, "reached bug index 68\n");
++	}
++	if ((!FIXREVERTER[68] && (fd == 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		goto nocheck;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ #ifdef FIONREAD
+ 	if (canbepipe && (ioctl(fd, FIONREAD, &t) == -1 || t == 0)) {
+diff --git a/src/der.c b/src/der.c
+index cc277696..ca7fd82d 100644
+--- a/src/der.c
++++ b/src/der.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*-
+  * Copyright (c) 2016 Christos Zoulas
+  * All rights reserved.
+@@ -262,8 +269,23 @@ der_offs(struct magic_set *ms, struct magic *m, size_t nbytes)
+ 		    ms->c.li[i].off);
+ #endif
+ 	if (m->cont_level != 0) {
+-		if (offs + tlen > nbytes)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[12]) {
++		  if ((offs + tlen > nbytes ) && !(0))
++		    fprintf(stderr, "triggered bug index 12\n");
++		  else
++		    fprintf(stderr, "reached bug index 12\n");
++		}
++		if ((!FIXREVERTER[12] && (offs + tlen > nbytes ))
++		#else
++		if (0
++		#endif
++		)
+ 			return -1;
++			#ifdef FRCOV
++			}
++			#endif
+ 		ms->c.li[m->cont_level - 1].off = CAST(int, offs + tlen);
+ 		DPRINTF(("cont_level[%u] = %u\n", m->cont_level - 1,
+ 		    ms->c.li[m->cont_level - 1].off));
+@@ -317,8 +339,23 @@ again:
+ 		if ((ms->flags & MAGIC_DEBUG) != 0)
+ 			fprintf(stderr, "%s: len %" SIZE_T_FORMAT "u %u\n",
+ 			    __func__, slen, tlen);
+-		if (tlen != slen)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[13]) {
++		  if ((tlen != slen ) && !(0))
++		    fprintf(stderr, "triggered bug index 13\n");
++		  else
++		    fprintf(stderr, "reached bug index 13\n");
++		}
++		if ((!FIXREVERTER[13] && (tlen != slen ))
++		#else
++		if (0
++		#endif
++		)
+ 			return 0;
++			#ifdef FRCOV
++			}
++			#endif
+ 		goto again;
+ 	}
+ val:
+diff --git a/src/encoding.c b/src/encoding.c
+index ef8493d5..bd33182e 100644
+--- a/src/encoding.c
++++ b/src/encoding.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Ian F. Darwin 1986-1995.
+  * Software written by Ian F. Darwin and others;
+@@ -357,8 +364,23 @@ file_looks_utf8(const unsigned char *buf, size_t nbytes, unichar *ubuf, size_t *
+ 
+ 			for (n = 0; n < following; n++) {
+ 				i++;
+-				if (i >= nbytes)
++				
++				#ifdef FRCOV
++				{if (FIXREVERTER[76]) {
++				  if ((i >= nbytes ) && !(0))
++				    fprintf(stderr, "triggered bug index 76\n");
++				  else
++				    fprintf(stderr, "reached bug index 76\n");
++				}
++				if ((!FIXREVERTER[76] && (i >= nbytes ))
++				#else
++				if (0
++				#endif
++				)
+ 					goto done;
++					#ifdef FRCOV
++					}
++					#endif
+ 
+ 				if ((buf[i] & 0x80) == 0 || (buf[i] & 0x40))
+ 					return -1;
+diff --git a/src/fsmagic.c b/src/fsmagic.c
+index 3d742557..37a3a3d2 100644
+--- a/src/fsmagic.c
++++ b/src/fsmagic.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Ian F. Darwin 1986-1995.
+  * Software written by Ian F. Darwin and others;
+@@ -111,8 +118,23 @@ file_fsmagic(struct magic_set *ms, const char *fn, struct stat *sb)
+ 	struct stat tstatbuf;
+ #endif
+ 
+-	if (fn == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[97]) {
++	  if ((fn == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 97\n");
++	  else
++	    fprintf(stderr, "reached bug index 97\n");
++	}
++	if ((!FIXREVERTER[97] && (fn == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return 0;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ #define COMMA	(did++ ? ", " : "")
+ 	/*
+@@ -362,8 +384,23 @@ file_fsmagic(struct magic_set *ms, const char *fn, struct stat *sb)
+ 			ms->flags &= MAGIC_SYMLINK;
+ 			p = magic_file(ms, buf);
+ 			ms->flags |= MAGIC_SYMLINK;
+-			if (p == NULL)
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[98]) {
++			  if ((p == (void *) 0 ) && !(0))
++			    fprintf(stderr, "triggered bug index 98\n");
++			  else
++			    fprintf(stderr, "reached bug index 98\n");
++			}
++			if ((!FIXREVERTER[98] && (p == (void *) 0 ))
++			#else
++			if (0
++			#endif
++			)
+ 				return -1;
++				#ifdef FRCOV
++				}
++				#endif
+ 		} else { /* just print what it points to */
+ 			if (mime) {
+ 				if (handle_mime(ms, mime, "symlink") == -1)
+diff --git a/src/funcs.c b/src/funcs.c
+index 48c85538..2f5b09ce 100644
+--- a/src/funcs.c
++++ b/src/funcs.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Christos Zoulas 2003.
+  * All Rights Reserved.
+@@ -218,10 +225,25 @@ file_buffer(struct magic_set *ms, int fd, const char *inname __attribute__ ((__u
+ 	if (nb == 0) {
+ 		def = "empty";
+ 		goto simple;
+-	} else if (nb == 1) {
++	} else 
++	#ifdef FRCOV
++	{if (FIXREVERTER[17]) {
++	  if ((nb == 1 ) && !(0))
++	    fprintf(stderr, "triggered bug index 17\n");
++	  else
++	    fprintf(stderr, "reached bug index 17\n");
++	}
++	if ((!FIXREVERTER[17] && (nb == 1 ))
++	#else
++	if (0
++	#endif
++	) {
+ 		def = "very short file (no magic)";
+ 		goto simple;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	if ((ms->flags & MAGIC_NO_CHECK_ENCODING) == 0) {
+ 		looks_text = file_encoding(ms, &b, NULL, 0,
+@@ -633,8 +655,23 @@ file_printable(char *buf, size_t bufsiz, const char *str)
+ 			*ptr++ = *s;
+ 			continue;
+ 		}
+-		if (ptr >= eptr - 3)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[19]) {
++		  if ((ptr >= eptr - 3 ) && !(0))
++		    fprintf(stderr, "triggered bug index 19\n");
++		  else
++		    fprintf(stderr, "reached bug index 19\n");
++		}
++		if ((!FIXREVERTER[19] && (ptr >= eptr - 3 ))
++		#else
++		if (0
++		#endif
++		)
+ 			break;
++			#ifdef FRCOV
++			}
++			#endif
+ 		*ptr++ = '\\';
+ 		*ptr++ = ((CAST(unsigned int, *s) >> 6) & 7) + '0';
+ 		*ptr++ = ((CAST(unsigned int, *s) >> 3) & 7) + '0';
+diff --git a/src/magic.c b/src/magic.c
+index 7f469c59..44f1453d 100644
+--- a/src/magic.c
++++ b/src/magic.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Christos Zoulas 2003.
+  * All Rights Reserved.
+@@ -297,8 +304,23 @@ magic_close(struct magic_set *ms)
+ public int
+ magic_load(struct magic_set *ms, const char *magicfile)
+ {
+-	if (ms == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[78]) {
++	  if ((ms == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 78\n");
++	  else
++	    fprintf(stderr, "reached bug index 78\n");
++	}
++	if ((!FIXREVERTER[78] && (ms == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return -1;
++		#ifdef FRCOV
++		}
++		#endif
+ 	return file_apprentice(ms, magicfile, FILE_LOAD);
+ }
+ 
+@@ -392,8 +414,23 @@ magic_descriptor(struct magic_set *ms, int fd)
+ public const char *
+ magic_file(struct magic_set *ms, const char *inname)
+ {
+-	if (ms == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[84]) {
++	  if ((ms == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 84\n");
++	  else
++	    fprintf(stderr, "reached bug index 84\n");
++	}
++	if ((!FIXREVERTER[84] && (ms == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return NULL;
++		#ifdef FRCOV
++		}
++		#endif
+ 	return file_or_fd(ms, inname, STDIN_FILENO);
+ }
+ 
+@@ -541,8 +578,23 @@ magic_buffer(struct magic_set *ms, const void *buf, size_t nb)
+ public const char *
+ magic_error(struct magic_set *ms)
+ {
+-	if (ms == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[86]) {
++	  if ((ms == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 86\n");
++	  else
++	    fprintf(stderr, "reached bug index 86\n");
++	}
++	if ((!FIXREVERTER[86] && (ms == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return "Magic database is not open";
++		#ifdef FRCOV
++		}
++		#endif
+ 	return (ms->event_flags & EVENT_HAD_ERR) ? ms->o.buf : NULL;
+ }
+ 
+@@ -566,8 +618,23 @@ magic_getflags(struct magic_set *ms)
+ public int
+ magic_setflags(struct magic_set *ms, int flags)
+ {
+-	if (ms == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[89]) {
++	  if ((ms == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 89\n");
++	  else
++	    fprintf(stderr, "reached bug index 89\n");
++	}
++	if ((!FIXREVERTER[89] && (ms == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return -1;
++		#ifdef FRCOV
++		}
++		#endif
+ #if !defined(HAVE_UTIME) && !defined(HAVE_UTIMES)
+ 	if (flags & MAGIC_PRESERVE_ATIME)
+ 		return -1;
+diff --git a/src/print.c b/src/print.c
+index 23f6051e..72806b12 100644
+--- a/src/print.c
++++ b/src/print.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Ian F. Darwin 1986-1995.
+  * Software written by Ian F. Darwin and others;
+@@ -251,12 +258,42 @@ file_fmttime(uint64_t v, int flags, char *buf)
+ 	} else {
+ 		tm = gmtime_r(&t, &tmz);
+ 	}
+-	if (tm == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[92]) {
++	  if ((tm == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 92\n");
++	  else
++	    fprintf(stderr, "reached bug index 92\n");
++	}
++	if ((!FIXREVERTER[92] && (tm == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		goto out;
++		#ifdef FRCOV
++		}
++		#endif
+ 	pp = asctime_r(tm, buf);
+ 
+-	if (pp == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[93]) {
++	  if ((pp == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 93\n");
++	  else
++	    fprintf(stderr, "reached bug index 93\n");
++	}
++	if ((!FIXREVERTER[93] && (pp == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		goto out;
++		#ifdef FRCOV
++		}
++		#endif
+ 	pp[strcspn(pp, "\n")] = '\0';
+ 	return pp;
+ out:
+diff --git a/src/readcdf.c b/src/readcdf.c
+index b43a8432..e54f9dcb 100644
+--- a/src/readcdf.c
++++ b/src/readcdf.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*-
+  * Copyright (c) 2008, 2016 Christos Zoulas
+  * All rights reserved.
+@@ -648,8 +655,23 @@ file_trycdf(struct magic_set *ms, const struct buffer *b)
+ 	}
+ 	if (i <= 0) {
+ 		i = cdf_file_dir_info(ms, &dir);
+-		if (i < 0)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[99]) {
++		  if ((i < 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 99\n");
++		  else
++		    fprintf(stderr, "reached bug index 99\n");
++		}
++		if ((!FIXREVERTER[99] && (i < 0 ))
++		#else
++		if (0
++		#endif
++		)
+ 			expn = "Cannot read section info";
++			#ifdef FRCOV
++			}
++			#endif
+ 	}
+ out5:
+ 	cdf_zero_stream(&scn);
+diff --git a/src/softmagic.c b/src/softmagic.c
+index 9cdbe9af..a9458c8f 100644
+--- a/src/softmagic.c
++++ b/src/softmagic.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (c) Ian F. Darwin 1986-1995.
+  * Software written by Ian F. Darwin and others;
+@@ -459,8 +466,23 @@ varexpand(struct magic_set *ms, char *buf, size_t len, const char *str)
+ 
+ 	for (sptr = str; (ptr = strstr(sptr, "${")) != NULL;) {
+ 		l = (size_t)(ptr - sptr);
+-		if (l >= len)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[62]) {
++		  if ((l >= len ) && !(0))
++		    fprintf(stderr, "triggered bug index 62\n");
++		  else
++		    fprintf(stderr, "reached bug index 62\n");
++		}
++		if ((!FIXREVERTER[62] && (l >= len ))
++		#else
++		if (0
++		#endif
++		)
+ 			return -1;
++			#ifdef FRCOV
++			}
++			#endif
+ 		memcpy(buf, sptr, l);
+ 		buf += l;
+ 		len -= l;
+@@ -488,8 +510,23 @@ varexpand(struct magic_set *ms, char *buf, size_t len, const char *str)
+ 		default:
+ 			return -1;
+ 		}
+-		if (l >= len)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[63]) {
++		  if ((l >= len ) && !(0))
++		    fprintf(stderr, "triggered bug index 63\n");
++		  else
++		    fprintf(stderr, "reached bug index 63\n");
++		}
++		if ((!FIXREVERTER[63] && (l >= len ))
++		#else
++		if (0
++		#endif
++		)
+ 			return -1;
++			#ifdef FRCOV
++			}
++			#endif
+ 		memcpy(buf, ptr, l);
+ 		buf += l;
+ 		len -= l;
+@@ -497,8 +534,23 @@ varexpand(struct magic_set *ms, char *buf, size_t len, const char *str)
+ 	}
+ 
+ 	l = strlen(sptr);
+-	if (l >= len)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[64]) {
++	  if ((l >= len ) && !(0))
++	    fprintf(stderr, "triggered bug index 64\n");
++	  else
++	    fprintf(stderr, "reached bug index 64\n");
++	}
++	if ((!FIXREVERTER[64] && (l >= len ))
++	#else
++	if (0
++	#endif
++	)
+ 		return -1;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	memcpy(buf, sptr, l);
+ 	buf[l] = '\0';

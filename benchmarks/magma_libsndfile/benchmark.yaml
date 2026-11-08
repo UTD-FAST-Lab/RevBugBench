@@ -1,0 +1,12 @@
+commit: 86c9f9eb7022d186ad4d0689487e7d4f04ce2b29
+fuzz_target: sndfile_fuzzer
+project: libsndfile
+type: bug
+unsupported_fuzzers:
+  - aflcc
+  - afl_qemu
+  - aflplusplus_qemu
+  - honggfuzz_qemu
+  - klee
+  - lafintel
+  - weizz_qemu

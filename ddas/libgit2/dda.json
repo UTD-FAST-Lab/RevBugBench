@@ -1,0 +1,1989 @@
+[
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/signature.c",
+    "func": {
+      "name": "git_signature_free",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "40",
+        "crash": true,
+        "file": "../../src/signature.c",
+        "line": "14",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "sig"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 698,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "../../src/signature.c",
+          "line": "17"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/signature.c",
+          "line": "17"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "../../src/signature.c",
+        "line": "17"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/signature.c",
+        "line": "16"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "40",
+        "file": "../../src/signature.c",
+        "line": "14",
+        "order": 1,
+        "val": "sig"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/odb.c",
+    "func": {
+      "name": "git_odb_object_free",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "42",
+        "crash": true,
+        "file": "../../src/odb.c",
+        "line": "190",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "object"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 834,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "../../src/odb.c",
+          "line": "193"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/odb.c",
+          "line": "193"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "../../src/odb.c",
+        "line": "193"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/odb.c",
+        "line": "192"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "42",
+        "file": "../../src/odb.c",
+        "line": "190",
+        "order": 1,
+        "val": "object"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/oid.c",
+    "func": {
+      "name": "git_oid_fromstrn",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "6",
+        "crash": true,
+        "file": "../../src/oid.c",
+        "line": "27",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "v"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 98,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "58",
+          "file": "../../src/oid.c",
+          "line": "42"
+        },
+        "start": {
+          "col": "4",
+          "file": "../../src/oid.c",
+          "line": "42"
+        }
+      },
+      "end": {
+        "col": "58",
+        "file": "../../src/oid.c",
+        "line": "42"
+      },
+      "start": {
+        "col": "3",
+        "file": "../../src/oid.c",
+        "line": "41"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "6",
+        "file": "../../src/oid.c",
+        "line": "27",
+        "order": 1,
+        "val": "v"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/tag.c",
+    "func": {
+      "name": "tag_parse",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "14",
+        "crash": true,
+        "file": "../../src/tag.c",
+        "line": "74",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "search"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 117,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "38",
+          "file": "../../src/tag.c",
+          "line": "115"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/tag.c",
+          "line": "115"
+        }
+      },
+      "end": {
+        "col": "38",
+        "file": "../../src/tag.c",
+        "line": "115"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/tag.c",
+        "line": "114"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "14",
+        "file": "../../src/tag.c",
+        "line": "74",
+        "order": 1,
+        "val": "search"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/buffer.c",
+    "func": {
+      "name": "git_buf_try_grow",
+      "param": [
+        64,
+        64,
+        8
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "target_size"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<="
+      },
+      {
+        "col": "9",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 1,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "asize"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "offset": 1,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "buf"
+      }
+    ],
+    "index": 391,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "10",
+          "file": "../../src/buffer.c",
+          "line": "54"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/buffer.c",
+          "line": "54"
+        }
+      },
+      "end": {
+        "col": "10",
+        "file": "../../src/buffer.c",
+        "line": "54"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/buffer.c",
+        "line": "53"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "23",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "order": 1,
+        "val": "target_size"
+      },
+      {
+        "order": 2,
+        "val": "<="
+      },
+      {
+        "col": "11",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "order": 3,
+        "val": "buf"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "9",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 1,
+        "order": 5,
+        "val": "asize"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/tag.c",
+    "func": {
+      "name": "tag_parse",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "buffer"
+      },
+      {
+        "col": "68",
+        "crash": true,
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 5,
+        "tag": "traceVarPtrRange[]",
+        "val": "buffer_end"
+      },
+      {
+        "order": 2,
+        "tag": "arith[]",
+        "val": "+"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 116,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "38",
+          "file": "../../src/tag.c",
+          "line": "106"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/tag.c",
+          "line": "106"
+        }
+      },
+      "end": {
+        "col": "38",
+        "file": "../../src/tag.c",
+        "line": "106"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/tag.c",
+        "line": "105"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 1,
+        "val": "buffer"
+      },
+      {
+        "order": 2,
+        "val": "+"
+      },
+      {
+        "order": 3,
+        "val": "4"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "68",
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 5,
+        "val": "buffer_end"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/util.c",
+    "func": {
+      "name": "git__strntol64",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "break"
+      },
+      {
+        "col": "15",
+        "crash": true,
+        "file": "../../src/util.c",
+        "line": "75",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "v"
+      },
+      {
+        "col": "97",
+        "crash": true,
+        "file": "../../src/util.c",
+        "line": "71",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "base"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 124,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "../../src/util.c",
+          "line": "142"
+        },
+        "start": {
+          "col": "4",
+          "file": "../../src/util.c",
+          "line": "142"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "../../src/util.c",
+        "line": "142"
+      },
+      "start": {
+        "col": "3",
+        "file": "../../src/util.c",
+        "line": "141"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "15",
+        "file": "../../src/util.c",
+        "line": "75",
+        "order": 1,
+        "val": "v"
+      },
+      {
+        "order": 2,
+        "val": ">="
+      },
+      {
+        "col": "97",
+        "file": "../../src/util.c",
+        "line": "71",
+        "order": 3,
+        "val": "base"
+      },
+      {
+        "order": 4,
+        "val": "break"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/util.c",
+    "func": {
+      "name": "git__strntol64",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "goto"
+      },
+      {
+        "col": "97",
+        "crash": true,
+        "file": "../../src/util.c",
+        "line": "71",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "base"
+      },
+      {
+        "col": "97",
+        "crash": true,
+        "file": "../../src/util.c",
+        "line": "71",
+        "order": 7,
+        "tag": "traceVarNumCmp[]",
+        "val": "base"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 123,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "8",
+          "file": "../../src/util.c",
+          "line": "115"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/util.c",
+          "line": "115"
+        }
+      },
+      "end": {
+        "col": "8",
+        "file": "../../src/util.c",
+        "line": "115"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/util.c",
+        "line": "114"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "97",
+        "file": "../../src/util.c",
+        "line": "71",
+        "order": 1,
+        "val": "base"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "order": 5,
+        "val": "36"
+      },
+      {
+        "order": 6,
+        "val": "<"
+      },
+      {
+        "col": "97",
+        "file": "../../src/util.c",
+        "line": "71",
+        "order": 7,
+        "val": "base"
+      },
+      {
+        "order": 8,
+        "val": "goto"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/tree.c",
+    "func": {
+      "name": "parse_mode",
+      "param": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 8,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "../../src/tree.c",
+        "line": "361",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "mode"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "../../src/tree.c",
+        "line": "361",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "mode"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": ">"
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "||"
+      }
+    ],
+    "index": 136,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "11",
+          "file": "../../src/tree.c",
+          "line": "371"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/tree.c",
+          "line": "371"
+        }
+      },
+      "end": {
+        "col": "11",
+        "file": "../../src/tree.c",
+        "line": "371"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/tree.c",
+        "line": "370"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "../../src/tree.c",
+        "line": "361",
+        "order": 1,
+        "val": "mode"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "||"
+      },
+      {
+        "col": "10",
+        "file": "../../src/tree.c",
+        "line": "361",
+        "order": 5,
+        "val": "mode"
+      },
+      {
+        "order": 6,
+        "val": ">"
+      },
+      {
+        "order": 7,
+        "val": "65535"
+      },
+      {
+        "order": 8,
+        "val": "return"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/buffer.c",
+    "func": {
+      "name": "git_buf_vprintf",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "6",
+        "crash": true,
+        "file": "../../src/buffer.c",
+        "line": "496",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      }
+    ],
+    "index": 394,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "../../src/buffer.c",
+          "line": "518"
+        },
+        "start": {
+          "col": "16",
+          "file": "../../src/buffer.c",
+          "line": "514"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "../../src/buffer.c",
+        "line": "518"
+      },
+      "start": {
+        "col": "3",
+        "file": "../../src/buffer.c",
+        "line": "514"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "6",
+        "file": "../../src/buffer.c",
+        "line": "496",
+        "order": 1,
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/signature.c",
+    "func": {
+      "name": "git_signature__parse",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        8
+      ]
+    },
+    "ids": [
+      {
+        "col": "16",
+        "crash": true,
+        "file": "../../src/signature.c",
+        "line": "244",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "hours"
+      },
+      {
+        "col": "23",
+        "crash": true,
+        "file": "../../src/signature.c",
+        "line": "244",
+        "order": 5,
+        "tag": "traceVarNumCmp[]",
+        "val": "mins"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<="
+      },
+      {
+        "order": 6,
+        "tag": "cmp[]",
+        "val": "<="
+      },
+      {
+        "order": 4,
+        "tag": "logic[]",
+        "val": "&&"
+      }
+    ],
+    "index": 701,
+    "pattern": "COND_EXEC",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "4",
+          "file": "../../src/signature.c",
+          "line": "268"
+        },
+        "start": {
+          "col": "35",
+          "file": "../../src/signature.c",
+          "line": "263"
+        }
+      },
+      "end": {
+        "col": "4",
+        "file": "../../src/signature.c",
+        "line": "268"
+      },
+      "start": {
+        "col": "4",
+        "file": "../../src/signature.c",
+        "line": "263"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "16",
+        "file": "../../src/signature.c",
+        "line": "244",
+        "order": 1,
+        "val": "hours"
+      },
+      {
+        "order": 2,
+        "val": "<="
+      },
+      {
+        "order": 3,
+        "val": "14"
+      },
+      {
+        "order": 4,
+        "val": "&&"
+      },
+      {
+        "col": "23",
+        "file": "../../src/signature.c",
+        "line": "244",
+        "order": 5,
+        "val": "mins"
+      },
+      {
+        "order": 6,
+        "val": "<="
+      },
+      {
+        "order": 7,
+        "val": "59"
+      },
+      {
+        "order": 8,
+        "val": ";"
+      },
+      {
+        "order": 9,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/hash/sha1dc/sha1.c",
+    "func": {
+      "name": "SHA1DCUpdate",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "58",
+        "crash": true,
+        "file": "../../src/hash/sha1dc/sha1.c",
+        "line": "1810",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 121,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "../../src/hash/sha1dc/sha1.c",
+          "line": "1815"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/hash/sha1dc/sha1.c",
+          "line": "1815"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "../../src/hash/sha1dc/sha1.c",
+        "line": "1815"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/hash/sha1dc/sha1.c",
+        "line": "1814"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "58",
+        "file": "../../src/hash/sha1dc/sha1.c",
+        "line": "1810",
+        "order": 1,
+        "val": "len"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "0"
+      },
+      {
+        "order": 4,
+        "val": "return"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/util.c",
+    "func": {
+      "name": "git__strntol32",
+      "param": [
+        64,
+        64,
+        64,
+        64,
+        32
+      ]
+    },
+    "ids": [
+      {
+        "order": 4,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "../../src/util.c",
+        "line": "180",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "tmp_int"
+      },
+      {
+        "col": "10",
+        "crash": true,
+        "file": "../../src/util.c",
+        "line": "181",
+        "order": 3,
+        "tag": "traceVarNumCmp[]",
+        "val": "tmp_long"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "!="
+      }
+    ],
+    "index": 126,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "../../src/util.c",
+          "line": "192"
+        },
+        "start": {
+          "col": "27",
+          "file": "../../src/util.c",
+          "line": "188"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "../../src/util.c",
+        "line": "192"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/util.c",
+        "line": "188"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "10",
+        "file": "../../src/util.c",
+        "line": "180",
+        "order": 1,
+        "val": "tmp_int"
+      },
+      {
+        "order": 2,
+        "val": "!="
+      },
+      {
+        "col": "10",
+        "file": "../../src/util.c",
+        "line": "181",
+        "order": 3,
+        "val": "tmp_long"
+      },
+      {
+        "order": 4,
+        "val": "less3"
+      },
+      {
+        "order": 5,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/buffer.c",
+    "func": {
+      "name": "git_buf_try_grow",
+      "param": [
+        64,
+        64,
+        8
+      ]
+    },
+    "ids": [
+      {
+        "col": "16",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 2,
+        "order": 3,
+        "tag": "traceVarNumCmpField[]",
+        "val": "size"
+      },
+      {
+        "col": "9",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 1,
+        "order": 7,
+        "tag": "traceVarNumCmpField[]",
+        "val": "asize"
+      },
+      {
+        "col": "11",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "offset": 2,
+        "order": 1,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "buf"
+      },
+      {
+        "col": "11",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "offset": 1,
+        "order": 5,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "buf"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      },
+      {
+        "col": "16",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 2,
+        "order": 10,
+        "tag": "traceVarAssignNumField[]",
+        "val": "size"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "offset": 2,
+        "order": 8,
+        "tag": "traceVarAssignNumBase[]",
+        "val": "buf"
+      }
+    ],
+    "index": 393,
+    "pattern": "COND_ASSIGN",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "28",
+          "file": "../../src/buffer.c",
+          "line": "96"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/buffer.c",
+          "line": "96"
+        }
+      },
+      "end": {
+        "col": "28",
+        "file": "../../src/buffer.c",
+        "line": "96"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/buffer.c",
+        "line": "95"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "11",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "order": 1,
+        "val": "buf"
+      },
+      {
+        "order": 2,
+        "val": "->"
+      },
+      {
+        "col": "16",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 2,
+        "order": 3,
+        "val": "size"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "11",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "order": 5,
+        "val": "buf"
+      },
+      {
+        "order": 6,
+        "val": "->"
+      },
+      {
+        "col": "9",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 1,
+        "order": 7,
+        "val": "asize"
+      },
+      {
+        "col": "11",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "order": 8,
+        "val": "buf"
+      },
+      {
+        "order": 9,
+        "val": "->"
+      },
+      {
+        "col": "16",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 2,
+        "order": 10,
+        "val": "size"
+      },
+      {
+        "order": 11,
+        "val": ";"
+      },
+      {
+        "order": 12,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/object.c",
+    "func": {
+      "name": "git_object_free",
+      "param": [
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 5,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "34",
+        "crash": true,
+        "file": "../../src/object.c",
+        "line": "254",
+        "order": 1,
+        "tag": "traceVarNullCheck[]",
+        "val": "object"
+      },
+      {
+        "order": 2,
+        "tag": "relOp[]",
+        "val": "=="
+      }
+    ],
+    "index": 41,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "3",
+          "file": "../../src/object.c",
+          "line": "257"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/object.c",
+          "line": "257"
+        }
+      },
+      "end": {
+        "col": "3",
+        "file": "../../src/object.c",
+        "line": "257"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/object.c",
+        "line": "256"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "34",
+        "file": "../../src/object.c",
+        "line": "254",
+        "order": 1,
+        "val": "object"
+      },
+      {
+        "order": 2,
+        "val": "=="
+      },
+      {
+        "order": 3,
+        "val": "(void *)"
+      },
+      {
+        "order": 4,
+        "val": "0"
+      },
+      {
+        "order": 5,
+        "val": "return"
+      },
+      {
+        "order": 6,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/buffer.c",
+    "func": {
+      "name": "git_buf_try_grow",
+      "param": [
+        64,
+        64,
+        8
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "less3"
+      },
+      {
+        "col": "9",
+        "crash": true,
+        "file": "../../src/buffer.c",
+        "line": "40",
+        "order": 1,
+        "tag": "traceVarNumCmp[]",
+        "val": "new_size"
+      },
+      {
+        "order": 2,
+        "tag": "cmp[]",
+        "val": "<"
+      },
+      {
+        "col": "16",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 2,
+        "order": 5,
+        "tag": "traceVarNumCmpField[]",
+        "val": "size"
+      },
+      {
+        "col": "11",
+        "crash": true,
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "offset": 2,
+        "order": 3,
+        "tag": "traceVarNumCmpBase[]",
+        "val": "buf"
+      }
+    ],
+    "index": 392,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "2",
+          "file": "../../src/buffer.c",
+          "line": "78"
+        },
+        "start": {
+          "col": "28",
+          "file": "../../src/buffer.c",
+          "line": "72"
+        }
+      },
+      "end": {
+        "col": "2",
+        "file": "../../src/buffer.c",
+        "line": "78"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/buffer.c",
+        "line": "72"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "9",
+        "file": "../../src/buffer.c",
+        "line": "40",
+        "order": 1,
+        "val": "new_size"
+      },
+      {
+        "order": 2,
+        "val": "<"
+      },
+      {
+        "col": "11",
+        "file": "../../src/buffer.c",
+        "line": "37",
+        "order": 3,
+        "val": "buf"
+      },
+      {
+        "order": 4,
+        "val": "->"
+      },
+      {
+        "col": "16",
+        "file": "/src/libgit2/include/git2/buffer.h",
+        "line": "54",
+        "offset": 2,
+        "order": 5,
+        "val": "size"
+      },
+      {
+        "order": 6,
+        "val": "less3"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/tag.c",
+    "func": {
+      "name": "tag_parse",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "buffer"
+      },
+      {
+        "col": "68",
+        "crash": true,
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 5,
+        "tag": "traceVarPtrRange[]",
+        "val": "buffer_end"
+      },
+      {
+        "order": 2,
+        "tag": "arith[]",
+        "val": "+"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 114,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "38",
+          "file": "../../src/tag.c",
+          "line": "81"
+        },
+        "start": {
+          "col": "3",
+          "file": "../../src/tag.c",
+          "line": "81"
+        }
+      },
+      "end": {
+        "col": "38",
+        "file": "../../src/tag.c",
+        "line": "81"
+      },
+      "start": {
+        "col": "2",
+        "file": "../../src/tag.c",
+        "line": "80"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 1,
+        "val": "buffer"
+      },
+      {
+        "order": 2,
+        "val": "+"
+      },
+      {
+        "order": 3,
+        "val": "5"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "68",
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 5,
+        "val": "buffer_end"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  },
+  {
+    "commandDir": "/src/libgit2/build/src",
+    "fileName": "../../src/tag.c",
+    "func": {
+      "name": "tag_parse",
+      "param": [
+        64,
+        64,
+        64
+      ]
+    },
+    "ids": [
+      {
+        "order": 6,
+        "tag": "endSpot",
+        "val": "return"
+      },
+      {
+        "col": "48",
+        "crash": true,
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 1,
+        "tag": "traceVarPtrRange[]",
+        "val": "buffer"
+      },
+      {
+        "col": "68",
+        "crash": true,
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 5,
+        "tag": "traceVarPtrRange[]",
+        "val": "buffer_end"
+      },
+      {
+        "order": 2,
+        "tag": "arith[]",
+        "val": "+"
+      },
+      {
+        "order": 4,
+        "tag": "cmp[]",
+        "val": ">="
+      }
+    ],
+    "index": 115,
+    "pattern": "COND_ABORT",
+    "stmt": {
+      "body": {
+        "end": {
+          "col": "39",
+          "file": "../../src/tag.c",
+          "line": "93"
+        },
+        "start": {
+          "col": "4",
+          "file": "../../src/tag.c",
+          "line": "93"
+        }
+      },
+      "end": {
+        "col": "39",
+        "file": "../../src/tag.c",
+        "line": "93"
+      },
+      "start": {
+        "col": "3",
+        "file": "../../src/tag.c",
+        "line": "92"
+      },
+      "type": "if"
+    },
+    "tokenOrder": [
+      {
+        "order": 0,
+        "val": "if"
+      },
+      {
+        "col": "48",
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 1,
+        "val": "buffer"
+      },
+      {
+        "order": 2,
+        "val": "+"
+      },
+      {
+        "col": "10",
+        "file": "../../src/tag.c",
+        "line": "90",
+        "order": 3,
+        "val": "type_length"
+      },
+      {
+        "order": 4,
+        "val": ">="
+      },
+      {
+        "col": "68",
+        "file": "../../src/tag.c",
+        "line": "68",
+        "order": 5,
+        "val": "buffer_end"
+      },
+      {
+        "order": 6,
+        "val": "return"
+      },
+      {
+        "order": 7,
+        "val": "fi"
+      }
+    ]
+  }
+]

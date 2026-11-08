@@ -1,0 +1,568 @@
+diff --git a/fuzzers/objects_fuzzer.c b/fuzzers/objects_fuzzer.c
+index a72355a6a..005a13835 100644
+--- a/fuzzers/objects_fuzzer.c
++++ b/fuzzers/objects_fuzzer.c
+@@ -1,3 +1,7 @@
++#ifdef FRCOV
++#define FIXREVERTER_SIZE 702
++short FIXREVERTER[FIXREVERTER_SIZE];
++#endif
+ /*
+  * libgit2 packfile fuzzer target.
+  *
+@@ -23,8 +27,42 @@ int LLVMFuzzerInitialize(int *argc, char ***argv)
+ 	return 0;
+ }
+ 
++
++#ifdef FRCOV
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#endif
+ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
+ {
++	
++	#ifdef FRCOV
++	char *fixReverterEnv = getenv("FIXREVERTER");
++	char *fixReverterToken = strtok(fixReverterEnv, " ");
++	if (fixReverterToken == NULL) {
++	  for (int i = 0; i < FIXREVERTER_SIZE; i++)
++	    FIXREVERTER[i] = 1;
++	} else if (!strcmp("on", fixReverterToken)) {
++	  for (int i = 0; i < FIXREVERTER_SIZE; i++)
++	    FIXREVERTER[i] = 0;
++	  fixReverterToken = strtok(NULL, " ");
++	  while (fixReverterToken != NULL) {
++	    FIXREVERTER[atoi(fixReverterToken)] = 1;
++	    fixReverterToken = strtok(NULL, " ");
++	  }
++	} else if (!strcmp("off", fixReverterToken)) {
++	  for (int i = 0; i < FIXREVERTER_SIZE; i++)
++	    FIXREVERTER[i] = 1;
++	  fixReverterToken = strtok(NULL, " ");
++	  while (fixReverterToken != NULL) {
++	    FIXREVERTER[atoi(fixReverterToken)] = 0;
++	    fixReverterToken = strtok(NULL, " ");
++	  }
++	} else {
++	  fprintf(stderr, "[FIXREVERTER] - first token must be on or off\n");
++	  exit(0);
++	}
++	#endif
+ 	const git_otype types[] = {
+ 		GIT_OBJ_BLOB, GIT_OBJ_TREE, GIT_OBJ_COMMIT, GIT_OBJ_TAG
+ 	};
+diff --git a/src/buffer.c b/src/buffer.c
+index 1361bc0a6..f11ad7ddd 100644
+--- a/src/buffer.c
++++ b/src/buffer.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (C) the libgit2 contributors. All rights reserved.
+  *
+@@ -50,8 +57,23 @@ int git_buf_try_grow(
+ 	if (!target_size)
+ 		target_size = buf->size;
+ 
+-	if (target_size <= buf->asize)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[391]) {
++	  if ((target_size <= buf -> asize ) && !(0))
++	    fprintf(stderr, "triggered bug index 391\n");
++	  else
++	    fprintf(stderr, "reached bug index 391\n");
++	}
++	if ((!FIXREVERTER[391] && (target_size <= buf -> asize ))
++	#else
++	if (0
++	#endif
++	)
+ 		return 0;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	if (buf->asize == 0) {
+ 		new_size = target_size;
+@@ -69,13 +91,28 @@ int git_buf_try_grow(
+ 	/* round allocation up to multiple of 8 */
+ 	new_size = (new_size + 7) & ~7;
+ 
+-	if (new_size < buf->size) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[392]) {
++	  if ((new_size < buf -> size ) && !(0))
++	    fprintf(stderr, "triggered bug index 392\n");
++	  else
++	    fprintf(stderr, "reached bug index 392\n");
++	}
++	if ((!FIXREVERTER[392] && (new_size < buf -> size ))
++	#else
++	if (0
++	#endif
++	) {
+ 		if (mark_oom)
+ 			buf->ptr = git_buf__oom;
+ 
+ 		giterr_set_oom();
+ 		return -1;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	new_ptr = git__realloc(new_ptr, new_size);
+ 
+@@ -92,8 +129,23 @@ int git_buf_try_grow(
+ 	buf->ptr   = new_ptr;
+ 
+ 	/* truncate the existing buffer size if necessary */
+-	if (buf->size >= buf->asize)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[393]) {
++	  if ((buf -> size >= buf -> asize  ) && !(0))
++	    fprintf(stderr, "triggered bug index 393\n");
++	  else
++	    fprintf(stderr, "reached bug index 393\n");
++	}
++	if ((!FIXREVERTER[393] && (buf -> size >= buf -> asize  ))
++	#else
++	if (0
++	#endif
++	)
+ 		buf->size = buf->asize - 1;
++		#ifdef FRCOV
++		}
++		#endif
+ 	buf->ptr[buf->size] = '\0';
+ 
+ 	return 0;
+@@ -511,11 +563,26 @@ int git_buf_vprintf(git_buf *buf, const char *format, va_list ap)
+ 
+ 		va_end(args);
+ 
+-		if (len < 0) {
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[394]) {
++		  if ((len < 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 394\n");
++		  else
++		    fprintf(stderr, "reached bug index 394\n");
++		}
++		if ((!FIXREVERTER[394] && (len < 0 ))
++		#else
++		if (0
++		#endif
++		) {
+ 			git__free(buf->ptr);
+ 			buf->ptr = git_buf__oom;
+ 			return -1;
+ 		}
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 		if ((size_t)len + 1 <= buf->asize - buf->size) {
+ 			buf->size += len;
+diff --git a/src/hash/sha1dc/sha1.c b/src/hash/sha1dc/sha1.c
+index 25eded139..313a74ead 100644
+--- a/src/hash/sha1dc/sha1.c
++++ b/src/hash/sha1dc/sha1.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /***
+ * Copyright 2017 Marc Stevens <marc@marc-stevens.nl>, Dan Shumow (danshu@microsoft.com)
+ * Distributed under the MIT Software License.
+@@ -1811,8 +1818,23 @@ void SHA1DCUpdate(SHA1_CTX* ctx, const char* buf, size_t len)
+ {
+ 	unsigned left, fill;
+ 
+-	if (len == 0)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[121]) {
++	  if ((len == 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 121\n");
++	  else
++	    fprintf(stderr, "reached bug index 121\n");
++	}
++	if ((!FIXREVERTER[121] && (len == 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	left = ctx->total & 63;
+ 	fill = 64 - left;
+diff --git a/src/object.c b/src/object.c
+index 87a8d1aae..0af4fe845 100644
+--- a/src/object.c
++++ b/src/object.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (C) the libgit2 contributors. All rights reserved.
+  *
+@@ -253,8 +260,23 @@ int git_object_lookup(git_object **object_out, git_repository *repo, const git_o
+ 
+ void git_object_free(git_object *object)
+ {
+-	if (object == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[41]) {
++	  if ((object == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 41\n");
++	  else
++	    fprintf(stderr, "reached bug index 41\n");
++	}
++	if ((!FIXREVERTER[41] && (object == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	git_cached_obj_decref(object);
+ }
+diff --git a/src/oid.c b/src/oid.c
+index 0c63abb2e..74d53491b 100644
+--- a/src/oid.c
++++ b/src/oid.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (C) the libgit2 contributors. All rights reserved.
+  *
+@@ -38,8 +45,23 @@ int git_oid_fromstrn(git_oid *out, const char *str, size_t length)
+ 
+ 	for (p = 0; p < length; p++) {
+ 		v = git__fromhex(str[p]);
+-		if (v < 0)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[98]) {
++		  if ((v < 0 ) && !(0))
++		    fprintf(stderr, "triggered bug index 98\n");
++		  else
++		    fprintf(stderr, "reached bug index 98\n");
++		}
++		if ((!FIXREVERTER[98] && (v < 0 ))
++		#else
++		if (0
++		#endif
++		)
+ 			return oid_error_invalid("contains invalid characters");
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 		out->id[p / 2] |= (unsigned char)(v << (p % 2 ? 0 : 4));
+ 	}
+diff --git a/src/signature.c b/src/signature.c
+index 91864bb88..52d8b925c 100644
+--- a/src/signature.c
++++ b/src/signature.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (C) the libgit2 contributors. All rights reserved.
+  *
+@@ -260,12 +267,30 @@ int git_signature__parse(git_signature *sig, const char **buffer_out,
+ 			 * only store timezone if it's not overflowing;
+ 			 * see http://www.worldtimezone.com/faq.html
+ 			 */
+-			if (hours <= 14 && mins <= 59) {
++			
++			#ifdef FRCOV
++			{if (FIXREVERTER[701]) {
++			  fprintf(stderr, "reached bug index 701\n");
++			}
++			if ((FIXREVERTER[701] && (hours <= 14 )) || (!FIXREVERTER[701] && (hours <= 14 && mins <= 59 ))
++			#else
++			if (hours <= 14 
++			#endif
++			) {
++			  
++			#ifdef FRCOV
++			  if (!(mins <= 59 ))
++			    fprintf(stderr, "triggered bug index 701\n");
++			  #endif
++			
+ 				sig->when.offset = (hours * 60) + mins;
+ 				sig->when.sign = tz_start[0];
+ 				if (tz_start[0] == '-')
+ 					sig->when.offset = -sig->when.offset;
+ 			}
++			#ifdef FRCOV
++			}
++			#endif
+ 		}
+ 	}
+ 
+diff --git a/src/tag.c b/src/tag.c
+index c45335151..552eb7934 100644
+--- a/src/tag.c
++++ b/src/tag.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (C) the libgit2 contributors. All rights reserved.
+  *
+@@ -77,8 +84,23 @@ static int tag_parse(git_tag *tag, const char *buffer, const char *buffer_end)
+ 	if (git_oid__parse(&tag->target, &buffer, buffer_end, "object ") < 0)
+ 		return tag_error("object field invalid");
+ 
+-	if (buffer + 5 >= buffer_end)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[114]) {
++	  if ((buffer + 5 >= buffer_end ) && !(0))
++	    fprintf(stderr, "triggered bug index 114\n");
++	  else
++	    fprintf(stderr, "reached bug index 114\n");
++	}
++	if ((!FIXREVERTER[114] && (buffer + 5 >= buffer_end ))
++	#else
++	if (0
++	#endif
++	)
+ 		return tag_error("object too short");
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	if (memcmp(buffer, "type ", 5) != 0)
+ 		return tag_error("type field not found");
+@@ -89,8 +111,23 @@ static int tag_parse(git_tag *tag, const char *buffer, const char *buffer_end)
+ 	for (i = 1; i < ARRAY_SIZE(tag_types); ++i) {
+ 		size_t type_length = strlen(tag_types[i]);
+ 
+-		if (buffer + type_length >= buffer_end)
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[115]) {
++		  if ((buffer + type_length >= buffer_end ) && !(0))
++		    fprintf(stderr, "triggered bug index 115\n");
++		  else
++		    fprintf(stderr, "reached bug index 115\n");
++		}
++		if ((!FIXREVERTER[115] && (buffer + type_length >= buffer_end ))
++		#else
++		if (0
++		#endif
++		)
+ 			return tag_error("object too short");
++			#ifdef FRCOV
++			}
++			#endif
+ 
+ 		if (memcmp(buffer, tag_types[i], type_length) == 0) {
+ 			tag->type = i;
+@@ -102,8 +139,23 @@ static int tag_parse(git_tag *tag, const char *buffer, const char *buffer_end)
+ 	if (tag->type == GIT_OBJ_BAD)
+ 		return tag_error("invalid object type");
+ 
+-	if (buffer + 4 >= buffer_end)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[116]) {
++	  if ((buffer + 4 >= buffer_end ) && !(0))
++	    fprintf(stderr, "triggered bug index 116\n");
++	  else
++	    fprintf(stderr, "reached bug index 116\n");
++	}
++	if ((!FIXREVERTER[116] && (buffer + 4 >= buffer_end ))
++	#else
++	if (0
++	#endif
++	)
+ 		return tag_error("object too short");
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	if (memcmp(buffer, "tag ", 4) != 0)
+ 		return tag_error("tag field not found");
+@@ -111,8 +163,23 @@ static int tag_parse(git_tag *tag, const char *buffer, const char *buffer_end)
+ 	buffer += 4;
+ 
+ 	search = memchr(buffer, '\n', buffer_end - buffer);
+-	if (search == NULL)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[117]) {
++	  if ((search == (void *) 0 ) && !(0))
++	    fprintf(stderr, "triggered bug index 117\n");
++	  else
++	    fprintf(stderr, "reached bug index 117\n");
++	}
++	if ((!FIXREVERTER[117] && (search == (void *) 0 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return tag_error("object too short");
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	text_len = search - buffer;
+ 
+diff --git a/src/tree.c b/src/tree.c
+index d9b59390a..b50a2f779 100644
+--- a/src/tree.c
++++ b/src/tree.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (C) the libgit2 contributors. All rights reserved.
+  *
+@@ -367,8 +374,23 @@ static int parse_mode(uint16_t *mode_out, const char *buffer, size_t buffer_len,
+ 	if ((error = git__strntol32(&mode, buffer, buffer_len, buffer_out, 8)) < 0)
+ 		return error;
+ 
+-	if (mode < 0 || mode > UINT16_MAX)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[136]) {
++	  if ((mode < 0 || mode > 65535 ) && !(0))
++	    fprintf(stderr, "triggered bug index 136\n");
++	  else
++	    fprintf(stderr, "reached bug index 136\n");
++	}
++	if ((!FIXREVERTER[136] && (mode < 0 || mode > 65535 ))
++	#else
++	if (0
++	#endif
++	)
+ 		return -1;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	*mode_out = mode;
+ 
+diff --git a/src/util.c b/src/util.c
+index 735f0b547..66e074dde 100644
+--- a/src/util.c
++++ b/src/util.c
+@@ -1,3 +1,10 @@
++#ifdef FRCOV
++#include <stdio.h>
++extern short FIXREVERTER[];
++#ifndef FIXREVERTER_SIZE
++__attribute__((weak)) short FIXREVERTER[65536];
++#endif
++#endif
+ /*
+  * Copyright (C) the libgit2 contributors. All rights reserved.
+  *
+@@ -111,8 +118,23 @@ int git__strntol64(int64_t *result, const char *nptr, size_t nptr_len, const cha
+ 			base = 8;
+ 	}
+ 
+-	if (base < 0 || 36 < base)
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[123]) {
++	  if ((base < 0 || 36 < base ) && !(0))
++	    fprintf(stderr, "triggered bug index 123\n");
++	  else
++	    fprintf(stderr, "reached bug index 123\n");
++	}
++	if ((!FIXREVERTER[123] && (base < 0 || 36 < base ))
++	#else
++	if (0
++	#endif
++	)
+ 		goto Return;
++		#ifdef FRCOV
++		}
++		#endif
+ 
+ 	/*
+ 	 * Skip prefix of '0x'-prefixed hexadecimal numbers. There is no
+@@ -185,11 +207,26 @@ int git__strntol32(int32_t *result, const char *nptr, size_t nptr_len, const cha
+ 		return error;
+ 
+ 	tmp_int = tmp_long & 0xFFFFFFFF;
+-	if (tmp_int != tmp_long) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[126]) {
++	  if ((tmp_int != tmp_long ) && !(0))
++	    fprintf(stderr, "triggered bug index 126\n");
++	  else
++	    fprintf(stderr, "reached bug index 126\n");
++	}
++	if ((!FIXREVERTER[126] && (tmp_int != tmp_long ))
++	#else
++	if (0
++	#endif
++	) {
+ 		int len = tmp_endptr - nptr;
+ 		giterr_set(GITERR_INVALID, "failed to convert: '%.*s' is too large", len, nptr);
+ 		return -1;
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 
+ 	*result = tmp_int;
+ 	if (endptr)
