@@ -4,7 +4,9 @@ import re
 # Parse FixReverter logs into reached (program execution reaches the injection)  injection ids
 # and triggered (program execution meets the injected condition(s)) injection ids.
 def parse_log(output: str) -> tuple:
-    lines = output.split('\n')
+    # Deduplicate first: an input stuck in a loop around an injection can print
+    # the same line millions of times, and only distinct ids matter.
+    lines = set(output.split('\n'))
     reaches = set()
     triggers = set()
     for line in lines:

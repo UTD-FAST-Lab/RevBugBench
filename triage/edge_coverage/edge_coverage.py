@@ -118,7 +118,14 @@ def _run_seed(seed: dict, helper: ConfigHelper, seed_index: int):
         return None
     if result.returncode != 0:
         logging.warning('coverage binary returned %s for %s', result.returncode, seed['path'])
-    return profile_path if os.path.exists(profile_path) else None
+    if not os.path.exists(profile_path):
+        return None
+    # A run killed before the profile was written leaves an empty file that llvm-profdata rejects.
+    if os.path.getsize(profile_path) == 0:
+        logging.warning('empty coverage profile for %s', seed['path'])
+        os.remove(profile_path)
+        return None
+    return profile_path
 
 
 def _merge_profiles(profile_paths: list, seed_type: str, helper: ConfigHelper) -> None:
@@ -147,12 +154,19 @@ def _merge_profiles(profile_paths: list, seed_type: str, helper: ConfigHelper) -
 
 
 def _merge_profile_files(input_paths: list, output_path: str) -> None:
-    command = ['llvm-profdata', 'merge', '-sparse', '-output', output_path, *input_paths]
+    # Skip profiles truncated by a killed run instead of failing the whole merge;
+    # llvm-profdata still fails if every input is invalid.
+    command = ['llvm-profdata', 'merge', '-sparse', '--failure-mode=all',
+               '-output', output_path, *input_paths]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                             check=False)
+    error = result.stderr.decode('utf-8', errors='ignore').strip()
     if result.returncode != 0:
-        error = result.stderr.decode('utf-8', errors='ignore').strip()
         raise RuntimeError(f'llvm-profdata merge failed: {error}')
+    skipped = error.count('invalid instrumentation profile data')
+    if skipped:
+        logging.warning('skipped %s invalid coverage profiles while merging into %s',
+                        skipped, output_path)
 
 
 def _write_json_report(benchmark: str, seed_type: str, profile_path: str,
