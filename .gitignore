@@ -6,3 +6,4 @@ triage/FUZZER_SUPPORT.md
 bug_features/bug_features_stubs
 bug_features/data
 *.venv
+triage/config*.ini

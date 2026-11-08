@@ -50,3 +50,15 @@ index 7a75a17f..447fcd71 100644
          '--rlimit_rss',
          '2048',
          '--sanitizers_del_report=true',
+diff --git a/experiment/resources/runner-startup-script-template.sh b/experiment/resources/runner-startup-script-template.sh
+index 79f84c22..3ad0589a 100644
+--- a/experiment/resources/runner-startup-script-template.sh
++++ b/experiment/resources/runner-startup-script-template.sh
+@@ -55,6 +55,7 @@ docker run \
+ -e PRIVATE={{private}} \
+ -e LOCAL_EXPERIMENT={{local_experiment}} \
+ {% if not local_experiment %}--name=runner-container {% endif %}\
++{% if local_experiment %}--tmpfs /fuzz-out:rw,exec,size=8g,mode=1777 -e OUTPUT_CORPUS_DIR=/fuzz-out/corpus {% endif %}\
+ --shm-size=2g \
+ --cap-add SYS_NICE --cap-add SYS_PTRACE \
+ --security-opt seccomp=unconfined \

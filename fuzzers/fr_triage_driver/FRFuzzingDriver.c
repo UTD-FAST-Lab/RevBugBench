@@ -10,6 +10,8 @@
 #define MAX_FILE (1 * 1024 * 1024L)
 
 int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size);
+/* Optional libFuzzer init hook (file, php, openssl harnesses load data or set up state here). */
+__attribute__((weak)) int LLVMFuzzerInitialize(int *argc, char ***argv);
 
 static int ExecuteFilesOnyByOne(int argc, char **argv) {
 
@@ -43,5 +45,6 @@ static int ExecuteFilesOnyByOne(int argc, char **argv) {
 }
 
 int main(int argc, char **argv) {
+    if (LLVMFuzzerInitialize) LLVMFuzzerInitialize(&argc, &argv);
     return ExecuteFilesOnyByOne(argc, argv);
 }
