@@ -1,5 +1,5 @@
 diff --git a/htp/bstr.c b/htp/bstr.c
-index b34d3c0..d280018 100644
+index b34d3c0..09aafc1 100644
 --- a/htp/bstr.c
 +++ b/htp/bstr.c
 @@ -1,3 +1,10 @@
@@ -20,13 +20,13 @@ index b34d3c0..d280018 100644
 -    if (b == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[97]) {
++    {if (FIXREVERTER[298]) {
 +      if ((b == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 97\n");
++        fprintf(stderr, "triggered bug index 298\n");
 +      else
-+        fprintf(stderr, "reached bug index 97\n");
++        fprintf(stderr, "reached bug index 298\n");
 +    }
-+    if ((!FIXREVERTER[97] && (b == (void *) 0 ))
++    if ((!FIXREVERTER[298] && (b == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -44,13 +44,13 @@ index b34d3c0..d280018 100644
 -        if (destination == NULL) return NULL;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[98]) {
++        {if (FIXREVERTER[299]) {
 +          if ((destination == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 98\n");
++            fprintf(stderr, "triggered bug index 299\n");
 +          else
-+            fprintf(stderr, "reached bug index 98\n");
++            fprintf(stderr, "reached bug index 299\n");
 +        }
-+        if ((!FIXREVERTER[98] && (destination == (void *) 0 ))
++        if ((!FIXREVERTER[299] && (destination == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -68,13 +68,13 @@ index b34d3c0..d280018 100644
 -        if (copylen <= 0) return destination;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[99]) {
++        {if (FIXREVERTER[300]) {
 +          if ((copylen <= 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 99\n");
++            fprintf(stderr, "triggered bug index 300\n");
 +          else
-+            fprintf(stderr, "reached bug index 99\n");
++            fprintf(stderr, "reached bug index 300\n");
 +        }
-+        if ((!FIXREVERTER[99] && (copylen <= 0 ))
++        if ((!FIXREVERTER[300] && (copylen <= 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -92,9 +92,9 @@ index b34d3c0..d280018 100644
 -    while ((pos < len) && (pos < hlen)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[101])
-+      fprintf(stderr, "reached bug index 101\n");
-+    while ((FIXREVERTER[101] && (pos < len )) || (!FIXREVERTER[101] && (pos < len && pos < hlen ))
++    {if (FIXREVERTER[302])
++      fprintf(stderr, "reached bug index 302\n");
++    while ((FIXREVERTER[302] && (pos < len )) || (!FIXREVERTER[302] && (pos < len && pos < hlen ))
 +    #else
 +    while (pos < len 
 +    #endif
@@ -102,7 +102,7 @@ index b34d3c0..d280018 100644
 +      
 +    #ifdef FRCOV
 +      if (!(pos < hlen ))
-+        fprintf(stderr, "triggered bug index 101\n");
++        fprintf(stderr, "triggered bug index 302\n");
 +      #endif
 +    
          if (tolower((int) hdata[pos]) != tolower((int) data[pos])) {
@@ -124,13 +124,13 @@ index b34d3c0..d280018 100644
 -    if (pos >= len) return -1;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[103]) {
++    {if (FIXREVERTER[304]) {
 +      if ((pos >= len ) && !(0))
-+        fprintf(stderr, "triggered bug index 103\n");
++        fprintf(stderr, "triggered bug index 304\n");
 +      else
-+        fprintf(stderr, "reached bug index 103\n");
++        fprintf(stderr, "reached bug index 304\n");
 +    }
-+    if ((!FIXREVERTER[103] && (pos >= len ))
++    if ((!FIXREVERTER[304] && (pos >= len ))
 +    #else
 +    if (0
 +    #endif
@@ -148,13 +148,13 @@ index b34d3c0..d280018 100644
 -    if (bnew == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[104]) {
++    {if (FIXREVERTER[305]) {
 +      if ((bnew == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 104\n");
++        fprintf(stderr, "triggered bug index 305\n");
 +      else
-+        fprintf(stderr, "reached bug index 104\n");
++        fprintf(stderr, "reached bug index 305\n");
 +    }
-+    if ((!FIXREVERTER[104] && (bnew == (void *) 0 ))
++    if ((!FIXREVERTER[305] && (bnew == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -172,13 +172,13 @@ index b34d3c0..d280018 100644
 -    if (bnew == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[105]) {
++    {if (FIXREVERTER[306]) {
 +      if ((bnew == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 105\n");
++        fprintf(stderr, "triggered bug index 306\n");
 +      else
-+        fprintf(stderr, "reached bug index 105\n");
++        fprintf(stderr, "reached bug index 306\n");
 +    }
-+    if ((!FIXREVERTER[105] && (bnew == (void *) 0 ))
++    if ((!FIXREVERTER[306] && (bnew == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -196,13 +196,13 @@ index b34d3c0..d280018 100644
 -    if (bnew == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[106]) {
++    {if (FIXREVERTER[307]) {
 +      if ((bnew == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 106\n");
++        fprintf(stderr, "triggered bug index 307\n");
 +      else
-+        fprintf(stderr, "reached bug index 106\n");
++        fprintf(stderr, "reached bug index 307\n");
 +    }
-+    if ((!FIXREVERTER[106] && (bnew == (void *) 0 ))
++    if ((!FIXREVERTER[307] && (bnew == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -220,13 +220,13 @@ index b34d3c0..d280018 100644
 -    if (b == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[108]) {
++    {if (FIXREVERTER[309]) {
 +      if ((b == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 108\n");
++        fprintf(stderr, "triggered bug index 309\n");
 +      else
-+        fprintf(stderr, "reached bug index 108\n");
++        fprintf(stderr, "reached bug index 309\n");
 +    }
-+    if ((!FIXREVERTER[108] && (b == (void *) 0 ))
++    if ((!FIXREVERTER[309] && (b == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -244,9 +244,9 @@ index b34d3c0..d280018 100644
 -    while ((p1 < len1) && (p2 < len2)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[109])
-+      fprintf(stderr, "reached bug index 109\n");
-+    while ((FIXREVERTER[109] && (p1 < len1 )) || (!FIXREVERTER[109] && (p1 < len1 && p2 < len2 ))
++    {if (FIXREVERTER[310])
++      fprintf(stderr, "reached bug index 310\n");
++    while ((FIXREVERTER[310] && (p1 < len1 )) || (!FIXREVERTER[310] && (p1 < len1 && p2 < len2 ))
 +    #else
 +    while (p1 < len1 
 +    #endif
@@ -254,7 +254,7 @@ index b34d3c0..d280018 100644
 +      
 +    #ifdef FRCOV
 +      if (!(p2 < len2 ))
-+        fprintf(stderr, "triggered bug index 109\n");
++        fprintf(stderr, "triggered bug index 310\n");
 +      #endif
 +    
          if (data1[p1] != data2[p2]) {
@@ -277,9 +277,9 @@ index b34d3c0..d280018 100644
 -    while ((p1 < len1) && (p2 < len2)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[111])
-+      fprintf(stderr, "reached bug index 111\n");
-+    while ((FIXREVERTER[111] && (p1 < len1 )) || (!FIXREVERTER[111] && (p1 < len1 && p2 < len2 ))
++    {if (FIXREVERTER[312])
++      fprintf(stderr, "reached bug index 312\n");
++    while ((FIXREVERTER[312] && (p1 < len1 )) || (!FIXREVERTER[312] && (p1 < len1 && p2 < len2 ))
 +    #else
 +    while (p1 < len1 
 +    #endif
@@ -287,7 +287,7 @@ index b34d3c0..d280018 100644
 +      
 +    #ifdef FRCOV
 +      if (!(p2 < len2 ))
-+        fprintf(stderr, "triggered bug index 111\n");
++        fprintf(stderr, "triggered bug index 312\n");
 +      #endif
 +    
          if (data1[p1] == 0) {
@@ -310,9 +310,9 @@ index b34d3c0..d280018 100644
 -        for (j = 0; ((j < len2) && (k < len1)); j++, k++) {
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[112])
-+          fprintf(stderr, "reached bug index 112\n");
-+        for (j = 0; (FIXREVERTER[112] && (j < len2 )) || (!FIXREVERTER[112] && (j < len2 && k < len1 ))
++        {if (FIXREVERTER[313])
++          fprintf(stderr, "reached bug index 313\n");
++        for (j = 0; (FIXREVERTER[313] && (j < len2 )) || (!FIXREVERTER[313] && (j < len2 && k < len1 ))
 +        #else
 +        for (j = 0; j < len2 
 +        #endif
@@ -320,7 +320,7 @@ index b34d3c0..d280018 100644
 +          
 +        #ifdef FRCOV
 +          if (!(k < len1 ))
-+            fprintf(stderr, "triggered bug index 112\n");
++            fprintf(stderr, "triggered bug index 313\n");
 +          #endif
 +        
              if (data1[k] != data2[j]) break;
@@ -333,13 +333,13 @@ index b34d3c0..d280018 100644
 +
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[113]) {
++        {if (FIXREVERTER[314]) {
 +          if ((j == len2 ) && !(0))
-+            fprintf(stderr, "triggered bug index 113\n");
++            fprintf(stderr, "triggered bug index 314\n");
 +          else
-+            fprintf(stderr, "reached bug index 113\n");
++            fprintf(stderr, "reached bug index 314\n");
 +        }
-+        if ((!FIXREVERTER[113] && (j == len2 ))
++        if ((!FIXREVERTER[314] && (j == len2 ))
 +        #else
 +        if (0
 +        #endif
@@ -359,9 +359,9 @@ index b34d3c0..d280018 100644
 -        for (j = 0; ((j < len2) && (k < len1)); j++, k++) {
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[114])
-+          fprintf(stderr, "reached bug index 114\n");
-+        for (j = 0; (FIXREVERTER[114] && (j < len2 )) || (!FIXREVERTER[114] && (j < len2 && k < len1 ))
++        {if (FIXREVERTER[315])
++          fprintf(stderr, "reached bug index 315\n");
++        for (j = 0; (FIXREVERTER[315] && (j < len2 )) || (!FIXREVERTER[315] && (j < len2 && k < len1 ))
 +        #else
 +        for (j = 0; j < len2 
 +        #endif
@@ -369,7 +369,7 @@ index b34d3c0..d280018 100644
 +          
 +        #ifdef FRCOV
 +          if (!(k < len1 ))
-+            fprintf(stderr, "triggered bug index 114\n");
++            fprintf(stderr, "triggered bug index 315\n");
 +          #endif
 +        
              if (toupper(data1[k]) != toupper(data2[j])) break;
@@ -382,13 +382,13 @@ index b34d3c0..d280018 100644
 +
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[115]) {
++        {if (FIXREVERTER[316]) {
 +          if ((j == len2 ) && !(0))
-+            fprintf(stderr, "triggered bug index 115\n");
++            fprintf(stderr, "triggered bug index 316\n");
 +          else
-+            fprintf(stderr, "reached bug index 115\n");
++            fprintf(stderr, "reached bug index 316\n");
 +        }
-+        if ((!FIXREVERTER[115] && (j == len2 ))
++        if ((!FIXREVERTER[316] && (j == len2 ))
 +        #else
 +        if (0
 +        #endif
@@ -408,9 +408,9 @@ index b34d3c0..d280018 100644
 -        for (j = 0; ((j < len2) && (k < len1)); j++, k++) {
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[116])
-+          fprintf(stderr, "reached bug index 116\n");
-+        for (j = 0; (FIXREVERTER[116] && (j < len2 )) || (!FIXREVERTER[116] && (j < len2 && k < len1 ))
++        {if (FIXREVERTER[317])
++          fprintf(stderr, "reached bug index 317\n");
++        for (j = 0; (FIXREVERTER[317] && (j < len2 )) || (!FIXREVERTER[317] && (j < len2 && k < len1 ))
 +        #else
 +        for (j = 0; j < len2 
 +        #endif
@@ -418,7 +418,7 @@ index b34d3c0..d280018 100644
 +          
 +        #ifdef FRCOV
 +          if (!(k < len1 ))
-+            fprintf(stderr, "triggered bug index 116\n");
++            fprintf(stderr, "triggered bug index 317\n");
 +          #endif
 +        
              if (data1[k] == 0) {
@@ -435,13 +435,13 @@ index b34d3c0..d280018 100644
 +
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[117]) {
++        {if (FIXREVERTER[318]) {
 +          if ((j == len2 ) && !(0))
-+            fprintf(stderr, "triggered bug index 117\n");
++            fprintf(stderr, "triggered bug index 318\n");
 +          else
-+            fprintf(stderr, "reached bug index 117\n");
++            fprintf(stderr, "reached bug index 318\n");
 +        }
-+        if ((!FIXREVERTER[117] && (j == len2 ))
++        if ((!FIXREVERTER[318] && (j == len2 ))
 +        #else
 +        if (0
 +        #endif
@@ -460,13 +460,13 @@ index b34d3c0..d280018 100644
 -    if ((data == NULL)||(len == NULL)) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[118]) {
++    {if (FIXREVERTER[319]) {
 +      if ((data == (void *) 0 || len == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 118\n");
++        fprintf(stderr, "triggered bug index 319\n");
 +      else
-+        fprintf(stderr, "reached bug index 118\n");
++        fprintf(stderr, "reached bug index 319\n");
 +    }
-+    if ((!FIXREVERTER[118] && (data == (void *) 0 || len == (void *) 0 ))
++    if ((!FIXREVERTER[319] && (data == (void *) 0 || len == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -484,13 +484,13 @@ index b34d3c0..d280018 100644
 -    if (d == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[119]) {
++    {if (FIXREVERTER[320]) {
 +      if ((d == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 119\n");
++        fprintf(stderr, "triggered bug index 320\n");
 +      else
-+        fprintf(stderr, "reached bug index 119\n");
++        fprintf(stderr, "reached bug index 320\n");
 +    }
-+    if ((!FIXREVERTER[119] && (d == (void *) 0 ))
++    if ((!FIXREVERTER[320] && (d == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -502,7 +502,7 @@ index b34d3c0..d280018 100644
      while (len--) {
          if (*data == '\0') {
 diff --git a/htp/bstr_builder.c b/htp/bstr_builder.c
-index d34ddf9..7e76d4b 100644
+index d34ddf9..eda7588 100644
 --- a/htp/bstr_builder.c
 +++ b/htp/bstr_builder.c
 @@ -1,3 +1,10 @@
@@ -523,13 +523,13 @@ index d34ddf9..7e76d4b 100644
 -    if (bb == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[426]) {
++    {if (FIXREVERTER[286]) {
 +      if ((bb == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 426\n");
++        fprintf(stderr, "triggered bug index 286\n");
 +      else
-+        fprintf(stderr, "reached bug index 426\n");
++        fprintf(stderr, "reached bug index 286\n");
 +    }
-+    if ((!FIXREVERTER[426] && (bb == (void *) 0 ))
++    if ((!FIXREVERTER[286] && (bb == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -541,7 +541,7 @@ index d34ddf9..7e76d4b 100644
      // Destroy any pieces we might have
      for (size_t i = 0, n = htp_list_size(bb->pieces); i < n; i++) {
 diff --git a/htp/htp_base64.c b/htp/htp_base64.c
-index 0b03a6f..6883ba4 100644
+index 0b03a6f..df80db4 100644
 --- a/htp/htp_base64.c
 +++ b/htp/htp_base64.c
 @@ -1,3 +1,10 @@
@@ -562,13 +562,13 @@ index 0b03a6f..6883ba4 100644
 -    if (tmpstr == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[335]) {
++    {if (FIXREVERTER[266]) {
 +      if ((tmpstr == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 335\n");
++        fprintf(stderr, "triggered bug index 266\n");
 +      else
-+        fprintf(stderr, "reached bug index 335\n");
++        fprintf(stderr, "reached bug index 266\n");
 +    }
-+    if ((!FIXREVERTER[335] && (tmpstr == (void *) 0 ))
++    if ((!FIXREVERTER[266] && (tmpstr == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -580,7 +580,7 @@ index 0b03a6f..6883ba4 100644
      int resulting_len = htp_base64_decode(&decoder, data, len, tmpstr, len);
      if (resulting_len > 0) {
 diff --git a/htp/htp_config.c b/htp/htp_config.c
-index f2faa02..dacd087 100644
+index f2faa02..d37b1e3 100644
 --- a/htp/htp_config.c
 +++ b/htp/htp_config.c
 @@ -1,3 +1,10 @@
@@ -601,13 +601,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[336]) {
++    {if (FIXREVERTER[134]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 336\n");
++        fprintf(stderr, "triggered bug index 134\n");
 +      else
-+        fprintf(stderr, "reached bug index 336\n");
++        fprintf(stderr, "reached bug index 134\n");
 +    }
-+    if ((!FIXREVERTER[336] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[134] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -625,13 +625,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[359]) {
++    {if (FIXREVERTER[157]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 359\n");
++        fprintf(stderr, "triggered bug index 157\n");
 +      else
-+        fprintf(stderr, "reached bug index 359\n");
++        fprintf(stderr, "reached bug index 157\n");
 +    }
-+    if ((!FIXREVERTER[359] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[157] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -649,13 +649,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[361]) {
++    {if (FIXREVERTER[159]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 361\n");
++        fprintf(stderr, "triggered bug index 159\n");
 +      else
-+        fprintf(stderr, "reached bug index 361\n");
++        fprintf(stderr, "reached bug index 159\n");
 +    }
-+    if ((!FIXREVERTER[361] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[159] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -673,13 +673,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[363]) {
++    {if (FIXREVERTER[161]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 363\n");
++        fprintf(stderr, "triggered bug index 161\n");
 +      else
-+        fprintf(stderr, "reached bug index 363\n");
++        fprintf(stderr, "reached bug index 161\n");
 +    }
-+    if ((!FIXREVERTER[363] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[161] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -694,13 +694,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[364]) {
++    {if (FIXREVERTER[162]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 364\n");
++        fprintf(stderr, "triggered bug index 162\n");
 +      else
-+        fprintf(stderr, "reached bug index 364\n");
++        fprintf(stderr, "reached bug index 162\n");
 +    }
-+    if ((!FIXREVERTER[364] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[162] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -718,13 +718,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[367]) {
++    {if (FIXREVERTER[165]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 367\n");
++        fprintf(stderr, "triggered bug index 165\n");
 +      else
-+        fprintf(stderr, "reached bug index 367\n");
++        fprintf(stderr, "reached bug index 165\n");
 +    }
-+    if ((!FIXREVERTER[367] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[165] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -742,13 +742,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[369]) {
++    {if (FIXREVERTER[167]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 369\n");
++        fprintf(stderr, "triggered bug index 167\n");
 +      else
-+        fprintf(stderr, "reached bug index 369\n");
++        fprintf(stderr, "reached bug index 167\n");
 +    }
-+    if ((!FIXREVERTER[369] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[167] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -763,13 +763,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[370]) {
++    {if (FIXREVERTER[168]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 370\n");
++        fprintf(stderr, "triggered bug index 168\n");
 +      else
-+        fprintf(stderr, "reached bug index 370\n");
++        fprintf(stderr, "reached bug index 168\n");
 +    }
-+    if ((!FIXREVERTER[370] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[168] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -784,13 +784,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[371]) {
++    {if (FIXREVERTER[169]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 371\n");
++        fprintf(stderr, "triggered bug index 169\n");
 +      else
-+        fprintf(stderr, "reached bug index 371\n");
++        fprintf(stderr, "reached bug index 169\n");
 +    }
-+    if ((!FIXREVERTER[371] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[169] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -805,13 +805,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[372]) {
++    {if (FIXREVERTER[170]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 372\n");
++        fprintf(stderr, "triggered bug index 170\n");
 +      else
-+        fprintf(stderr, "reached bug index 372\n");
++        fprintf(stderr, "reached bug index 170\n");
 +    }
-+    if ((!FIXREVERTER[372] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[170] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -826,13 +826,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[373]) {
++    {if (FIXREVERTER[171]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 373\n");
++        fprintf(stderr, "triggered bug index 171\n");
 +      else
-+        fprintf(stderr, "reached bug index 373\n");
++        fprintf(stderr, "reached bug index 171\n");
 +    }
-+    if ((!FIXREVERTER[373] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[171] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -847,13 +847,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[374]) {
++    {if (FIXREVERTER[172]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 374\n");
++        fprintf(stderr, "triggered bug index 172\n");
 +      else
-+        fprintf(stderr, "reached bug index 374\n");
++        fprintf(stderr, "reached bug index 172\n");
 +    }
-+    if ((!FIXREVERTER[374] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[172] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -868,13 +868,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[375]) {
++    {if (FIXREVERTER[173]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 375\n");
++        fprintf(stderr, "triggered bug index 173\n");
 +      else
-+        fprintf(stderr, "reached bug index 375\n");
++        fprintf(stderr, "reached bug index 173\n");
 +    }
-+    if ((!FIXREVERTER[375] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[173] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -892,13 +892,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[378]) {
++    {if (FIXREVERTER[176]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 378\n");
++        fprintf(stderr, "triggered bug index 176\n");
 +      else
-+        fprintf(stderr, "reached bug index 378\n");
++        fprintf(stderr, "reached bug index 176\n");
 +    }
-+    if ((!FIXREVERTER[378] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[176] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -913,13 +913,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[379]) {
++    {if (FIXREVERTER[177]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 379\n");
++        fprintf(stderr, "triggered bug index 177\n");
 +      else
-+        fprintf(stderr, "reached bug index 379\n");
++        fprintf(stderr, "reached bug index 177\n");
 +    }
-+    if ((!FIXREVERTER[379] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[177] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -934,13 +934,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[380]) {
++    {if (FIXREVERTER[178]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 380\n");
++        fprintf(stderr, "triggered bug index 178\n");
 +      else
-+        fprintf(stderr, "reached bug index 380\n");
++        fprintf(stderr, "reached bug index 178\n");
 +    }
-+    if ((!FIXREVERTER[380] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[178] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -958,13 +958,13 @@ index f2faa02..dacd087 100644
 -    if (cfg == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[391]) {
++    {if (FIXREVERTER[189]) {
 +      if ((cfg == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 391\n");
++        fprintf(stderr, "triggered bug index 189\n");
 +      else
-+        fprintf(stderr, "reached bug index 391\n");
++        fprintf(stderr, "reached bug index 189\n");
 +    }
-+    if ((!FIXREVERTER[391] && (cfg == (void *) 0 ))
++    if ((!FIXREVERTER[189] && (cfg == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -976,7 +976,7 @@ index f2faa02..dacd087 100644
      switch (personality) {
  
 diff --git a/htp/htp_connection.c b/htp/htp_connection.c
-index bd5379e..ab706ba 100644
+index bd5379e..cb9976d 100644
 --- a/htp/htp_connection.c
 +++ b/htp/htp_connection.c
 @@ -1,3 +1,10 @@
@@ -997,13 +997,13 @@ index bd5379e..ab706ba 100644
 -    if (conn == NULL) return NULL;   
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[182]) {
++    {if (FIXREVERTER[360]) {
 +      if ((conn == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 182\n");
++        fprintf(stderr, "triggered bug index 360\n");
 +      else
-+        fprintf(stderr, "reached bug index 182\n");
++        fprintf(stderr, "reached bug index 360\n");
 +    }
-+    if ((!FIXREVERTER[182] && (conn == (void *) 0 ))
++    if ((!FIXREVERTER[360] && (conn == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1016,13 +1016,13 @@ index bd5379e..ab706ba 100644
 -    if (conn->transactions == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[183]) {
++    {if (FIXREVERTER[361]) {
 +      if ((conn -> transactions == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 183\n");
++        fprintf(stderr, "triggered bug index 361\n");
 +      else
-+        fprintf(stderr, "reached bug index 183\n");
++        fprintf(stderr, "reached bug index 361\n");
 +    }
-+    if ((!FIXREVERTER[183] && (conn -> transactions == (void *) 0 ))
++    if ((!FIXREVERTER[361] && (conn -> transactions == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1043,13 +1043,13 @@ index bd5379e..ab706ba 100644
 -    if (conn == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[185]) {
++    {if (FIXREVERTER[363]) {
 +      if ((conn == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 185\n");
++        fprintf(stderr, "triggered bug index 363\n");
 +      else
-+        fprintf(stderr, "reached bug index 185\n");
++        fprintf(stderr, "reached bug index 363\n");
 +    }
-+    if ((!FIXREVERTER[185] && (conn == (void *) 0 ))
++    if ((!FIXREVERTER[363] && (conn == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1067,13 +1067,13 @@ index bd5379e..ab706ba 100644
 -    if (conn == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[186]) {
++    {if (FIXREVERTER[364]) {
 +      if ((conn == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 186\n");
++        fprintf(stderr, "triggered bug index 364\n");
 +      else
-+        fprintf(stderr, "reached bug index 186\n");
++        fprintf(stderr, "reached bug index 364\n");
 +    }
-+    if ((!FIXREVERTER[186] && (conn == (void *) 0 ))
++    if ((!FIXREVERTER[364] && (conn == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1087,13 +1087,13 @@ index bd5379e..ab706ba 100644
 -        if (conn->client_addr == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[187]) {
++        {if (FIXREVERTER[365]) {
 +          if ((conn -> client_addr == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 187\n");
++            fprintf(stderr, "triggered bug index 365\n");
 +          else
-+            fprintf(stderr, "reached bug index 187\n");
++            fprintf(stderr, "reached bug index 365\n");
 +        }
-+        if ((!FIXREVERTER[187] && (conn -> client_addr == (void *) 0 ))
++        if ((!FIXREVERTER[365] && (conn -> client_addr == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -1110,13 +1110,13 @@ index bd5379e..ab706ba 100644
 -        if (conn->server_addr == NULL) {
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[188]) {
++        {if (FIXREVERTER[366]) {
 +          if ((conn -> server_addr == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 188\n");
++            fprintf(stderr, "triggered bug index 366\n");
 +          else
-+            fprintf(stderr, "reached bug index 188\n");
++            fprintf(stderr, "reached bug index 366\n");
 +        }
-+        if ((!FIXREVERTER[188] && (conn -> server_addr == (void *) 0 ))
++        if ((!FIXREVERTER[366] && (conn -> server_addr == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -1141,13 +1141,13 @@ index bd5379e..ab706ba 100644
 -    if (conn->transactions == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[189]) {
++    {if (FIXREVERTER[367]) {
 +      if ((tx == (void *) 0 || conn == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 189\n");
++        fprintf(stderr, "triggered bug index 367\n");
 +      else
-+        fprintf(stderr, "reached bug index 189\n");
++        fprintf(stderr, "reached bug index 367\n");
 +    }
-+    if ((!FIXREVERTER[189] && (tx == (void *) 0 || conn == (void *) 0 ))
++    if ((!FIXREVERTER[367] && (tx == (void *) 0 || conn == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1157,13 +1157,13 @@ index bd5379e..ab706ba 100644
 +    #endif
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[190]) {
++    {if (FIXREVERTER[368]) {
 +      if ((conn -> transactions == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 190\n");
++        fprintf(stderr, "triggered bug index 368\n");
 +      else
-+        fprintf(stderr, "reached bug index 190\n");
++        fprintf(stderr, "reached bug index 368\n");
 +    }
-+    if ((!FIXREVERTER[190] && (conn -> transactions == (void *) 0 ))
++    if ((!FIXREVERTER[368] && (conn -> transactions == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1179,13 +1179,13 @@ index bd5379e..ab706ba 100644
 -    if (conn == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[191]) {
++    {if (FIXREVERTER[369]) {
 +      if ((conn == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 191\n");
++        fprintf(stderr, "triggered bug index 369\n");
 +      else
-+        fprintf(stderr, "reached bug index 191\n");
++        fprintf(stderr, "reached bug index 369\n");
 +    }
-+    if ((!FIXREVERTER[191] && (conn == (void *) 0 ))
++    if ((!FIXREVERTER[369] && (conn == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1200,13 +1200,13 @@ index bd5379e..ab706ba 100644
 -    if (conn == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[192]) {
++    {if (FIXREVERTER[370]) {
 +      if ((conn == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 192\n");
++        fprintf(stderr, "triggered bug index 370\n");
 +      else
-+        fprintf(stderr, "reached bug index 192\n");
++        fprintf(stderr, "reached bug index 370\n");
 +    }
-+    if ((!FIXREVERTER[192] && (conn == (void *) 0 ))
++    if ((!FIXREVERTER[370] && (conn == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1217,7 +1217,7 @@ index bd5379e..ab706ba 100644
      conn->out_data_counter += len;    
  }
 diff --git a/htp/htp_connection_parser.c b/htp/htp_connection_parser.c
-index cb65927..03a8e39 100644
+index cb65927..86cb561 100644
 --- a/htp/htp_connection_parser.c
 +++ b/htp/htp_connection_parser.c
 @@ -1,3 +1,10 @@
@@ -1238,13 +1238,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[156]) {
++    {if (FIXREVERTER[230]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 156\n");
++        fprintf(stderr, "triggered bug index 230\n");
 +      else
-+        fprintf(stderr, "reached bug index 156\n");
++        fprintf(stderr, "reached bug index 230\n");
 +    }
-+    if ((!FIXREVERTER[156] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[230] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1262,13 +1262,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[157]) {
++    {if (FIXREVERTER[231]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 157\n");
++        fprintf(stderr, "triggered bug index 231\n");
 +      else
-+        fprintf(stderr, "reached bug index 157\n");
++        fprintf(stderr, "reached bug index 231\n");
 +    }
-+    if ((!FIXREVERTER[157] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[231] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1285,13 +1285,13 @@ index cb65927..03a8e39 100644
 -    if (connp->conn == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[158]) {
++    {if (FIXREVERTER[232]) {
 +      if ((connp -> conn == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 158\n");
++        fprintf(stderr, "triggered bug index 232\n");
 +      else
-+        fprintf(stderr, "reached bug index 158\n");
++        fprintf(stderr, "reached bug index 232\n");
 +    }
-+    if ((!FIXREVERTER[158] && (connp -> conn == (void *) 0 ))
++    if ((!FIXREVERTER[232] && (connp -> conn == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1312,13 +1312,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[159]) {
++    {if (FIXREVERTER[233]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 159\n");
++        fprintf(stderr, "triggered bug index 233\n");
 +      else
-+        fprintf(stderr, "reached bug index 159\n");
++        fprintf(stderr, "reached bug index 233\n");
 +    }
-+    if ((!FIXREVERTER[159] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[233] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1336,13 +1336,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[160]) {
++    {if (FIXREVERTER[234]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 160\n");
++        fprintf(stderr, "triggered bug index 234\n");
 +      else
-+        fprintf(stderr, "reached bug index 160\n");
++        fprintf(stderr, "reached bug index 234\n");
 +    }
-+    if ((!FIXREVERTER[160] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[234] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1360,13 +1360,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[166]) {
++    {if (FIXREVERTER[240]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 166\n");
++        fprintf(stderr, "triggered bug index 240\n");
 +      else
-+        fprintf(stderr, "reached bug index 166\n");
++        fprintf(stderr, "reached bug index 240\n");
 +    }
-+    if ((!FIXREVERTER[166] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[240] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1384,13 +1384,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[167]) {
++    {if (FIXREVERTER[241]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 167\n");
++        fprintf(stderr, "triggered bug index 241\n");
 +      else
-+        fprintf(stderr, "reached bug index 167\n");
++        fprintf(stderr, "reached bug index 241\n");
 +    }
-+    if ((!FIXREVERTER[167] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[241] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1408,13 +1408,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[168]) {
++    {if (FIXREVERTER[242]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 168\n");
++        fprintf(stderr, "triggered bug index 242\n");
 +      else
-+        fprintf(stderr, "reached bug index 168\n");
++        fprintf(stderr, "reached bug index 242\n");
 +    }
-+    if ((!FIXREVERTER[168] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[242] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1429,13 +1429,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[169]) {
++    {if (FIXREVERTER[243]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 169\n");
++        fprintf(stderr, "triggered bug index 243\n");
 +      else
-+        fprintf(stderr, "reached bug index 169\n");
++        fprintf(stderr, "reached bug index 243\n");
 +    }
-+    if ((!FIXREVERTER[169] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[243] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1453,13 +1453,13 @@ index cb65927..03a8e39 100644
 -    if (tx == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[170]) {
++    {if (FIXREVERTER[244]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 170\n");
++        fprintf(stderr, "triggered bug index 244\n");
 +      else
-+        fprintf(stderr, "reached bug index 170\n");
++        fprintf(stderr, "reached bug index 244\n");
 +    }
-+    if ((!FIXREVERTER[170] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[244] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1477,13 +1477,13 @@ index cb65927..03a8e39 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[171]) {
++    {if (FIXREVERTER[245]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 171\n");
++        fprintf(stderr, "triggered bug index 245\n");
 +      else
-+        fprintf(stderr, "reached bug index 171\n");
++        fprintf(stderr, "reached bug index 245\n");
 +    }
-+    if ((!FIXREVERTER[171] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[245] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1495,7 +1495,7 @@ index cb65927..03a8e39 100644
      if (connp->in_tx == tx) {
          connp->in_tx = NULL;
 diff --git a/htp/htp_cookies.c b/htp/htp_cookies.c
-index bb26822..a3e4e50 100644
+index bb26822..3331b04 100644
 --- a/htp/htp_cookies.c
 +++ b/htp/htp_cookies.c
 @@ -1,3 +1,10 @@
@@ -1516,13 +1516,13 @@ index bb26822..a3e4e50 100644
 -    if (len == 0) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[428]) {
++    {if (FIXREVERTER[128]) {
 +      if ((len == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 428\n");
++        fprintf(stderr, "triggered bug index 128\n");
 +      else
-+        fprintf(stderr, "reached bug index 428\n");
++        fprintf(stderr, "reached bug index 128\n");
 +    }
-+    if ((!FIXREVERTER[428] && (len == 0 ))
++    if ((!FIXREVERTER[128] && (len == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1538,13 +1538,13 @@ index bb26822..a3e4e50 100644
 -    if (pos == 0) return HTP_OK; // Ignore a nameless cookie.
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[429]) {
++    {if (FIXREVERTER[129]) {
 +      if ((pos == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 429\n");
++        fprintf(stderr, "triggered bug index 129\n");
 +      else
-+        fprintf(stderr, "reached bug index 429\n");
++        fprintf(stderr, "reached bug index 129\n");
 +    }
-+    if ((!FIXREVERTER[429] && (pos == 0 ))
++    if ((!FIXREVERTER[129] && (pos == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1557,13 +1557,13 @@ index bb26822..a3e4e50 100644
 -    if (name == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[430]) {
++    {if (FIXREVERTER[130]) {
 +      if ((name == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 430\n");
++        fprintf(stderr, "triggered bug index 130\n");
 +      else
-+        fprintf(stderr, "reached bug index 430\n");
++        fprintf(stderr, "reached bug index 130\n");
 +    }
-+    if ((!FIXREVERTER[430] && (name == (void *) 0 ))
++    if ((!FIXREVERTER[130] && (name == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1581,13 +1581,13 @@ index bb26822..a3e4e50 100644
 -    if (value == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[431]) {
++    {if (FIXREVERTER[131]) {
 +      if ((value == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 431\n");
++        fprintf(stderr, "triggered bug index 131\n");
 +      else
-+        fprintf(stderr, "reached bug index 431\n");
++        fprintf(stderr, "reached bug index 131\n");
 +    }
-+    if ((!FIXREVERTER[431] && (value == (void *) 0 ))
++    if ((!FIXREVERTER[131] && (value == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1608,13 +1608,13 @@ index bb26822..a3e4e50 100644
 -        if (pos == len) return HTP_OK;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[433]) {
++        {if (FIXREVERTER[133]) {
 +          if ((pos == len ) && !(0))
-+            fprintf(stderr, "triggered bug index 433\n");
++            fprintf(stderr, "triggered bug index 133\n");
 +          else
-+            fprintf(stderr, "reached bug index 433\n");
++            fprintf(stderr, "reached bug index 133\n");
 +        }
-+        if ((!FIXREVERTER[433] && (pos == len ))
++        if ((!FIXREVERTER[133] && (pos == len ))
 +        #else
 +        if (0
 +        #endif
@@ -1626,7 +1626,7 @@ index bb26822..a3e4e50 100644
          size_t start = pos;
  
 diff --git a/htp/htp_decompressors.c b/htp/htp_decompressors.c
-index 413b7c8..10ae37e 100644
+index 413b7c8..2c848bc 100644
 --- a/htp/htp_decompressors.c
 +++ b/htp/htp_decompressors.c
 @@ -1,3 +1,10 @@
@@ -1647,13 +1647,13 @@ index 413b7c8..10ae37e 100644
 -    if (consumed > data_len)
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[500]) {
++    {if (FIXREVERTER[268]) {
 +      if ((consumed > data_len ) && !(0))
-+        fprintf(stderr, "triggered bug index 500\n");
++        fprintf(stderr, "triggered bug index 268\n");
 +      else
-+        fprintf(stderr, "reached bug index 500\n");
++        fprintf(stderr, "reached bug index 268\n");
 +    }
-+    if ((!FIXREVERTER[500] && (consumed > data_len ))
++    if ((!FIXREVERTER[268] && (consumed > data_len ))
 +    #else
 +    if (0
 +    #endif
@@ -1672,13 +1672,13 @@ index 413b7c8..10ae37e 100644
 -    if (consumed > d->len) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[506]) {
++    {if (FIXREVERTER[274]) {
 +      if ((consumed > d -> len ) && !(0))
-+        fprintf(stderr, "triggered bug index 506\n");
++        fprintf(stderr, "triggered bug index 274\n");
 +      else
-+        fprintf(stderr, "reached bug index 506\n");
++        fprintf(stderr, "reached bug index 274\n");
 +    }
-+    if ((!FIXREVERTER[506] && (consumed > d -> len ))
++    if ((!FIXREVERTER[274] && (consumed > d -> len ))
 +    #else
 +    if (0
 +    #endif
@@ -1699,13 +1699,13 @@ index 413b7c8..10ae37e 100644
 -                if (rc != SZ_OK)
 +                
 +                #ifdef FRCOV
-+                {if (FIXREVERTER[508]) {
++                {if (FIXREVERTER[276]) {
 +                  if ((rc != 0 ) && !(0))
-+                    fprintf(stderr, "triggered bug index 508\n");
++                    fprintf(stderr, "triggered bug index 276\n");
 +                  else
-+                    fprintf(stderr, "reached bug index 508\n");
++                    fprintf(stderr, "reached bug index 276\n");
 +                }
-+                if ((!FIXREVERTER[508] && (rc != 0 ))
++                if ((!FIXREVERTER[276] && (rc != 0 ))
 +                #else
 +                if (0
 +                #endif
@@ -1724,13 +1724,13 @@ index 413b7c8..10ae37e 100644
 -    if (drec == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[511]) {
++    {if (FIXREVERTER[279]) {
 +      if ((drec == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 511\n");
++        fprintf(stderr, "triggered bug index 279\n");
 +      else
-+        fprintf(stderr, "reached bug index 511\n");
++        fprintf(stderr, "reached bug index 279\n");
 +    }
-+    if ((!FIXREVERTER[511] && (drec == (void *) 0 ))
++    if ((!FIXREVERTER[279] && (drec == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1748,13 +1748,13 @@ index 413b7c8..10ae37e 100644
 -    if (drec == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[512]) {
++    {if (FIXREVERTER[280]) {
 +      if ((drec == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 512\n");
++        fprintf(stderr, "triggered bug index 280\n");
 +      else
-+        fprintf(stderr, "reached bug index 512\n");
++        fprintf(stderr, "reached bug index 280\n");
 +    }
-+    if ((!FIXREVERTER[512] && (drec == (void *) 0 ))
++    if ((!FIXREVERTER[280] && (drec == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1771,13 +1771,13 @@ index 413b7c8..10ae37e 100644
 -    if (drec->buffer == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[513]) {
++    {if (FIXREVERTER[281]) {
 +      if ((drec -> buffer == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 513\n");
++        fprintf(stderr, "triggered bug index 281\n");
 +      else
-+        fprintf(stderr, "reached bug index 513\n");
++        fprintf(stderr, "reached bug index 281\n");
 +    }
-+    if ((!FIXREVERTER[513] && (drec -> buffer == (void *) 0 ))
++    if ((!FIXREVERTER[281] && (drec -> buffer == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1792,7 +1792,7 @@ index 413b7c8..10ae37e 100644
      // Initialize zlib.
      int rc;
 diff --git a/htp/htp_hooks.c b/htp/htp_hooks.c
-index 37d0fd4..2debd74 100644
+index 37d0fd4..5ccb507 100644
 --- a/htp/htp_hooks.c
 +++ b/htp/htp_hooks.c
 @@ -1,3 +1,10 @@
@@ -1813,13 +1813,13 @@ index 37d0fd4..2debd74 100644
 -    if (hook == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[174]) {
++    {if (FIXREVERTER[290]) {
 +      if ((hook == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 174\n");
++        fprintf(stderr, "triggered bug index 290\n");
 +      else
-+        fprintf(stderr, "reached bug index 174\n");
++        fprintf(stderr, "reached bug index 290\n");
 +    }
-+    if ((!FIXREVERTER[174] && (hook == (void *) 0 ))
++    if ((!FIXREVERTER[290] && (hook == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1832,13 +1832,13 @@ index 37d0fd4..2debd74 100644
 -    if (hook->callbacks == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[175]) {
++    {if (FIXREVERTER[291]) {
 +      if ((hook -> callbacks == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 175\n");
++        fprintf(stderr, "triggered bug index 291\n");
 +      else
-+        fprintf(stderr, "reached bug index 175\n");
++        fprintf(stderr, "reached bug index 291\n");
 +    }
-+    if ((!FIXREVERTER[175] && (hook -> callbacks == (void *) 0 ))
++    if ((!FIXREVERTER[291] && (hook -> callbacks == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1859,13 +1859,13 @@ index 37d0fd4..2debd74 100644
 -    if (hook == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[177]) {
++    {if (FIXREVERTER[293]) {
 +      if ((hook == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 177\n");
++        fprintf(stderr, "triggered bug index 293\n");
 +      else
-+        fprintf(stderr, "reached bug index 177\n");
++        fprintf(stderr, "reached bug index 293\n");
 +    }
-+    if ((!FIXREVERTER[177] && (hook == (void *) 0 ))
++    if ((!FIXREVERTER[293] && (hook == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1878,13 +1878,13 @@ index 37d0fd4..2debd74 100644
 -    if (callback == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[178]) {
++    {if (FIXREVERTER[294]) {
 +      if ((callback == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 178\n");
++        fprintf(stderr, "triggered bug index 294\n");
 +      else
-+        fprintf(stderr, "reached bug index 178\n");
++        fprintf(stderr, "reached bug index 294\n");
 +    }
-+    if ((!FIXREVERTER[178] && (callback == (void *) 0 ))
++    if ((!FIXREVERTER[294] && (callback == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1896,7 +1896,7 @@ index 37d0fd4..2debd74 100644
      callback->fn = callback_fn;
  
 diff --git a/htp/htp_list.c b/htp/htp_list.c
-index 06f0dfa..62f8ffd 100644
+index 06f0dfa..de41ef6 100644
 --- a/htp/htp_list.c
 +++ b/htp/htp_list.c
 @@ -1,3 +1,10 @@
@@ -1917,13 +1917,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l->elements == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[318]) {
++    {if (FIXREVERTER[371]) {
 +      if ((l -> elements == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 318\n");
++        fprintf(stderr, "triggered bug index 371\n");
 +      else
-+        fprintf(stderr, "reached bug index 318\n");
++        fprintf(stderr, "reached bug index 371\n");
 +    }
-+    if ((!FIXREVERTER[318] && (l -> elements == (void *) 0 ))
++    if ((!FIXREVERTER[371] && (l -> elements == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1943,13 +1943,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[319]) {
++    {if (FIXREVERTER[372]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 319\n");
++        fprintf(stderr, "triggered bug index 372\n");
 +      else
-+        fprintf(stderr, "reached bug index 319\n");
++        fprintf(stderr, "reached bug index 372\n");
 +    }
-+    if ((!FIXREVERTER[319] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[372] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1967,13 +1967,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[320]) {
++    {if (FIXREVERTER[373]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 320\n");
++        fprintf(stderr, "triggered bug index 373\n");
 +      else
-+        fprintf(stderr, "reached bug index 320\n");
++        fprintf(stderr, "reached bug index 373\n");
 +    }
-+    if ((!FIXREVERTER[320] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[373] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -1990,13 +1990,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[321]) {
++    {if (FIXREVERTER[374]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 321\n");
++        fprintf(stderr, "triggered bug index 374\n");
 +      else
-+        fprintf(stderr, "reached bug index 321\n");
++        fprintf(stderr, "reached bug index 374\n");
 +    }
-+    if ((!FIXREVERTER[321] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[374] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2012,13 +2012,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return NULL;    
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[322]) {
++    {if (FIXREVERTER[375]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 322\n");
++        fprintf(stderr, "triggered bug index 375\n");
 +      else
-+        fprintf(stderr, "reached bug index 322\n");
++        fprintf(stderr, "reached bug index 375\n");
 +    }
-+    if ((!FIXREVERTER[322] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[375] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2036,13 +2036,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[324]) {
++    {if (FIXREVERTER[377]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 324\n");
++        fprintf(stderr, "triggered bug index 377\n");
 +      else
-+        fprintf(stderr, "reached bug index 324\n");
++        fprintf(stderr, "reached bug index 377\n");
 +    }
-+    if ((!FIXREVERTER[324] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[377] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2056,13 +2056,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l->current_size == 0) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[325]) {
++    {if (FIXREVERTER[378]) {
 +      if ((l -> current_size == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 325\n");
++        fprintf(stderr, "triggered bug index 378\n");
 +      else
-+        fprintf(stderr, "reached bug index 325\n");
++        fprintf(stderr, "reached bug index 378\n");
 +    }
-+    if ((!FIXREVERTER[325] && (l -> current_size == 0 ))
++    if ((!FIXREVERTER[378] && (l -> current_size == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2082,13 +2082,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[326]) {
++    {if (FIXREVERTER[379]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 326\n");
++        fprintf(stderr, "triggered bug index 379\n");
 +      else
-+        fprintf(stderr, "reached bug index 326\n");
++        fprintf(stderr, "reached bug index 379\n");
 +    }
-+    if ((!FIXREVERTER[326] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[379] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2106,13 +2106,13 @@ index 06f0dfa..62f8ffd 100644
 -            if (newblock == NULL) return HTP_ERROR;
 +            
 +            #ifdef FRCOV
-+            {if (FIXREVERTER[327]) {
++            {if (FIXREVERTER[380]) {
 +              if ((newblock == (void *) 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 327\n");
++                fprintf(stderr, "triggered bug index 380\n");
 +              else
-+                fprintf(stderr, "reached bug index 327\n");
++                fprintf(stderr, "reached bug index 380\n");
 +            }
-+            if ((!FIXREVERTER[327] && (newblock == (void *) 0 ))
++            if ((!FIXREVERTER[380] && (newblock == (void *) 0 ))
 +            #else
 +            if (0
 +            #endif
@@ -2129,13 +2129,13 @@ index 06f0dfa..62f8ffd 100644
 -            if (newblock == NULL) return HTP_ERROR;
 +            
 +            #ifdef FRCOV
-+            {if (FIXREVERTER[328]) {
++            {if (FIXREVERTER[381]) {
 +              if ((newblock == (void *) 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 328\n");
++                fprintf(stderr, "triggered bug index 381\n");
 +              else
-+                fprintf(stderr, "reached bug index 328\n");
++                fprintf(stderr, "reached bug index 381\n");
 +            }
-+            if ((!FIXREVERTER[328] && (newblock == (void *) 0 ))
++            if ((!FIXREVERTER[381] && (newblock == (void *) 0 ))
 +            #else
 +            if (0
 +            #endif
@@ -2153,13 +2153,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[329]) {
++    {if (FIXREVERTER[382]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 329\n");
++        fprintf(stderr, "triggered bug index 382\n");
 +      else
-+        fprintf(stderr, "reached bug index 329\n");
++        fprintf(stderr, "reached bug index 382\n");
 +    }
-+    if ((!FIXREVERTER[329] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[382] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2171,13 +2171,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (idx + 1 > l->current_size) return HTP_DECLINED;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[330]) {
++    {if (FIXREVERTER[383]) {
 +      if ((idx + 1 > l -> current_size ) && !(0))
-+        fprintf(stderr, "triggered bug index 330\n");
++        fprintf(stderr, "triggered bug index 383\n");
 +      else
-+        fprintf(stderr, "reached bug index 330\n");
++        fprintf(stderr, "reached bug index 383\n");
 +    }
-+    if ((!FIXREVERTER[330] && (idx + 1 > l -> current_size ))
++    if ((!FIXREVERTER[383] && (idx + 1 > l -> current_size ))
 +    #else
 +    if (0
 +    #endif
@@ -2195,13 +2195,13 @@ index 06f0dfa..62f8ffd 100644
 -    if (l == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[331]) {
++    {if (FIXREVERTER[384]) {
 +      if ((l == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 331\n");
++        fprintf(stderr, "triggered bug index 384\n");
 +      else
-+        fprintf(stderr, "reached bug index 331\n");
++        fprintf(stderr, "reached bug index 384\n");
 +    }
-+    if ((!FIXREVERTER[331] && (l == (void *) 0 ))
++    if ((!FIXREVERTER[384] && (l == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2213,7 +2213,7 @@ index 06f0dfa..62f8ffd 100644
      return l->current_size;
  }
 diff --git a/htp/htp_multipart.c b/htp/htp_multipart.c
-index ea73072..50970d8 100644
+index ea73072..60112ec 100644
 --- a/htp/htp_multipart.c
 +++ b/htp/htp_multipart.c
 @@ -1,3 +1,10 @@
@@ -2234,13 +2234,13 @@ index ea73072..50970d8 100644
 -    if (part == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[454]) {
++    {if (FIXREVERTER[214]) {
 +      if ((part == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 454\n");
++        fprintf(stderr, "triggered bug index 214\n");
 +      else
-+        fprintf(stderr, "reached bug index 454\n");
++        fprintf(stderr, "reached bug index 214\n");
 +    }
-+    if ((!FIXREVERTER[454] && (part == (void *) 0 ))
++    if ((!FIXREVERTER[214] && (part == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2252,7 +2252,7 @@ index ea73072..50970d8 100644
      if (part->file != NULL) {
          bstr_free(part->file->filename);
 diff --git a/htp/htp_parsers.c b/htp/htp_parsers.c
-index 98a7cd3..0aafd54 100644
+index 98a7cd3..657a37e 100644
 --- a/htp/htp_parsers.c
 +++ b/htp/htp_parsers.c
 @@ -1,3 +1,10 @@
@@ -2273,13 +2273,13 @@ index 98a7cd3..0aafd54 100644
 -    if (protocol == NULL) return HTP_PROTOCOL_INVALID;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[405]) {
++    {if (FIXREVERTER[246]) {
 +      if ((protocol == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 405\n");
++        fprintf(stderr, "triggered bug index 246\n");
 +      else
-+        fprintf(stderr, "reached bug index 405\n");
++        fprintf(stderr, "reached bug index 246\n");
 +    }
-+    if ((!FIXREVERTER[405] && (protocol == (void *) 0 ))
++    if ((!FIXREVERTER[246] && (protocol == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2297,13 +2297,13 @@ index 98a7cd3..0aafd54 100644
 -    if (pos == len) return HTP_DECLINED;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[406]) {
++    {if (FIXREVERTER[247]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 406\n");
++        fprintf(stderr, "triggered bug index 247\n");
 +      else
-+        fprintf(stderr, "reached bug index 406\n");
++        fprintf(stderr, "reached bug index 247\n");
 +    }
-+    if ((!FIXREVERTER[406] && (pos == len ))
++    if ((!FIXREVERTER[247] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -2321,13 +2321,13 @@ index 98a7cd3..0aafd54 100644
 -    if (pos == len) return HTP_DECLINED;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[407]) {
++    {if (FIXREVERTER[248]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 407\n");
++        fprintf(stderr, "triggered bug index 248\n");
 +      else
-+        fprintf(stderr, "reached bug index 407\n");
++        fprintf(stderr, "reached bug index 248\n");
 +    }
-+    if ((!FIXREVERTER[407] && (pos == len ))
++    if ((!FIXREVERTER[248] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -2341,13 +2341,13 @@ index 98a7cd3..0aafd54 100644
 -    if (decoded == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[408]) {
++    {if (FIXREVERTER[249]) {
 +      if ((decoded == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 408\n");
++        fprintf(stderr, "triggered bug index 249\n");
 +      else
-+        fprintf(stderr, "reached bug index 408\n");
++        fprintf(stderr, "reached bug index 249\n");
 +    }
-+    if ((!FIXREVERTER[408] && (decoded == (void *) 0 ))
++    if ((!FIXREVERTER[249] && (decoded == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2359,7 +2359,7 @@ index 98a7cd3..0aafd54 100644
      // Now extract the username and password
      int i = bstr_index_of_c(decoded, ":");
 diff --git a/htp/htp_request.c b/htp/htp_request.c
-index 1c17098..e25b7a3 100644
+index 1c17098..e304f2a 100644
 --- a/htp/htp_request.c
 +++ b/htp/htp_request.c
 @@ -1,3 +1,10 @@
@@ -2380,13 +2380,13 @@ index 1c17098..e25b7a3 100644
 -    if (connp->in_data_receiver_hook == NULL) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[139]) {
++    {if (FIXREVERTER[399]) {
 +      if ((connp -> in_data_receiver_hook == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 139\n");
++        fprintf(stderr, "triggered bug index 399\n");
 +      else
-+        fprintf(stderr, "reached bug index 139\n");
++        fprintf(stderr, "reached bug index 399\n");
 +    }
-+    if ((!FIXREVERTER[139] && (connp -> in_data_receiver_hook == (void *) 0 ))
++    if ((!FIXREVERTER[399] && (connp -> in_data_receiver_hook == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2404,13 +2404,13 @@ index 1c17098..e25b7a3 100644
 -    if (connp->in_current_data == NULL) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[141]) {
++    {if (FIXREVERTER[401]) {
 +      if ((connp -> in_current_data == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 141\n");
++        fprintf(stderr, "triggered bug index 401\n");
 +      else
-+        fprintf(stderr, "reached bug index 141\n");
++        fprintf(stderr, "reached bug index 401\n");
 +    }
-+    if ((!FIXREVERTER[141] && (connp -> in_current_data == (void *) 0 ))
++    if ((!FIXREVERTER[401] && (connp -> in_current_data == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2425,13 +2425,13 @@ index 1c17098..e25b7a3 100644
 -    if (len == 0)
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[142]) {
++    {if (FIXREVERTER[402]) {
 +      if ((len == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 142\n");
++        fprintf(stderr, "triggered bug index 402\n");
 +      else
-+        fprintf(stderr, "reached bug index 142\n");
++        fprintf(stderr, "reached bug index 402\n");
 +    }
-+    if ((!FIXREVERTER[142] && (len == 0 ))
++    if ((!FIXREVERTER[402] && (len == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2450,13 +2450,13 @@ index 1c17098..e25b7a3 100644
 -        if (connp->in_buf == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[143]) {
++        {if (FIXREVERTER[403]) {
 +          if ((connp -> in_buf == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 143\n");
++            fprintf(stderr, "triggered bug index 403\n");
 +          else
-+            fprintf(stderr, "reached bug index 143\n");
++            fprintf(stderr, "reached bug index 403\n");
 +        }
-+        if ((!FIXREVERTER[143] && (connp -> in_buf == (void *) 0 ))
++        if ((!FIXREVERTER[403] && (connp -> in_buf == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -2472,13 +2472,13 @@ index 1c17098..e25b7a3 100644
 -        if (newbuf == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[144]) {
++        {if (FIXREVERTER[404]) {
 +          if ((newbuf == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 144\n");
++            fprintf(stderr, "triggered bug index 404\n");
 +          else
-+            fprintf(stderr, "reached bug index 144\n");
++            fprintf(stderr, "reached bug index 404\n");
 +        }
-+        if ((!FIXREVERTER[144] && (newbuf == (void *) 0 ))
++        if ((!FIXREVERTER[404] && (newbuf == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -2496,13 +2496,13 @@ index 1c17098..e25b7a3 100644
 -    if (bytes_to_consume == 0) return HTP_DATA;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[145]) {
++    {if (FIXREVERTER[405]) {
 +      if ((bytes_to_consume == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 145\n");
++        fprintf(stderr, "triggered bug index 405\n");
 +      else
-+        fprintf(stderr, "reached bug index 145\n");
++        fprintf(stderr, "reached bug index 405\n");
 +    }
-+    if ((!FIXREVERTER[145] && (bytes_to_consume == 0 ))
++    if ((!FIXREVERTER[405] && (bytes_to_consume == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2520,13 +2520,13 @@ index 1c17098..e25b7a3 100644
 -    if (connp->in_chunked_length == 0) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[147]) {
++    {if (FIXREVERTER[407]) {
 +      if ((connp -> in_chunked_length == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 147\n");
++        fprintf(stderr, "triggered bug index 407\n");
 +      else
-+        fprintf(stderr, "reached bug index 147\n");
++        fprintf(stderr, "reached bug index 407\n");
 +    }
-+    if ((!FIXREVERTER[147] && (connp -> in_chunked_length == 0 ))
++    if ((!FIXREVERTER[407] && (connp -> in_chunked_length == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2548,13 +2548,13 @@ index 1c17098..e25b7a3 100644
 -    if (bytes_to_consume == 0) return HTP_DATA;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[148]) {
++    {if (FIXREVERTER[408]) {
 +      if ((bytes_to_consume == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 148\n");
++        fprintf(stderr, "triggered bug index 408\n");
 +      else
-+        fprintf(stderr, "reached bug index 148\n");
++        fprintf(stderr, "reached bug index 408\n");
 +    }
-+    if ((!FIXREVERTER[148] && (bytes_to_consume == 0 ))
++    if ((!FIXREVERTER[408] && (bytes_to_consume == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2572,13 +2572,13 @@ index 1c17098..e25b7a3 100644
 -                    if (connp->in_header == NULL) return HTP_ERROR;
 +                    
 +                    #ifdef FRCOV
-+                    {if (FIXREVERTER[151]) {
++                    {if (FIXREVERTER[411]) {
 +                      if ((connp -> in_header == (void *) 0 ) && !(0))
-+                        fprintf(stderr, "triggered bug index 151\n");
++                        fprintf(stderr, "triggered bug index 411\n");
 +                      else
-+                        fprintf(stderr, "reached bug index 151\n");
++                        fprintf(stderr, "reached bug index 411\n");
 +                    }
-+                    if ((!FIXREVERTER[151] && (connp -> in_header == (void *) 0 ))
++                    if ((!FIXREVERTER[411] && (connp -> in_header == (void *) 0 ))
 +                    #else
 +                    if (0
 +                    #endif
@@ -2596,13 +2596,13 @@ index 1c17098..e25b7a3 100644
 -                    if (connp->in_header == NULL) return HTP_ERROR;
 +                    
 +                    #ifdef FRCOV
-+                    {if (FIXREVERTER[152]) {
++                    {if (FIXREVERTER[412]) {
 +                      if ((connp -> in_header == (void *) 0 ) && !(0))
-+                        fprintf(stderr, "triggered bug index 152\n");
++                        fprintf(stderr, "triggered bug index 412\n");
 +                      else
-+                        fprintf(stderr, "reached bug index 152\n");
++                        fprintf(stderr, "reached bug index 412\n");
 +                    }
-+                    if ((!FIXREVERTER[152] && (connp -> in_header == (void *) 0 ))
++                    if ((!FIXREVERTER[412] && (connp -> in_header == (void *) 0 ))
 +                    #else
 +                    if (0
 +                    #endif
@@ -2616,13 +2616,13 @@ index 1c17098..e25b7a3 100644
 -                    if (new_in_header == NULL) return HTP_ERROR;
 +                    
 +                    #ifdef FRCOV
-+                    {if (FIXREVERTER[153]) {
++                    {if (FIXREVERTER[413]) {
 +                      if ((new_in_header == (void *) 0 ) && !(0))
-+                        fprintf(stderr, "triggered bug index 153\n");
++                        fprintf(stderr, "triggered bug index 413\n");
 +                      else
-+                        fprintf(stderr, "reached bug index 153\n");
++                        fprintf(stderr, "reached bug index 413\n");
 +                    }
-+                    if ((!FIXREVERTER[153] && (new_in_header == (void *) 0 ))
++                    if ((!FIXREVERTER[413] && (new_in_header == (void *) 0 ))
 +                    #else
 +                    if (0
 +                    #endif
@@ -2640,13 +2640,13 @@ index 1c17098..e25b7a3 100644
 -    if (connp->in_tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[154]) {
++    {if (FIXREVERTER[414]) {
 +      if ((connp -> in_tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 154\n");
++        fprintf(stderr, "triggered bug index 414\n");
 +      else
-+        fprintf(stderr, "reached bug index 154\n");
++        fprintf(stderr, "reached bug index 414\n");
 +    }
-+    if ((!FIXREVERTER[154] && (connp -> in_tx == (void *) 0 ))
++    if ((!FIXREVERTER[414] && (connp -> in_tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2658,7 +2658,7 @@ index 1c17098..e25b7a3 100644
      // Change state to TRANSACTION_START
      htp_tx_state_request_start(connp->in_tx);
 diff --git a/htp/htp_request_generic.c b/htp/htp_request_generic.c
-index f66d6f2..6ad95f9 100644
+index f66d6f2..5476f10 100644
 --- a/htp/htp_request_generic.c
 +++ b/htp/htp_request_generic.c
 @@ -1,3 +1,10 @@
@@ -2679,13 +2679,13 @@ index f66d6f2..6ad95f9 100644
 -    if (h == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[193]) {
++    {if (FIXREVERTER[323]) {
 +      if ((h == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 193\n");
++        fprintf(stderr, "triggered bug index 323\n");
 +      else
-+        fprintf(stderr, "reached bug index 193\n");
++        fprintf(stderr, "reached bug index 323\n");
 +    }
-+    if ((!FIXREVERTER[193] && (h == (void *) 0 ))
++    if ((!FIXREVERTER[323] && (h == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2703,13 +2703,13 @@ index f66d6f2..6ad95f9 100644
 -        if (h->name == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[194]) {
++        {if (FIXREVERTER[324]) {
 +          if ((h -> name == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 194\n");
++            fprintf(stderr, "triggered bug index 324\n");
 +          else
-+            fprintf(stderr, "reached bug index 194\n");
++            fprintf(stderr, "reached bug index 324\n");
 +        }
-+        if ((!FIXREVERTER[194] && (h -> name == (void *) 0 ))
++        if ((!FIXREVERTER[324] && (h -> name == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -2722,13 +2722,13 @@ index f66d6f2..6ad95f9 100644
 -        if (h->value == NULL) {
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[195]) {
++        {if (FIXREVERTER[325]) {
 +          if ((h -> value == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 195\n");
++            fprintf(stderr, "triggered bug index 325\n");
 +          else
-+            fprintf(stderr, "reached bug index 195\n");
++            fprintf(stderr, "reached bug index 325\n");
 +        }
-+        if ((!FIXREVERTER[195] && (h -> value == (void *) 0 ))
++        if ((!FIXREVERTER[325] && (h -> value == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -2749,13 +2749,13 @@ index f66d6f2..6ad95f9 100644
 -    if (h->name == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[196]) {
++    {if (FIXREVERTER[326]) {
 +      if ((h -> name == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 196\n");
++        fprintf(stderr, "triggered bug index 326\n");
 +      else
-+        fprintf(stderr, "reached bug index 196\n");
++        fprintf(stderr, "reached bug index 326\n");
 +    }
-+    if ((!FIXREVERTER[196] && (h -> name == (void *) 0 ))
++    if ((!FIXREVERTER[326] && (h -> name == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2768,13 +2768,13 @@ index f66d6f2..6ad95f9 100644
 -    if (h->value == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[197]) {
++    {if (FIXREVERTER[327]) {
 +      if ((h -> value == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 197\n");
++        fprintf(stderr, "triggered bug index 327\n");
 +      else
-+        fprintf(stderr, "reached bug index 197\n");
++        fprintf(stderr, "reached bug index 327\n");
 +    }
-+    if ((!FIXREVERTER[197] && (h -> value == (void *) 0 ))
++    if ((!FIXREVERTER[327] && (h -> value == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2788,8 +2788,80 @@ index f66d6f2..6ad95f9 100644
  
      return HTP_OK;
  }
+@@ -324,7 +406,22 @@ htp_status_t htp_parse_request_line_generic_ex(htp_connp_t *connp, int nul_termi
+     // No, we don't care if the method is empty.
+ 
+     tx->request_method = bstr_dup_mem(data + mstart, pos - mstart);
+-    if (tx->request_method == NULL) return HTP_ERROR;
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[328]) {
++      if ((tx -> request_method == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 328\n");
++      else
++        fprintf(stderr, "reached bug index 328\n");
++    }
++    if ((!FIXREVERTER[328] && (tx -> request_method == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    ) return HTP_ERROR;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     #ifdef HTP_DEBUG
+     fprint_raw_data(stderr, __func__, bstr_ptr(tx->request_method), bstr_len(tx->request_method));
+@@ -389,7 +486,22 @@ htp_status_t htp_parse_request_line_generic_ex(htp_connp_t *connp, int nul_termi
+ #endif
+ 
+     tx->request_uri = bstr_dup_mem(data + start, pos - start);
+-    if (tx->request_uri == NULL) return HTP_ERROR;
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[329]) {
++      if ((tx -> request_uri == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 329\n");
++      else
++        fprintf(stderr, "reached bug index 329\n");
++    }
++    if ((!FIXREVERTER[329] && (tx -> request_uri == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    ) return HTP_ERROR;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     #ifdef HTP_DEBUG
+     fprint_raw_data(stderr, __func__, bstr_ptr(tx->request_uri), bstr_len(tx->request_uri));
+@@ -412,7 +524,22 @@ htp_status_t htp_parse_request_line_generic_ex(htp_connp_t *connp, int nul_termi
+ 
+     // The protocol information continues until the end of the line.
+     tx->request_protocol = bstr_dup_mem(data + pos, len - pos);
+-    if (tx->request_protocol == NULL) return HTP_ERROR;
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[330]) {
++      if ((tx -> request_protocol == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 330\n");
++      else
++        fprintf(stderr, "reached bug index 330\n");
++    }
++    if ((!FIXREVERTER[330] && (tx -> request_protocol == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    ) return HTP_ERROR;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     tx->request_protocol_number = htp_parse_protocol(tx->request_protocol);
+     if (tx->request_method_number == HTP_M_UNKNOWN && tx->request_protocol_number == HTP_PROTOCOL_INVALID)
 diff --git a/htp/htp_response.c b/htp/htp_response.c
-index 2f8a3a0..f62a586 100644
+index 2f8a3a0..f1c1130 100644
 --- a/htp/htp_response.c
 +++ b/htp/htp_response.c
 @@ -1,3 +1,10 @@
@@ -2810,13 +2882,13 @@ index 2f8a3a0..f62a586 100644
 -    if (connp->out_data_receiver_hook == NULL) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[472]) {
++    {if (FIXREVERTER[3]) {
 +      if ((connp -> out_data_receiver_hook == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 472\n");
++        fprintf(stderr, "triggered bug index 3\n");
 +      else
-+        fprintf(stderr, "reached bug index 472\n");
++        fprintf(stderr, "reached bug index 3\n");
 +    }
-+    if ((!FIXREVERTER[472] && (connp -> out_data_receiver_hook == (void *) 0 ))
++    if ((!FIXREVERTER[3] && (connp -> out_data_receiver_hook == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2834,13 +2906,13 @@ index 2f8a3a0..f62a586 100644
 -    if (connp->out_current_data == NULL) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[474]) {
++    {if (FIXREVERTER[5]) {
 +      if ((connp -> out_current_data == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 474\n");
++        fprintf(stderr, "triggered bug index 5\n");
 +      else
-+        fprintf(stderr, "reached bug index 474\n");
++        fprintf(stderr, "reached bug index 5\n");
 +    }
-+    if ((!FIXREVERTER[474] && (connp -> out_current_data == (void *) 0 ))
++    if ((!FIXREVERTER[5] && (connp -> out_current_data == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2858,13 +2930,13 @@ index 2f8a3a0..f62a586 100644
 -        if (connp->out_buf == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[475]) {
++        {if (FIXREVERTER[6]) {
 +          if ((connp -> out_buf == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 475\n");
++            fprintf(stderr, "triggered bug index 6\n");
 +          else
-+            fprintf(stderr, "reached bug index 475\n");
++            fprintf(stderr, "reached bug index 6\n");
 +        }
-+        if ((!FIXREVERTER[475] && (connp -> out_buf == (void *) 0 ))
++        if ((!FIXREVERTER[6] && (connp -> out_buf == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -2880,13 +2952,13 @@ index 2f8a3a0..f62a586 100644
 -        if (newbuf == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[476]) {
++        {if (FIXREVERTER[7]) {
 +          if ((newbuf == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 476\n");
++            fprintf(stderr, "triggered bug index 7\n");
 +          else
-+            fprintf(stderr, "reached bug index 476\n");
++            fprintf(stderr, "reached bug index 7\n");
 +        }
-+        if ((!FIXREVERTER[476] && (newbuf == (void *) 0 ))
++        if ((!FIXREVERTER[7] && (newbuf == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -2904,13 +2976,13 @@ index 2f8a3a0..f62a586 100644
 -    if (bytes_to_consume == 0) return HTP_DATA;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[477]) {
++    {if (FIXREVERTER[8]) {
 +      if ((bytes_to_consume == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 477\n");
++        fprintf(stderr, "triggered bug index 8\n");
 +      else
-+        fprintf(stderr, "reached bug index 477\n");
++        fprintf(stderr, "reached bug index 8\n");
 +    }
-+    if ((!FIXREVERTER[477] && (bytes_to_consume == 0 ))
++    if ((!FIXREVERTER[8] && (bytes_to_consume == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2928,13 +3000,13 @@ index 2f8a3a0..f62a586 100644
 -    if (connp->out_chunked_length == 0) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[479]) {
++    {if (FIXREVERTER[10]) {
 +      if ((connp -> out_chunked_length == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 479\n");
++        fprintf(stderr, "triggered bug index 10\n");
 +      else
-+        fprintf(stderr, "reached bug index 479\n");
++        fprintf(stderr, "reached bug index 10\n");
 +    }
-+    if ((!FIXREVERTER[479] && (connp -> out_chunked_length == 0 ))
++    if ((!FIXREVERTER[10] && (connp -> out_chunked_length == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -2955,13 +3027,13 @@ index 2f8a3a0..f62a586 100644
 -    if (connp->out_current_read_offset - connp->out_current_consume_offset < 8) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[480]) {
++    {if (FIXREVERTER[11]) {
 +      if ((connp -> out_current_read_offset - connp -> out_current_consume_offset < 8 ) && !(0))
-+        fprintf(stderr, "triggered bug index 480\n");
++        fprintf(stderr, "triggered bug index 11\n");
 +      else
-+        fprintf(stderr, "reached bug index 480\n");
++        fprintf(stderr, "reached bug index 11\n");
 +    }
-+    if ((!FIXREVERTER[480] && (connp -> out_current_read_offset - connp -> out_current_consume_offset < 8 ))
++    if ((!FIXREVERTER[11] && (connp -> out_current_read_offset - connp -> out_current_consume_offset < 8 ))
 +    #else
 +    if (0
 +    #endif
@@ -2982,13 +3054,13 @@ index 2f8a3a0..f62a586 100644
 -    if (bytes_to_consume == 0) return HTP_DATA;    
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[481]) {
++    {if (FIXREVERTER[12]) {
 +      if ((bytes_to_consume == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 481\n");
++        fprintf(stderr, "triggered bug index 12\n");
 +      else
-+        fprintf(stderr, "reached bug index 481\n");
++        fprintf(stderr, "reached bug index 12\n");
 +    }
-+    if ((!FIXREVERTER[481] && (bytes_to_consume == 0 ))
++    if ((!FIXREVERTER[12] && (bytes_to_consume == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3006,13 +3078,13 @@ index 2f8a3a0..f62a586 100644
 -    if (connp->out_body_data_left == 0) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[483]) {
++    {if (FIXREVERTER[14]) {
 +      if ((connp -> out_body_data_left == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 483\n");
++        fprintf(stderr, "triggered bug index 14\n");
 +      else
-+        fprintf(stderr, "reached bug index 483\n");
++        fprintf(stderr, "reached bug index 14\n");
 +    }
-+    if ((!FIXREVERTER[483] && (connp -> out_body_data_left == 0 ))
++    if ((!FIXREVERTER[14] && (connp -> out_body_data_left == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3035,13 +3107,13 @@ index 2f8a3a0..f62a586 100644
 -                    if (connp->out_header == NULL) return HTP_ERROR;
 +                    
 +                    #ifdef FRCOV
-+                    {if (FIXREVERTER[490]) {
++                    {if (FIXREVERTER[21]) {
 +                      if ((connp -> out_header == (void *) 0 ) && !(0))
-+                        fprintf(stderr, "triggered bug index 490\n");
++                        fprintf(stderr, "triggered bug index 21\n");
 +                      else
-+                        fprintf(stderr, "reached bug index 490\n");
++                        fprintf(stderr, "reached bug index 21\n");
 +                    }
-+                    if ((!FIXREVERTER[490] && (connp -> out_header == (void *) 0 ))
++                    if ((!FIXREVERTER[21] && (connp -> out_header == (void *) 0 ))
 +                    #else
 +                    if (0
 +                    #endif
@@ -3059,13 +3131,13 @@ index 2f8a3a0..f62a586 100644
 -                    if (connp->out_header == NULL) return HTP_ERROR;
 +                    
 +                    #ifdef FRCOV
-+                    {if (FIXREVERTER[491]) {
++                    {if (FIXREVERTER[22]) {
 +                      if ((connp -> out_header == (void *) 0 ) && !(0))
-+                        fprintf(stderr, "triggered bug index 491\n");
++                        fprintf(stderr, "triggered bug index 22\n");
 +                      else
-+                        fprintf(stderr, "reached bug index 491\n");
++                        fprintf(stderr, "reached bug index 22\n");
 +                    }
-+                    if ((!FIXREVERTER[491] && (connp -> out_header == (void *) 0 ))
++                    if ((!FIXREVERTER[22] && (connp -> out_header == (void *) 0 ))
 +                    #else
 +                    if (0
 +                    #endif
@@ -3083,13 +3155,13 @@ index 2f8a3a0..f62a586 100644
 -                        if (connp->out_header == NULL)
 +                        
 +                        #ifdef FRCOV
-+                        {if (FIXREVERTER[492]) {
++                        {if (FIXREVERTER[23]) {
 +                          if ((connp -> out_header == (void *) 0 ) && !(0))
-+                            fprintf(stderr, "triggered bug index 492\n");
++                            fprintf(stderr, "triggered bug index 23\n");
 +                          else
-+                            fprintf(stderr, "reached bug index 492\n");
++                            fprintf(stderr, "reached bug index 23\n");
 +                        }
-+                        if ((!FIXREVERTER[492] && (connp -> out_header == (void *) 0 ))
++                        if ((!FIXREVERTER[23] && (connp -> out_header == (void *) 0 ))
 +                        #else
 +                        if (0
 +                        #endif
@@ -3104,13 +3176,13 @@ index 2f8a3a0..f62a586 100644
 -                        if (new_out_header == NULL)
 +                        
 +                        #ifdef FRCOV
-+                        {if (FIXREVERTER[493]) {
++                        {if (FIXREVERTER[24]) {
 +                          if ((new_out_header == (void *) 0 ) && !(0))
-+                            fprintf(stderr, "triggered bug index 493\n");
++                            fprintf(stderr, "triggered bug index 24\n");
 +                          else
-+                            fprintf(stderr, "reached bug index 493\n");
++                            fprintf(stderr, "reached bug index 24\n");
 +                        }
-+                        if ((!FIXREVERTER[493] && (new_out_header == (void *) 0 ))
++                        if ((!FIXREVERTER[24] && (new_out_header == (void *) 0 ))
 +                        #else
 +                        if (0
 +                        #endif
@@ -3129,13 +3201,13 @@ index 2f8a3a0..f62a586 100644
 -        if (connp->out_tx == NULL) {
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[496]) {
++        {if (FIXREVERTER[27]) {
 +          if ((connp -> out_tx == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 496\n");
++            fprintf(stderr, "triggered bug index 27\n");
 +          else
-+            fprintf(stderr, "reached bug index 496\n");
++            fprintf(stderr, "reached bug index 27\n");
 +        }
-+        if ((!FIXREVERTER[496] && (connp -> out_tx == (void *) 0 ))
++        if ((!FIXREVERTER[27] && (connp -> out_tx == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -3149,7 +3221,7 @@ index 2f8a3a0..f62a586 100644
          if (connp->out_tx->parsed_uri == NULL) {
              return HTP_ERROR;
 diff --git a/htp/htp_response_generic.c b/htp/htp_response_generic.c
-index a67089a..6beb24f 100644
+index a67089a..66c04a2 100644
 --- a/htp/htp_response_generic.c
 +++ b/htp/htp_response_generic.c
 @@ -1,3 +1,10 @@
@@ -3163,20 +3235,20 @@ index a67089a..6beb24f 100644
  /***************************************************************************
   * Copyright (c) 2009-2010 Open Information Security Foundation
   * Copyright (c) 2010-2013 Qualys, Inc.
-@@ -65,7 +72,22 @@ htp_status_t htp_parse_response_line_generic(htp_connp_t *connp) {
+@@ -65,10 +72,40 @@ htp_status_t htp_parse_response_line_generic(htp_connp_t *connp) {
  
      // Find the end of the protocol string.
      while ((pos < len) && (!htp_is_space(data[pos]))) pos++;    
 -    if (pos - start == 0) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[396]) {
++    {if (FIXREVERTER[251]) {
 +      if ((pos - start == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 396\n");
++        fprintf(stderr, "triggered bug index 251\n");
 +      else
-+        fprintf(stderr, "reached bug index 396\n");
++        fprintf(stderr, "reached bug index 251\n");
 +    }
-+    if ((!FIXREVERTER[396] && (pos - start == 0 ))
++    if ((!FIXREVERTER[251] && (pos - start == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3186,21 +3258,40 @@ index a67089a..6beb24f 100644
 +    #endif
      
      tx->response_protocol = bstr_dup_mem(data + start, pos - start);
-     if (tx->response_protocol == NULL) return HTP_ERROR;    
-@@ -79,13 +101,43 @@ htp_status_t htp_parse_response_line_generic(htp_connp_t *connp) {
+-    if (tx->response_protocol == NULL) return HTP_ERROR;    
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[252]) {
++      if ((tx -> response_protocol == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 252\n");
++      else
++        fprintf(stderr, "reached bug index 252\n");
++    }
++    if ((!FIXREVERTER[252] && (tx -> response_protocol == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    ) return HTP_ERROR;
++    #ifdef FRCOV
++    }
++    #endif    
+ 
+     tx->response_protocol_number = htp_parse_protocol(tx->response_protocol);
+ 
+@@ -79,16 +116,61 @@ htp_status_t htp_parse_response_line_generic(htp_connp_t *connp) {
  
      // Ignore whitespace after the response protocol.
      while ((pos < len) && (htp_is_space(data[pos]))) pos++;
 -    if (pos == len) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[398]) {
++    {if (FIXREVERTER[253]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 398\n");
++        fprintf(stderr, "triggered bug index 253\n");
 +      else
-+        fprintf(stderr, "reached bug index 398\n");
++        fprintf(stderr, "reached bug index 253\n");
 +    }
-+    if ((!FIXREVERTER[398] && (pos == len ))
++    if ((!FIXREVERTER[253] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -3216,13 +3307,13 @@ index a67089a..6beb24f 100644
 -    if (pos - start == 0) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[399]) {
++    {if (FIXREVERTER[254]) {
 +      if ((pos - start == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 399\n");
++        fprintf(stderr, "triggered bug index 254\n");
 +      else
-+        fprintf(stderr, "reached bug index 399\n");
++        fprintf(stderr, "reached bug index 254\n");
 +    }
-+    if ((!FIXREVERTER[399] && (pos - start == 0 ))
++    if ((!FIXREVERTER[254] && (pos - start == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3232,21 +3323,40 @@ index a67089a..6beb24f 100644
 +    #endif
      
      tx->response_status = bstr_dup_mem(data + start, pos - start);
-     if (tx->response_status == NULL) return HTP_ERROR;
-@@ -99,7 +151,22 @@ htp_status_t htp_parse_response_line_generic(htp_connp_t *connp) {
+-    if (tx->response_status == NULL) return HTP_ERROR;
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[255]) {
++      if ((tx -> response_status == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 255\n");
++      else
++        fprintf(stderr, "reached bug index 255\n");
++    }
++    if ((!FIXREVERTER[255] && (tx -> response_status == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    ) return HTP_ERROR;
++    #ifdef FRCOV
++    }
++    #endif
+ 
+     tx->response_status_number = htp_parse_status(tx->response_status);
+ 
+@@ -99,11 +181,41 @@ htp_status_t htp_parse_response_line_generic(htp_connp_t *connp) {
  
      // Ignore whitespace that follows the status code.
      while ((pos < len) && (isspace(data[pos]))) pos++;
 -    if (pos == len) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[401]) {
++    {if (FIXREVERTER[256]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 401\n");
++        fprintf(stderr, "triggered bug index 256\n");
 +      else
-+        fprintf(stderr, "reached bug index 401\n");
++        fprintf(stderr, "reached bug index 256\n");
 +    }
-+    if ((!FIXREVERTER[401] && (pos == len ))
++    if ((!FIXREVERTER[256] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -3257,20 +3367,40 @@ index a67089a..6beb24f 100644
  
      // Assume the message stretches until the end of the line.    
      tx->response_message = bstr_dup_mem(data + pos, len - pos);
-@@ -225,11 +292,26 @@ htp_status_t htp_parse_response_header_generic(htp_connp_t *connp, htp_header_t
+-    if (tx->response_message == NULL) return HTP_ERROR;    
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[257]) {
++      if ((tx -> response_message == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 257\n");
++      else
++        fprintf(stderr, "reached bug index 257\n");
++    }
++    if ((!FIXREVERTER[257] && (tx -> response_message == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    ) return HTP_ERROR;
++    #ifdef FRCOV
++    }
++    #endif    
+ 
+     #ifdef HTP_DEBUG
+     fprint_raw_data(stderr, "Response status message", bstr_ptr(tx->response_message), bstr_len(tx->response_message));
+@@ -225,11 +337,26 @@ htp_status_t htp_parse_response_header_generic(htp_connp_t *connp, htp_header_t
      // Now extract the name and the value.
      h->name = bstr_dup_mem(data + name_start, name_end - name_start);
      h->value = bstr_dup_mem(data + value_start, value_end - value_start);
 -    if ((h->name == NULL) || (h->value == NULL)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[403]) {
++    {if (FIXREVERTER[258]) {
 +      if ((h -> name == (void *) 0 || h -> value == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 403\n");
++        fprintf(stderr, "triggered bug index 258\n");
 +      else
-+        fprintf(stderr, "reached bug index 403\n");
++        fprintf(stderr, "reached bug index 258\n");
 +    }
-+    if ((!FIXREVERTER[403] && (h -> name == (void *) 0 || h -> value == (void *) 0 ))
++    if ((!FIXREVERTER[258] && (h -> name == (void *) 0 || h -> value == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3285,20 +3415,20 @@ index a67089a..6beb24f 100644
  
      return HTP_OK;
  }
-@@ -246,7 +328,22 @@ htp_status_t htp_parse_response_header_generic(htp_connp_t *connp, htp_header_t
+@@ -246,7 +373,22 @@ htp_status_t htp_parse_response_header_generic(htp_connp_t *connp, htp_header_t
  htp_status_t htp_process_response_header_generic(htp_connp_t *connp, unsigned char *data, size_t len) {
      // Create a new header structure.
      htp_header_t *h = calloc(1, sizeof (htp_header_t));
 -    if (h == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[404]) {
++    {if (FIXREVERTER[259]) {
 +      if ((h == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 404\n");
++        fprintf(stderr, "triggered bug index 259\n");
 +      else
-+        fprintf(stderr, "reached bug index 404\n");
++        fprintf(stderr, "reached bug index 259\n");
 +    }
-+    if ((!FIXREVERTER[404] && (h == (void *) 0 ))
++    if ((!FIXREVERTER[259] && (h == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3310,7 +3440,7 @@ index a67089a..6beb24f 100644
      if (htp_parse_response_header_generic(connp, h, data, len) != HTP_OK) {
          free(h);
 diff --git a/htp/htp_table.c b/htp/htp_table.c
-index 535b961..276a14e 100644
+index 535b961..951c476 100644
 --- a/htp/htp_table.c
 +++ b/htp/htp_table.c
 @@ -1,3 +1,10 @@
@@ -3331,13 +3461,13 @@ index 535b961..276a14e 100644
 -    if ((table == NULL)||(key == NULL)) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[122]) {
++    {if (FIXREVERTER[331]) {
 +      if ((table == (void *) 0 || key == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 122\n");
++        fprintf(stderr, "triggered bug index 331\n");
 +      else
-+        fprintf(stderr, "reached bug index 122\n");
++        fprintf(stderr, "reached bug index 331\n");
 +    }
-+    if ((!FIXREVERTER[122] && (table == (void *) 0 || key == (void *) 0 ))
++    if ((!FIXREVERTER[331] && (table == (void *) 0 || key == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3355,13 +3485,13 @@ index 535b961..276a14e 100644
 -    if (dupkey == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[123]) {
++    {if (FIXREVERTER[332]) {
 +      if ((dupkey == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 123\n");
++        fprintf(stderr, "triggered bug index 332\n");
 +      else
-+        fprintf(stderr, "reached bug index 123\n");
++        fprintf(stderr, "reached bug index 332\n");
 +    }
-+    if ((!FIXREVERTER[123] && (dupkey == (void *) 0 ))
++    if ((!FIXREVERTER[332] && (dupkey == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3379,13 +3509,13 @@ index 535b961..276a14e 100644
 -    if ((table == NULL)||(key == NULL)) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[124]) {
++    {if (FIXREVERTER[333]) {
 +      if ((table == (void *) 0 || key == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 124\n");
++        fprintf(stderr, "triggered bug index 333\n");
 +      else
-+        fprintf(stderr, "reached bug index 124\n");
++        fprintf(stderr, "reached bug index 333\n");
 +    }
-+    if ((!FIXREVERTER[124] && (table == (void *) 0 || key == (void *) 0 ))
++    if ((!FIXREVERTER[333] && (table == (void *) 0 || key == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3403,13 +3533,13 @@ index 535b961..276a14e 100644
 -    if (table == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[126]) {
++    {if (FIXREVERTER[335]) {
 +      if ((table == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 126\n");
++        fprintf(stderr, "triggered bug index 335\n");
 +      else
-+        fprintf(stderr, "reached bug index 126\n");
++        fprintf(stderr, "reached bug index 335\n");
 +    }
-+    if ((!FIXREVERTER[126] && (table == (void *) 0 ))
++    if ((!FIXREVERTER[335] && (table == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3427,13 +3557,13 @@ index 535b961..276a14e 100644
 -    if (size == 0) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[128]) {
++    {if (FIXREVERTER[337]) {
 +      if ((size == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 128\n");
++        fprintf(stderr, "triggered bug index 337\n");
 +      else
-+        fprintf(stderr, "reached bug index 128\n");
++        fprintf(stderr, "reached bug index 337\n");
 +    }
-+    if ((!FIXREVERTER[128] && (size == 0 ))
++    if ((!FIXREVERTER[337] && (size == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3446,13 +3576,13 @@ index 535b961..276a14e 100644
 -    if (table == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[129]) {
++    {if (FIXREVERTER[338]) {
 +      if ((table == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 129\n");
++        fprintf(stderr, "triggered bug index 338\n");
 +      else
-+        fprintf(stderr, "reached bug index 129\n");
++        fprintf(stderr, "reached bug index 338\n");
 +    }
-+    if ((!FIXREVERTER[129] && (table == (void *) 0 ))
++    if ((!FIXREVERTER[338] && (table == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3470,13 +3600,13 @@ index 535b961..276a14e 100644
 -    if (table == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[130]) {
++    {if (FIXREVERTER[339]) {
 +      if ((table == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 130\n");
++        fprintf(stderr, "triggered bug index 339\n");
 +      else
-+        fprintf(stderr, "reached bug index 130\n");
++        fprintf(stderr, "reached bug index 339\n");
 +    }
-+    if ((!FIXREVERTER[130] && (table == (void *) 0 ))
++    if ((!FIXREVERTER[339] && (table == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3494,13 +3624,13 @@ index 535b961..276a14e 100644
 -    if ((table == NULL)||(key == NULL)) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[132]) {
++    {if (FIXREVERTER[341]) {
 +      if ((table == (void *) 0 || key == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 132\n");
++        fprintf(stderr, "triggered bug index 341\n");
 +      else
-+        fprintf(stderr, "reached bug index 132\n");
++        fprintf(stderr, "reached bug index 341\n");
 +    }
-+    if ((!FIXREVERTER[132] && (table == (void *) 0 || key == (void *) 0 ))
++    if ((!FIXREVERTER[341] && (table == (void *) 0 || key == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3518,13 +3648,13 @@ index 535b961..276a14e 100644
 -    if ((table == NULL)||(ckey == NULL)) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[133]) {
++    {if (FIXREVERTER[342]) {
 +      if ((table == (void *) 0 || ckey == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 133\n");
++        fprintf(stderr, "triggered bug index 342\n");
 +      else
-+        fprintf(stderr, "reached bug index 133\n");
++        fprintf(stderr, "reached bug index 342\n");
 +    }
-+    if ((!FIXREVERTER[133] && (table == (void *) 0 || ckey == (void *) 0 ))
++    if ((!FIXREVERTER[342] && (table == (void *) 0 || ckey == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3542,13 +3672,13 @@ index 535b961..276a14e 100644
 -    if (table == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[134]) {
++    {if (FIXREVERTER[343]) {
 +      if ((table == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 134\n");
++        fprintf(stderr, "triggered bug index 343\n");
 +      else
-+        fprintf(stderr, "reached bug index 134\n");
++        fprintf(stderr, "reached bug index 343\n");
 +    }
-+    if ((!FIXREVERTER[134] && (table == (void *) 0 ))
++    if ((!FIXREVERTER[343] && (table == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3566,13 +3696,13 @@ index 535b961..276a14e 100644
 -    if (table == NULL) return 0;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[136]) {
++    {if (FIXREVERTER[345]) {
 +      if ((table == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 136\n");
++        fprintf(stderr, "triggered bug index 345\n");
 +      else
-+        fprintf(stderr, "reached bug index 136\n");
++        fprintf(stderr, "reached bug index 345\n");
 +    }
-+    if ((!FIXREVERTER[136] && (table == (void *) 0 ))
++    if ((!FIXREVERTER[345] && (table == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3583,7 +3713,7 @@ index 535b961..276a14e 100644
      return htp_list_size(&table->list) / 2;
  }
 diff --git a/htp/htp_transaction.c b/htp/htp_transaction.c
-index 940a814..27eeff3 100644
+index 940a814..d315ba1 100644
 --- a/htp/htp_transaction.c
 +++ b/htp/htp_transaction.c
 @@ -1,3 +1,10 @@
@@ -3604,13 +3734,13 @@ index 940a814..27eeff3 100644
 -    if (connp == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[202]) {
++    {if (FIXREVERTER[417]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 202\n");
++        fprintf(stderr, "triggered bug index 417\n");
 +      else
-+        fprintf(stderr, "reached bug index 202\n");
++        fprintf(stderr, "reached bug index 417\n");
 +    }
-+    if ((!FIXREVERTER[202] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[417] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3623,13 +3753,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[203]) {
++    {if (FIXREVERTER[418]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 203\n");
++        fprintf(stderr, "triggered bug index 418\n");
 +      else
-+        fprintf(stderr, "reached bug index 203\n");
++        fprintf(stderr, "reached bug index 418\n");
 +    }
-+    if ((!FIXREVERTER[203] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[418] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3647,13 +3777,13 @@ index 940a814..27eeff3 100644
 -    if (tx->parsed_uri_raw == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[204]) {
++    {if (FIXREVERTER[419]) {
 +      if ((tx -> parsed_uri_raw == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 204\n");
++        fprintf(stderr, "triggered bug index 419\n");
 +      else
-+        fprintf(stderr, "reached bug index 204\n");
++        fprintf(stderr, "reached bug index 419\n");
 +    }
-+    if ((!FIXREVERTER[204] && (tx -> parsed_uri_raw == (void *) 0 ))
++    if ((!FIXREVERTER[419] && (tx -> parsed_uri_raw == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3669,13 +3799,13 @@ index 940a814..27eeff3 100644
 -    if (tx->request_headers == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[205]) {
++    {if (FIXREVERTER[420]) {
 +      if ((tx -> request_headers == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 205\n");
++        fprintf(stderr, "triggered bug index 420\n");
 +      else
-+        fprintf(stderr, "reached bug index 205\n");
++        fprintf(stderr, "reached bug index 420\n");
 +    }
-+    if ((!FIXREVERTER[205] && (tx -> request_headers == (void *) 0 ))
++    if ((!FIXREVERTER[420] && (tx -> request_headers == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3691,13 +3821,13 @@ index 940a814..27eeff3 100644
 -    if (tx->request_params == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[206]) {
++    {if (FIXREVERTER[421]) {
 +      if ((tx -> request_params == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 206\n");
++        fprintf(stderr, "triggered bug index 421\n");
 +      else
-+        fprintf(stderr, "reached bug index 206\n");
++        fprintf(stderr, "reached bug index 421\n");
 +    }
-+    if ((!FIXREVERTER[206] && (tx -> request_params == (void *) 0 ))
++    if ((!FIXREVERTER[421] && (tx -> request_params == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3718,13 +3848,13 @@ index 940a814..27eeff3 100644
 -    if (tx->response_headers == NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[207]) {
++    {if (FIXREVERTER[422]) {
 +      if ((tx -> response_headers == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 207\n");
++        fprintf(stderr, "triggered bug index 422\n");
 +      else
-+        fprintf(stderr, "reached bug index 207\n");
++        fprintf(stderr, "reached bug index 422\n");
 +    }
-+    if ((!FIXREVERTER[207] && (tx -> response_headers == (void *) 0 ))
++    if ((!FIXREVERTER[422] && (tx -> response_headers == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3745,13 +3875,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[208]) {
++    {if (FIXREVERTER[423]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 208\n");
++        fprintf(stderr, "triggered bug index 423\n");
 +      else
-+        fprintf(stderr, "reached bug index 208\n");
++        fprintf(stderr, "reached bug index 423\n");
 +    }
-+    if ((!FIXREVERTER[208] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[423] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3769,13 +3899,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[209]) {
++    {if (FIXREVERTER[424]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 209\n");
++        fprintf(stderr, "triggered bug index 424\n");
 +      else
-+        fprintf(stderr, "reached bug index 209\n");
++        fprintf(stderr, "reached bug index 424\n");
 +    }
-+    if ((!FIXREVERTER[209] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[424] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3793,13 +3923,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return -1;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[217]) {
++    {if (FIXREVERTER[432]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 217\n");
++        fprintf(stderr, "triggered bug index 432\n");
 +      else
-+        fprintf(stderr, "reached bug index 217\n");
++        fprintf(stderr, "reached bug index 432\n");
 +    }
-+    if ((!FIXREVERTER[217] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[432] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3817,13 +3947,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[231]) {
++    {if (FIXREVERTER[446]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 231\n");
++        fprintf(stderr, "triggered bug index 446\n");
 +      else
-+        fprintf(stderr, "reached bug index 231\n");
++        fprintf(stderr, "reached bug index 446\n");
 +    }
-+    if ((!FIXREVERTER[231] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[446] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3841,13 +3971,13 @@ index 940a814..27eeff3 100644
 -        if (tx->request_hostname == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[232]) {
++        {if (FIXREVERTER[447]) {
 +          if ((tx -> request_hostname == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 232\n");
++            fprintf(stderr, "triggered bug index 447\n");
 +          else
-+            fprintf(stderr, "reached bug index 232\n");
++            fprintf(stderr, "reached bug index 447\n");
 +        }
-+        if ((!FIXREVERTER[232] && (tx -> request_hostname == (void *) 0 ))
++        if ((!FIXREVERTER[447] && (tx -> request_hostname == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -3865,13 +3995,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[241]) {
++    {if (FIXREVERTER[456]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 241\n");
++        fprintf(stderr, "triggered bug index 456\n");
 +      else
-+        fprintf(stderr, "reached bug index 241\n");
++        fprintf(stderr, "reached bug index 456\n");
 +    }
-+    if ((!FIXREVERTER[241] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[456] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3889,13 +4019,13 @@ index 940a814..27eeff3 100644
 -    if (rc != HTP_OK) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[242]) {
++    {if (FIXREVERTER[457]) {
 +      if ((rc != 1 ) && !(0))
-+        fprintf(stderr, "triggered bug index 242\n");
++        fprintf(stderr, "triggered bug index 457\n");
 +      else
-+        fprintf(stderr, "reached bug index 242\n");
++        fprintf(stderr, "reached bug index 457\n");
 +    }
-+    if ((!FIXREVERTER[242] && (rc != 1 ))
++    if ((!FIXREVERTER[457] && (rc != 1 ))
 +    #else
 +    if (0
 +    #endif
@@ -3916,13 +4046,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[254]) {
++    {if (FIXREVERTER[469]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 254\n");
++        fprintf(stderr, "triggered bug index 469\n");
 +      else
-+        fprintf(stderr, "reached bug index 254\n");
++        fprintf(stderr, "reached bug index 469\n");
 +    }
-+    if ((!FIXREVERTER[254] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[469] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3940,13 +4070,13 @@ index 940a814..27eeff3 100644
 -    if (d == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[262]) {
++    {if (FIXREVERTER[477]) {
 +      if ((d == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 262\n");
++        fprintf(stderr, "triggered bug index 477\n");
 +      else
-+        fprintf(stderr, "reached bug index 262\n");
++        fprintf(stderr, "reached bug index 477\n");
 +    }
-+    if ((!FIXREVERTER[262] && (d == (void *) 0 ))
++    if ((!FIXREVERTER[477] && (d == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3964,13 +4094,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[266]) {
++    {if (FIXREVERTER[481]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 266\n");
++        fprintf(stderr, "triggered bug index 481\n");
 +      else
-+        fprintf(stderr, "reached bug index 266\n");
++        fprintf(stderr, "reached bug index 481\n");
 +    }
-+    if ((!FIXREVERTER[266] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[481] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -3988,13 +4118,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[268]) {
++    {if (FIXREVERTER[483]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 268\n");
++        fprintf(stderr, "triggered bug index 483\n");
 +      else
-+        fprintf(stderr, "reached bug index 268\n");
++        fprintf(stderr, "reached bug index 483\n");
 +    }
-+    if ((!FIXREVERTER[268] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[483] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4012,13 +4142,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[271]) {
++    {if (FIXREVERTER[486]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 271\n");
++        fprintf(stderr, "triggered bug index 486\n");
 +      else
-+        fprintf(stderr, "reached bug index 271\n");
++        fprintf(stderr, "reached bug index 486\n");
 +    }
-+    if ((!FIXREVERTER[271] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[486] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4036,13 +4166,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[273]) {
++    {if (FIXREVERTER[488]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 273\n");
++        fprintf(stderr, "triggered bug index 488\n");
 +      else
-+        fprintf(stderr, "reached bug index 273\n");
++        fprintf(stderr, "reached bug index 488\n");
 +    }
-+    if ((!FIXREVERTER[273] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[488] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4060,13 +4190,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[275]) {
++    {if (FIXREVERTER[490]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 275\n");
++        fprintf(stderr, "triggered bug index 490\n");
 +      else
-+        fprintf(stderr, "reached bug index 275\n");
++        fprintf(stderr, "reached bug index 490\n");
 +    }
-+    if ((!FIXREVERTER[275] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[490] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4084,13 +4214,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[279]) {
++    {if (FIXREVERTER[494]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 279\n");
++        fprintf(stderr, "triggered bug index 494\n");
 +      else
-+        fprintf(stderr, "reached bug index 279\n");
++        fprintf(stderr, "reached bug index 494\n");
 +    }
-+    if ((!FIXREVERTER[279] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[494] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4108,13 +4238,13 @@ index 940a814..27eeff3 100644
 -        if (tx->parsed_uri == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[280]) {
++        {if (FIXREVERTER[495]) {
 +          if ((tx -> parsed_uri == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 280\n");
++            fprintf(stderr, "triggered bug index 495\n");
 +          else
-+            fprintf(stderr, "reached bug index 280\n");
++            fprintf(stderr, "reached bug index 495\n");
 +        }
-+        if ((!FIXREVERTER[280] && (tx -> parsed_uri == (void *) 0 ))
++        if ((!FIXREVERTER[495] && (tx -> parsed_uri == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -4132,13 +4262,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[284]) {
++    {if (FIXREVERTER[499]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 284\n");
++        fprintf(stderr, "triggered bug index 499\n");
 +      else
-+        fprintf(stderr, "reached bug index 284\n");
++        fprintf(stderr, "reached bug index 499\n");
 +    }
-+    if ((!FIXREVERTER[284] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[499] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4156,13 +4286,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[286]) {
++    {if (FIXREVERTER[501]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 286\n");
++        fprintf(stderr, "triggered bug index 501\n");
 +      else
-+        fprintf(stderr, "reached bug index 286\n");
++        fprintf(stderr, "reached bug index 501\n");
 +    }
-+    if ((!FIXREVERTER[286] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[501] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4180,13 +4310,13 @@ index 940a814..27eeff3 100644
 -    if (i >= in_len)
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[289]) {
++    {if (FIXREVERTER[504]) {
 +      if ((i >= in_len ) && !(0))
-+        fprintf(stderr, "triggered bug index 289\n");
++        fprintf(stderr, "triggered bug index 504\n");
 +      else
-+        fprintf(stderr, "reached bug index 289\n");
++        fprintf(stderr, "reached bug index 504\n");
 +    }
-+    if ((!FIXREVERTER[289] && (i >= in_len ))
++    if ((!FIXREVERTER[504] && (i >= in_len ))
 +    #else
 +    if (0
 +    #endif
@@ -4205,13 +4335,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[290]) {
++    {if (FIXREVERTER[505]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 290\n");
++        fprintf(stderr, "triggered bug index 505\n");
 +      else
-+        fprintf(stderr, "reached bug index 290\n");
++        fprintf(stderr, "reached bug index 505\n");
 +    }
-+    if ((!FIXREVERTER[290] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[505] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4229,13 +4359,13 @@ index 940a814..27eeff3 100644
 -                        if (comp->next == NULL) {
 +                        
 +                        #ifdef FRCOV
-+                        {if (FIXREVERTER[293]) {
++                        {if (FIXREVERTER[508]) {
 +                          if ((comp -> next == (void *) 0 ) && !(0))
-+                            fprintf(stderr, "triggered bug index 293\n");
++                            fprintf(stderr, "triggered bug index 508\n");
 +                          else
-+                            fprintf(stderr, "reached bug index 293\n");
++                            fprintf(stderr, "reached bug index 508\n");
 +                        }
-+                        if ((!FIXREVERTER[293] && (comp -> next == (void *) 0 ))
++                        if ((!FIXREVERTER[508] && (comp -> next == (void *) 0 ))
 +                        #else
 +                        if (0
 +                        #endif
@@ -4253,13 +4383,13 @@ index 940a814..27eeff3 100644
 -                if ((tok_len + 1) >= input_len)
 +                
 +                #ifdef FRCOV
-+                {if (FIXREVERTER[294]) {
++                {if (FIXREVERTER[509]) {
 +                  if ((tok_len + 1 >= input_len ) && !(0))
-+                    fprintf(stderr, "triggered bug index 294\n");
++                    fprintf(stderr, "triggered bug index 509\n");
 +                  else
-+                    fprintf(stderr, "reached bug index 294\n");
++                    fprintf(stderr, "reached bug index 509\n");
 +                }
-+                if ((!FIXREVERTER[294] && (tok_len + 1 >= input_len ))
++                if ((!FIXREVERTER[509] && (tok_len + 1 >= input_len ))
 +                #else
 +                if (0
 +                #endif
@@ -4278,13 +4408,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[295]) {
++    {if (FIXREVERTER[510]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 295\n");
++        fprintf(stderr, "triggered bug index 510\n");
 +      else
-+        fprintf(stderr, "reached bug index 295\n");
++        fprintf(stderr, "reached bug index 510\n");
 +    }
-+    if ((!FIXREVERTER[295] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[510] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4302,13 +4432,13 @@ index 940a814..27eeff3 100644
 -    if (tx == NULL) return -1;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[299]) {
++    {if (FIXREVERTER[514]) {
 +      if ((tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 299\n");
++        fprintf(stderr, "triggered bug index 514\n");
 +      else
-+        fprintf(stderr, "reached bug index 299\n");
++        fprintf(stderr, "reached bug index 514\n");
 +    }
-+    if ((!FIXREVERTER[299] && (tx == (void *) 0 ))
++    if ((!FIXREVERTER[514] && (tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4320,7 +4450,7 @@ index 940a814..27eeff3 100644
      // A transaction is considered complete only when both the request and
      // response are complete. (Sometimes a complete response can be seen
 diff --git a/htp/htp_util.c b/htp/htp_util.c
-index bfd679e..f324344 100644
+index bfd679e..779fdf3 100644
 --- a/htp/htp_util.c
 +++ b/htp/htp_util.c
 @@ -1,3 +1,10 @@
@@ -4341,13 +4471,13 @@ index bfd679e..f324344 100644
 -    if (method == NULL) return HTP_M_UNKNOWN;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[3]) {
++    {if (FIXREVERTER[32]) {
 +      if ((method == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 3\n");
++        fprintf(stderr, "triggered bug index 32\n");
 +      else
-+        fprintf(stderr, "reached bug index 3\n");
++        fprintf(stderr, "reached bug index 32\n");
 +    }
-+    if ((!FIXREVERTER[3] && (method == (void *) 0 ))
++    if ((!FIXREVERTER[32] && (method == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4365,13 +4495,13 @@ index bfd679e..f324344 100644
 -    if (pos == len) return -1001;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[5]) {
++    {if (FIXREVERTER[34]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 5\n");
++        fprintf(stderr, "triggered bug index 34\n");
 +      else
-+        fprintf(stderr, "reached bug index 5\n");
++        fprintf(stderr, "reached bug index 34\n");
 +    }
-+    if ((!FIXREVERTER[5] && (pos == len ))
++    if ((!FIXREVERTER[34] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -4385,10 +4515,10 @@ index bfd679e..f324344 100644
 -    if (pos < len && connp != NULL) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[6]) {
-+      fprintf(stderr, "reached bug index 6\n");
++    {if (FIXREVERTER[35]) {
++      fprintf(stderr, "reached bug index 35\n");
 +    }
-+    if ((FIXREVERTER[6] && (pos < len )) || (!FIXREVERTER[6] && (pos < len && connp != (void *) 0 ))
++    if ((FIXREVERTER[35] && (pos < len )) || (!FIXREVERTER[35] && (pos < len && connp != (void *) 0 ))
 +    #else
 +    if (pos < len 
 +    #endif
@@ -4396,7 +4526,7 @@ index bfd679e..f324344 100644
 +      
 +    #ifdef FRCOV
 +      if (!(connp != (void *) 0 ))
-+        fprintf(stderr, "triggered bug index 6\n");
++        fprintf(stderr, "triggered bug index 35\n");
 +      #endif
 +    
          htp_log(connp, HTP_LOG_MARK, HTP_LOG_WARNING, 0,
@@ -4416,13 +4546,13 @@ index bfd679e..f324344 100644
 -    if (chunk_len > INT32_MAX) return -1;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[8]) {
++    {if (FIXREVERTER[37]) {
 +      if ((chunk_len < 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 8\n");
++        fprintf(stderr, "triggered bug index 37\n");
 +      else
-+        fprintf(stderr, "reached bug index 8\n");
++        fprintf(stderr, "reached bug index 37\n");
 +    }
-+    if ((!FIXREVERTER[8] && (chunk_len < 0 ))
++    if ((!FIXREVERTER[37] && (chunk_len < 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4432,13 +4562,13 @@ index bfd679e..f324344 100644
 +    #endif
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[9]) {
++    {if (FIXREVERTER[38]) {
 +      if ((chunk_len > 2147483647 ) && !(0))
-+        fprintf(stderr, "triggered bug index 9\n");
++        fprintf(stderr, "triggered bug index 38\n");
 +      else
-+        fprintf(stderr, "reached bug index 9\n");
++        fprintf(stderr, "reached bug index 38\n");
 +    }
-+    if ((!FIXREVERTER[9] && (chunk_len > 2147483647 ))
++    if ((!FIXREVERTER[38] && (chunk_len > 2147483647 ))
 +    #else
 +    if (0
 +    #endif
@@ -4456,13 +4586,13 @@ index bfd679e..f324344 100644
 -    if (pos == len) return -1001;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[11]) {
++    {if (FIXREVERTER[40]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 11\n");
++        fprintf(stderr, "triggered bug index 40\n");
 +      else
-+        fprintf(stderr, "reached bug index 11\n");
++        fprintf(stderr, "reached bug index 40\n");
 +    }
-+    if ((!FIXREVERTER[11] && (pos == len ))
++    if ((!FIXREVERTER[40] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -4475,13 +4605,13 @@ index bfd679e..f324344 100644
 -    if (r < 0) return r;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[12]) {
++    {if (FIXREVERTER[41]) {
 +      if ((r < 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 12\n");
++        fprintf(stderr, "triggered bug index 41\n");
 +      else
-+        fprintf(stderr, "reached bug index 12\n");
++        fprintf(stderr, "reached bug index 41\n");
 +    }
-+    if ((!FIXREVERTER[12] && (r < 0 ))
++    if ((!FIXREVERTER[41] && (r < 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4499,13 +4629,13 @@ index bfd679e..f324344 100644
 -    if (connp == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[13]) {
++    {if (FIXREVERTER[42]) {
 +      if ((connp == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 13\n");
++        fprintf(stderr, "triggered bug index 42\n");
 +      else
-+        fprintf(stderr, "reached bug index 13\n");
++        fprintf(stderr, "reached bug index 42\n");
 +    }
-+    if ((!FIXREVERTER[13] && (connp == (void *) 0 ))
++    if ((!FIXREVERTER[42] && (connp == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4523,13 +4653,13 @@ index bfd679e..f324344 100644
 -    if (log == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[14]) {
++    {if (FIXREVERTER[43]) {
 +      if ((log == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 14\n");
++        fprintf(stderr, "triggered bug index 43\n");
 +      else
-+        fprintf(stderr, "reached bug index 14\n");
++        fprintf(stderr, "reached bug index 43\n");
 +    }
-+    if ((!FIXREVERTER[14] && (log == (void *) 0 ))
++    if ((!FIXREVERTER[43] && (log == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4547,13 +4677,13 @@ index bfd679e..f324344 100644
 -    if ((data == NULL) || (len == 0)) return -1;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[15]) {
++    {if (FIXREVERTER[44]) {
 +      if ((data == (void *) 0 ) && !(len == 0 ))
-+        fprintf(stderr, "triggered bug index 15\n");
++        fprintf(stderr, "triggered bug index 44\n");
 +      else
-+        fprintf(stderr, "reached bug index 15\n");
++        fprintf(stderr, "reached bug index 44\n");
 +    }
-+    if ((FIXREVERTER[15] && (len == 0 )) || (!FIXREVERTER[15] && (data == (void *) 0 || len == 0 ))
++    if ((FIXREVERTER[44] && (len == 0 )) || (!FIXREVERTER[44] && (data == (void *) 0 || len == 0 ))
 +    #else
 +    if (len == 0 
 +    #endif
@@ -4571,10 +4701,10 @@ index bfd679e..f324344 100644
 -    } else if ((port_parsed > 0) && (port_parsed < 65536)) {
 +    } else 
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[17]) {
-+      fprintf(stderr, "reached bug index 17\n");
++    {if (FIXREVERTER[46]) {
++      fprintf(stderr, "reached bug index 46\n");
 +    }
-+    if ((FIXREVERTER[17] && (port_parsed > 0 )) || (!FIXREVERTER[17] && (port_parsed > 0 && port_parsed < 65536 ))
++    if ((FIXREVERTER[46] && (port_parsed > 0 )) || (!FIXREVERTER[46] && (port_parsed > 0 && port_parsed < 65536 ))
 +    #else
 +    if (port_parsed > 0 
 +    #endif
@@ -4582,7 +4712,7 @@ index bfd679e..f324344 100644
 +      
 +    #ifdef FRCOV
 +      if (!(port_parsed < 65536 ))
-+        fprintf(stderr, "triggered bug index 17\n");
++        fprintf(stderr, "triggered bug index 46\n");
 +      #endif
 +    
          // Valid port number.
@@ -4605,13 +4735,13 @@ index bfd679e..f324344 100644
 -    if ((hostport == NULL) || (hostname == NULL) || (port_number == NULL) || (invalid == NULL)) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[18]) {
++    {if (FIXREVERTER[47]) {
 +      if ((hostport == (void *) 0 || hostname == (void *) 0 || port_number == (void *) 0 || invalid == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 18\n");
++        fprintf(stderr, "triggered bug index 47\n");
 +      else
-+        fprintf(stderr, "reached bug index 18\n");
++        fprintf(stderr, "reached bug index 47\n");
 +    }
-+    if ((!FIXREVERTER[18] && (hostport == (void *) 0 || hostname == (void *) 0 || port_number == (void *) 0 || invalid == (void *) 0 ))
++    if ((!FIXREVERTER[47] && (hostport == (void *) 0 || hostname == (void *) 0 || port_number == (void *) 0 || invalid == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4629,13 +4759,13 @@ index bfd679e..f324344 100644
 -    if (len == 0) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[19]) {
++    {if (FIXREVERTER[48]) {
 +      if ((len == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 19\n");
++        fprintf(stderr, "triggered bug index 48\n");
 +      else
-+        fprintf(stderr, "reached bug index 19\n");
++        fprintf(stderr, "reached bug index 48\n");
 +    }
-+    if ((!FIXREVERTER[19] && (len == 0 ))
++    if ((!FIXREVERTER[48] && (len == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4656,13 +4786,13 @@ index bfd679e..f324344 100644
 -        if (pos == len) return HTP_OK;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[21]) {
++        {if (FIXREVERTER[50]) {
 +          if ((pos == len ) && !(0))
-+            fprintf(stderr, "triggered bug index 21\n");
++            fprintf(stderr, "triggered bug index 50\n");
 +          else
-+            fprintf(stderr, "reached bug index 21\n");
++            fprintf(stderr, "reached bug index 50\n");
 +        }
-+        if ((!FIXREVERTER[21] && (pos == len ))
++        if ((!FIXREVERTER[50] && (pos == len ))
 +        #else
 +        if (0
 +        #endif
@@ -4680,13 +4810,13 @@ index bfd679e..f324344 100644
 -    if (len == 0) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[25]) {
++    {if (FIXREVERTER[54]) {
 +      if ((len == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 25\n");
++        fprintf(stderr, "triggered bug index 54\n");
 +      else
-+        fprintf(stderr, "reached bug index 25\n");
++        fprintf(stderr, "reached bug index 54\n");
 +    }
-+    if ((!FIXREVERTER[25] && (len == 0 ))
++    if ((!FIXREVERTER[54] && (len == 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4707,13 +4837,13 @@ index bfd679e..f324344 100644
 -    if (codepoint < 0x100) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[28]) {
++    {if (FIXREVERTER[57]) {
 +      if ((codepoint < 256 ) && !(0))
-+        fprintf(stderr, "triggered bug index 28\n");
++        fprintf(stderr, "triggered bug index 57\n");
 +      else
-+        fprintf(stderr, "reached bug index 28\n");
++        fprintf(stderr, "reached bug index 57\n");
 +    }
-+    if ((!FIXREVERTER[28] && (codepoint < 256 ))
++    if ((!FIXREVERTER[57] && (codepoint < 256 ))
 +    #else
 +    if (0
 +    #endif
@@ -4728,13 +4858,13 @@ index bfd679e..f324344 100644
 -    if (codepoint > 0xffff) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[29]) {
++    {if (FIXREVERTER[58]) {
 +      if ((codepoint > 65535 ) && !(0))
-+        fprintf(stderr, "triggered bug index 29\n");
++        fprintf(stderr, "triggered bug index 58\n");
 +      else
-+        fprintf(stderr, "reached bug index 29\n");
++        fprintf(stderr, "reached bug index 58\n");
 +    }
-+    if ((!FIXREVERTER[29] && (codepoint > 65535 ))
++    if ((!FIXREVERTER[58] && (codepoint > 65535 ))
 +    #else
 +    if (0
 +    #endif
@@ -4754,13 +4884,13 @@ index bfd679e..f324344 100644
 -        if (x == codepoint) {
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[31]) {
++        {if (FIXREVERTER[60]) {
 +          if ((x == codepoint ) && !(0))
-+            fprintf(stderr, "triggered bug index 31\n");
++            fprintf(stderr, "triggered bug index 60\n");
 +          else
-+            fprintf(stderr, "reached bug index 31\n");
++            fprintf(stderr, "reached bug index 60\n");
 +        }
-+        if ((!FIXREVERTER[31] && (x == codepoint ))
++        if ((!FIXREVERTER[60] && (x == codepoint ))
 +        #else
 +        if (0
 +        #endif
@@ -4780,13 +4910,13 @@ index bfd679e..f324344 100644
 -    if (path == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[32]) {
++    {if (FIXREVERTER[61]) {
 +      if ((path == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 32\n");
++        fprintf(stderr, "triggered bug index 61\n");
 +      else
-+        fprintf(stderr, "reached bug index 32\n");
++        fprintf(stderr, "reached bug index 61\n");
 +    }
-+    if ((!FIXREVERTER[32] && (path == (void *) 0 ))
++    if ((!FIXREVERTER[61] && (path == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4799,13 +4929,13 @@ index bfd679e..f324344 100644
 -    if (data == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[33]) {
++    {if (FIXREVERTER[62]) {
 +      if ((data == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 33\n");
++        fprintf(stderr, "triggered bug index 62\n");
 +      else
-+        fprintf(stderr, "reached bug index 33\n");
++        fprintf(stderr, "reached bug index 62\n");
 +    }
-+    if ((!FIXREVERTER[33] && (data == (void *) 0 ))
++    if ((!FIXREVERTER[62] && (data == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4823,9 +4953,9 @@ index bfd679e..f324344 100644
 -    while ((rpos < len)&&(wpos < len)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[35])
-+      fprintf(stderr, "reached bug index 35\n");
-+    while ((FIXREVERTER[35] && (rpos < len )) || (!FIXREVERTER[35] && (rpos < len && wpos < len ))
++    {if (FIXREVERTER[64])
++      fprintf(stderr, "reached bug index 64\n");
++    while ((FIXREVERTER[64] && (rpos < len )) || (!FIXREVERTER[64] && (rpos < len && wpos < len ))
 +    #else
 +    while (rpos < len 
 +    #endif
@@ -4833,7 +4963,7 @@ index bfd679e..f324344 100644
 +      
 +    #ifdef FRCOV
 +      if (!(wpos < len ))
-+        fprintf(stderr, "triggered bug index 35\n");
++        fprintf(stderr, "triggered bug index 64\n");
 +      #endif
 +    
          counter++;
@@ -4856,13 +4986,13 @@ index bfd679e..f324344 100644
 -    if (path == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[39]) {
++    {if (FIXREVERTER[68]) {
 +      if ((path == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 39\n");
++        fprintf(stderr, "triggered bug index 68\n");
 +      else
-+        fprintf(stderr, "reached bug index 39\n");
++        fprintf(stderr, "reached bug index 68\n");
 +    }
-+    if ((!FIXREVERTER[39] && (path == (void *) 0 ))
++    if ((!FIXREVERTER[68] && (path == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4874,13 +5004,13 @@ index bfd679e..f324344 100644
 -    if (data == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[40]) {
++    {if (FIXREVERTER[69]) {
 +      if ((data == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 40\n");
++        fprintf(stderr, "triggered bug index 69\n");
 +      else
-+        fprintf(stderr, "reached bug index 40\n");
++        fprintf(stderr, "reached bug index 69\n");
 +    }
-+    if ((!FIXREVERTER[40] && (data == (void *) 0 ))
++    if ((!FIXREVERTER[69] && (data == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4898,9 +5028,9 @@ index bfd679e..f324344 100644
 -    while ((rpos < len) && (wpos < len)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[41])
-+      fprintf(stderr, "reached bug index 41\n");
-+    while ((FIXREVERTER[41] && (rpos < len )) || (!FIXREVERTER[41] && (rpos < len && wpos < len ))
++    {if (FIXREVERTER[70])
++      fprintf(stderr, "reached bug index 70\n");
++    while ((FIXREVERTER[70] && (rpos < len )) || (!FIXREVERTER[70] && (rpos < len && wpos < len ))
 +    #else
 +    while (rpos < len 
 +    #endif
@@ -4908,7 +5038,7 @@ index bfd679e..f324344 100644
 +      
 +    #ifdef FRCOV
 +      if (!(wpos < len ))
-+        fprintf(stderr, "triggered bug index 41\n");
++        fprintf(stderr, "triggered bug index 70\n");
 +      #endif
 +    
          int c = data[rpos];
@@ -4931,13 +5061,13 @@ index bfd679e..f324344 100644
 -    if (input == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[42]) {
++    {if (FIXREVERTER[71]) {
 +      if ((input == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 42\n");
++        fprintf(stderr, "triggered bug index 71\n");
 +      else
-+        fprintf(stderr, "reached bug index 42\n");
++        fprintf(stderr, "reached bug index 71\n");
 +    }
-+    if ((!FIXREVERTER[42] && (input == (void *) 0 ))
++    if ((!FIXREVERTER[71] && (input == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4950,13 +5080,13 @@ index bfd679e..f324344 100644
 -    if (data == NULL) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[43]) {
++    {if (FIXREVERTER[72]) {
 +      if ((data == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 43\n");
++        fprintf(stderr, "triggered bug index 72\n");
 +      else
-+        fprintf(stderr, "reached bug index 43\n");
++        fprintf(stderr, "reached bug index 72\n");
 +    }
-+    if ((!FIXREVERTER[43] && (data == (void *) 0 ))
++    if ((!FIXREVERTER[72] && (data == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -4972,9 +5102,9 @@ index bfd679e..f324344 100644
 -    while ((rpos < len) && (wpos < len)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[44])
-+      fprintf(stderr, "reached bug index 44\n");
-+    while ((FIXREVERTER[44] && (rpos < len )) || (!FIXREVERTER[44] && (rpos < len && wpos < len ))
++    {if (FIXREVERTER[73])
++      fprintf(stderr, "reached bug index 73\n");
++    while ((FIXREVERTER[73] && (rpos < len )) || (!FIXREVERTER[73] && (rpos < len && wpos < len ))
 +    #else
 +    while (rpos < len 
 +    #endif
@@ -4982,7 +5112,7 @@ index bfd679e..f324344 100644
 +      
 +    #ifdef FRCOV
 +      if (!(wpos < len ))
-+        fprintf(stderr, "triggered bug index 44\n");
++        fprintf(stderr, "triggered bug index 73\n");
 +      #endif
 +    
          int c = data[rpos];
@@ -5005,13 +5135,13 @@ index bfd679e..f324344 100644
 -        if (normalized->scheme == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[45]) {
++        {if (FIXREVERTER[74]) {
 +          if ((normalized -> scheme == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 45\n");
++            fprintf(stderr, "triggered bug index 74\n");
 +          else
-+            fprintf(stderr, "reached bug index 45\n");
++            fprintf(stderr, "reached bug index 74\n");
 +        }
-+        if ((!FIXREVERTER[45] && (normalized -> scheme == (void *) 0 ))
++        if ((!FIXREVERTER[74] && (normalized -> scheme == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5027,13 +5157,13 @@ index bfd679e..f324344 100644
 -        if (normalized->username == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[46]) {
++        {if (FIXREVERTER[75]) {
 +          if ((normalized -> username == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 46\n");
++            fprintf(stderr, "triggered bug index 75\n");
 +          else
-+            fprintf(stderr, "reached bug index 46\n");
++            fprintf(stderr, "reached bug index 75\n");
 +        }
-+        if ((!FIXREVERTER[46] && (normalized -> username == (void *) 0 ))
++        if ((!FIXREVERTER[75] && (normalized -> username == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5050,13 +5180,13 @@ index bfd679e..f324344 100644
 -        if (normalized->password == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[47]) {
++        {if (FIXREVERTER[76]) {
 +          if ((normalized -> password == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 47\n");
++            fprintf(stderr, "triggered bug index 76\n");
 +          else
-+            fprintf(stderr, "reached bug index 47\n");
++            fprintf(stderr, "reached bug index 76\n");
 +        }
-+        if ((!FIXREVERTER[47] && (normalized -> password == (void *) 0 ))
++        if ((!FIXREVERTER[76] && (normalized -> password == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5074,13 +5204,13 @@ index bfd679e..f324344 100644
 -        if (normalized->hostname == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[48]) {
++        {if (FIXREVERTER[77]) {
 +          if ((normalized -> hostname == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 48\n");
++            fprintf(stderr, "triggered bug index 77\n");
 +          else
-+            fprintf(stderr, "reached bug index 48\n");
++            fprintf(stderr, "reached bug index 77\n");
 +        }
-+        if ((!FIXREVERTER[48] && (normalized -> hostname == (void *) 0 ))
++        if ((!FIXREVERTER[77] && (normalized -> hostname == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5098,10 +5228,10 @@ index bfd679e..f324344 100644
 -        } else if ((port_parsed > 0) && (port_parsed < 65536)) {
 +        } else 
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[49]) {
-+          fprintf(stderr, "reached bug index 49\n");
++        {if (FIXREVERTER[78]) {
++          fprintf(stderr, "reached bug index 78\n");
 +        }
-+        if ((FIXREVERTER[49] && (port_parsed > 0 )) || (!FIXREVERTER[49] && (port_parsed > 0 && port_parsed < 65536 ))
++        if ((FIXREVERTER[78] && (port_parsed > 0 )) || (!FIXREVERTER[78] && (port_parsed > 0 && port_parsed < 65536 ))
 +        #else
 +        if (port_parsed > 0 
 +        #endif
@@ -5109,7 +5239,7 @@ index bfd679e..f324344 100644
 +          
 +        #ifdef FRCOV
 +          if (!(port_parsed < 65536 ))
-+            fprintf(stderr, "triggered bug index 49\n");
++            fprintf(stderr, "triggered bug index 78\n");
 +          #endif
 +        
              // Valid port number.
@@ -5132,13 +5262,13 @@ index bfd679e..f324344 100644
 -        if (normalized->path == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[50]) {
++        {if (FIXREVERTER[79]) {
 +          if ((normalized -> path == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 50\n");
++            fprintf(stderr, "triggered bug index 79\n");
 +          else
-+            fprintf(stderr, "reached bug index 50\n");
++            fprintf(stderr, "reached bug index 79\n");
 +        }
-+        if ((!FIXREVERTER[50] && (normalized -> path == (void *) 0 ))
++        if ((!FIXREVERTER[79] && (normalized -> path == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5156,13 +5286,13 @@ index bfd679e..f324344 100644
 -        if (normalized->query == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[51]) {
++        {if (FIXREVERTER[80]) {
 +          if ((normalized -> query == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 51\n");
++            fprintf(stderr, "triggered bug index 80\n");
 +          else
-+            fprintf(stderr, "reached bug index 51\n");
++            fprintf(stderr, "reached bug index 80\n");
 +        }
-+        if ((!FIXREVERTER[51] && (normalized -> query == (void *) 0 ))
++        if ((!FIXREVERTER[80] && (normalized -> query == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5178,13 +5308,13 @@ index bfd679e..f324344 100644
 -        if (normalized->fragment == NULL) return HTP_ERROR;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[52]) {
++        {if (FIXREVERTER[81]) {
 +          if ((normalized -> fragment == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 52\n");
++            fprintf(stderr, "triggered bug index 81\n");
 +          else
-+            fprintf(stderr, "reached bug index 52\n");
++            fprintf(stderr, "reached bug index 81\n");
 +        }
-+        if ((!FIXREVERTER[52] && (normalized -> fragment == (void *) 0 ))
++        if ((!FIXREVERTER[81] && (normalized -> fragment == (void *) 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5202,13 +5332,13 @@ index bfd679e..f324344 100644
 -    if (hostname == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[53]) {
++    {if (FIXREVERTER[82]) {
 +      if ((hostname == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 53\n");
++        fprintf(stderr, "triggered bug index 82\n");
 +      else
-+        fprintf(stderr, "reached bug index 53\n");
++        fprintf(stderr, "reached bug index 82\n");
 +    }
-+    if ((!FIXREVERTER[53] && (hostname == (void *) 0 ))
++    if ((!FIXREVERTER[82] && (hostname == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5226,13 +5356,13 @@ index bfd679e..f324344 100644
 -    if (s == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[54]) {
++    {if (FIXREVERTER[83]) {
 +      if ((s == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 54\n");
++        fprintf(stderr, "triggered bug index 83\n");
 +      else
-+        fprintf(stderr, "reached bug index 54\n");
++        fprintf(stderr, "reached bug index 83\n");
 +    }
-+    if ((!FIXREVERTER[54] && (s == (void *) 0 ))
++    if ((!FIXREVERTER[83] && (s == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5245,13 +5375,13 @@ index bfd679e..f324344 100644
 -    if (data == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[55]) {
++    {if (FIXREVERTER[84]) {
 +      if ((data == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 55\n");
++        fprintf(stderr, "triggered bug index 84\n");
 +      else
-+        fprintf(stderr, "reached bug index 55\n");
++        fprintf(stderr, "reached bug index 84\n");
 +    }
-+    if ((!FIXREVERTER[55] && (data == (void *) 0 ))
++    if ((!FIXREVERTER[84] && (data == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5268,9 +5398,9 @@ index bfd679e..f324344 100644
 -    while ((rpos < len)&&(wpos < len)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[56])
-+      fprintf(stderr, "reached bug index 56\n");
-+    while ((FIXREVERTER[56] && (rpos < len )) || (!FIXREVERTER[56] && (rpos < len && wpos < len ))
++    {if (FIXREVERTER[85])
++      fprintf(stderr, "reached bug index 85\n");
++    while ((FIXREVERTER[85] && (rpos < len )) || (!FIXREVERTER[85] && (rpos < len && wpos < len ))
 +    #else
 +    while (rpos < len 
 +    #endif
@@ -5278,7 +5408,7 @@ index bfd679e..f324344 100644
 +      
 +    #ifdef FRCOV
 +      if (!(wpos < len ))
-+        fprintf(stderr, "triggered bug index 56\n");
++        fprintf(stderr, "triggered bug index 85\n");
 +      #endif
 +    
          if (c == -1) {
@@ -5301,13 +5431,13 @@ index bfd679e..f324344 100644
 -    if (data == NULL) return 1;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[65]) {
++    {if (FIXREVERTER[94]) {
 +      if ((data == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 65\n");
++        fprintf(stderr, "triggered bug index 94\n");
 +      else
-+        fprintf(stderr, "reached bug index 65\n");
++        fprintf(stderr, "reached bug index 94\n");
 +    }
-+    if ((!FIXREVERTER[65] && (data == (void *) 0 ))
++    if ((!FIXREVERTER[94] && (data == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5320,13 +5450,13 @@ index bfd679e..f324344 100644
 -    if (len < pos + 4) return 1;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[66]) {
++    {if (FIXREVERTER[95]) {
 +      if ((len < pos + 4 ) && !(0))
-+        fprintf(stderr, "triggered bug index 66\n");
++        fprintf(stderr, "triggered bug index 95\n");
 +      else
-+        fprintf(stderr, "reached bug index 66\n");
++        fprintf(stderr, "reached bug index 95\n");
 +    }
-+    if ((!FIXREVERTER[66] && (len < pos + 4 ))
++    if ((!FIXREVERTER[95] && (len < pos + 4 ))
 +    #else
 +    if (0
 +    #endif
@@ -5344,13 +5474,13 @@ index bfd679e..f324344 100644
 -    if (connp->in_tx == NULL) return HTP_OK;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[67]) {
++    {if (FIXREVERTER[96]) {
 +      if ((connp -> in_tx == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 67\n");
++        fprintf(stderr, "triggered bug index 96\n");
 +      else
-+        fprintf(stderr, "reached bug index 67\n");
++        fprintf(stderr, "reached bug index 96\n");
 +    }
-+    if ((!FIXREVERTER[67] && (connp -> in_tx == (void *) 0 ))
++    if ((!FIXREVERTER[96] && (connp -> in_tx == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5364,13 +5494,13 @@ index bfd679e..f324344 100644
 -    if (rc != HTP_OK) return rc;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[68]) {
++    {if (FIXREVERTER[97]) {
 +      if ((rc != 1 ) && !(0))
-+        fprintf(stderr, "triggered bug index 68\n");
++        fprintf(stderr, "triggered bug index 97\n");
 +      else
-+        fprintf(stderr, "reached bug index 68\n");
++        fprintf(stderr, "reached bug index 97\n");
 +    }
-+    if ((!FIXREVERTER[68] && (rc != 1 ))
++    if ((!FIXREVERTER[97] && (rc != 1 ))
 +    #else
 +    if (0
 +    #endif
@@ -5384,13 +5514,13 @@ index bfd679e..f324344 100644
 -    if (rc != HTP_OK) return rc;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[69]) {
++    {if (FIXREVERTER[98]) {
 +      if ((rc != 1 ) && !(0))
-+        fprintf(stderr, "triggered bug index 69\n");
++        fprintf(stderr, "triggered bug index 98\n");
 +      else
-+        fprintf(stderr, "reached bug index 69\n");
++        fprintf(stderr, "reached bug index 98\n");
 +    }
-+    if ((!FIXREVERTER[69] && (rc != 1 ))
++    if ((!FIXREVERTER[98] && (rc != 1 ))
 +    #else
 +    if (0
 +    #endif
@@ -5408,13 +5538,13 @@ index bfd679e..f324344 100644
 -        if (rc != HTP_OK) return rc;
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[70]) {
++        {if (FIXREVERTER[99]) {
 +          if ((rc != 1 ) && !(0))
-+            fprintf(stderr, "triggered bug index 70\n");
++            fprintf(stderr, "triggered bug index 99\n");
 +          else
-+            fprintf(stderr, "reached bug index 70\n");
++            fprintf(stderr, "reached bug index 99\n");
 +        }
-+        if ((!FIXREVERTER[70] && (rc != 1 ))
++        if ((!FIXREVERTER[99] && (rc != 1 ))
 +        #else
 +        if (0
 +        #endif
@@ -5432,13 +5562,13 @@ index bfd679e..f324344 100644
 -    if ((data == NULL) || (out == NULL)) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[73]) {
++    {if (FIXREVERTER[102]) {
 +      if ((data == (void *) 0 || out == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 73\n");
++        fprintf(stderr, "triggered bug index 102\n");
 +      else
-+        fprintf(stderr, "reached bug index 73\n");
++        fprintf(stderr, "reached bug index 102\n");
 +    }
-+    if ((!FIXREVERTER[73] && (data == (void *) 0 || out == (void *) 0 ))
++    if ((!FIXREVERTER[102] && (data == (void *) 0 || out == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5456,13 +5586,13 @@ index bfd679e..f324344 100644
 -    if (pos == len) return HTP_DECLINED;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[75]) {
++    {if (FIXREVERTER[104]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 75\n");
++        fprintf(stderr, "triggered bug index 104\n");
 +      else
-+        fprintf(stderr, "reached bug index 75\n");
++        fprintf(stderr, "reached bug index 104\n");
 +    }
-+    if ((!FIXREVERTER[75] && (pos == len ))
++    if ((!FIXREVERTER[104] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -5478,13 +5608,13 @@ index bfd679e..f324344 100644
 -            if (pos + 1 < len) {
 +            
 +            #ifdef FRCOV
-+            {if (FIXREVERTER[76]) {
++            {if (FIXREVERTER[105]) {
 +              if ((pos + 1 < len ) && !(0))
-+                fprintf(stderr, "triggered bug index 76\n");
++                fprintf(stderr, "triggered bug index 105\n");
 +              else
-+                fprintf(stderr, "reached bug index 76\n");
++                fprintf(stderr, "reached bug index 105\n");
 +            }
-+            if ((!FIXREVERTER[76] && (pos + 1 < len ))
++            if ((!FIXREVERTER[105] && (pos + 1 < len ))
 +            #else
 +            if (0
 +            #endif
@@ -5506,13 +5636,13 @@ index bfd679e..f324344 100644
 -    if (pos == len) return HTP_DECLINED;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[77]) {
++    {if (FIXREVERTER[106]) {
 +      if ((pos == len ) && !(0))
-+        fprintf(stderr, "triggered bug index 77\n");
++        fprintf(stderr, "triggered bug index 106\n");
 +      else
-+        fprintf(stderr, "reached bug index 77\n");
++        fprintf(stderr, "reached bug index 106\n");
 +    }
-+    if ((!FIXREVERTER[77] && (pos == len ))
++    if ((!FIXREVERTER[106] && (pos == len ))
 +    #else
 +    if (0
 +    #endif
@@ -5530,9 +5660,9 @@ index bfd679e..f324344 100644
 -    while ((pos < len) && (outpos < outlen)) {
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[79])
-+      fprintf(stderr, "reached bug index 79\n");
-+    while ((FIXREVERTER[79] && (pos < len )) || (!FIXREVERTER[79] && (pos < len && outpos < outlen ))
++    {if (FIXREVERTER[108])
++      fprintf(stderr, "reached bug index 108\n");
++    while ((FIXREVERTER[108] && (pos < len )) || (!FIXREVERTER[108] && (pos < len && outpos < outlen ))
 +    #else
 +    while (pos < len 
 +    #endif
@@ -5540,7 +5670,7 @@ index bfd679e..f324344 100644
 +      
 +    #ifdef FRCOV
 +      if (!(outpos < outlen ))
-+        fprintf(stderr, "triggered bug index 79\n");
++        fprintf(stderr, "triggered bug index 108\n");
 +      #endif
 +    
          // TODO We are not properly unescaping test here, we're only
@@ -5549,13 +5679,13 @@ index bfd679e..f324344 100644
 -            if (pos + 1 < len) {
 +            
 +            #ifdef FRCOV
-+            {if (FIXREVERTER[78]) {
++            {if (FIXREVERTER[107]) {
 +              if ((pos + 1 < len ) && !(0))
-+                fprintf(stderr, "triggered bug index 78\n");
++                fprintf(stderr, "triggered bug index 107\n");
 +              else
-+                fprintf(stderr, "reached bug index 78\n");
++                fprintf(stderr, "reached bug index 107\n");
 +            }
-+            if ((!FIXREVERTER[78] && (pos + 1 < len ))
++            if ((!FIXREVERTER[107] && (pos + 1 < len ))
 +            #else
 +            if (0
 +            #endif
@@ -5586,13 +5716,13 @@ index bfd679e..f324344 100644
 -    if ((header == NULL) || (ct == NULL)) return HTP_ERROR;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[80]) {
++    {if (FIXREVERTER[109]) {
 +      if ((header == (void *) 0 || ct == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 80\n");
++        fprintf(stderr, "triggered bug index 109\n");
 +      else
-+        fprintf(stderr, "reached bug index 80\n");
++        fprintf(stderr, "reached bug index 109\n");
 +    }
-+    if ((!FIXREVERTER[80] && (header == (void *) 0 || ct == (void *) 0 ))
++    if ((!FIXREVERTER[109] && (header == (void *) 0 || ct == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5612,13 +5742,13 @@ index bfd679e..f324344 100644
 -        if (pos >= len) return 1; // No more data after label.
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[82]) {
++        {if (FIXREVERTER[111]) {
 +          if ((pos - startpos == 0 || pos - startpos > 63 ) && !(0))
-+            fprintf(stderr, "triggered bug index 82\n");
++            fprintf(stderr, "triggered bug index 111\n");
 +          else
-+            fprintf(stderr, "reached bug index 82\n");
++            fprintf(stderr, "reached bug index 111\n");
 +        }
-+        if ((!FIXREVERTER[82] && (pos - startpos == 0 || pos - startpos > 63 ))
++        if ((!FIXREVERTER[111] && (pos - startpos == 0 || pos - startpos > 63 ))
 +        #else
 +        if (0
 +        #endif
@@ -5629,13 +5759,13 @@ index bfd679e..f324344 100644
 +
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[83]) {
++        {if (FIXREVERTER[112]) {
 +          if ((pos >= len ) && !(0))
-+            fprintf(stderr, "triggered bug index 83\n");
++            fprintf(stderr, "triggered bug index 112\n");
 +          else
-+            fprintf(stderr, "reached bug index 83\n");
++            fprintf(stderr, "reached bug index 112\n");
 +        }
-+        if ((!FIXREVERTER[83] && (pos >= len ))
++        if ((!FIXREVERTER[112] && (pos >= len ))
 +        #else
 +        if (0
 +        #endif
@@ -5651,13 +5781,13 @@ index bfd679e..f324344 100644
 -        if (pos - startpos != 1) return 0; // Exactly one dot expected.
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[84]) {
++        {if (FIXREVERTER[113]) {
 +          if ((pos - startpos != 1 ) && !(0))
-+            fprintf(stderr, "triggered bug index 84\n");
++            fprintf(stderr, "triggered bug index 113\n");
 +          else
-+            fprintf(stderr, "reached bug index 84\n");
++            fprintf(stderr, "reached bug index 113\n");
 +        }
-+        if ((!FIXREVERTER[84] && (pos - startpos != 1 ))
++        if ((!FIXREVERTER[113] && (pos - startpos != 1 ))
 +        #else
 +        if (0
 +        #endif
@@ -5674,13 +5804,13 @@ index bfd679e..f324344 100644
 -    if (uri == NULL) return;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[85]) {
++    {if (FIXREVERTER[114]) {
 +      if ((uri == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 85\n");
++        fprintf(stderr, "triggered bug index 114\n");
 +      else
-+        fprintf(stderr, "reached bug index 85\n");
++        fprintf(stderr, "reached bug index 114\n");
 +    }
-+    if ((!FIXREVERTER[85] && (uri == (void *) 0 ))
++    if ((!FIXREVERTER[114] && (uri == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5698,13 +5828,13 @@ index bfd679e..f324344 100644
 -    if (u == NULL) return NULL;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[86]) {
++    {if (FIXREVERTER[115]) {
 +      if ((u == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 86\n");
++        fprintf(stderr, "triggered bug index 115\n");
 +      else
-+        fprintf(stderr, "reached bug index 86\n");
++        fprintf(stderr, "reached bug index 115\n");
 +    }
-+    if ((!FIXREVERTER[86] && (u == (void *) 0 ))
++    if ((!FIXREVERTER[115] && (u == (void *) 0 ))
 +    #else
 +    if (0
 +    #endif
@@ -5716,7 +5846,7 @@ index bfd679e..f324344 100644
      u->port_number = -1;
  
 diff --git a/htp/lzma/LzmaDec.c b/htp/lzma/LzmaDec.c
-index fc13620..2696a17 100644
+index fc13620..744f7b6 100644
 --- a/htp/lzma/LzmaDec.c
 +++ b/htp/lzma/LzmaDec.c
 @@ -1,3 +1,10 @@
@@ -5738,13 +5868,13 @@ index fc13620..2696a17 100644
 -      len = (unsigned)(rem);
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[410]) {
++    {if (FIXREVERTER[116]) {
 +      if ((rem < len ) && !(0))
-+        fprintf(stderr, "triggered bug index 410\n");
++        fprintf(stderr, "triggered bug index 116\n");
 +      else
-+        fprintf(stderr, "reached bug index 410\n");
++        fprintf(stderr, "reached bug index 116\n");
 +    }
-+    if ((!FIXREVERTER[410] && (rem < len ))
++    if ((!FIXREVERTER[116] && (rem < len ))
 +    #else
 +    if (0
 +    #endif
@@ -5763,13 +5893,13 @@ index fc13620..2696a17 100644
 -    if (p->tempBufSize < RC_INIT_SIZE)
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[412]) {
++    {if (FIXREVERTER[118]) {
 +      if ((p -> tempBufSize < 5 ) && !(0))
-+        fprintf(stderr, "triggered bug index 412\n");
++        fprintf(stderr, "triggered bug index 118\n");
 +      else
-+        fprintf(stderr, "reached bug index 412\n");
++        fprintf(stderr, "reached bug index 118\n");
 +    }
-+    if ((!FIXREVERTER[412] && (p -> tempBufSize < 5 ))
++    if ((!FIXREVERTER[118] && (p -> tempBufSize < 5 ))
 +    #else
 +    if (0
 +    #endif
@@ -5792,13 +5922,13 @@ index fc13620..2696a17 100644
 -        if (p->remainLen != 0)
 +        
 +        #ifdef FRCOV
-+        {if (FIXREVERTER[413]) {
++        {if (FIXREVERTER[119]) {
 +          if ((p -> remainLen != 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 413\n");
++            fprintf(stderr, "triggered bug index 119\n");
 +          else
-+            fprintf(stderr, "reached bug index 413\n");
++            fprintf(stderr, "reached bug index 119\n");
 +        }
-+        if ((!FIXREVERTER[413] && (p -> remainLen != 0 ))
++        if ((!FIXREVERTER[119] && (p -> remainLen != 0 ))
 +        #else
 +        if (0
 +        #endif
@@ -5822,13 +5952,13 @@ index fc13620..2696a17 100644
 -            return SZ_ERROR_FAIL; /* some internal error */
 +          
 +          #ifdef FRCOV
-+          {if (FIXREVERTER[415]) {
++          {if (FIXREVERTER[121]) {
 +            if ((rem < kkk ) && !(0))
-+              fprintf(stderr, "triggered bug index 415\n");
++              fprintf(stderr, "triggered bug index 121\n");
 +            else
-+              fprintf(stderr, "reached bug index 415\n");
++              fprintf(stderr, "reached bug index 121\n");
 +          }
-+          if ((!FIXREVERTER[415] && (rem < kkk ))
++          if ((!FIXREVERTER[121] && (rem < kkk ))
 +          #else
 +          if (0
 +          #endif
@@ -5842,13 +5972,13 @@ index fc13620..2696a17 100644
 -            return SZ_ERROR_FAIL; /* some internal error */
 +          
 +          #ifdef FRCOV
-+          {if (FIXREVERTER[416]) {
++          {if (FIXREVERTER[122]) {
 +            if ((lookAhead < rem ) && !(0))
-+              fprintf(stderr, "triggered bug index 416\n");
++              fprintf(stderr, "triggered bug index 122\n");
 +            else
-+              fprintf(stderr, "reached bug index 416\n");
++              fprintf(stderr, "reached bug index 122\n");
 +          }
-+          if ((!FIXREVERTER[416] && (lookAhead < rem ))
++          if ((!FIXREVERTER[122] && (lookAhead < rem ))
 +          #else
 +          if (0
 +          #endif
@@ -5868,13 +5998,13 @@ index fc13620..2696a17 100644
 -    return SZ_ERROR_DATA;
 +  
 +  #ifdef FRCOV
-+  {if (FIXREVERTER[417]) {
++  {if (FIXREVERTER[123]) {
 +    if ((p -> code != 0 ) && !(0))
-+      fprintf(stderr, "triggered bug index 417\n");
++      fprintf(stderr, "triggered bug index 123\n");
 +    else
-+      fprintf(stderr, "reached bug index 417\n");
++      fprintf(stderr, "reached bug index 123\n");
 +  }
-+  if ((!FIXREVERTER[417] && (p -> code != 0 ))
++  if ((!FIXREVERTER[123] && (p -> code != 0 ))
 +  #else
 +  if (0
 +  #endif
@@ -5886,33 +6016,7 @@ index fc13620..2696a17 100644
    *status = LZMA_STATUS_FINISHED_WITH_MARK;
    return SZ_OK;
  }
-@@ -1072,8 +1169,23 @@ SRes LzmaDec_DecodeToBuf(CLzmaDec *p, Byte *dest, SizeT *destLen, const Byte *sr
-     dest += outSizeCur;
-     outSize -= outSizeCur;
-     *destLen += outSizeCur;
--    if (res != 0)
--      return res;
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[418]) {
-+      if ((res != 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 418\n");
-+      else
-+        fprintf(stderr, "reached bug index 418\n");
-+    }
-+    if ((!FIXREVERTER[418] && (res != 0 ))
-+    #else
-+    if (0
-+    #endif
-+    )
-+      return res;
-+      #ifdef FRCOV
-+      }
-+      #endif
-     if (outSizeCur == 0 || outSize == 0)
-       return SZ_OK;
-   }
-@@ -1161,8 +1273,23 @@ SRes LzmaDec_Allocate(CLzmaDec *p, const Byte *props, unsigned propsSize, ISzAll
+@@ -1161,8 +1258,23 @@ SRes LzmaDec_Allocate(CLzmaDec *p, const Byte *props, unsigned propsSize, ISzAll
           if (dictSize >= ((UInt32)1 << 30)) mask = ((UInt32)1 << 22) - 1;
      else if (dictSize >= ((UInt32)1 << 22)) mask = ((UInt32)1 << 20) - 1;;
      dicBufSize = ((SizeT)dictSize + mask) & ~mask;
@@ -5920,13 +6024,13 @@ index fc13620..2696a17 100644
 -      dicBufSize = dictSize;
 +    
 +    #ifdef FRCOV
-+    {if (FIXREVERTER[420]) {
++    {if (FIXREVERTER[126]) {
 +      if ((dicBufSize < dictSize ) && !(0))
-+        fprintf(stderr, "triggered bug index 420\n");
++        fprintf(stderr, "triggered bug index 126\n");
 +      else
-+        fprintf(stderr, "reached bug index 420\n");
++        fprintf(stderr, "reached bug index 126\n");
 +    }
-+    if ((!FIXREVERTER[420] && (dicBufSize < dictSize ))
++    if ((!FIXREVERTER[126] && (dicBufSize < dictSize ))
 +    #else
 +    if (0
 +    #endif
@@ -5939,18 +6043,30 @@ index fc13620..2696a17 100644
    }
      if (dicBufSize > LZMA_DIC_MIN) {
 diff --git a/test/fuzz/fuzz_htp.c b/test/fuzz/fuzz_htp.c
-index ea1e67b..fd86f9a 100644
+index ea1e67b..4daedb4 100644
 --- a/test/fuzz/fuzz_htp.c
 +++ b/test/fuzz/fuzz_htp.c
-@@ -1,3 +1,7 @@
+@@ -1,3 +1,19 @@
 +#ifdef FRCOV
-+#define FIXREVERTER_SIZE 514
++#define FIXREVERTER_SIZE 515
 +short FIXREVERTER[FIXREVERTER_SIZE];
++#include <stdlib.h>
++#include <string.h>
++__attribute__((constructor(101))) static void fixReverterInitFlags(void) {
++  const char *p = getenv("FIXREVERTER"); char *end; long k; int on = 0, i;
++  if (p) { while (*p == ' ') p++;
++    if (!strncmp(p, "on", 2) && (p[2] == ' ' || !p[2])) { on = 1; p += 2; }
++    else if (!strncmp(p, "off", 3) && (p[3] == ' ' || !p[3])) p += 3;
++    else if (*p) return; }
++  for (i = 0; i < FIXREVERTER_SIZE; i++) FIXREVERTER[i] = (short)!on;
++  while (p && *p) { k = strtol(p, &end, 10); if (end == p) { p++; continue; }
++    if (k >= 0 && k < FIXREVERTER_SIZE) FIXREVERTER[k] = (short)on; p = end; }
++}
 +#endif
  /**
   * @file
   * @author Philippe Antoine <contact@catenacyber.fr>
-@@ -125,7 +129,41 @@ void fuzz_openFile(const char * name) {
+@@ -125,7 +141,41 @@ void fuzz_openFile(const char * name) {
      logfile = fopen(name, "w");
  }
  

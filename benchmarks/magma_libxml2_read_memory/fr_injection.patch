@@ -6409,7 +6409,7 @@ index 9ff1c2ba..b005b7e3 100644
      message = (char *) xmlStrdup((xmlChar *) from->message);
      file = (char *) xmlStrdup ((xmlChar *) from->file);
 diff --git a/hash.c b/hash.c
-index afa094ef..51046e6c 100644
+index afa094ef..71c74a05 100644
 --- a/hash.c
 +++ b/hash.c
 @@ -1,3 +1,10 @@
@@ -6527,7 +6527,7 @@ index afa094ef..51046e6c 100644
      memset(table->table, 0, size * sizeof(xmlHashEntry));
      table->size = size;
  
-@@ -331,8 +413,23 @@ xmlHashFree(xmlHashTablePtr table, xmlHashDeallocator f) {
+@@ -331,19 +413,65 @@ xmlHashFree(xmlHashTablePtr table, xmlHashDeallocator f) {
      int inside_table = 0;
      int nbElems;
  
@@ -6551,8 +6551,62 @@ index afa094ef..51046e6c 100644
 +	#endif
      if (table->table) {
  	nbElems = table->nbElems;
- 	for(i = 0; (i < table->size) && (nbElems > 0); i++) {
-@@ -549,18 +646,63 @@ xmlHashAddEntry3(xmlHashTablePtr table, const xmlChar *name,
+-	for(i = 0; (i < table->size) && (nbElems > 0); i++) {
++	
++	#ifdef FRCOV
++	{if (FIXREVERTER[858])
++	  fprintf(stderr, "reached bug index 858\n");
++	for (i = 0; (FIXREVERTER[858] && (nbElems > 0 )) || (!FIXREVERTER[858] && (i < table -> size && nbElems > 0 ))
++	#else
++	for (i = 0; nbElems > 0 
++	#endif
++	; i++) {
++	  
++	#ifdef FRCOV
++	  if (!(i < table -> size ))
++	    fprintf(stderr, "triggered bug index 858\n");
++	  #endif
++	
+ 	    iter = &(table->table[i]);
+ 	    if (iter->valid == 0)
+ 		continue;
+ 	    inside_table = 1;
+ 	    while (iter) {
+ 		next = iter->next;
+-		if ((f != NULL) && (iter->payload != NULL))
++		
++		#ifdef FRCOV
++		{if (FIXREVERTER[857]) {
++		  fprintf(stderr, "reached bug index 857\n");
++		}
++		if ((FIXREVERTER[857] && (f != (void *) 0 )) || (!FIXREVERTER[857] && (f != (void *) 0 && iter -> payload != (void *) 0 ))
++		#else
++		if (f != (void *) 0 
++		#endif
++		)
++		    
++		    #ifdef FRCOV
++		    {if (!(iter -> payload != (void *) 0 ))
++		      fprintf(stderr, "triggered bug index 857\n");
++		    #endif
+ 		    f(iter->payload, iter->name);
++		    #ifdef FRCOV
++		    }}
++		    #endif
+ 		if (table->dict == NULL) {
+ 		    if (iter->name)
+ 			xmlFree(iter->name);
+@@ -360,6 +488,9 @@ xmlHashFree(xmlHashTablePtr table, xmlHashDeallocator f) {
+ 		iter = next;
+ 	    }
+ 	}
++	#ifdef FRCOV
++	}
++	#endif
+ 	xmlFree(table->table);
+     }
+     if (table->dict)
+@@ -549,18 +680,63 @@ xmlHashAddEntry3(xmlHashTablePtr table, const xmlChar *name,
      if (table->dict) {
          if (!xmlDictOwns(table->dict, name)) {
  	    name = xmlDictLookup(table->dict, name, -1);
@@ -6619,7 +6673,7 @@ index afa094ef..51046e6c 100644
  	}
      }
  
-@@ -604,8 +746,23 @@ xmlHashAddEntry3(xmlHashTablePtr table, const xmlChar *name,
+@@ -604,8 +780,23 @@ xmlHashAddEntry3(xmlHashTablePtr table, const xmlChar *name,
  	entry = &(table->table[key]);
      } else {
  	entry = xmlMalloc(sizeof(xmlHashEntry));
@@ -6644,7 +6698,7 @@ index afa094ef..51046e6c 100644
      }
  
      if (table->dict != NULL) {
-@@ -656,8 +813,23 @@ xmlHashUpdateEntry3(xmlHashTablePtr table, const xmlChar *name,
+@@ -656,8 +847,23 @@ xmlHashUpdateEntry3(xmlHashTablePtr table, const xmlChar *name,
      xmlHashEntryPtr entry;
      xmlHashEntryPtr insert;
  
@@ -6669,7 +6723,7 @@ index afa094ef..51046e6c 100644
  
      /*
       * If using a dict internalize if needed
-@@ -665,18 +837,63 @@ xmlHashUpdateEntry3(xmlHashTablePtr table, const xmlChar *name,
+@@ -665,18 +871,63 @@ xmlHashUpdateEntry3(xmlHashTablePtr table, const xmlChar *name,
      if (table->dict) {
          if (!xmlDictOwns(table->dict, name)) {
  	    name = xmlDictLookup(table->dict, name, -1);
@@ -6736,7 +6790,7 @@ index afa094ef..51046e6c 100644
  	}
      }
  
-@@ -734,8 +951,23 @@ xmlHashUpdateEntry3(xmlHashTablePtr table, const xmlChar *name,
+@@ -734,8 +985,23 @@ xmlHashUpdateEntry3(xmlHashTablePtr table, const xmlChar *name,
  	entry =  &(table->table[key]);
      } else {
  	entry = xmlMalloc(sizeof(xmlHashEntry));
@@ -6761,7 +6815,7 @@ index afa094ef..51046e6c 100644
      }
  
      if (table->dict != NULL) {
-@@ -778,8 +1010,23 @@ xmlHashLookup3(xmlHashTablePtr table, const xmlChar *name,
+@@ -778,8 +1044,23 @@ xmlHashLookup3(xmlHashTablePtr table, const xmlChar *name,
  
      if (table == NULL)
  	return(NULL);
@@ -6786,7 +6840,7 @@ index afa094ef..51046e6c 100644
      key = xmlHashComputeKey(table, name, name2, name3);
      if (table->table[key].valid == 0)
  	return(NULL);
-@@ -822,10 +1069,40 @@ xmlHashQLookup3(xmlHashTablePtr table,
+@@ -822,10 +1103,40 @@ xmlHashQLookup3(xmlHashTablePtr table,
      unsigned long key;
      xmlHashEntryPtr entry;
  
@@ -6829,7 +6883,7 @@ index afa094ef..51046e6c 100644
      key = xmlHashComputeQKey(table, prefix, name, prefix2,
                               name2, prefix3, name3);
      if (table->table[key].valid == 0)
-@@ -884,8 +1161,23 @@ xmlHashScanFull(xmlHashTablePtr table, xmlHashScannerFull f, void *data) {
+@@ -884,8 +1195,23 @@ xmlHashScanFull(xmlHashTablePtr table, xmlHashScannerFull f, void *data) {
  
      if (table == NULL)
  	return;
@@ -6854,7 +6908,7 @@ index afa094ef..51046e6c 100644
  
      if (table->table) {
  	for(i = 0; i < table->size; i++) {
-@@ -895,9 +1187,26 @@ xmlHashScanFull(xmlHashTablePtr table, xmlHashScannerFull f, void *data) {
+@@ -895,9 +1221,26 @@ xmlHashScanFull(xmlHashTablePtr table, xmlHashScannerFull f, void *data) {
  	    while (iter) {
  		next = iter->next;
                  nb = table->nbElems;
@@ -6882,7 +6936,7 @@ index afa094ef..51046e6c 100644
                  if (nb != table->nbElems) {
                      /* table was modified by the callback, be careful */
                      if (iter == &(table->table[i])) {
-@@ -959,10 +1268,40 @@ xmlHashScanFull3(xmlHashTablePtr table, const xmlChar *name,
+@@ -959,10 +1302,40 @@ xmlHashScanFull3(xmlHashTablePtr table, const xmlChar *name,
      xmlHashEntryPtr iter;
      xmlHashEntryPtr next;
  
@@ -6925,7 +6979,7 @@ index afa094ef..51046e6c 100644
  
      if (table->table) {
  	for(i = 0; i < table->size; i++) {
-@@ -1000,14 +1339,59 @@ xmlHashCopy(xmlHashTablePtr table, xmlHashCopier f) {
+@@ -1000,14 +1373,59 @@ xmlHashCopy(xmlHashTablePtr table, xmlHashCopier f) {
      xmlHashEntryPtr next;
      xmlHashTablePtr ret;
  
@@ -6988,7 +7042,7 @@ index afa094ef..51046e6c 100644
  
      if (table->table) {
  	for(i = 0; i < table->size; i++) {
-@@ -1037,8 +1421,23 @@ xmlHashCopy(xmlHashTablePtr table, xmlHashCopier f) {
+@@ -1037,8 +1455,23 @@ xmlHashCopy(xmlHashTablePtr table, xmlHashCopier f) {
   */
  int
  xmlHashSize(xmlHashTablePtr table) {
@@ -7013,7 +7067,7 @@ index afa094ef..51046e6c 100644
      return(table->nbElems);
  }
  
-@@ -1099,8 +1498,23 @@ xmlHashRemoveEntry3(xmlHashTablePtr table, const xmlChar *name,
+@@ -1099,8 +1532,23 @@ xmlHashRemoveEntry3(xmlHashTablePtr table, const xmlChar *name,
      xmlHashEntryPtr entry;
      xmlHashEntryPtr prev = NULL;
  
@@ -7038,7 +7092,7 @@ index afa094ef..51046e6c 100644
  
      key = xmlHashComputeKey(table, name, name2, name3);
      if (table->table[key].valid == 0) {
-@@ -1110,8 +1524,25 @@ xmlHashRemoveEntry3(xmlHashTablePtr table, const xmlChar *name,
+@@ -1110,8 +1558,25 @@ xmlHashRemoveEntry3(xmlHashTablePtr table, const xmlChar *name,
              if (xmlStrEqual(entry->name, name) &&
                      xmlStrEqual(entry->name2, name2) &&
                      xmlStrEqual(entry->name3, name3)) {
@@ -7066,7 +7120,7 @@ index afa094ef..51046e6c 100644
  		if (table->dict == NULL) {
  		    if(entry->name)
 diff --git a/list.c b/list.c
-index 20207155..cf19443a 100644
+index 20207155..c4f28a94 100644
 --- a/list.c
 +++ b/list.c
 @@ -1,3 +1,10 @@
@@ -7155,32 +7209,7 @@ index 20207155..cf19443a 100644
      lk = xmlListLowerSearch(l, data);
      if (lk == l->sentinel)
          return NULL;
-@@ -208,8 +260,23 @@ xmlListCreate(xmlListDeallocator deallocator, xmlListDataCompare compare)
-     l->sentinel->data = NULL;
- 
-     /* If there is a link deallocator, use it */
--    if (deallocator != NULL)
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[1533]) {
-+      if ((deallocator != (void *) 0  ) && !(0))
-+        fprintf(stderr, "triggered bug index 1533\n");
-+      else
-+        fprintf(stderr, "reached bug index 1533\n");
-+    }
-+    if ((!FIXREVERTER[1533] && (deallocator != (void *) 0  ))
-+    #else
-+    if (0
-+    #endif
-+    )
-         l->linkDeallocator = deallocator;
-+        #ifdef FRCOV
-+        }
-+        #endif
-     /* If there is a link comparator, use it */
-     if (compare != NULL)
-         l->linkCompare = compare;
-@@ -306,16 +373,46 @@ int xmlListAppend(xmlListPtr l, void *data)
+@@ -306,16 +358,46 @@ int xmlListAppend(xmlListPtr l, void *data)
  {
      xmlLinkPtr lkPlace, lkNew;
  
@@ -7229,7 +7258,7 @@ index 20207155..cf19443a 100644
      lkNew->data = data;
      lkNew->next = lkPlace->next;
      (lkPlace->next)->prev = lkNew;
-@@ -332,8 +429,23 @@ int xmlListAppend(xmlListPtr l, void *data)
+@@ -332,8 +414,23 @@ int xmlListAppend(xmlListPtr l, void *data)
   */
  void xmlListDelete(xmlListPtr l)
  {
@@ -7254,7 +7283,7 @@ index 20207155..cf19443a 100644
  
      xmlListClear(l);
      xmlFree(l->sentinel);
-@@ -354,8 +466,23 @@ xmlListRemoveFirst(xmlListPtr l, void *data)
+@@ -354,8 +451,23 @@ xmlListRemoveFirst(xmlListPtr l, void *data)
  {
      xmlLinkPtr lk;
  
@@ -7279,7 +7308,7 @@ index 20207155..cf19443a 100644
      /*Find the first instance of this data */
      lk = xmlListLinkSearch(l, data);
      if (lk != NULL) {
-@@ -423,8 +550,23 @@ xmlListClear(xmlListPtr l)
+@@ -423,8 +535,23 @@ xmlListClear(xmlListPtr l)
  {
      xmlLinkPtr  lk;
  
@@ -7304,7 +7333,7 @@ index 20207155..cf19443a 100644
      lk = l->sentinel->next;
      while(lk != l->sentinel) {
          xmlLinkPtr next = lk->next;
-@@ -603,8 +745,23 @@ xmlListPushBack(xmlListPtr l, void *data)
+@@ -603,8 +730,23 @@ xmlListPushBack(xmlListPtr l, void *data)
  void *
  xmlLinkGetData(xmlLinkPtr lk)
  {
@@ -7329,7 +7358,7 @@ index 20207155..cf19443a 100644
      return lk->data;
  }
  
-@@ -676,8 +833,23 @@ void
+@@ -676,8 +818,23 @@ void
  xmlListWalk(xmlListPtr l, xmlListWalker walker, void *user) {
      xmlLinkPtr lk;
  
@@ -7866,7 +7895,7 @@ index 18c1ce43..296c5e10 100644
      if (ctxt->dataFd != INVALID_SOCKET) {
  	closesocket(ctxt->dataFd);
 diff --git a/parser.c b/parser.c
-index 255bd254..fa6b6381 100644
+index 255bd254..8242bc87 100644
 --- a/parser.c
 +++ b/parser.c
 @@ -1,3 +1,10 @@
@@ -7983,32 +8012,7 @@ index 255bd254..fa6b6381 100644
      }
  }
  
-@@ -588,8 +655,23 @@ xmlFatalErr(xmlParserCtxtPtr ctxt, xmlParserErrors error, const char *info)
-     }
-     if (ctxt != NULL) {
- 	ctxt->wellFormed = 0;
--	if (ctxt->recovery == 0)
-+	
-+	#ifdef FRCOV
-+	{if (FIXREVERTER[3321]) {
-+	  if ((ctxt -> recovery == 0  ) && !(0))
-+	    fprintf(stderr, "triggered bug index 3321\n");
-+	  else
-+	    fprintf(stderr, "reached bug index 3321\n");
-+	}
-+	if ((!FIXREVERTER[3321] && (ctxt -> recovery == 0  ))
-+	#else
-+	if (0
-+	#endif
-+	)
- 	    ctxt->disableSAX = 1;
-+	    #ifdef FRCOV
-+	    }
-+	    #endif
-     }
- }
- 
-@@ -608,8 +690,23 @@ xmlFatalErrMsg(xmlParserCtxtPtr ctxt, xmlParserErrors error,
+@@ -608,8 +675,23 @@ xmlFatalErrMsg(xmlParserCtxtPtr ctxt, xmlParserErrors error,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -8033,7 +8037,7 @@ index 255bd254..fa6b6381 100644
      __xmlRaiseError(NULL, NULL, NULL, ctxt, NULL, XML_FROM_PARSER, error,
                      XML_ERR_FATAL, NULL, 0, NULL, NULL, NULL, 0, 0, "%s", msg);
      if (ctxt != NULL) {
-@@ -714,15 +811,45 @@ xmlFatalErrMsgInt(xmlParserCtxtPtr ctxt, xmlParserErrors error,
+@@ -714,15 +796,45 @@ xmlFatalErrMsgInt(xmlParserCtxtPtr ctxt, xmlParserErrors error,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -8081,7 +8085,7 @@ index 255bd254..fa6b6381 100644
      }
  }
  
-@@ -745,16 +872,46 @@ xmlFatalErrMsgStrIntStr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
+@@ -745,16 +857,46 @@ xmlFatalErrMsgStrIntStr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -8130,7 +8134,7 @@ index 255bd254..fa6b6381 100644
      }
  }
  
-@@ -774,8 +931,23 @@ xmlFatalErrMsgStr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
+@@ -774,8 +916,23 @@ xmlFatalErrMsgStr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -8155,7 +8159,7 @@ index 255bd254..fa6b6381 100644
      __xmlRaiseError(NULL, NULL, NULL, ctxt, NULL,
                      XML_FROM_PARSER, error, XML_ERR_FATAL,
                      NULL, 0, (const char *) val, NULL, NULL, 0, 0, msg,
-@@ -803,8 +975,23 @@ xmlErrMsgStr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
+@@ -803,8 +960,23 @@ xmlErrMsgStr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -8180,7 +8184,7 @@ index 255bd254..fa6b6381 100644
      __xmlRaiseError(NULL, NULL, NULL, ctxt, NULL,
                      XML_FROM_PARSER, error, XML_ERR_ERROR,
                      NULL, 0, (const char *) val, NULL, NULL, 0, 0, msg,
-@@ -830,14 +1017,44 @@ xmlNsErr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
+@@ -830,14 +1002,44 @@ xmlNsErr(xmlParserCtxtPtr ctxt, xmlParserErrors error,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -8227,7 +8231,7 @@ index 255bd254..fa6b6381 100644
  }
  
  /**
-@@ -1104,7 +1321,22 @@ xmlHasFeature(xmlFeature feature)
+@@ -1104,7 +1306,22 @@ xmlHasFeature(xmlFeature feature)
  static void
  xmlDetectSAX2(xmlParserCtxtPtr ctxt) {
      xmlSAXHandlerPtr sax;
@@ -8251,7 +8255,7 @@ index 255bd254..fa6b6381 100644
      sax = ctxt->sax;
  #ifdef LIBXML_SAX1_ENABLED
      if ((sax) &&  (sax->initialized == XML_SAX2_MAGIC) &&
-@@ -1196,11 +1428,41 @@ xmlAttrNormalizeSpace2(xmlParserCtxtPtr ctxt, xmlChar *src, int *len)
+@@ -1196,11 +1413,41 @@ xmlAttrNormalizeSpace2(xmlParserCtxtPtr ctxt, xmlChar *src, int *len)
      int need_realloc = 0;
      const xmlChar *cur;
  
@@ -8295,7 +8299,7 @@ index 255bd254..fa6b6381 100644
  
      cur = src;
      while (*cur == 0x20) {
-@@ -1221,10 +1483,25 @@ xmlAttrNormalizeSpace2(xmlParserCtxtPtr ctxt, xmlChar *src, int *len)
+@@ -1221,10 +1468,25 @@ xmlAttrNormalizeSpace2(xmlParserCtxtPtr ctxt, xmlChar *src, int *len)
          xmlChar *ret;
  
  	ret = xmlStrndup(src + remove_head, i - remove_head + 1);
@@ -8322,7 +8326,7 @@ index 255bd254..fa6b6381 100644
  	xmlAttrNormalizeSpace(ret, ret);
  	*len = (int) strlen((const char *)ret);
          return(ret);
-@@ -1265,8 +1542,23 @@ xmlAddDefAttrs(xmlParserCtxtPtr ctxt,
+@@ -1265,8 +1527,23 @@ xmlAddDefAttrs(xmlParserCtxtPtr ctxt,
  
      if (ctxt->attsDefault == NULL) {
          ctxt->attsDefault = xmlHashCreateDict(10, ctxt->dict);
@@ -8347,7 +8351,7 @@ index 255bd254..fa6b6381 100644
      }
  
      /*
-@@ -1289,8 +1581,23 @@ xmlAddDefAttrs(xmlParserCtxtPtr ctxt,
+@@ -1289,8 +1566,23 @@ xmlAddDefAttrs(xmlParserCtxtPtr ctxt,
      if (defaults == NULL) {
          defaults = (xmlDefAttrsPtr) xmlMalloc(sizeof(xmlDefAttrs) +
  	                   (4 * 5) * sizeof(const xmlChar *));
@@ -8372,7 +8376,7 @@ index 255bd254..fa6b6381 100644
  	defaults->nbAttrs = 0;
  	defaults->maxAttrs = 4;
  	if (xmlHashUpdateEntry2(ctxt->attsDefault, name, prefix,
-@@ -1303,8 +1610,23 @@ xmlAddDefAttrs(xmlParserCtxtPtr ctxt,
+@@ -1303,8 +1595,23 @@ xmlAddDefAttrs(xmlParserCtxtPtr ctxt,
  
          temp = (xmlDefAttrsPtr) xmlRealloc(defaults, sizeof(xmlDefAttrs) +
  		       (2 * defaults->maxAttrs * 5) * sizeof(const xmlChar *));
@@ -8397,7 +8401,7 @@ index 255bd254..fa6b6381 100644
  	defaults = temp;
  	defaults->maxAttrs *= 2;
  	if (xmlHashUpdateEntry2(ctxt->attsDefault, name, prefix,
-@@ -1364,8 +1686,23 @@ xmlAddSpecialAttr(xmlParserCtxtPtr ctxt,
+@@ -1364,8 +1671,23 @@ xmlAddSpecialAttr(xmlParserCtxtPtr ctxt,
  {
      if (ctxt->attsSpecial == NULL) {
          ctxt->attsSpecial = xmlHashCreateDict(10, ctxt->dict);
@@ -8422,7 +8426,7 @@ index 255bd254..fa6b6381 100644
      }
  
      if (xmlHashLookup2(ctxt->attsSpecial, fullname, fullattr) != NULL)
-@@ -1482,8 +1819,23 @@ xmlCheckLanguageID(const xmlChar * lang)
+@@ -1482,8 +1804,23 @@ xmlCheckLanguageID(const xmlChar * lang)
  {
      const xmlChar *cur = lang, *nxt;
  
@@ -8447,7 +8451,7 @@ index 255bd254..fa6b6381 100644
      if (((cur[0] == 'i') && (cur[1] == '-')) ||
          ((cur[0] == 'I') && (cur[1] == '-')) ||
          ((cur[0] == 'x') && (cur[1] == '-')) ||
-@@ -1654,21 +2006,51 @@ nsPush(xmlParserCtxtPtr ctxt, const xmlChar *prefix, const xmlChar *URL)
+@@ -1654,21 +1991,51 @@ nsPush(xmlParserCtxtPtr ctxt, const xmlChar *prefix, const xmlChar *URL)
  	ctxt->nsNr = 0;
  	ctxt->nsTab = (const xmlChar **)
  	              xmlMalloc(ctxt->nsMax * sizeof(xmlChar *));
@@ -8501,7 +8505,7 @@ index 255bd254..fa6b6381 100644
  	ctxt->nsTab = tmp;
      }
      ctxt->nsTab[ctxt->nsNr++] = prefix;
-@@ -1689,13 +2071,43 @@ nsPop(xmlParserCtxtPtr ctxt, int nr)
+@@ -1689,13 +2056,43 @@ nsPop(xmlParserCtxtPtr ctxt, int nr)
  {
      int i;
  
@@ -8547,7 +8551,7 @@ index 255bd254..fa6b6381 100644
  
      for (i = 0;i < nr;i++) {
           ctxt->nsNr--;
-@@ -1715,21 +2127,81 @@ xmlCtxtGrowAttrs(xmlParserCtxtPtr ctxt, int nr) {
+@@ -1715,21 +2112,81 @@ xmlCtxtGrowAttrs(xmlParserCtxtPtr ctxt, int nr) {
  	maxatts = 55; /* allow for 10 attrs by default */
  	atts = (const xmlChar **)
  	       xmlMalloc(maxatts * sizeof(xmlChar *));
@@ -8633,7 +8637,7 @@ index 255bd254..fa6b6381 100644
  	ctxt->attallocs = attallocs;
  	ctxt->maxatts = maxatts;
      }
-@@ -1784,8 +2256,23 @@ inputPop(xmlParserCtxtPtr ctxt)
+@@ -1784,8 +2241,23 @@ inputPop(xmlParserCtxtPtr ctxt)
  {
      xmlParserInputPtr ret;
  
@@ -8658,7 +8662,7 @@ index 255bd254..fa6b6381 100644
      if (ctxt->inputNr <= 0)
          return (NULL);
      ctxt->inputNr--;
-@@ -1809,17 +2296,47 @@ inputPop(xmlParserCtxtPtr ctxt)
+@@ -1809,17 +2281,47 @@ inputPop(xmlParserCtxtPtr ctxt)
  int
  nodePush(xmlParserCtxtPtr ctxt, xmlNodePtr value)
  {
@@ -8708,7 +8712,7 @@ index 255bd254..fa6b6381 100644
          ctxt->nodeTab = tmp;
  	ctxt->nodeMax *= 2;
      }
-@@ -1849,7 +2366,22 @@ nodePop(xmlParserCtxtPtr ctxt)
+@@ -1849,7 +2351,22 @@ nodePop(xmlParserCtxtPtr ctxt)
  {
      xmlNodePtr ret;
  
@@ -8732,7 +8736,7 @@ index 255bd254..fa6b6381 100644
      if (ctxt->nodeNr <= 0)
          return (NULL);
      ctxt->nodeNr--;
-@@ -1888,24 +2420,69 @@ nameNsPush(xmlParserCtxtPtr ctxt, const xmlChar * value,
+@@ -1888,24 +2405,69 @@ nameNsPush(xmlParserCtxtPtr ctxt, const xmlChar * value,
          tmp = (const xmlChar * *) xmlRealloc((xmlChar * *)ctxt->nameTab,
                                      ctxt->nameMax *
                                      sizeof(ctxt->nameTab[0]));
@@ -8805,7 +8809,7 @@ index 255bd254..fa6b6381 100644
      }
      ctxt->nameTab[ctxt->nameNr] = value;
      ctxt->name = value;
-@@ -1991,8 +2568,23 @@ namePop(xmlParserCtxtPtr ctxt)
+@@ -1991,8 +2553,23 @@ namePop(xmlParserCtxtPtr ctxt)
  {
      const xmlChar *ret;
  
@@ -8830,7 +8834,7 @@ index 255bd254..fa6b6381 100644
      ctxt->nameNr--;
      if (ctxt->nameNr > 0)
          ctxt->name = ctxt->nameTab[ctxt->nameNr - 1];
-@@ -2010,11 +2602,26 @@ static int spacePush(xmlParserCtxtPtr ctxt, int val) {
+@@ -2010,11 +2587,26 @@ static int spacePush(xmlParserCtxtPtr ctxt, int val) {
  	ctxt->spaceMax *= 2;
          tmp = (int *) xmlRealloc(ctxt->spaceTab,
  	                         ctxt->spaceMax * sizeof(ctxt->spaceTab[0]));
@@ -8858,7 +8862,7 @@ index 255bd254..fa6b6381 100644
  	ctxt->spaceTab = tmp;
      }
      ctxt->spaceTab[ctxt->spaceNr] = val;
-@@ -2024,7 +2631,22 @@ static int spacePush(xmlParserCtxtPtr ctxt, int val) {
+@@ -2024,7 +2616,22 @@ static int spacePush(xmlParserCtxtPtr ctxt, int val) {
  
  static int spacePop(xmlParserCtxtPtr ctxt) {
      int ret;
@@ -8882,7 +8886,7 @@ index 255bd254..fa6b6381 100644
      ctxt->spaceNr--;
      if (ctxt->spaceNr > 0)
  	ctxt->space = &ctxt->spaceTab[ctxt->spaceNr - 1];
-@@ -2266,7 +2888,22 @@ xmlSkipBlankChars(xmlParserCtxtPtr ctxt) {
+@@ -2266,7 +2873,22 @@ xmlSkipBlankChars(xmlParserCtxtPtr ctxt) {
   */
  xmlChar
  xmlPopInput(xmlParserCtxtPtr ctxt) {
@@ -8906,31 +8910,7 @@ index 255bd254..fa6b6381 100644
      if (xmlParserDebugEntities)
  	xmlGenericError(xmlGenericErrorContext,
  		"Popping input %d\n", ctxt->inputNr);
-@@ -2292,7 +2929,22 @@ xmlPopInput(xmlParserCtxtPtr ctxt) {
- int
- xmlPushInput(xmlParserCtxtPtr ctxt, xmlParserInputPtr input) {
-     int ret;
--    if (input == NULL) return(-1);
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[3370]) {
-+      if ((input == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 3370\n");
-+      else
-+        fprintf(stderr, "reached bug index 3370\n");
-+    }
-+    if ((!FIXREVERTER[3370] && (input == (void *) 0 ))
-+    #else
-+    if (0
-+    #endif
-+    ) return(-1);
-+    #ifdef FRCOV
-+    }
-+    #endif
- 
-     if (xmlParserDebugEntities) {
- 	if ((ctxt->input != NULL) && (ctxt->input->filename))
-@@ -2361,8 +3013,23 @@ xmlParseCharRef(xmlParserCtxtPtr ctxt) {
+@@ -2361,8 +2983,23 @@ xmlParseCharRef(xmlParserCtxtPtr ctxt) {
  		val = 0;
  		break;
  	    }
@@ -8955,7 +8935,7 @@ index 255bd254..fa6b6381 100644
  
  	    NEXT;
  	    count++;
-@@ -2389,8 +3056,23 @@ xmlParseCharRef(xmlParserCtxtPtr ctxt) {
+@@ -2389,8 +3026,23 @@ xmlParseCharRef(xmlParserCtxtPtr ctxt) {
  		val = 0;
  		break;
  	    }
@@ -8980,7 +8960,7 @@ index 255bd254..fa6b6381 100644
  
  	    NEXT;
  	    count++;
-@@ -2465,8 +3147,23 @@ xmlParseStringCharRef(xmlParserCtxtPtr ctxt, const xmlChar **str) {
+@@ -2465,8 +3117,23 @@ xmlParseStringCharRef(xmlParserCtxtPtr ctxt, const xmlChar **str) {
  		val = 0;
  		break;
  	    }
@@ -9005,7 +8985,7 @@ index 255bd254..fa6b6381 100644
  
  	    ptr++;
  	    cur = *ptr;
-@@ -2484,8 +3181,23 @@ xmlParseStringCharRef(xmlParserCtxtPtr ctxt, const xmlChar **str) {
+@@ -2484,8 +3151,23 @@ xmlParseStringCharRef(xmlParserCtxtPtr ctxt, const xmlChar **str) {
  		val = 0;
  		break;
  	    }
@@ -9030,7 +9010,7 @@ index 255bd254..fa6b6381 100644
  
  	    ptr++;
  	    cur = *ptr;
-@@ -2655,8 +3367,23 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
+@@ -2655,8 +3337,23 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
      xmlEntityPtr ent;
      int c,l;
  
@@ -9055,7 +9035,7 @@ index 255bd254..fa6b6381 100644
      last = str + len;
  
      if (((ctxt->depth > 40) &&
-@@ -2671,7 +3398,22 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
+@@ -2671,7 +3368,22 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
       */
      buffer_size = XML_PARSER_BIG_BUFFER_SIZE;
      buffer = (xmlChar *) xmlMallocAtomic(buffer_size);
@@ -9079,7 +9059,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * OK loop until we reach one of the ending char or a size limit.
-@@ -2685,11 +3427,41 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
+@@ -2685,11 +3397,41 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
             (c != end2) && (c != end3) &&
             (ctxt->instate != XML_PARSER_EOF)) {
  
@@ -9123,7 +9103,7 @@ index 255bd254..fa6b6381 100644
  	    COPY_BUF(0,buffer,nbchars,val);
  	    if (nbchars + XML_PARSER_BUFFER_SIZE > buffer_size) {
  	        growBuffer(buffer, XML_PARSER_BUFFER_SIZE);
-@@ -2778,11 +3550,26 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
+@@ -2778,11 +3520,26 @@ xmlStringLenDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int len,
  		rep = xmlStringDecodeEntities(ctxt, ent->content, what,
  			                      0, 0, 0);
  		ctxt->depth--;
@@ -9151,7 +9131,7 @@ index 255bd254..fa6b6381 100644
                  current = rep;
                  while (*current != 0) { /* non input consuming loop */
                      buffer[nbchars++] = *current++;
-@@ -2841,7 +3628,22 @@ int_error:
+@@ -2841,7 +3598,22 @@ int_error:
  xmlChar *
  xmlStringDecodeEntities(xmlParserCtxtPtr ctxt, const xmlChar *str, int what,
  		        xmlChar end, xmlChar  end2, xmlChar end3) {
@@ -9175,7 +9155,7 @@ index 255bd254..fa6b6381 100644
      return(xmlStringLenDecodeEntities(ctxt, str, xmlStrlen(str), what,
             end, end2, end3));
  }
-@@ -2955,7 +3757,22 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
+@@ -2955,7 +3727,22 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
      const xmlChar *cur = name;
      int c;
  
@@ -9199,7 +9179,7 @@ index 255bd254..fa6b6381 100644
      *prefix = NULL;
  
      if (cur == NULL) return(NULL);
-@@ -2984,10 +3801,25 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
+@@ -2984,10 +3771,25 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
  	max = len * 2;
  
  	buffer = (xmlChar *) xmlMallocAtomic(max * sizeof(xmlChar));
@@ -9226,7 +9206,7 @@ index 255bd254..fa6b6381 100644
  	memcpy(buffer, buf, len);
  	while ((c != 0) && (c != ':')) { /* tested bigname.xml */
  	    if (len + 10 > max) {
-@@ -2996,11 +3828,26 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
+@@ -2996,11 +3798,26 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
  		max *= 2;
  		tmp = (xmlChar *) xmlRealloc(buffer,
  						max * sizeof(xmlChar));
@@ -9254,7 +9234,7 @@ index 255bd254..fa6b6381 100644
  		buffer = tmp;
  	    }
  	    buffer[len++] = c;
-@@ -3028,9 +3875,24 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
+@@ -3028,9 +3845,24 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
      if (c == ':') {
  	c = *cur;
          *prefix = ret;
@@ -9280,7 +9260,7 @@ index 255bd254..fa6b6381 100644
  	len = 0;
  
  	/*
-@@ -3063,10 +3925,25 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
+@@ -3063,10 +3895,25 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
  	    max = len * 2;
  
  	    buffer = (xmlChar *) xmlMallocAtomic(max * sizeof(xmlChar));
@@ -9307,7 +9287,7 @@ index 255bd254..fa6b6381 100644
  	    memcpy(buffer, buf, len);
  	    while (c != 0) { /* tested bigname2.xml */
  		if (len + 10 > max) {
-@@ -3075,11 +3952,26 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
+@@ -3075,11 +3922,26 @@ xmlSplitQName(xmlParserCtxtPtr ctxt, const xmlChar *name, xmlChar **prefix) {
  		    max *= 2;
  		    tmp = (xmlChar *) xmlRealloc(buffer,
  						    max * sizeof(xmlChar));
@@ -9335,7 +9315,7 @@ index 255bd254..fa6b6381 100644
  		    buffer = tmp;
  		}
  		buffer[len++] = c;
-@@ -3485,8 +4377,23 @@ xmlParseNCName(xmlParserCtxtPtr ctxt) {
+@@ -3485,8 +4347,23 @@ xmlParseNCName(xmlParserCtxtPtr ctxt) {
  	        (*in == '_') || (*in == '-') ||
  	        (*in == '.')) && (in < e))
  	    in++;
@@ -9360,7 +9340,7 @@ index 255bd254..fa6b6381 100644
  	if ((*in > 0) && (*in < 0x80)) {
  	    count = in - ctxt->input->cur;
              if ((count > XML_MAX_NAME_LENGTH) &&
-@@ -3598,10 +4505,25 @@ xmlParseStringName(xmlParserCtxtPtr ctxt, const xmlChar** str) {
+@@ -3598,10 +4475,25 @@ xmlParseStringName(xmlParserCtxtPtr ctxt, const xmlChar** str) {
  	    int max = len * 2;
  
  	    buffer = (xmlChar *) xmlMallocAtomic(max * sizeof(xmlChar));
@@ -9387,7 +9367,7 @@ index 255bd254..fa6b6381 100644
  	    memcpy(buffer, buf, len);
  	    while (xmlIsNameChar(ctxt, c)) {
  		if (len + 10 > max) {
-@@ -3616,11 +4538,26 @@ xmlParseStringName(xmlParserCtxtPtr ctxt, const xmlChar** str) {
+@@ -3616,11 +4508,26 @@ xmlParseStringName(xmlParserCtxtPtr ctxt, const xmlChar** str) {
  		    max *= 2;
  		    tmp = (xmlChar *) xmlRealloc(buffer,
  			                            max * sizeof(xmlChar));
@@ -9415,7 +9395,7 @@ index 255bd254..fa6b6381 100644
  		    buffer = tmp;
  		}
  		COPY_BUF(l,buffer,len,c);
-@@ -3694,10 +4631,25 @@ xmlParseNmtoken(xmlParserCtxtPtr ctxt) {
+@@ -3694,10 +4601,25 @@ xmlParseNmtoken(xmlParserCtxtPtr ctxt) {
  	    int max = len * 2;
  
  	    buffer = (xmlChar *) xmlMallocAtomic(max * sizeof(xmlChar));
@@ -9442,7 +9422,7 @@ index 255bd254..fa6b6381 100644
  	    memcpy(buffer, buf, len);
  	    while (xmlIsNameChar(ctxt, c)) {
  		if (count++ > XML_PARSER_CHUNK_SIZE) {
-@@ -3720,11 +4672,26 @@ xmlParseNmtoken(xmlParserCtxtPtr ctxt) {
+@@ -3720,11 +4642,26 @@ xmlParseNmtoken(xmlParserCtxtPtr ctxt) {
  		    max *= 2;
  		    tmp = (xmlChar *) xmlRealloc(buffer,
  			                            max * sizeof(xmlChar));
@@ -9470,7 +9450,7 @@ index 255bd254..fa6b6381 100644
  		    buffer = tmp;
  		}
  		COPY_BUF(l,buffer,len,c);
-@@ -3735,8 +4702,23 @@ xmlParseNmtoken(xmlParserCtxtPtr ctxt) {
+@@ -3735,8 +4672,23 @@ xmlParseNmtoken(xmlParserCtxtPtr ctxt) {
  	    return(buffer);
  	}
      }
@@ -9495,7 +9475,7 @@ index 255bd254..fa6b6381 100644
      if ((len > XML_MAX_NAME_LENGTH) &&
          ((ctxt->options & XML_PARSE_HUGE) == 0)) {
          xmlFatalErr(ctxt, XML_ERR_NAME_TOO_LONG, "NmToken");
-@@ -3776,10 +4758,25 @@ xmlParseEntityValue(xmlParserCtxtPtr ctxt, xmlChar **orig) {
+@@ -3776,10 +4728,25 @@ xmlParseEntityValue(xmlParserCtxtPtr ctxt, xmlChar **orig) {
  	return(NULL);
      }
      buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -9522,7 +9502,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * The content of the entity definition is copied in a buffer.
-@@ -3808,10 +4805,25 @@ xmlParseEntityValue(xmlParserCtxtPtr ctxt, xmlChar **orig) {
+@@ -3808,10 +4775,25 @@ xmlParseEntityValue(xmlParserCtxtPtr ctxt, xmlChar **orig) {
  
  	    size *= 2;
  	    tmp = (xmlChar *) xmlRealloc(buf, size * sizeof(xmlChar));
@@ -9549,7 +9529,7 @@ index 255bd254..fa6b6381 100644
  	    buf = tmp;
  	}
  	COPY_BUF(l,buf,len,c);
-@@ -3932,7 +4944,22 @@ xmlParseAttValueComplex(xmlParserCtxtPtr ctxt, int *attlen, int normalize) {
+@@ -3932,7 +4914,22 @@ xmlParseAttValueComplex(xmlParserCtxtPtr ctxt, int *attlen, int normalize) {
       */
      buf_size = XML_PARSER_BUFFER_SIZE;
      buf = (xmlChar *) xmlMallocAtomic(buf_size);
@@ -9573,7 +9553,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * OK loop until we reach one of the ending char or a size limit.
-@@ -4051,8 +5078,23 @@ xmlParseAttValueComplex(xmlParserCtxtPtr ctxt, int *attlen, int normalize) {
+@@ -4051,8 +5048,23 @@ xmlParseAttValueComplex(xmlParserCtxtPtr ctxt, int *attlen, int normalize) {
  			--ctxt->depth;
  
                          diff = ctxt->nbentities - oldnbent + 1;
@@ -9598,7 +9578,7 @@ index 255bd254..fa6b6381 100644
                          ent->checked = diff * 2;
  			if (rep != NULL) {
  			    if (xmlStrchr(rep, '<'))
-@@ -4123,11 +5165,26 @@ xmlParseAttValueComplex(xmlParserCtxtPtr ctxt, int *attlen, int normalize) {
+@@ -4123,11 +5135,26 @@ xmlParseAttValueComplex(xmlParserCtxtPtr ctxt, int *attlen, int normalize) {
       * There we potentially risk an overflow, don't allow attribute value of
       * length more than INT_MAX it is a very reasonable assumption !
       */
@@ -9626,7 +9606,7 @@ index 255bd254..fa6b6381 100644
  
      if (attlen != NULL) *attlen = (int) len;
      return(buf);
-@@ -4178,7 +5235,22 @@ error:
+@@ -4178,7 +5205,22 @@ error:
  
  xmlChar *
  xmlParseAttValue(xmlParserCtxtPtr ctxt) {
@@ -9650,7 +9630,7 @@ index 255bd254..fa6b6381 100644
      return(xmlParseAttValueInternal(ctxt, NULL, NULL, 0));
  }
  
-@@ -4216,10 +5288,25 @@ xmlParseSystemLiteral(xmlParserCtxtPtr ctxt) {
+@@ -4216,10 +5258,25 @@ xmlParseSystemLiteral(xmlParserCtxtPtr ctxt) {
      }
  
      buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -9677,7 +9657,7 @@ index 255bd254..fa6b6381 100644
      ctxt->instate = XML_PARSER_SYSTEM_LITERAL;
      cur = CUR_CHAR(l);
      while ((IS_CHAR(cur)) && (cur != stop)) { /* checked */
-@@ -4305,10 +5392,25 @@ xmlParsePubidLiteral(xmlParserCtxtPtr ctxt) {
+@@ -4305,10 +5362,25 @@ xmlParsePubidLiteral(xmlParserCtxtPtr ctxt) {
  	return(NULL);
      }
      buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -9704,7 +9684,7 @@ index 255bd254..fa6b6381 100644
      ctxt->instate = XML_PARSER_PUBLIC_LITERAL;
      cur = CUR;
      while ((IS_PUBIDCHAR_CH(cur)) && (cur != stop)) { /* checked */
-@@ -4323,11 +5425,26 @@ xmlParsePubidLiteral(xmlParserCtxtPtr ctxt) {
+@@ -4323,11 +5395,26 @@ xmlParsePubidLiteral(xmlParserCtxtPtr ctxt) {
              }
  	    size *= 2;
  	    tmp = (xmlChar *) xmlRealloc(buf, size * sizeof(xmlChar));
@@ -9732,7 +9712,7 @@ index 255bd254..fa6b6381 100644
  	    buf = tmp;
  	}
  	buf[len++] = cur;
-@@ -4754,15 +5871,45 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
+@@ -4754,15 +5841,45 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
          len = 0;
  	size = XML_PARSER_BUFFER_SIZE;
  	buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -9780,7 +9760,7 @@ index 255bd254..fa6b6381 100644
      if (!IS_CHAR(q)) {
          xmlFatalErrMsgInt(ctxt, XML_ERR_INVALID_CHAR,
                            "xmlParseComment: invalid xmlChar value %d\n",
-@@ -4772,8 +5919,23 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
+@@ -4772,8 +5889,23 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
      }
      NEXTL(ql);
      r = CUR_CHAR(rl);
@@ -9805,7 +9785,7 @@ index 255bd254..fa6b6381 100644
      if (!IS_CHAR(r)) {
          xmlFatalErrMsgInt(ctxt, XML_ERR_INVALID_CHAR,
                            "xmlParseComment: invalid xmlChar value %d\n",
-@@ -4783,8 +5945,23 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
+@@ -4783,8 +5915,23 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
      }
      NEXTL(rl);
      cur = CUR_CHAR(l);
@@ -9830,7 +9810,7 @@ index 255bd254..fa6b6381 100644
      while (IS_CHAR(cur) && /* checked */
             ((cur != '>') ||
  	    (r != '-') || (q != '-'))) {
-@@ -4804,11 +5981,26 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
+@@ -4804,11 +5951,26 @@ xmlParseCommentComplex(xmlParserCtxtPtr ctxt, xmlChar *buf,
  
  	    new_size = size * 2;
  	    new_buf = (xmlChar *) xmlRealloc(buf, new_size);
@@ -9858,7 +9838,7 @@ index 255bd254..fa6b6381 100644
  	    buf = new_buf;
              size = new_size;
  	}
-@@ -4938,11 +6130,26 @@ get_more:
+@@ -4938,11 +6100,26 @@ get_more:
  		    else
  		        size = XML_PARSER_BUFFER_SIZE + nbchar;
  		    buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -9886,7 +9866,7 @@ index 255bd254..fa6b6381 100644
  		    len = 0;
  		} else if (len + nbchar + 1 >= size) {
  		    xmlChar *new_buf;
-@@ -5204,11 +6411,26 @@ xmlParsePI(xmlParserCtxtPtr ctxt) {
+@@ -5204,11 +6381,26 @@ xmlParsePI(xmlParserCtxtPtr ctxt) {
  		return;
  	    }
  	    buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -9914,7 +9894,7 @@ index 255bd254..fa6b6381 100644
  	    if (SKIP_BLANKS == 0) {
  		xmlFatalErrMsgStr(ctxt, XML_ERR_SPACE_REQUIRED,
  			  "ParsePI: PI %s space expected\n", target);
-@@ -5338,10 +6560,25 @@ xmlParseNotationDecl(xmlParserCtxtPtr ctxt) {
+@@ -5338,10 +6530,25 @@ xmlParseNotationDecl(xmlParserCtxtPtr ctxt) {
  	}
  
          name = xmlParseName(ctxt);
@@ -9941,7 +9921,7 @@ index 255bd254..fa6b6381 100644
  	if (xmlStrchr(name, ':') != NULL) {
  	    xmlNsErr(ctxt, XML_NS_ERR_COLON,
  		     "colons are forbidden from notation names '%s'\n",
-@@ -5508,10 +6745,25 @@ xmlParseEntityDecl(xmlParserCtxtPtr ctxt) {
+@@ -5508,10 +6715,25 @@ xmlParseEntityDecl(xmlParserCtxtPtr ctxt) {
  		    (xmlStrEqual(ctxt->myDoc->version, SAX_COMPAT_MODE))) {
  		    if (ctxt->myDoc == NULL) {
  			ctxt->myDoc = xmlNewDoc(SAX_COMPAT_MODE);
@@ -9968,7 +9948,7 @@ index 255bd254..fa6b6381 100644
  			ctxt->myDoc->properties = XML_DOC_INTERNAL;
  		    }
  		    if (ctxt->myDoc->intSubset == NULL)
-@@ -5579,10 +6831,25 @@ xmlParseEntityDecl(xmlParserCtxtPtr ctxt) {
+@@ -5579,10 +6801,25 @@ xmlParseEntityDecl(xmlParserCtxtPtr ctxt) {
  			(xmlStrEqual(ctxt->myDoc->version, SAX_COMPAT_MODE)))) {
  			if (ctxt->myDoc == NULL) {
  			    ctxt->myDoc = xmlNewDoc(SAX_COMPAT_MODE);
@@ -9995,7 +9975,7 @@ index 255bd254..fa6b6381 100644
  			    ctxt->myDoc->properties = XML_DOC_INTERNAL;
  			}
  
-@@ -5736,12 +7003,27 @@ xmlParseNotationType(xmlParserCtxtPtr ctxt) {
+@@ -5736,12 +6973,27 @@ xmlParseNotationType(xmlParserCtxtPtr ctxt) {
          NEXT;
  	SKIP_BLANKS;
          name = xmlParseName(ctxt);
@@ -10024,7 +10004,7 @@ index 255bd254..fa6b6381 100644
  	tmp = ret;
  	while (tmp != NULL) {
  	    if (xmlStrEqual(name, tmp->name)) {
-@@ -5756,10 +7038,25 @@ xmlParseNotationType(xmlParserCtxtPtr ctxt) {
+@@ -5756,10 +7008,25 @@ xmlParseNotationType(xmlParserCtxtPtr ctxt) {
  	}
  	if (tmp == NULL) {
  	    cur = xmlCreateEnumeration(name);
@@ -10051,7 +10031,7 @@ index 255bd254..fa6b6381 100644
  	    if (last == NULL) ret = last = cur;
  	    else {
  		last->next = cur;
-@@ -5806,10 +7103,25 @@ xmlParseEnumerationType(xmlParserCtxtPtr ctxt) {
+@@ -5806,10 +7073,25 @@ xmlParseEnumerationType(xmlParserCtxtPtr ctxt) {
          NEXT;
  	SKIP_BLANKS;
          name = xmlParseNmtoken(ctxt);
@@ -10078,7 +10058,7 @@ index 255bd254..fa6b6381 100644
  	tmp = ret;
  	while (tmp != NULL) {
  	    if (xmlStrEqual(name, tmp->name)) {
-@@ -5826,10 +7138,25 @@ xmlParseEnumerationType(xmlParserCtxtPtr ctxt) {
+@@ -5826,10 +7108,25 @@ xmlParseEnumerationType(xmlParserCtxtPtr ctxt) {
  	    cur = xmlCreateEnumeration(name);
  	    if (!xmlDictOwns(ctxt->dict, name))
  		xmlFree(name);
@@ -10105,7 +10085,7 @@ index 255bd254..fa6b6381 100644
  	    if (last == NULL) ret = last = cur;
  	    else {
  		last->next = cur;
-@@ -5981,11 +7308,26 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
+@@ -5981,11 +7278,26 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
  		                 "Space required after '<!ATTLIST'\n");
  	}
          elemName = xmlParseName(ctxt);
@@ -10133,7 +10113,7 @@ index 255bd254..fa6b6381 100644
  	SKIP_BLANKS;
  	GROW;
  	while ((RAW != '>') && (ctxt->instate != XML_PARSER_EOF)) {
-@@ -5996,11 +7338,26 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
+@@ -5996,11 +7308,26 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
  	    GROW;
              tree = NULL;
  	    attrName = xmlParseName(ctxt);
@@ -10161,7 +10141,7 @@ index 255bd254..fa6b6381 100644
  	    GROW;
  	    if (SKIP_BLANKS == 0) {
  		xmlFatalErrMsg(ctxt, XML_ERR_SPACE_REQUIRED,
-@@ -6009,9 +7366,24 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
+@@ -6009,9 +7336,24 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
  	    }
  
  	    type = xmlParseAttributeType(ctxt, &tree);
@@ -10187,7 +10167,7 @@ index 255bd254..fa6b6381 100644
  
  	    GROW;
  	    if (SKIP_BLANKS == 0) {
-@@ -6023,13 +7395,28 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
+@@ -6023,13 +7365,28 @@ xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt) {
  	    }
  
  	    def = xmlParseDefaultDecl(ctxt, &defaultValue);
@@ -10217,7 +10197,7 @@ index 255bd254..fa6b6381 100644
  	    if ((type != XML_ATTRIBUTE_CDATA) && (defaultValue != NULL))
  	        xmlAttrNormalizeSpace(defaultValue, defaultValue);
  
-@@ -6112,8 +7499,23 @@ xmlParseElementMixedContentDecl(xmlParserCtxtPtr ctxt, int inputchk) {
+@@ -6112,8 +7469,23 @@ xmlParseElementMixedContentDecl(xmlParserCtxtPtr ctxt, int inputchk) {
  	    }
  	    NEXT;
  	    ret = xmlNewDocElementContent(ctxt->myDoc, NULL, XML_ELEMENT_CONTENT_PCDATA);
@@ -10242,7 +10222,7 @@ index 255bd254..fa6b6381 100644
  	    if (RAW == '*') {
  		ret->ocur = XML_ELEMENT_CONTENT_MULT;
  		NEXT;
-@@ -6122,42 +7524,132 @@ xmlParseElementMixedContentDecl(xmlParserCtxtPtr ctxt, int inputchk) {
+@@ -6122,26 +7494,71 @@ xmlParseElementMixedContentDecl(xmlParserCtxtPtr ctxt, int inputchk) {
  	}
  	if ((RAW == '(') || (RAW == '|')) {
  	    ret = cur = xmlNewDocElementContent(ctxt->myDoc, NULL, XML_ELEMENT_CONTENT_PCDATA);
@@ -10289,24 +10269,8 @@ index 255bd254..fa6b6381 100644
 +                }
 +                #endif
  		ret->c1 = cur;
--		if (cur != NULL)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[3431]) {
-+		  if ((cur != (void *) 0  ) && !(0))
-+		    fprintf(stderr, "triggered bug index 3431\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 3431\n");
-+		}
-+		if ((!FIXREVERTER[3431] && (cur != (void *) 0  ))
-+		#else
-+		if (0
-+		#endif
-+		)
+ 		if (cur != NULL)
  		    cur->parent = ret;
-+		    #ifdef FRCOV
-+		    }
-+		    #endif
  		cur = ret;
  	    } else {
  	        n = xmlNewDocElementContent(ctxt->myDoc, NULL, XML_ELEMENT_CONTENT_OR);
@@ -10333,26 +10297,7 @@ index 255bd254..fa6b6381 100644
  		n->c1 = xmlNewDocElementContent(ctxt->myDoc, elem, XML_ELEMENT_CONTENT_ELEMENT);
  		if (n->c1 != NULL)
  		    n->c1->parent = n;
- 	        cur->c2 = n;
--		if (n != NULL)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[3433]) {
-+		  if ((n != (void *) 0  ) && !(0))
-+		    fprintf(stderr, "triggered bug index 3433\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 3433\n");
-+		}
-+		if ((!FIXREVERTER[3433] && (n != (void *) 0  ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 		    n->parent = cur;
-+		    #ifdef FRCOV
-+		    }
-+		    #endif
- 		cur = n;
+@@ -6152,12 +7569,27 @@ xmlParseElementMixedContentDecl(xmlParserCtxtPtr ctxt, int inputchk) {
  	    }
  	    SKIP_BLANKS;
  	    elem = xmlParseName(ctxt);
@@ -10381,7 +10326,7 @@ index 255bd254..fa6b6381 100644
  	    SKIP_BLANKS;
  	    GROW;
  	}
-@@ -6244,21 +7736,66 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
+@@ -6244,21 +7676,66 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
  	SKIP_BLANKS;
          cur = ret = xmlParseElementChildrenContentDeclPriv(ctxt, inputid,
                                                             depth + 1);
@@ -10451,7 +10396,7 @@ index 255bd254..fa6b6381 100644
  	GROW;
  	if (RAW == '?') {
  	    cur->ocur = XML_ELEMENT_CONTENT_OPT;
-@@ -6299,21 +7836,66 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
+@@ -6299,12 +7776,27 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
  	    NEXT;
  
  	    op = xmlNewDocElementContent(ctxt->myDoc, NULL, XML_ELEMENT_CONTENT_SEQ);
@@ -10479,49 +10424,8 @@ index 255bd254..fa6b6381 100644
 +	    #endif
  	    if (last == NULL) {
  		op->c1 = ret;
--		if (ret != NULL)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[3439]) {
-+		  if ((ret != (void *) 0  ) && !(0))
-+		    fprintf(stderr, "triggered bug index 3439\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 3439\n");
-+		}
-+		if ((!FIXREVERTER[3439] && (ret != (void *) 0  ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 		    ret->parent = op;
-+		    #ifdef FRCOV
-+		    }
-+		    #endif
- 		ret = cur = op;
- 	    } else {
- 	        cur->c2 = op;
--		if (op != NULL)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[3440]) {
-+		  if ((op != (void *) 0  ) && !(0))
-+		    fprintf(stderr, "triggered bug index 3440\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 3440\n");
-+		}
-+		if ((!FIXREVERTER[3440] && (op != (void *) 0  ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 		    op->parent = cur;
-+		    #ifdef FRCOV
-+		    }
-+		    #endif
- 		op->c1 = last;
- 		if (last != NULL)
- 		    last->parent = op;
-@@ -6339,13 +7921,28 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
+ 		if (ret != NULL)
+@@ -6339,13 +7831,28 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
  	    NEXT;
  
  	    op = xmlNewDocElementContent(ctxt->myDoc, NULL, XML_ELEMENT_CONTENT_OR);
@@ -10551,51 +10455,7 @@ index 255bd254..fa6b6381 100644
  	    if (last == NULL) {
  		op->c1 = ret;
  		if (ret != NULL)
-@@ -6353,11 +7950,41 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
- 		ret = cur = op;
- 	    } else {
- 	        cur->c2 = op;
--		if (op != NULL)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[3444]) {
-+		  if ((op != (void *) 0  ) && !(0))
-+		    fprintf(stderr, "triggered bug index 3444\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 3444\n");
-+		}
-+		if ((!FIXREVERTER[3444] && (op != (void *) 0  ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 		    op->parent = cur;
-+		    #ifdef FRCOV
-+		    }
-+		    #endif
- 		op->c1 = last;
--		if (last != NULL)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[3445]) {
-+		  if ((last != (void *) 0  ) && !(0))
-+		    fprintf(stderr, "triggered bug index 3445\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 3445\n");
-+		}
-+		if ((!FIXREVERTER[3445] && (last != (void *) 0  ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 		    last->parent = op;
-+		    #ifdef FRCOV
-+		    }
-+		    #endif
- 		cur =op;
- 		last = NULL;
- 	    }
-@@ -6379,26 +8006,71 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
+@@ -6379,26 +7886,71 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
  	    SKIP_BLANKS;
  	    last = xmlParseElementChildrenContentDeclPriv(ctxt, inputid,
                                                            depth + 1);
@@ -10670,32 +10530,7 @@ index 255bd254..fa6b6381 100644
  	    if (RAW == '?') {
  		last->ocur = XML_ELEMENT_CONTENT_OPT;
  		NEXT;
-@@ -6417,8 +8089,23 @@ xmlParseElementChildrenContentDeclPriv(xmlParserCtxtPtr ctxt, int inputchk,
-     }
-     if ((cur != NULL) && (last != NULL)) {
-         cur->c2 = last;
--	if (last != NULL)
-+	
-+	#ifdef FRCOV
-+	{if (FIXREVERTER[3449]) {
-+	  if ((last != (void *) 0  ) && !(0))
-+	    fprintf(stderr, "triggered bug index 3449\n");
-+	  else
-+	    fprintf(stderr, "reached bug index 3449\n");
-+	}
-+	if ((!FIXREVERTER[3449] && (last != (void *) 0  ))
-+	#else
-+	if (0
-+	#endif
-+	)
- 	    last->parent = cur;
-+	    #ifdef FRCOV
-+	    }
-+	    #endif
-     }
-     if (ctxt->input->id != inputchk) {
- 	xmlFatalErrMsg(ctxt, XML_ERR_ENTITY_BOUNDARY,
-@@ -6605,11 +8292,26 @@ xmlParseElementDecl(xmlParserCtxtPtr ctxt) {
+@@ -6605,11 +8157,26 @@ xmlParseElementDecl(xmlParserCtxtPtr ctxt) {
  	    return(-1);
  	}
          name = xmlParseName(ctxt);
@@ -10723,7 +10558,7 @@ index 255bd254..fa6b6381 100644
  	if (SKIP_BLANKS == 0) {
  	    xmlFatalErrMsg(ctxt, XML_ERR_SPACE_REQUIRED,
  			   "Space required after the element name\n");
-@@ -6661,8 +8363,23 @@ xmlParseElementDecl(xmlParserCtxtPtr ctxt) {
+@@ -6661,8 +8228,23 @@ xmlParseElementDecl(xmlParserCtxtPtr ctxt) {
  	    NEXT;
  	    if ((ctxt->sax != NULL) && (!ctxt->disableSAX) &&
  		(ctxt->sax->elementDecl != NULL)) {
@@ -10748,7 +10583,7 @@ index 255bd254..fa6b6381 100644
  	        ctxt->sax->elementDecl(ctxt->userData, name, ret,
  		                       content);
  		if ((content != NULL) && (content->parent == NULL)) {
-@@ -6727,10 +8444,25 @@ xmlParseConditionalSections(xmlParserCtxtPtr ctxt) {
+@@ -6727,10 +8309,25 @@ xmlParseConditionalSections(xmlParserCtxtPtr ctxt) {
                      inputIdsSize = (inputIdsSize == 0 ? 4 : inputIdsSize * 2);
                      tmp = (int *) xmlRealloc(inputIds,
                              inputIdsSize * sizeof(int));
@@ -10775,7 +10610,7 @@ index 255bd254..fa6b6381 100644
                      inputIds = tmp;
                  }
                  inputIds[depth] = id;
-@@ -6760,7 +8492,22 @@ xmlParseConditionalSections(xmlParserCtxtPtr ctxt) {
+@@ -6760,7 +8357,22 @@ xmlParseConditionalSections(xmlParserCtxtPtr ctxt) {
                   */
                  state = ctxt->disableSAX;
                  instate = ctxt->instate;
@@ -10799,7 +10634,7 @@ index 255bd254..fa6b6381 100644
                  ctxt->instate = XML_PARSER_IGNORE;
  
                  while (RAW != 0) {
-@@ -6823,8 +8570,23 @@ xmlParseConditionalSections(xmlParserCtxtPtr ctxt) {
+@@ -6823,8 +8435,23 @@ xmlParseConditionalSections(xmlParserCtxtPtr ctxt) {
              }
          }
  
@@ -10824,7 +10659,7 @@ index 255bd254..fa6b6381 100644
  
          SKIP_BLANKS;
          GROW;
-@@ -6948,13 +8710,28 @@ xmlParseTextDecl(xmlParserCtxtPtr ctxt) {
+@@ -6948,13 +8575,28 @@ xmlParseTextDecl(xmlParserCtxtPtr ctxt) {
       * We must have the encoding declaration
       */
      encoding = xmlParseEncodingDecl(ctxt);
@@ -10854,7 +10689,7 @@ index 255bd254..fa6b6381 100644
      if ((encoding == NULL) && (ctxt->errNo == XML_ERR_OK)) {
  	xmlFatalErrMsg(ctxt, XML_ERR_MISSING_ENCODING,
  		       "Missing encoding in text declaration\n");
-@@ -7010,20 +8787,50 @@ xmlParseExternalSubset(xmlParserCtxtPtr ctxt, const xmlChar *ExternalID,
+@@ -7010,20 +8652,50 @@ xmlParseExternalSubset(xmlParserCtxtPtr ctxt, const xmlChar *ExternalID,
  
      if (CMP5(CUR_PTR, '<', '?', 'x', 'm', 'l')) {
  	xmlParseTextDecl(ctxt);
@@ -10907,7 +10742,7 @@ index 255bd254..fa6b6381 100644
  	ctxt->myDoc->properties = XML_DOC_INTERNAL;
      }
      if ((ctxt->myDoc != NULL) && (ctxt->myDoc->intSubset == NULL))
-@@ -7089,8 +8896,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7089,8 +8761,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
  	int hex = NXT(2);
  	int value = xmlParseCharRef(ctxt);
  
@@ -10932,7 +10767,7 @@ index 255bd254..fa6b6381 100644
  	if (ctxt->charset != XML_CHAR_ENCODING_UTF8) {
  	    /*
  	     * So we are using non-UTF-8 buffers
-@@ -7138,7 +8960,22 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7138,7 +8825,22 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
      if ((ent->name == NULL) ||
          (ent->etype == XML_INTERNAL_PREDEFINED_ENTITY)) {
  	val = ent->content;
@@ -10956,7 +10791,7 @@ index 255bd254..fa6b6381 100644
  	/*
  	 * inline the entity.
  	 */
-@@ -7204,8 +9041,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7204,8 +8906,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
  	 * content and do checkings
  	 */
          diff = ctxt->nbentities - oldnbent + 1;
@@ -10981,7 +10816,7 @@ index 255bd254..fa6b6381 100644
          ent->checked = diff * 2;
  	if ((ent->content != NULL) && (xmlStrchr(ent->content, '<')))
  	    ent->checked |= 1;
-@@ -7237,8 +9089,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7237,8 +8954,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
                      while (list != NULL) {
                          list->parent = (xmlNodePtr) ent;
                          xmlSetTreeDoc(list, ent->doc);
@@ -11006,7 +10841,7 @@ index 255bd254..fa6b6381 100644
                          list = list->next;
                      }
                      list = NULL;
-@@ -7247,8 +9114,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7247,8 +8979,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
                      while (list != NULL) {
                          list->parent = (xmlNodePtr) ctxt->node;
                          list->doc = ctxt->myDoc;
@@ -11031,7 +10866,7 @@ index 255bd254..fa6b6381 100644
                          list = list->next;
                      }
                      list = ent->children;
-@@ -7272,8 +9154,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7272,8 +9019,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
  	    xmlFreeNodeList(list);
  	    list = NULL;
  	}
@@ -11056,7 +10891,7 @@ index 255bd254..fa6b6381 100644
  
          /* Prevent entity from being parsed and expanded twice (Bug 760367). */
          was_checked = 0;
-@@ -7286,7 +9183,19 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7286,7 +9048,19 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
       * provide it to the application, this can take different forms based
       * on the parsing modes.
       */
@@ -11077,7 +10912,7 @@ index 255bd254..fa6b6381 100644
  	/*
  	 * Probably running in SAX mode and the callbacks don't
  	 * build the entity content. So unless we already went
-@@ -7337,6 +9246,9 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7337,6 +9111,9 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
  	}
  	return;
      }
@@ -11087,7 +10922,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * If we didn't get any children for the entity being built
-@@ -7392,8 +9304,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7392,8 +9169,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
  		while (cur != NULL) {
  		    nw = xmlDocCopyNode(cur, ctxt->myDoc, 1);
  		    if (nw != NULL) {
@@ -11112,7 +10947,7 @@ index 255bd254..fa6b6381 100644
  			if (firstChild == NULL){
  			    firstChild = nw;
  			}
-@@ -7445,8 +9372,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
+@@ -7445,8 +9237,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
  		    cur->parent = NULL;
  		    nw = xmlDocCopyNode(cur, ctxt->myDoc, 1);
  		    if (nw != NULL) {
@@ -11137,32 +10972,7 @@ index 255bd254..fa6b6381 100644
  			if (firstChild == NULL){
  			    firstChild = cur;
  			}
-@@ -7457,8 +9399,23 @@ xmlParseReference(xmlParserCtxtPtr ctxt) {
- 			break;
- 		    cur = next;
- 		}
--		if (ent->owner == 0)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[3471]) {
-+		  if ((ent -> owner == 0  ) && !(0))
-+		    fprintf(stderr, "triggered bug index 3471\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 3471\n");
-+		}
-+		if ((!FIXREVERTER[3471] && (ent -> owner == 0  ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 		    ent->owner = 1;
-+		    #ifdef FRCOV
-+		    }
-+		    #endif
- #ifdef LIBXML_LEGACY_ENABLED
- 		if (ent->etype == XML_EXTERNAL_GENERAL_PARSED_ENTITY)
- 		  xmlAddEntityReference(ent, firstChild, nw);
-@@ -7533,11 +9490,26 @@ xmlParseEntityRef(xmlParserCtxtPtr ctxt) {
+@@ -7533,11 +9340,26 @@ xmlParseEntityRef(xmlParserCtxtPtr ctxt) {
          return(NULL);
      NEXT;
      name = xmlParseName(ctxt);
@@ -11190,7 +11000,7 @@ index 255bd254..fa6b6381 100644
      if (RAW != ';') {
  	xmlFatalErr(ctxt, XML_ERR_ENTITYREF_SEMICOL_MISSING, NULL);
  	return(NULL);
-@@ -7723,12 +9695,27 @@ xmlParseStringEntityRef(xmlParserCtxtPtr ctxt, const xmlChar ** str) {
+@@ -7723,12 +9545,27 @@ xmlParseStringEntityRef(xmlParserCtxtPtr ctxt, const xmlChar ** str) {
  
      ptr++;
      name = xmlParseStringName(ctxt, &ptr);
@@ -11219,7 +11029,7 @@ index 255bd254..fa6b6381 100644
      if (*ptr != ';') {
  	xmlFatalErr(ctxt, XML_ERR_ENTITYREF_SEMICOL_MISSING, NULL);
          xmlFree(name);
-@@ -7912,10 +9899,25 @@ xmlParsePEReference(xmlParserCtxtPtr ctxt)
+@@ -7912,10 +9749,25 @@ xmlParsePEReference(xmlParserCtxtPtr ctxt)
          return;
      NEXT;
      name = xmlParseName(ctxt);
@@ -11246,7 +11056,7 @@ index 255bd254..fa6b6381 100644
      if (xmlParserDebugEntities)
  	xmlGenericError(xmlGenericErrorContext,
  		"PEReference: %s\n", name);
-@@ -8070,19 +10072,49 @@ xmlLoadEntityContent(xmlParserCtxtPtr ctxt, xmlEntityPtr entity) {
+@@ -8070,19 +9922,49 @@ xmlLoadEntityContent(xmlParserCtxtPtr ctxt, xmlEntityPtr entity) {
  		"Reading %s entity content input\n", entity->name);
  
      buf = xmlBufferCreate();
@@ -11298,7 +11108,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * Push the entity as the current input, read char by char
-@@ -8180,12 +10212,27 @@ xmlParseStringPEReference(xmlParserCtxtPtr ctxt, const xmlChar **str) {
+@@ -8180,12 +10062,27 @@ xmlParseStringPEReference(xmlParserCtxtPtr ctxt, const xmlChar **str) {
          return(NULL);
      ptr++;
      name = xmlParseStringName(ctxt, &ptr);
@@ -11327,7 +11137,7 @@ index 255bd254..fa6b6381 100644
      cur = *ptr;
      if (cur != ';') {
  	xmlFatalErr(ctxt, XML_ERR_ENTITYREF_SEMICOL_MISSING, NULL);
-@@ -8440,11 +10487,26 @@ xmlParseAttribute(xmlParserCtxtPtr ctxt, xmlChar **value) {
+@@ -8440,11 +10337,26 @@ xmlParseAttribute(xmlParserCtxtPtr ctxt, xmlChar **value) {
      *value = NULL;
      GROW;
      name = xmlParseName(ctxt);
@@ -11355,7 +11165,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * read the value
-@@ -8556,7 +10618,22 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
+@@ -8556,7 +10468,22 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
  	unsigned int cons = ctxt->input->consumed;
  
  	attname = xmlParseAttribute(ctxt, &attvalue);
@@ -11379,7 +11189,7 @@ index 255bd254..fa6b6381 100644
  	    /*
  	     * [ WFC: Unique Att Spec ]
  	     * No attribute name may appear more than once in the same
-@@ -8576,12 +10653,27 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
+@@ -8576,12 +10503,27 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
  	        maxatts = 22; /* allow for 10 attrs by default */
  	        atts = (const xmlChar **)
  		       xmlMalloc(maxatts * sizeof(xmlChar *));
@@ -11408,7 +11218,7 @@ index 255bd254..fa6b6381 100644
  		ctxt->atts = atts;
  		ctxt->maxatts = maxatts;
  	    } else if (nbatts + 4 > maxatts) {
-@@ -8590,12 +10682,27 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
+@@ -8590,12 +10532,27 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
  	        maxatts *= 2;
  	        n = (const xmlChar **) xmlRealloc((void *) atts,
  					     maxatts * sizeof(const xmlChar *));
@@ -11437,7 +11247,7 @@ index 255bd254..fa6b6381 100644
  		atts = n;
  		ctxt->atts = atts;
  		ctxt->maxatts = maxatts;
-@@ -8608,6 +10715,9 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
+@@ -8608,6 +10565,9 @@ xmlParseStartTag(xmlParserCtxtPtr ctxt) {
  	    if (attvalue != NULL)
  		xmlFree(attvalue);
  	}
@@ -11447,7 +11257,7 @@ index 255bd254..fa6b6381 100644
  
  failed:
  
-@@ -8694,7 +10804,22 @@ xmlParseEndTag1(xmlParserCtxtPtr ctxt, int line) {
+@@ -8694,7 +10654,22 @@ xmlParseEndTag1(xmlParserCtxtPtr ctxt, int line) {
       *
       */
      if (name != (xmlChar*)1) {
@@ -11471,7 +11281,7 @@ index 255bd254..fa6b6381 100644
          xmlFatalErrMsgStrIntStr(ctxt, XML_ERR_TAG_NAME_MISMATCH,
  		     "Opening and ending tag mismatch: %s line %d and %s\n",
  		                ctxt->name, line, name);
-@@ -8868,7 +10993,22 @@ xmlParseQNameAndCompare(xmlParserCtxtPtr ctxt, xmlChar const *name,
+@@ -8868,7 +10843,22 @@ xmlParseQNameAndCompare(xmlParserCtxtPtr ctxt, xmlChar const *name,
      const xmlChar *ret;
      const xmlChar *prefix2;
  
@@ -11495,7 +11305,7 @@ index 255bd254..fa6b6381 100644
  
      GROW;
      in = ctxt->input->cur;
-@@ -9128,11 +11268,26 @@ xmlParseAttribute2(xmlParserCtxtPtr ctxt,
+@@ -9128,11 +11118,26 @@ xmlParseAttribute2(xmlParserCtxtPtr ctxt,
      *value = NULL;
      GROW;
      name = xmlParseQName(ctxt, prefix);
@@ -11523,7 +11333,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * get the type if needed
-@@ -9310,7 +11465,22 @@ xmlParseStartTag2(xmlParserCtxtPtr ctxt, const xmlChar **pref,
+@@ -9310,7 +11315,22 @@ xmlParseStartTag2(xmlParserCtxtPtr ctxt, const xmlChar **pref,
  	                             &aprefix, &attvalue, &len, &alloc);
          if ((attname == NULL) || (attvalue == NULL))
              goto next_attr;
@@ -11547,7 +11357,7 @@ index 255bd254..fa6b6381 100644
  
          if ((attname == ctxt->str_xmlns) && (aprefix == NULL)) {
              const xmlChar *URL = xmlDictLookup(ctxt->dict, attvalue, len);
-@@ -9318,8 +11488,25 @@ xmlParseStartTag2(xmlParserCtxtPtr ctxt, const xmlChar **pref,
+@@ -9318,8 +11338,25 @@ xmlParseStartTag2(xmlParserCtxtPtr ctxt, const xmlChar **pref,
  
              if (URL == NULL) {
                  xmlErrMemory(ctxt, "dictionary allocation failure");
@@ -11574,7 +11384,7 @@ index 255bd254..fa6b6381 100644
                  localname = NULL;
                  goto done;
              }
-@@ -9536,7 +11723,22 @@ next_attr:
+@@ -9536,7 +11573,22 @@ next_attr:
  		    for (j = 1;j <= nbNs;j++)
  		        if (ctxt->nsTab[ctxt->nsNr - 2 * j] == NULL)
  			    break;
@@ -11598,7 +11408,7 @@ index 255bd254..fa6b6381 100644
  
  		    nsname = xmlGetNamespace(ctxt, NULL);
  		    if (nsname != defaults->values[5 * i + 2]) {
-@@ -9551,7 +11753,22 @@ next_attr:
+@@ -9551,7 +11603,22 @@ next_attr:
  		    for (j = 1;j <= nbNs;j++)
  		        if (ctxt->nsTab[ctxt->nsNr - 2 * j] == attname)
  			    break;
@@ -11622,7 +11432,7 @@ index 255bd254..fa6b6381 100644
  
  		    nsname = xmlGetNamespace(ctxt, attname);
  		    if (nsname != defaults->values[2]) {
-@@ -9567,7 +11784,22 @@ next_attr:
+@@ -9567,7 +11634,22 @@ next_attr:
  			if ((attname == atts[j]) && (aprefix == atts[j+1]))
  			    break;
  		    }
@@ -11646,7 +11456,7 @@ index 255bd254..fa6b6381 100644
  
  		    if ((atts == NULL) || (nbatts + 5 > maxatts)) {
  			if (xmlCtxtGrowAttrs(ctxt, nbatts + 5) < 0) {
-@@ -9722,7 +11954,22 @@ xmlParseEndTag2(xmlParserCtxtPtr ctxt, const xmlStartTag *tag) {
+@@ -9722,7 +11804,22 @@ xmlParseEndTag2(xmlParserCtxtPtr ctxt, const xmlStartTag *tag) {
       *
       */
      if (name != (xmlChar*)1) {
@@ -11670,7 +11480,7 @@ index 255bd254..fa6b6381 100644
          xmlFatalErrMsgStrIntStr(ctxt, XML_ERR_TAG_NAME_MISMATCH,
  		     "Opening and ending tag mismatch: %s line %d and %s\n",
  		                ctxt->name, tag->line, name);
-@@ -9788,10 +12035,25 @@ xmlParseCDSect(xmlParserCtxtPtr ctxt) {
+@@ -9788,10 +11885,25 @@ xmlParseCDSect(xmlParserCtxtPtr ctxt) {
      NEXTL(sl);
      cur = CUR_CHAR(l);
      buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -11697,7 +11507,7 @@ index 255bd254..fa6b6381 100644
      while (IS_CHAR(cur) &&
             ((r != ']') || (s != ']') || (cur != '>'))) {
  	if (len + 5 >= size) {
-@@ -9805,11 +12067,26 @@ xmlParseCDSect(xmlParserCtxtPtr ctxt) {
+@@ -9805,11 +11917,26 @@ xmlParseCDSect(xmlParserCtxtPtr ctxt) {
                  return;
              }
  	    tmp = (xmlChar *) xmlRealloc(buf, size * 2 * sizeof(xmlChar));
@@ -11725,7 +11535,7 @@ index 255bd254..fa6b6381 100644
  	    buf = tmp;
  	    size *= 2;
  	}
-@@ -10137,8 +12414,23 @@ xmlParseElementEnd(xmlParserCtxtPtr ctxt) {
+@@ -10137,8 +12264,23 @@ xmlParseElementEnd(xmlParserCtxtPtr ctxt) {
      xmlParserNodeInfo node_info;
      xmlNodePtr ret = ctxt->node;
  
@@ -11750,7 +11560,7 @@ index 255bd254..fa6b6381 100644
  
      /*
       * parse the end of tag: '</' should be here.
-@@ -10184,10 +12476,25 @@ xmlParseVersionNum(xmlParserCtxtPtr ctxt) {
+@@ -10184,10 +12326,25 @@ xmlParseVersionNum(xmlParserCtxtPtr ctxt) {
      xmlChar cur;
  
      buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -11777,7 +11587,7 @@ index 255bd254..fa6b6381 100644
      cur = CUR;
      if (!((cur >= '0') && (cur <= '9'))) {
  	xmlFree(buf);
-@@ -10209,11 +12516,26 @@ xmlParseVersionNum(xmlParserCtxtPtr ctxt) {
+@@ -10209,11 +12366,26 @@ xmlParseVersionNum(xmlParserCtxtPtr ctxt) {
  
  	    size *= 2;
  	    tmp = (xmlChar *) xmlRealloc(buf, size * sizeof(xmlChar));
@@ -11805,7 +11615,7 @@ index 255bd254..fa6b6381 100644
  	    buf = tmp;
  	}
  	buf[len++] = cur;
-@@ -10292,10 +12614,25 @@ xmlParseEncName(xmlParserCtxtPtr ctxt) {
+@@ -10292,10 +12464,25 @@ xmlParseEncName(xmlParserCtxtPtr ctxt) {
      if (((cur >= 'a') && (cur <= 'z')) ||
          ((cur >= 'A') && (cur <= 'Z'))) {
  	buf = (xmlChar *) xmlMallocAtomic(size * sizeof(xmlChar));
@@ -11832,7 +11642,7 @@ index 255bd254..fa6b6381 100644
  
  	buf[len++] = cur;
  	NEXT;
-@@ -10310,11 +12647,26 @@ xmlParseEncName(xmlParserCtxtPtr ctxt) {
+@@ -10310,11 +12497,26 @@ xmlParseEncName(xmlParserCtxtPtr ctxt) {
  
  		size *= 2;
  		tmp = (xmlChar *) xmlRealloc(buf, size * sizeof(xmlChar));
@@ -11860,7 +11670,7 @@ index 255bd254..fa6b6381 100644
  		buf = tmp;
  	    }
  	    buf[len++] = cur;
-@@ -10692,8 +13044,23 @@ xmlParseDocument(xmlParserCtxtPtr ctxt) {
+@@ -10692,8 +12894,23 @@ xmlParseDocument(xmlParserCtxtPtr ctxt) {
  
      xmlInitParser();
  
@@ -11885,7 +11695,7 @@ index 255bd254..fa6b6381 100644
  
      GROW;
  
-@@ -12542,8 +14909,23 @@ xmlCreatePushParserCtxt(xmlSAXHandlerPtr sax, void *user_data,
+@@ -12542,8 +14759,23 @@ xmlCreatePushParserCtxt(xmlSAXHandlerPtr sax, void *user_data,
   */
  static void
  xmlHaltParser(xmlParserCtxtPtr ctxt) {
@@ -11910,7 +11720,7 @@ index 255bd254..fa6b6381 100644
      ctxt->instate = XML_PARSER_EOF;
      ctxt->disableSAX = 1;
      while (ctxt->inputNr > 1)
-@@ -12576,8 +14958,23 @@ xmlHaltParser(xmlParserCtxtPtr ctxt) {
+@@ -12576,8 +14808,23 @@ xmlHaltParser(xmlParserCtxtPtr ctxt) {
   */
  void
  xmlStopParser(xmlParserCtxtPtr ctxt) {
@@ -11935,7 +11745,7 @@ index 255bd254..fa6b6381 100644
      xmlHaltParser(ctxt);
      ctxt->errNo = XML_ERR_USER_STOP;
  }
-@@ -13018,8 +15415,23 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
+@@ -13018,8 +15265,23 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
          *list = NULL;
      if ((URL == NULL) && (ID == NULL))
  	return(XML_ERR_INTERNAL_ERROR);
@@ -11960,7 +11770,7 @@ index 255bd254..fa6b6381 100644
  
  
      ctxt = xmlCreateEntityParserCtxtInternal(URL, ID, NULL, oldctxt);
-@@ -13028,15 +15440,45 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
+@@ -13028,15 +15290,45 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
      if (sax != NULL) {
  	oldsax = ctxt->sax;
          ctxt->sax = sax;
@@ -12008,7 +11818,7 @@ index 255bd254..fa6b6381 100644
      newDoc->properties = XML_DOC_INTERNAL;
      if (doc) {
          newDoc->intSubset = doc->intSubset;
-@@ -13051,8 +15493,23 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
+@@ -13051,8 +15343,23 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
      }
      newRoot = xmlNewDocNode(newDoc, NULL, BAD_CAST "pseudoroot", NULL);
      if (newRoot == NULL) {
@@ -12033,7 +11843,7 @@ index 255bd254..fa6b6381 100644
  	xmlFreeParserCtxt(ctxt);
  	newDoc->intSubset = NULL;
  	newDoc->extSubset = NULL;
-@@ -13183,18 +15640,51 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
+@@ -13183,18 +15490,51 @@ xmlParseExternalEntityPrivate(xmlDocPtr doc, xmlParserCtxtPtr oldctxt,
      /*
       * Also record the size of the entity parsed
       */
@@ -12087,7 +11897,7 @@ index 255bd254..fa6b6381 100644
      if (oldctxt != NULL) {
          ctxt->dict = NULL;
          ctxt->attsDefault = NULL;
-@@ -13316,13 +15806,43 @@ xmlParseBalancedChunkMemoryInternal(xmlParserCtxtPtr oldctxt,
+@@ -13316,13 +15656,43 @@ xmlParseBalancedChunkMemoryInternal(xmlParserCtxtPtr oldctxt,
  
      if (lst != NULL)
          *lst = NULL;
@@ -12133,7 +11943,7 @@ index 255bd254..fa6b6381 100644
      if (user_data != NULL)
  	ctxt->userData = user_data;
      else
-@@ -13953,9 +16473,24 @@ xmlCreateEntityParserCtxtInternal(const xmlChar *URL, const xmlChar *ID,
+@@ -13953,9 +16323,24 @@ xmlCreateEntityParserCtxtInternal(const xmlChar *URL, const xmlChar *ID,
      xmlChar *uri;
  
      ctxt = xmlNewParserCtxt();
@@ -12159,7 +11969,7 @@ index 255bd254..fa6b6381 100644
  
      if (pctx != NULL) {
          ctxt->options = pctx->options;
-@@ -13975,10 +16510,25 @@ xmlCreateEntityParserCtxtInternal(const xmlChar *URL, const xmlChar *ID,
+@@ -13975,10 +16360,25 @@ xmlCreateEntityParserCtxtInternal(const xmlChar *URL, const xmlChar *ID,
  
      if (uri == NULL) {
  	inputStream = xmlLoadExternalEntity((char *)URL, (char *)ID, ctxt);
@@ -12186,7 +11996,7 @@ index 255bd254..fa6b6381 100644
  
  	inputPush(ctxt, inputStream);
  
-@@ -14335,10 +16885,40 @@ xmlCreateMemoryParserCtxt(const char *buffer, int size) {
+@@ -14335,10 +16735,40 @@ xmlCreateMemoryParserCtxt(const char *buffer, int size) {
      xmlParserInputPtr input;
      xmlParserInputBufferPtr buf;
  
@@ -12229,7 +12039,7 @@ index 255bd254..fa6b6381 100644
  
      ctxt = xmlNewParserCtxt();
      if (ctxt == NULL)
-@@ -14346,17 +16926,47 @@ xmlCreateMemoryParserCtxt(const char *buffer, int size) {
+@@ -14346,17 +16776,47 @@ xmlCreateMemoryParserCtxt(const char *buffer, int size) {
  
      /* TODO: xmlParserInputBufferCreateStatic, requires some serious changes */
      buf = xmlParserInputBufferCreateMem(buffer, size, XML_CHAR_ENCODING_NONE);
@@ -12279,7 +12089,7 @@ index 255bd254..fa6b6381 100644
  
      input->filename = NULL;
      input->buf = buf;
-@@ -14798,8 +17408,23 @@ xmlCtxtReset(xmlParserCtxtPtr ctxt)
+@@ -14798,8 +17258,23 @@ xmlCtxtReset(xmlParserCtxtPtr ctxt)
      xmlParserInputPtr input;
      xmlDictPtr dict;
  
@@ -12304,7 +12114,7 @@ index 255bd254..fa6b6381 100644
  
      dict = ctxt->dict;
  
-@@ -14992,8 +17617,23 @@ xmlCtxtResetPush(xmlParserCtxtPtr ctxt, const char *chunk,
+@@ -14992,8 +17467,23 @@ xmlCtxtResetPush(xmlParserCtxtPtr ctxt, const char *chunk,
  static int
  xmlCtxtUseOptionsInternal(xmlParserCtxtPtr ctxt, int options, const char *encoding)
  {
@@ -12329,7 +12139,7 @@ index 255bd254..fa6b6381 100644
      if (encoding != NULL) {
          if (ctxt->encoding != NULL)
  	    xmlFree((xmlChar *) ctxt->encoding);
-@@ -15249,8 +17889,23 @@ xmlReadMemory(const char *buffer, int size, const char *URL, const char *encodin
+@@ -15249,8 +17739,23 @@ xmlReadMemory(const char *buffer, int size, const char *URL, const char *encodin
  
      xmlInitParser();
      ctxt = xmlCreateMemoryParserCtxt(buffer, size);
@@ -12354,7 +12164,7 @@ index 255bd254..fa6b6381 100644
      return (xmlDoRead(ctxt, URL, encoding, options, 0));
  }
  
-@@ -15397,18 +18052,63 @@ xmlCtxtReadFile(xmlParserCtxtPtr ctxt, const char *filename,
+@@ -15397,18 +17902,63 @@ xmlCtxtReadFile(xmlParserCtxtPtr ctxt, const char *filename,
  {
      xmlParserInputPtr stream;
  
@@ -12421,7 +12231,7 @@ index 255bd254..fa6b6381 100644
      inputPush(ctxt, stream);
      return (xmlDoRead(ctxt, NULL, encoding, options, 1));
  }
-@@ -15434,24 +18134,84 @@ xmlCtxtReadMemory(xmlParserCtxtPtr ctxt, const char *buffer, int size,
+@@ -15434,24 +17984,84 @@ xmlCtxtReadMemory(xmlParserCtxtPtr ctxt, const char *buffer, int size,
      xmlParserInputBufferPtr input;
      xmlParserInputPtr stream;
  
@@ -12511,7 +12321,7 @@ index 255bd254..fa6b6381 100644
      inputPush(ctxt, stream);
      return (xmlDoRead(ctxt, URL, encoding, options, 1));
 diff --git a/parserInternals.c b/parserInternals.c
-index cbcfde0e..964f0b21 100644
+index cbcfde0e..a821e832 100644
 --- a/parserInternals.c
 +++ b/parserInternals.c
 @@ -1,3 +1,10 @@
@@ -12525,7 +12335,7 @@ index cbcfde0e..964f0b21 100644
  /*
   * parserInternals.c : Internal routines (and obsolete ones) needed for the
   *                     XML and HTML parsers.
-@@ -148,16 +155,46 @@ __xmlErrEncoding(xmlParserCtxtPtr ctxt, xmlParserErrors xmlerr,
+@@ -148,8 +155,23 @@ __xmlErrEncoding(xmlParserCtxtPtr ctxt, xmlParserErrors xmlerr,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -12550,31 +12360,7 @@ index cbcfde0e..964f0b21 100644
      __xmlRaiseError(NULL, NULL, NULL,
                      ctxt, NULL, XML_FROM_PARSER, xmlerr, XML_ERR_FATAL,
                      NULL, 0, (const char *) str1, (const char *) str2,
-                     NULL, 0, 0, msg, str1, str2);
-     if (ctxt != NULL) {
-         ctxt->wellFormed = 0;
--        if (ctxt->recovery == 0)
-+        
-+        #ifdef FRCOV
-+        {if (FIXREVERTER[2]) {
-+          if ((ctxt -> recovery == 0  ) && !(0))
-+            fprintf(stderr, "triggered bug index 2\n");
-+          else
-+            fprintf(stderr, "reached bug index 2\n");
-+        }
-+        if ((!FIXREVERTER[2] && (ctxt -> recovery == 0  ))
-+        #else
-+        if (0
-+        #endif
-+        )
-             ctxt->disableSAX = 1;
-+            #ifdef FRCOV
-+            }
-+            #endif
-     }
- }
- 
-@@ -175,16 +212,46 @@ xmlErrInternal(xmlParserCtxtPtr ctxt, const char *msg, const xmlChar * str)
+@@ -175,16 +197,46 @@ xmlErrInternal(xmlParserCtxtPtr ctxt, const char *msg, const xmlChar * str)
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -12623,7 +12409,7 @@ index cbcfde0e..964f0b21 100644
      }
  }
  
-@@ -204,15 +271,45 @@ xmlErrEncodingInt(xmlParserCtxtPtr ctxt, xmlParserErrors error,
+@@ -204,15 +256,45 @@ xmlErrEncodingInt(xmlParserCtxtPtr ctxt, xmlParserErrors error,
      if ((ctxt != NULL) && (ctxt->disableSAX != 0) &&
          (ctxt->instate == XML_PARSER_EOF))
  	return;
@@ -12671,7 +12457,7 @@ index cbcfde0e..964f0b21 100644
      }
  }
  
-@@ -302,13 +399,58 @@ xmlParserInputGrow(xmlParserInputPtr in, int len) {
+@@ -302,13 +384,58 @@ xmlParserInputGrow(xmlParserInputPtr in, int len) {
      size_t indx;
      const xmlChar *content;
  
@@ -12733,7 +12519,7 @@ index cbcfde0e..964f0b21 100644
      if (in->buf->buffer == NULL) return(-1);
  
      CHECK_BUFFER(in);
-@@ -364,10 +506,70 @@ xmlParserInputShrink(xmlParserInputPtr in) {
+@@ -364,10 +491,70 @@ xmlParserInputShrink(xmlParserInputPtr in) {
  #ifdef DEBUG_INPUT
      xmlGenericError(xmlGenericErrorContext, "Shrink\n");
  #endif
@@ -12808,7 +12594,7 @@ index cbcfde0e..964f0b21 100644
      if (in->buf->buffer == NULL) return;
  
      CHECK_BUFFER(in);
-@@ -583,7 +785,22 @@ encoding_error:
+@@ -583,7 +770,22 @@ encoding_error:
  
  int
  xmlCurrentChar(xmlParserCtxtPtr ctxt, int *len) {
@@ -12832,7 +12618,7 @@ index cbcfde0e..964f0b21 100644
      if (ctxt->instate == XML_PARSER_EOF)
  	return(0);
  
-@@ -638,24 +855,69 @@ xmlCurrentChar(xmlParserCtxtPtr ctxt, int *len) {
+@@ -638,24 +840,69 @@ xmlCurrentChar(xmlParserCtxtPtr ctxt, int *len) {
  		    val |= (cur[1] & 0x3f) << 12;
  		    val |= (cur[2] & 0x3f) << 6;
  		    val |= cur[3] & 0x3f;
@@ -12905,7 +12691,7 @@ index cbcfde0e..964f0b21 100644
  	    }
  	    if (!IS_CHAR(val)) {
  	        xmlErrEncodingInt(ctxt, XML_ERR_INVALID_CHAR,
-@@ -742,7 +1004,22 @@ encoding_error:
+@@ -742,7 +989,22 @@ encoding_error:
  int
  xmlStringCurrentChar(xmlParserCtxtPtr ctxt, const xmlChar * cur, int *len)
  {
@@ -12929,7 +12715,7 @@ index cbcfde0e..964f0b21 100644
      if ((ctxt == NULL) || (ctxt->charset == XML_CHAR_ENCODING_UTF8)) {
          /*
           * We are supposed to handle UTF8, check it's valid
-@@ -850,7 +1127,22 @@ encoding_error:
+@@ -850,7 +1112,22 @@ encoding_error:
   */
  int
  xmlCopyCharMultiByte(xmlChar *out, int val) {
@@ -12953,7 +12739,7 @@ index cbcfde0e..964f0b21 100644
      /*
       * We are supposed to handle UTF8, check it's valid
       * From rfc2044: encoding of the Unicode values on UTF-8:
-@@ -893,11 +1185,41 @@ xmlCopyCharMultiByte(xmlChar *out, int val) {
+@@ -893,11 +1170,41 @@ xmlCopyCharMultiByte(xmlChar *out, int val) {
  
  int
  xmlCopyChar(int len ATTRIBUTE_UNUSED, xmlChar *out, int val) {
@@ -12997,7 +12783,7 @@ index cbcfde0e..964f0b21 100644
      *out = (xmlChar) val;
      return 1;
  }
-@@ -931,7 +1253,22 @@ xmlSwitchEncoding(xmlParserCtxtPtr ctxt, xmlCharEncoding enc)
+@@ -931,7 +1238,22 @@ xmlSwitchEncoding(xmlParserCtxtPtr ctxt, xmlCharEncoding enc)
      int len = -1;
      int ret;
  
@@ -13021,7 +12807,7 @@ index cbcfde0e..964f0b21 100644
      switch (enc) {
  	case XML_CHAR_ENCODING_ERROR:
  	    __xmlErrEncoding(ctxt, XML_ERR_UNKNOWN_ENCODING,
-@@ -1092,10 +1429,25 @@ xmlSwitchEncoding(xmlParserCtxtPtr ctxt, xmlCharEncoding enc)
+@@ -1092,10 +1414,25 @@ xmlSwitchEncoding(xmlParserCtxtPtr ctxt, xmlCharEncoding enc)
       * didn't stop the parser. But most callers of this function don't
       * check the return value.
       */
@@ -13048,7 +12834,7 @@ index cbcfde0e..964f0b21 100644
      ctxt->charset = XML_CHAR_ENCODING_UTF8;
      ret = xmlSwitchToEncodingInt(ctxt, handler, len);
      if ((ret < 0) || (ctxt->errNo == XML_I18N_CONV_FAILED)) {
-@@ -1126,10 +1478,40 @@ xmlSwitchInputEncodingInt(xmlParserCtxtPtr ctxt, xmlParserInputPtr input,
+@@ -1126,10 +1463,40 @@ xmlSwitchInputEncodingInt(xmlParserCtxtPtr ctxt, xmlParserInputPtr input,
  {
      int nbchars;
  
@@ -13091,7 +12877,7 @@ index cbcfde0e..964f0b21 100644
      if (input->buf != NULL) {
          if (input->buf->encoder != NULL) {
              /*
-@@ -1234,7 +1616,19 @@ xmlSwitchInputEncodingInt(xmlParserCtxtPtr ctxt, xmlParserInputPtr input,
+@@ -1234,7 +1601,19 @@ xmlSwitchInputEncodingInt(xmlParserCtxtPtr ctxt, xmlParserInputPtr input,
  	    input->buf->rawconsumed += use - xmlBufUse(input->buf->raw);
          }
          return (0);
@@ -13112,7 +12898,7 @@ index cbcfde0e..964f0b21 100644
  	/*
  	 * When parsing a static memory array one must know the
  	 * size to be able to convert the buffer.
-@@ -1248,6 +1642,9 @@ xmlSwitchInputEncodingInt(xmlParserCtxtPtr ctxt, xmlParserInputPtr input,
+@@ -1248,6 +1627,9 @@ xmlSwitchInputEncodingInt(xmlParserCtxtPtr ctxt, xmlParserInputPtr input,
          xmlCharEncCloseFunc(handler);
  	return (-1);
      }
@@ -13122,7 +12908,7 @@ index cbcfde0e..964f0b21 100644
      /*
       * We should actually raise an error here, see issue #34.
       */
-@@ -1343,8 +1740,25 @@ xmlFreeInputStream(xmlParserInputPtr input) {
+@@ -1343,8 +1725,25 @@ xmlFreeInputStream(xmlParserInputPtr input) {
      if (input->directory != NULL) xmlFree((char *) input->directory);
      if (input->encoding != NULL) xmlFree((char *) input->encoding);
      if (input->version != NULL) xmlFree((char *) input->version);
@@ -13149,7 +12935,7 @@ index cbcfde0e..964f0b21 100644
      if (input->buf != NULL)
          xmlFreeParserInputBuffer(input->buf);
      xmlFree(input);
-@@ -1363,10 +1777,25 @@ xmlNewInputStream(xmlParserCtxtPtr ctxt) {
+@@ -1363,10 +1762,25 @@ xmlNewInputStream(xmlParserCtxtPtr ctxt) {
      xmlParserInputPtr input;
  
      input = (xmlParserInputPtr) xmlMalloc(sizeof(xmlParserInput));
@@ -13176,7 +12962,7 @@ index cbcfde0e..964f0b21 100644
      memset(input, 0, sizeof(xmlParserInput));
      input->line = 1;
      input->col = 1;
-@@ -1399,13 +1828,43 @@ xmlNewIOInputStream(xmlParserCtxtPtr ctxt, xmlParserInputBufferPtr input,
+@@ -1399,13 +1813,43 @@ xmlNewIOInputStream(xmlParserCtxtPtr ctxt, xmlParserInputBufferPtr input,
  	            xmlCharEncoding enc) {
      xmlParserInputPtr inputStream;
  
@@ -13222,7 +13008,7 @@ index cbcfde0e..964f0b21 100644
      inputStream->filename = NULL;
      inputStream->buf = input;
      xmlBufResetInput(inputStream->buf->buffer, inputStream);
-@@ -1430,11 +1889,26 @@ xmlParserInputPtr
+@@ -1430,11 +1874,26 @@ xmlParserInputPtr
  xmlNewEntityInputStream(xmlParserCtxtPtr ctxt, xmlEntityPtr entity) {
      xmlParserInputPtr input;
  
@@ -13250,7 +13036,7 @@ index cbcfde0e..964f0b21 100644
      if (xmlParserDebugEntities)
  	xmlGenericError(xmlGenericErrorContext,
  		"new input from entity: %s\n", entity->name);
-@@ -1467,14 +1941,59 @@ xmlNewEntityInputStream(xmlParserCtxtPtr ctxt, xmlEntityPtr entity) {
+@@ -1467,14 +1926,59 @@ xmlNewEntityInputStream(xmlParserCtxtPtr ctxt, xmlEntityPtr entity) {
  	return(NULL);
      }
      input = xmlNewInputStream(ctxt);
@@ -13313,7 +13099,7 @@ index cbcfde0e..964f0b21 100644
      input->cur = entity->content;
      input->length = entity->length;
      input->end = &entity->content[input->length];
-@@ -1590,10 +2109,25 @@ xmlInitParserCtxt(xmlParserCtxtPtr ctxt)
+@@ -1590,10 +2094,25 @@ xmlInitParserCtxt(xmlParserCtxtPtr ctxt)
  {
      xmlParserInputPtr input;
  
@@ -13340,7 +13126,7 @@ index cbcfde0e..964f0b21 100644
  
      xmlDefaultSAXHandlerInit();
  
-@@ -1775,7 +2309,22 @@ xmlFreeParserCtxt(xmlParserCtxtPtr ctxt)
+@@ -1775,7 +2294,22 @@ xmlFreeParserCtxt(xmlParserCtxtPtr ctxt)
  {
      xmlParserInputPtr input;
  
@@ -13364,7 +13150,7 @@ index cbcfde0e..964f0b21 100644
  
      while ((input = inputPop(ctxt)) != NULL) { /* Non consuming */
          xmlFreeInputStream(input);
-@@ -1862,10 +2411,25 @@ xmlNewParserCtxt(void)
+@@ -1862,10 +2396,25 @@ xmlNewParserCtxt(void)
      xmlParserCtxtPtr ctxt;
  
      ctxt = (xmlParserCtxtPtr) xmlMalloc(sizeof(xmlParserCtxt));
@@ -13391,7 +13177,7 @@ index cbcfde0e..964f0b21 100644
      memset(ctxt, 0, sizeof(xmlParserCtxt));
      if (xmlInitParserCtxt(ctxt) < 0) {
          xmlFreeParserCtxt(ctxt);
-@@ -1932,8 +2496,23 @@ xmlParserFindNodeInfo(const xmlParserCtxtPtr ctx, const xmlNodePtr node)
+@@ -1932,8 +2481,23 @@ xmlParserFindNodeInfo(const xmlParserCtxtPtr ctx, const xmlNodePtr node)
  void
  xmlInitNodeInfoSeq(xmlParserNodeInfoSeqPtr seq)
  {
@@ -13416,7 +13202,7 @@ index cbcfde0e..964f0b21 100644
      seq->length = 0;
      seq->maximum = 0;
      seq->buffer = NULL;
-@@ -2043,10 +2622,25 @@ xmlParserAddNodeInfo(xmlParserCtxtPtr ctxt,
+@@ -2043,10 +2607,25 @@ xmlParserAddNodeInfo(xmlParserCtxtPtr ctxt,
                      (xmlParserNodeInfo *) xmlRealloc(ctxt->node_seq.buffer,
                                                       byte_size);
  
@@ -17648,7 +17434,7 @@ index 0ceecb58..e962e10c 100644
  }
  
 diff --git a/tree.c b/tree.c
-index c707f598..c4711100 100644
+index c707f598..68dc2637 100644
 --- a/tree.c
 +++ b/tree.c
 @@ -1,3 +1,10 @@
@@ -19232,32 +19018,7 @@ index c707f598..c4711100 100644
      return(cur);
  }
  
-@@ -3238,8 +4175,23 @@ xmlAddSibling(xmlNodePtr cur, xmlNodePtr elem) {
-     elem->next = NULL;
-     elem->parent = parent;
-     cur->next = elem;
--    if (parent != NULL)
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[4052]) {
-+      if ((parent != (void *) 0  ) && !(0))
-+        fprintf(stderr, "triggered bug index 4052\n");
-+      else
-+        fprintf(stderr, "reached bug index 4052\n");
-+    }
-+    if ((!FIXREVERTER[4052] && (parent != (void *) 0  ))
-+    #else
-+    if (0
-+    #endif
-+    )
- 	parent->last = elem;
-+	#ifdef FRCOV
-+	}
-+	#endif
- 
-     return(elem);
- }
-@@ -3299,10 +4251,25 @@ xmlAddChildList(xmlNodePtr parent, xmlNodePtr cur) {
+@@ -3299,10 +4236,25 @@ xmlAddChildList(xmlNodePtr parent, xmlNodePtr cur) {
  	    /*
  	     * if it's the only child, nothing more to be done.
  	     */
@@ -19284,7 +19045,7 @@ index c707f598..c4711100 100644
  	    prev = cur;
  	    cur = cur->next;
  	    xmlFreeNode(prev);
-@@ -3754,8 +4721,23 @@ xmlFreeNodeList(xmlNodePtr cur) {
+@@ -3754,8 +4706,23 @@ xmlFreeNodeList(xmlNodePtr cur) {
          if (next != NULL) {
  	    cur = next;
          } else {
@@ -19309,7 +19070,7 @@ index c707f598..c4711100 100644
              depth -= 1;
              cur = parent;
              cur->children = NULL;
-@@ -3774,7 +4756,22 @@ void
+@@ -3774,7 +4741,22 @@ void
  xmlFreeNode(xmlNodePtr cur) {
      xmlDictPtr dict = NULL;
  
@@ -19333,7 +19094,7 @@ index c707f598..c4711100 100644
  
      /* use xmlFreeDtd for DTD nodes */
      if (cur->type == XML_DTD_NODE) {
-@@ -3847,13 +4844,28 @@ xmlFreeNode(xmlNodePtr cur) {
+@@ -3847,13 +4829,28 @@ xmlFreeNode(xmlNodePtr cur) {
   */
  void
  xmlUnlinkNode(xmlNodePtr cur) {
@@ -19363,7 +19124,7 @@ index c707f598..c4711100 100644
      if (cur->type == XML_NAMESPACE_DECL)
          return;
      if (cur->type == XML_DTD_NODE) {
-@@ -3897,8 +4909,23 @@ xmlUnlinkNode(xmlNodePtr cur) {
+@@ -3897,8 +4894,23 @@ xmlUnlinkNode(xmlNodePtr cur) {
  	} else {
  	    if (parent->children == cur)
  		parent->children = cur->next;
@@ -19388,7 +19149,7 @@ index c707f598..c4711100 100644
  	}
  	cur->parent = NULL;
      }
-@@ -3997,7 +5024,22 @@ xmlNsPtr
+@@ -3997,7 +5009,22 @@ xmlNsPtr
  xmlCopyNamespace(xmlNsPtr cur) {
      xmlNsPtr ret;
  
@@ -19412,7 +19173,7 @@ index c707f598..c4711100 100644
      switch (cur->type) {
  	case XML_LOCAL_NAMESPACE:
  	    ret = xmlNewNs(NULL, cur->href, cur->prefix);
-@@ -4045,7 +5087,22 @@ static xmlAttrPtr
+@@ -4045,7 +5072,22 @@ static xmlAttrPtr
  xmlCopyPropInternal(xmlDocPtr doc, xmlNodePtr target, xmlAttrPtr cur) {
      xmlAttrPtr ret;
  
@@ -19436,7 +19197,7 @@ index c707f598..c4711100 100644
      if ((target != NULL) && (target->type != XML_ELEMENT_NODE))
          return(NULL);
      if (target != NULL)
-@@ -4058,7 +5115,22 @@ xmlCopyPropInternal(xmlDocPtr doc, xmlNodePtr target, xmlAttrPtr cur) {
+@@ -4058,7 +5100,22 @@ xmlCopyPropInternal(xmlDocPtr doc, xmlNodePtr target, xmlAttrPtr cur) {
  	ret = xmlNewDocProp(cur->children->doc, cur->name, NULL);
      else
  	ret = xmlNewDocProp(NULL, cur->name, NULL);
@@ -19460,7 +19221,7 @@ index c707f598..c4711100 100644
      ret->parent = target;
  
      if ((cur->ns != NULL) && (target != NULL)) {
-@@ -4115,8 +5187,23 @@ xmlCopyPropInternal(xmlDocPtr doc, xmlNodePtr target, xmlAttrPtr cur) {
+@@ -4115,8 +5172,23 @@ xmlCopyPropInternal(xmlDocPtr doc, xmlNodePtr target, xmlAttrPtr cur) {
  	tmp = ret->children;
  	while (tmp != NULL) {
  	    /* tmp->parent = (xmlNodePtr)ret; */
@@ -19485,7 +19246,7 @@ index c707f598..c4711100 100644
  	    tmp = tmp->next;
  	}
      }
-@@ -4171,8 +5258,23 @@ xmlCopyPropList(xmlNodePtr target, xmlAttrPtr cur) {
+@@ -4171,8 +5243,23 @@ xmlCopyPropList(xmlNodePtr target, xmlAttrPtr cur) {
          return(NULL);
      while (cur != NULL) {
          q = xmlCopyProp(target, cur);
@@ -19510,7 +19271,7 @@ index c707f598..c4711100 100644
  	if (p == NULL) {
  	    ret = p = q;
  	} else {
-@@ -4209,7 +5311,22 @@ xmlStaticCopyNode(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent,
+@@ -4209,7 +5296,22 @@ xmlStaticCopyNode(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent,
                    int extended) {
      xmlNodePtr ret;
  
@@ -19534,7 +19295,7 @@ index c707f598..c4711100 100644
      switch (node->type) {
          case XML_TEXT_NODE:
          case XML_CDATA_SECTION_NODE:
-@@ -4248,10 +5365,25 @@ xmlStaticCopyNode(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent,
+@@ -4248,10 +5350,25 @@ xmlStaticCopyNode(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent,
       * Allocate a new node and fill the fields.
       */
      ret = (xmlNodePtr) xmlMalloc(sizeof(xmlNode));
@@ -19561,7 +19322,7 @@ index c707f598..c4711100 100644
      memset(ret, 0, sizeof(xmlNode));
      ret->type = node->type;
  
-@@ -4344,10 +5476,28 @@ xmlStaticCopyNode(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent,
+@@ -4344,10 +5461,28 @@ xmlStaticCopyNode(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent,
              ret->children = node->children;
  	}
  	ret->last = ret->children;
@@ -19591,7 +19352,7 @@ index c707f598..c4711100 100644
  
  out:
      /* if parent != NULL we already registered the node above */
-@@ -4365,13 +5515,43 @@ xmlStaticCopyNodeList(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent) {
+@@ -4365,13 +5500,43 @@ xmlStaticCopyNodeList(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent) {
      while (node != NULL) {
  #ifdef LIBXML_TREE_ENABLED
  	if (node->type == XML_DTD_NODE ) {
@@ -19637,7 +19398,7 @@ index c707f598..c4711100 100644
  		q->doc = doc;
  		q->parent = parent;
  		doc->intSubset = (xmlDtdPtr) q;
-@@ -4383,7 +5563,22 @@ xmlStaticCopyNodeList(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent) {
+@@ -4383,7 +5548,22 @@ xmlStaticCopyNodeList(xmlNodePtr node, xmlDocPtr doc, xmlNodePtr parent) {
  	} else
  #endif /* LIBXML_TREE_ENABLED */
  	    q = xmlStaticCopyNode(node, doc, parent, 1);
@@ -19661,7 +19422,7 @@ index c707f598..c4711100 100644
  	if (ret == NULL) {
  	    q->prev = NULL;
  	    ret = p = q;
-@@ -4479,24 +5674,129 @@ xmlCopyDtd(xmlDtdPtr dtd) {
+@@ -4479,24 +5659,129 @@ xmlCopyDtd(xmlDtdPtr dtd) {
      xmlDtdPtr ret;
      xmlNodePtr cur, p = NULL, q;
  
@@ -19798,7 +19559,7 @@ index c707f598..c4711100 100644
  
      cur = dtd->children;
      while (cur != NULL) {
-@@ -4530,10 +5830,25 @@ xmlCopyDtd(xmlDtdPtr dtd) {
+@@ -4530,10 +5815,25 @@ xmlCopyDtd(xmlDtdPtr dtd) {
  	    q = xmlCopyNode(cur, 0);
  	}
  
@@ -19825,7 +19586,7 @@ index c707f598..c4711100 100644
  
  	if (p == NULL)
  	    ret->children = q;
-@@ -4567,16 +5882,91 @@ xmlDocPtr
+@@ -4567,16 +5867,91 @@ xmlDocPtr
  xmlCopyDoc(xmlDocPtr doc, int recursive) {
      xmlDocPtr ret;
  
@@ -19922,7 +19683,7 @@ index c707f598..c4711100 100644
      ret->charset = doc->charset;
      ret->compression = doc->compression;
      ret->standalone = doc->standalone;
-@@ -4587,16 +5977,46 @@ xmlCopyDoc(xmlDocPtr doc, int recursive) {
+@@ -4587,16 +5962,46 @@ xmlCopyDoc(xmlDocPtr doc, int recursive) {
  #ifdef LIBXML_TREE_ENABLED
      if (doc->intSubset != NULL) {
          ret->intSubset = xmlCopyDtd(doc->intSubset);
@@ -19971,7 +19732,7 @@ index c707f598..c4711100 100644
      if (doc->children != NULL) {
  	xmlNodePtr tmp;
  
-@@ -4605,8 +6025,23 @@ xmlCopyDoc(xmlDocPtr doc, int recursive) {
+@@ -4605,8 +6010,23 @@ xmlCopyDoc(xmlDocPtr doc, int recursive) {
  	ret->last = NULL;
  	tmp = ret->children;
  	while (tmp != NULL) {
@@ -19996,7 +19757,7 @@ index c707f598..c4711100 100644
  	    tmp = tmp->next;
  	}
      }
-@@ -4652,8 +6087,23 @@ xmlGetLineNoInternal(const xmlNode *node, int depth)
+@@ -4652,8 +6072,23 @@ xmlGetLineNoInternal(const xmlNode *node, int depth)
  	        result = xmlGetLineNoInternal(node->children, depth + 1);
  	    else if (node->next != NULL)
  	        result = xmlGetLineNoInternal(node->next, depth + 1);
@@ -20021,7 +19782,7 @@ index c707f598..c4711100 100644
  	}
  	if ((result == -1) || (result == 65535))
  	    result = (long) node->line;
-@@ -4948,7 +6398,22 @@ xmlNodePtr
+@@ -4948,7 +6383,22 @@ xmlNodePtr
  xmlDocGetRootElement(const xmlDoc *doc) {
      xmlNodePtr ret;
  
@@ -20045,7 +19806,7 @@ index c707f598..c4711100 100644
      ret = doc->children;
      while (ret != NULL) {
  	if (ret->type == XML_ELEMENT_NODE)
-@@ -5318,10 +6783,39 @@ xmlNodeGetBase(const xmlDoc *doc, const xmlNode *cur) {
+@@ -5318,10 +6768,39 @@ xmlNodeGetBase(const xmlDoc *doc, const xmlNode *cur) {
          return(NULL);
      if ((cur != NULL) && (cur->type == XML_NAMESPACE_DECL))
          return(NULL);
@@ -20087,7 +19848,7 @@ index c707f598..c4711100 100644
  	    if (cur->type != XML_ELEMENT_NODE) {
  	        cur = cur->next;
  		continue;
-@@ -5339,6 +6833,9 @@ xmlNodeGetBase(const xmlDoc *doc, const xmlNode *cur) {
+@@ -5339,6 +6818,9 @@ xmlNodeGetBase(const xmlDoc *doc, const xmlNode *cur) {
  	    }
  	    cur = cur->next;
  	}
@@ -20097,7 +19858,7 @@ index c707f598..c4711100 100644
  	return(NULL);
      }
      while (cur != NULL) {
-@@ -5372,8 +6869,23 @@ xmlNodeGetBase(const xmlDoc *doc, const xmlNode *cur) {
+@@ -5372,8 +6854,23 @@ xmlNodeGetBase(const xmlDoc *doc, const xmlNode *cur) {
  	cur = cur->parent;
      }
      if ((doc != NULL) && (doc->URL != NULL)) {
@@ -20122,7 +19883,7 @@ index c707f598..c4711100 100644
  	newbase = xmlBuildURI(oldbase, doc->URL);
  	xmlFree(oldbase);
  	return(newbase);
-@@ -5425,7 +6937,22 @@ xmlNodeBufGetContent(xmlBufferPtr buffer, const xmlNode *cur)
+@@ -5425,7 +6922,22 @@ xmlNodeBufGetContent(xmlBufferPtr buffer, const xmlNode *cur)
  int
  xmlBufGetNodeContent(xmlBufPtr buf, const xmlNode *cur)
  {
@@ -20146,7 +19907,7 @@ index c707f598..c4711100 100644
      switch (cur->type) {
          case XML_CDATA_SECTION_NODE:
          case XML_TEXT_NODE:
-@@ -5467,8 +6994,23 @@ xmlBufGetNodeContent(xmlBufPtr buf, const xmlNode *cur)
+@@ -5467,8 +6979,23 @@ xmlBufGetNodeContent(xmlBufPtr buf, const xmlNode *cur)
  
                      do {
                          tmp = tmp->parent;
@@ -20171,7 +19932,7 @@ index c707f598..c4711100 100644
                          if (tmp == cur) {
                              tmp = NULL;
                              break;
-@@ -5504,8 +7046,23 @@ xmlBufGetNodeContent(xmlBufPtr buf, const xmlNode *cur)
+@@ -5504,8 +7031,23 @@ xmlBufGetNodeContent(xmlBufPtr buf, const xmlNode *cur)
  
                  /* lookup entity declaration */
                  ent = xmlGetDocEntity(cur->doc, cur->name);
@@ -20196,7 +19957,7 @@ index c707f598..c4711100 100644
  
                  /* an entity content can be any "well balanced chunk",
                   * i.e. the result of the content [43] production:
-@@ -5566,8 +7123,23 @@ xmlBufGetNodeContent(xmlBufPtr buf, const xmlNode *cur)
+@@ -5566,8 +7108,23 @@ xmlBufGetNodeContent(xmlBufPtr buf, const xmlNode *cur)
  xmlChar *
  xmlNodeGetContent(const xmlNode *cur)
  {
@@ -20221,7 +19982,7 @@ index c707f598..c4711100 100644
      switch (cur->type) {
          case XML_DOCUMENT_FRAG_NODE:
          case XML_ELEMENT_NODE:{
-@@ -5575,8 +7147,23 @@ xmlNodeGetContent(const xmlNode *cur)
+@@ -5575,8 +7132,23 @@ xmlNodeGetContent(const xmlNode *cur)
                  xmlChar *ret;
  
                  buf = xmlBufCreateSize(64);
@@ -20246,7 +20007,7 @@ index c707f598..c4711100 100644
  		xmlBufGetNodeContent(buf, cur);
                  ret = xmlBufDetach(buf);
                  xmlBufFree(buf);
-@@ -5596,12 +7183,42 @@ xmlNodeGetContent(const xmlNode *cur)
+@@ -5596,12 +7168,42 @@ xmlNodeGetContent(const xmlNode *cur)
  
                  /* lookup entity declaration */
                  ent = xmlGetDocEntity(cur->doc, cur->name);
@@ -20291,7 +20052,7 @@ index c707f598..c4711100 100644
  
                  xmlBufGetNodeContent(buf, cur);
  
-@@ -5625,8 +7242,23 @@ xmlNodeGetContent(const xmlNode *cur)
+@@ -5625,8 +7227,23 @@ xmlNodeGetContent(const xmlNode *cur)
  	    xmlChar *ret;
  
  	    buf = xmlBufCreate();
@@ -20316,7 +20077,7 @@ index c707f598..c4711100 100644
  
  	    xmlBufGetNodeContent(buf, (xmlNodePtr) cur);
  
-@@ -5670,13 +7302,28 @@ xmlNodeGetContent(const xmlNode *cur)
+@@ -5670,13 +7287,28 @@ xmlNodeGetContent(const xmlNode *cur)
   */
  void
  xmlNodeSetContent(xmlNodePtr cur, const xmlChar *content) {
@@ -20346,7 +20107,7 @@ index c707f598..c4711100 100644
      switch (cur->type) {
          case XML_DOCUMENT_FRAG_NODE:
          case XML_ELEMENT_NODE:
-@@ -5821,14 +7468,44 @@ xmlNodeSetContentLen(xmlNodePtr cur, const xmlChar *content, int len) {
+@@ -5821,14 +7453,44 @@ xmlNodeSetContentLen(xmlNodePtr cur, const xmlChar *content, int len) {
   */
  void
  xmlNodeAddContentLen(xmlNodePtr cur, const xmlChar *content, int len) {
@@ -20393,7 +20154,7 @@ index c707f598..c4711100 100644
      switch (cur->type) {
          case XML_DOCUMENT_FRAG_NODE:
          case XML_ELEMENT_NODE: {
-@@ -5898,14 +7575,44 @@ void
+@@ -5898,14 +7560,44 @@ void
  xmlNodeAddContent(xmlNodePtr cur, const xmlChar *content) {
      int len;
  
@@ -20440,7 +20201,7 @@ index c707f598..c4711100 100644
      len = xmlStrlen(content);
      xmlNodeAddContentLen(cur, content, len);
  }
-@@ -5920,8 +7627,38 @@ xmlNodeAddContent(xmlNodePtr cur, const xmlChar *content) {
+@@ -5920,8 +7612,38 @@ xmlNodeAddContent(xmlNodePtr cur, const xmlChar *content) {
   */
  xmlNodePtr
  xmlTextMerge(xmlNodePtr first, xmlNodePtr second) {
@@ -20481,7 +20242,7 @@ index c707f598..c4711100 100644
      if (first->type != XML_TEXT_NODE) return(first);
      if (second->type != XML_TEXT_NODE) return(first);
      if (second->name != first->name)
-@@ -5963,10 +7700,25 @@ xmlGetNsList(const xmlDoc *doc ATTRIBUTE_UNUSED, const xmlNode *node)
+@@ -5963,10 +7685,25 @@ xmlGetNsList(const xmlDoc *doc ATTRIBUTE_UNUSED, const xmlNode *node)
                      ret =
                          (xmlNsPtr *) xmlMalloc((maxns + 1) *
                                                 sizeof(xmlNsPtr));
@@ -20508,7 +20269,7 @@ index c707f598..c4711100 100644
                      ret[nbns] = NULL;
                  }
                  for (i = 0; i < nbns; i++) {
-@@ -5981,10 +7733,25 @@ xmlGetNsList(const xmlDoc *doc ATTRIBUTE_UNUSED, const xmlNode *node)
+@@ -5981,10 +7718,25 @@ xmlGetNsList(const xmlDoc *doc ATTRIBUTE_UNUSED, const xmlNode *node)
                                                        (maxns +
                                                         1) *
                                                        sizeof(xmlNsPtr));
@@ -20535,7 +20296,7 @@ index c707f598..c4711100 100644
                      }
                      ret[nbns++] = cur;
                      ret[nbns] = NULL;
-@@ -6010,18 +7777,48 @@ xmlGetNsList(const xmlDoc *doc ATTRIBUTE_UNUSED, const xmlNode *node)
+@@ -6010,18 +7762,48 @@ xmlGetNsList(const xmlDoc *doc ATTRIBUTE_UNUSED, const xmlNode *node)
  static xmlNsPtr
  xmlTreeEnsureXMLDecl(xmlDocPtr doc)
  {
@@ -20586,7 +20347,7 @@ index c707f598..c4711100 100644
  	memset(ns, 0, sizeof(xmlNs));
  	ns->type = XML_LOCAL_NAMESPACE;
  	ns->href = xmlStrdup(XML_XML_NAMESPACE);
-@@ -6063,10 +7860,25 @@ xmlSearchNs(xmlDocPtr doc, xmlNodePtr node, const xmlChar *nameSpace) {
+@@ -6063,10 +7845,25 @@ xmlSearchNs(xmlDocPtr doc, xmlNodePtr node, const xmlChar *nameSpace) {
  	     * node element.
  	     */
  	    cur = (xmlNsPtr) xmlMalloc(sizeof(xmlNs));
@@ -20613,7 +20374,7 @@ index c707f598..c4711100 100644
  	    memset(cur, 0, sizeof(xmlNs));
  	    cur->type = XML_LOCAL_NAMESPACE;
  	    cur->href = xmlStrdup(XML_XML_NAMESPACE);
-@@ -6077,8 +7889,23 @@ xmlSearchNs(xmlDocPtr doc, xmlNodePtr node, const xmlChar *nameSpace) {
+@@ -6077,8 +7874,23 @@ xmlSearchNs(xmlDocPtr doc, xmlNodePtr node, const xmlChar *nameSpace) {
  	}
  	if (doc == NULL) {
  	    doc = node->doc;
@@ -20638,7 +20399,7 @@ index c707f598..c4711100 100644
  	}
  	/*
  	* Return the XML namespace declaration held by the doc.
-@@ -6196,10 +8023,25 @@ xmlSearchNsByHref(xmlDocPtr doc, xmlNodePtr node, const xmlChar * href)
+@@ -6196,10 +8008,25 @@ xmlSearchNsByHref(xmlDocPtr doc, xmlNodePtr node, const xmlChar * href)
               * node element.
               */
              cur = (xmlNsPtr) xmlMalloc(sizeof(xmlNs));
@@ -20665,7 +20426,7 @@ index c707f598..c4711100 100644
              memset(cur, 0, sizeof(xmlNs));
              cur->type = XML_LOCAL_NAMESPACE;
              cur->href = xmlStrdup(XML_XML_NAMESPACE);
-@@ -6210,8 +8052,23 @@ xmlSearchNsByHref(xmlDocPtr doc, xmlNodePtr node, const xmlChar * href)
+@@ -6210,8 +8037,23 @@ xmlSearchNsByHref(xmlDocPtr doc, xmlNodePtr node, const xmlChar * href)
          }
  	if (doc == NULL) {
  	    doc = node->doc;
@@ -20690,7 +20451,7 @@ index c707f598..c4711100 100644
  	}
  	/*
  	* Return the XML namespace declaration held by the doc.
-@@ -6575,8 +8432,23 @@ xmlGetPropNodeInternal(const xmlNode *node, const xmlChar *name,
+@@ -6575,8 +8417,23 @@ xmlGetPropNodeInternal(const xmlNode *node, const xmlChar *name,
  	    tmpstr = xmlStrdup(node->ns->prefix);
  	    tmpstr = xmlStrcat(tmpstr, BAD_CAST ":");
  	    tmpstr = xmlStrcat(tmpstr, node->name);
@@ -20715,7 +20476,7 @@ index c707f598..c4711100 100644
  	    elemQName = tmpstr;
  	} else
  	    elemQName = (xmlChar *) node->name;
-@@ -6608,11 +8480,26 @@ xmlGetPropNodeInternal(const xmlNode *node, const xmlChar *name,
+@@ -6608,11 +8465,26 @@ xmlGetPropNodeInternal(const xmlNode *node, const xmlChar *name,
  	    * ns-decls corresponding to @nsName.
  	    */
  	    nsList = xmlGetNsList(node->doc, node);
@@ -20743,7 +20504,7 @@ index c707f598..c4711100 100644
  	    cur = nsList;
  	    while (*cur != NULL) {
  		if (xmlStrEqual((*cur)->href, nsName)) {
-@@ -6646,8 +8533,23 @@ xmlGetPropNodeInternal(const xmlNode *node, const xmlChar *name,
+@@ -6646,8 +8518,23 @@ xmlGetPropNodeInternal(const xmlNode *node, const xmlChar *name,
  static xmlChar*
  xmlGetPropNodeValueInternal(const xmlAttr *prop)
  {
@@ -20768,7 +20529,7 @@ index c707f598..c4711100 100644
      if (prop->type == XML_ATTRIBUTE_NODE) {
  	/*
  	* Note that we return at least the empty string.
-@@ -6771,8 +8673,23 @@ xmlGetProp(const xmlNode *node, const xmlChar *name) {
+@@ -6771,8 +8658,23 @@ xmlGetProp(const xmlNode *node, const xmlChar *name) {
      xmlAttrPtr prop;
  
      prop = xmlHasProp(node, name);
@@ -20793,7 +20554,7 @@ index c707f598..c4711100 100644
      return(xmlGetPropNodeValueInternal(prop));
  }
  
-@@ -6796,8 +8713,23 @@ xmlGetNoNsProp(const xmlNode *node, const xmlChar *name) {
+@@ -6796,8 +8698,23 @@ xmlGetNoNsProp(const xmlNode *node, const xmlChar *name) {
      xmlAttrPtr prop;
  
      prop = xmlGetPropNodeInternal(node, name, NULL, xmlCheckDTD);
@@ -20818,7 +20579,7 @@ index c707f598..c4711100 100644
      return(xmlGetPropNodeValueInternal(prop));
  }
  
-@@ -6821,8 +8753,23 @@ xmlGetNsProp(const xmlNode *node, const xmlChar *name, const xmlChar *nameSpace)
+@@ -6821,8 +8738,23 @@ xmlGetNsProp(const xmlNode *node, const xmlChar *name, const xmlChar *nameSpace)
      xmlAttrPtr prop;
  
      prop = xmlGetPropNodeInternal(node, name, nameSpace, xmlCheckDTD);
@@ -20843,7 +20604,7 @@ index c707f598..c4711100 100644
      return(xmlGetPropNodeValueInternal(prop));
  }
  
-@@ -6951,8 +8898,23 @@ xmlSetNsProp(xmlNodePtr node, xmlNsPtr ns, const xmlChar *name,
+@@ -6951,8 +8883,23 @@ xmlSetNsProp(xmlNodePtr node, xmlNsPtr ns, const xmlChar *name,
  	    tmp = prop->children;
  	    while (tmp != NULL) {
  		tmp->parent = (xmlNodePtr) prop;
@@ -20868,7 +20629,7 @@ index c707f598..c4711100 100644
  		tmp = tmp->next;
  	    }
  	}
-@@ -6977,7 +8939,22 @@ xmlSetNsProp(xmlNodePtr node, xmlNsPtr ns, const xmlChar *name,
+@@ -6977,7 +8924,22 @@ xmlSetNsProp(xmlNodePtr node, xmlNsPtr ns, const xmlChar *name,
   */
  int
  xmlNodeIsText(const xmlNode *node) {
@@ -20892,7 +20653,7 @@ index c707f598..c4711100 100644
  
      if (node->type == XML_TEXT_NODE) return(1);
      return(0);
-@@ -6995,12 +8972,42 @@ xmlNodeIsText(const xmlNode *node) {
+@@ -6995,12 +8957,42 @@ xmlNodeIsText(const xmlNode *node) {
  int
  xmlIsBlankNode(const xmlNode *node) {
      const xmlChar *cur;
@@ -20937,7 +20698,7 @@ index c707f598..c4711100 100644
      cur = node->content;
      while (*cur != 0) {
  	if (!IS_BLANK_CH(*cur)) return(0);
-@@ -7023,7 +9030,22 @@ xmlIsBlankNode(const xmlNode *node) {
+@@ -7023,7 +9015,22 @@ xmlIsBlankNode(const xmlNode *node) {
  
  int
  xmlTextConcat(xmlNodePtr node, const xmlChar *content, int len) {
@@ -20961,7 +20722,7 @@ index c707f598..c4711100 100644
  
      if ((node->type != XML_TEXT_NODE) &&
          (node->type != XML_CDATA_SECTION_NODE) &&
-@@ -7044,8 +9066,23 @@ xmlTextConcat(xmlNodePtr node, const xmlChar *content, int len) {
+@@ -7044,8 +9051,23 @@ xmlTextConcat(xmlNodePtr node, const xmlChar *content, int len) {
          node->content = xmlStrncat(node->content, content, len);
      }
      node->properties = NULL;
@@ -20986,7 +20747,7 @@ index c707f598..c4711100 100644
      return(0);
  }
  
-@@ -7066,19 +9103,49 @@ xmlBufferCreate(void) {
+@@ -7066,19 +9088,49 @@ xmlBufferCreate(void) {
      xmlBufferPtr ret;
  
      ret = (xmlBufferPtr) xmlMalloc(sizeof(xmlBuffer));
@@ -21038,7 +20799,7 @@ index c707f598..c4711100 100644
      ret->content[0] = 0;
      ret->contentIO = NULL;
      return(ret);
-@@ -7210,13 +9277,28 @@ xmlBufferSetAllocationScheme(xmlBufferPtr buf,
+@@ -7210,13 +9262,28 @@ xmlBufferSetAllocationScheme(xmlBufferPtr buf,
   */
  void
  xmlBufferFree(xmlBufferPtr buf) {
@@ -21068,7 +20829,7 @@ index c707f598..c4711100 100644
  
      if ((buf->alloc == XML_BUFFER_ALLOC_IO) &&
          (buf->contentIO != NULL)) {
-@@ -7438,14 +9520,44 @@ xmlBufferResize(xmlBufferPtr buf, unsigned int size)
+@@ -7438,14 +9505,44 @@ xmlBufferResize(xmlBufferPtr buf, unsigned int size)
      xmlChar* rebuf = NULL;
      size_t start_buf;
  
@@ -21115,7 +20876,7 @@ index c707f598..c4711100 100644
  
      if (size > UINT_MAX - 10) {
          xmlTreeErrMemory("growing buffer");
-@@ -7500,10 +9612,25 @@ xmlBufferResize(xmlBufferPtr buf, unsigned int size)
+@@ -7500,10 +9597,25 @@ xmlBufferResize(xmlBufferPtr buf, unsigned int size)
  	    buf->size += start_buf;
  	} else {
  	    rebuf = (xmlChar *) xmlRealloc(buf->contentIO, start_buf + newSize);
@@ -21142,7 +20903,7 @@ index c707f598..c4711100 100644
  	    buf->contentIO = rebuf;
  	    buf->content = rebuf + start_buf;
  	}
-@@ -7525,10 +9652,25 @@ xmlBufferResize(xmlBufferPtr buf, unsigned int size)
+@@ -7525,10 +9637,25 @@ xmlBufferResize(xmlBufferPtr buf, unsigned int size)
  		rebuf[buf->use] = 0;
  	    }
  	}
@@ -21169,7 +20930,7 @@ index c707f598..c4711100 100644
  	buf->content = rebuf;
      }
      buf->size = newSize;
-@@ -7563,13 +9705,43 @@ xmlBufferAdd(xmlBufferPtr buf, const xmlChar *str, int len) {
+@@ -7563,13 +9690,43 @@ xmlBufferAdd(xmlBufferPtr buf, const xmlChar *str, int len) {
  #endif
  	return -1;
      }
@@ -21215,7 +20976,7 @@ index c707f598..c4711100 100644
  
      needSize = buf->use + len + 2;
      if (needSize > buf->size){
-@@ -7666,8 +9838,23 @@ xmlBufferAddHead(xmlBufferPtr buf, const xmlChar *str, int len) {
+@@ -7666,8 +9823,23 @@ xmlBufferAddHead(xmlBufferPtr buf, const xmlChar *str, int len) {
   */
  int
  xmlBufferCat(xmlBufferPtr buf, const xmlChar *str) {
@@ -21240,7 +21001,7 @@ index c707f598..c4711100 100644
      if (buf->alloc == XML_BUFFER_ALLOC_IMMUTABLE) return -1;
      if (str == NULL) return -1;
      return xmlBufferAdd(buf, str, -1);
-@@ -7687,16 +9874,46 @@ int
+@@ -7687,16 +9859,46 @@ int
  xmlBufferCCat(xmlBufferPtr buf, const char *str) {
      const char *cur;
  
@@ -21289,7 +21050,7 @@ index c707f598..c4711100 100644
      for (cur = str;*cur != 0;cur++) {
          if (buf->use  + 10 >= buf->size) {
              if (!xmlBufferResize(buf, buf->use+10)){
-@@ -7720,8 +9937,23 @@ xmlBufferCCat(xmlBufferPtr buf, const char *str) {
+@@ -7720,8 +9922,23 @@ xmlBufferCCat(xmlBufferPtr buf, const char *str) {
   */
  void
  xmlBufferWriteCHAR(xmlBufferPtr buf, const xmlChar *string) {
@@ -21314,7 +21075,7 @@ index c707f598..c4711100 100644
      if (buf->alloc == XML_BUFFER_ALLOC_IMMUTABLE) return;
      xmlBufferCat(buf, string);
  }
-@@ -7736,8 +9968,23 @@ xmlBufferWriteCHAR(xmlBufferPtr buf, const xmlChar *string) {
+@@ -7736,8 +9953,23 @@ xmlBufferWriteCHAR(xmlBufferPtr buf, const xmlChar *string) {
   */
  void
  xmlBufferWriteChar(xmlBufferPtr buf, const char *string) {
@@ -21339,7 +21100,7 @@ index c707f598..c4711100 100644
      if (buf->alloc == XML_BUFFER_ALLOC_IMMUTABLE) return;
      xmlBufferCCat(buf, string);
  }
-@@ -7755,8 +10002,23 @@ xmlBufferWriteChar(xmlBufferPtr buf, const char *string) {
+@@ -7755,8 +9987,23 @@ xmlBufferWriteChar(xmlBufferPtr buf, const char *string) {
  void
  xmlBufferWriteQuotedString(xmlBufferPtr buf, const xmlChar *string) {
      const xmlChar *cur, *base;
@@ -22881,7 +22642,7 @@ index 8204825f..2c681307 100644
      /* xmlCanonicPath can return an URI on Windows (is that the intended behaviour?)
         If 'cal' is a valid URI already then we are done here, as continuing would make
 diff --git a/valid.c b/valid.c
-index 5ee391c0..dd3b49e3 100644
+index 5ee391c0..15f4888d 100644
 --- a/valid.c
 +++ b/valid.c
 @@ -1,3 +1,10 @@
@@ -23279,7 +23040,34 @@ index 5ee391c0..dd3b49e3 100644
  
      while (1) {
          xmlElementContentPtr parent;
-@@ -1204,13 +1436,43 @@ static void
+@@ -1137,10 +1369,25 @@ xmlFreeDocElementContent(xmlDocPtr doc, xmlElementContentPtr cur) {
+ 	    if (cur->prefix != NULL) xmlFree((xmlChar *) cur->prefix);
+ 	}
+         parent = cur->parent;
+-        if ((depth == 0) || (parent == NULL)) {
++        
++        #ifdef FRCOV
++        {if (FIXREVERTER[2851]) {
++          if ((parent == (void *) 0 ) && !(depth == 0 ))
++            fprintf(stderr, "triggered bug index 2851\n");
++          else
++            fprintf(stderr, "reached bug index 2851\n");
++        }
++        if ((FIXREVERTER[2851] && (depth == 0 )) || (!FIXREVERTER[2851] && (depth == 0 || parent == (void *) 0 ))
++        #else
++        if (depth == 0 
++        #endif
++        ) {
+             xmlFree(cur);
+             break;
+         }
++        #ifdef FRCOV
++        }
++        #endif
+         if (cur == parent->c1)
+             parent->c1 = NULL;
+         else
+@@ -1204,13 +1451,43 @@ static void
  xmlDumpElementContent(xmlBufferPtr buf, xmlElementContentPtr content) {
      xmlElementContentPtr cur;
  
@@ -23325,7 +23113,31 @@ index 5ee391c0..dd3b49e3 100644
  
          switch (cur->type) {
              case XML_ELEMENT_CONTENT_PCDATA:
-@@ -1297,13 +1559,43 @@ void
+@@ -1241,7 +1518,22 @@ xmlDumpElementContent(xmlBufferPtr buf, xmlElementContentPtr content) {
+         while (cur != content) {
+             xmlElementContentPtr parent = cur->parent;
+ 
+-            if (parent == NULL) return;
++            
++            #ifdef FRCOV
++            {if (FIXREVERTER[2854]) {
++              if ((parent == (void *) 0 ) && !(0))
++                fprintf(stderr, "triggered bug index 2854\n");
++              else
++                fprintf(stderr, "reached bug index 2854\n");
++            }
++            if ((!FIXREVERTER[2854] && (parent == (void *) 0 ))
++            #else
++            if (0
++            #endif
++            ) return;
++            #ifdef FRCOV
++            }
++            #endif
+ 
+             if (((cur->type == XML_ELEMENT_CONTENT_OR) ||
+                  (cur->type == XML_ELEMENT_CONTENT_SEQ)) &&
+@@ -1297,13 +1589,43 @@ void
  xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int englob) {
      int len;
  
@@ -23371,7 +23183,7 @@ index 5ee391c0..dd3b49e3 100644
      if (englob) strcat(buf, "(");
      switch (content->type) {
          case XML_ELEMENT_CONTENT_PCDATA:
-@@ -1314,10 +1606,25 @@ xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int
+@@ -1314,10 +1636,25 @@ xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int
  
  	    if (content->prefix != NULL)
                  qnameLen += xmlStrlen(content->prefix) + 1;
@@ -23398,7 +23210,7 @@ index 5ee391c0..dd3b49e3 100644
  	    if (content->prefix != NULL) {
  		strcat(buf, (char *) content->prefix);
  		strcat(buf, ":");
-@@ -1333,11 +1640,26 @@ xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int
+@@ -1333,11 +1670,26 @@ xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int
  	    else
  		xmlSnprintfElementContent(buf, size, content->c1, 0);
  	    len = strlen(buf);
@@ -23426,7 +23238,7 @@ index 5ee391c0..dd3b49e3 100644
              strcat(buf, " , ");
  	    if (((content->c2->type == XML_ELEMENT_CONTENT_OR) ||
  		 (content->c2->ocur != XML_ELEMENT_CONTENT_ONCE)) &&
-@@ -1353,11 +1675,26 @@ xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int
+@@ -1353,11 +1705,26 @@ xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int
  	    else
  		xmlSnprintfElementContent(buf, size, content->c1, 0);
  	    len = strlen(buf);
@@ -23454,7 +23266,31 @@ index 5ee391c0..dd3b49e3 100644
              strcat(buf, " | ");
  	    if (((content->c2->type == XML_ELEMENT_CONTENT_SEQ) ||
  		 (content->c2->ocur != XML_ELEMENT_CONTENT_ONCE)) &&
-@@ -1436,12 +1773,42 @@ xmlAddElementDecl(xmlValidCtxtPtr ctxt,
+@@ -1399,7 +1766,22 @@ xmlSnprintfElementContent(char *buf, int size, xmlElementContentPtr content, int
+  */
+ static void
+ xmlFreeElement(xmlElementPtr elem) {
+-    if (elem == NULL) return;
++    
++    #ifdef FRCOV
++    {if (FIXREVERTER[2861]) {
++      if ((elem == (void *) 0 ) && !(0))
++        fprintf(stderr, "triggered bug index 2861\n");
++      else
++        fprintf(stderr, "reached bug index 2861\n");
++    }
++    if ((!FIXREVERTER[2861] && (elem == (void *) 0 ))
++    #else
++    if (0
++    #endif
++    ) return;
++    #ifdef FRCOV
++    }
++    #endif
+     xmlUnlinkNode((xmlNodePtr) elem);
+     xmlFreeDocElementContent(elem->doc, elem->content);
+     if (elem->name != NULL)
+@@ -1436,12 +1818,42 @@ xmlAddElementDecl(xmlValidCtxtPtr ctxt,
      xmlAttributePtr oldAttributes = NULL;
      xmlChar *ns, *uqname;
  
@@ -23499,7 +23335,7 @@ index 5ee391c0..dd3b49e3 100644
  
      switch (type) {
          case XML_ELEMENT_TYPE_EMPTY:
-@@ -1461,20 +1828,50 @@ xmlAddElementDecl(xmlValidCtxtPtr ctxt,
+@@ -1461,20 +1873,50 @@ xmlAddElementDecl(xmlValidCtxtPtr ctxt,
  	    }
  	    break;
  	case XML_ELEMENT_TYPE_MIXED:
@@ -23552,7 +23388,7 @@ index 5ee391c0..dd3b49e3 100644
  	    break;
  	default:
  	    xmlErrValid(ctxt, XML_ERR_INTERNAL_ERROR,
-@@ -1487,8 +1884,23 @@ xmlAddElementDecl(xmlValidCtxtPtr ctxt,
+@@ -1487,8 +1929,23 @@ xmlAddElementDecl(xmlValidCtxtPtr ctxt,
       * check if name is a QName
       */
      uqname = xmlSplitQName2(name, &ns);
@@ -23577,7 +23413,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /*
       * Create the Element table if needed.
-@@ -1671,10 +2083,25 @@ xmlCopyElement(void *payload, const xmlChar *name ATTRIBUTE_UNUSED) {
+@@ -1671,10 +2128,25 @@ xmlCopyElement(void *payload, const xmlChar *name ATTRIBUTE_UNUSED) {
      xmlElementPtr cur;
  
      cur = (xmlElementPtr) xmlMalloc(sizeof(xmlElement));
@@ -23604,7 +23440,7 @@ index 5ee391c0..dd3b49e3 100644
      memset(cur, 0, sizeof(xmlElement));
      cur->type = XML_ELEMENT_DECL;
      cur->etype = elem->etype;
-@@ -1717,8 +2144,23 @@ xmlCopyElementTable(xmlElementTablePtr table) {
+@@ -1717,8 +2189,23 @@ xmlCopyElementTable(xmlElementTablePtr table) {
   */
  void
  xmlDumpElementDecl(xmlBufferPtr buf, xmlElementPtr elem) {
@@ -23629,7 +23465,7 @@ index 5ee391c0..dd3b49e3 100644
      switch (elem->etype) {
  	case XML_ELEMENT_TYPE_EMPTY:
  	    xmlBufferWriteChar(buf, "<!ELEMENT ");
-@@ -1810,10 +2252,25 @@ xmlCreateEnumeration(const xmlChar *name) {
+@@ -1810,10 +2297,25 @@ xmlCreateEnumeration(const xmlChar *name) {
      xmlEnumerationPtr ret;
  
      ret = (xmlEnumerationPtr) xmlMalloc(sizeof(xmlEnumeration));
@@ -23656,7 +23492,7 @@ index 5ee391c0..dd3b49e3 100644
      memset(ret, 0, sizeof(xmlEnumeration));
  
      if (name != NULL)
-@@ -1829,7 +2286,22 @@ xmlCreateEnumeration(const xmlChar *name) {
+@@ -1829,7 +2331,22 @@ xmlCreateEnumeration(const xmlChar *name) {
   */
  void
  xmlFreeEnumeration(xmlEnumerationPtr cur) {
@@ -23680,7 +23516,7 @@ index 5ee391c0..dd3b49e3 100644
  
      if (cur->next != NULL) xmlFreeEnumeration(cur->next);
  
-@@ -1851,9 +2323,39 @@ xmlEnumerationPtr
+@@ -1851,9 +2368,39 @@ xmlEnumerationPtr
  xmlCopyEnumeration(xmlEnumerationPtr cur) {
      xmlEnumerationPtr ret;
  
@@ -23722,7 +23558,7 @@ index 5ee391c0..dd3b49e3 100644
  
      if (cur->next != NULL) ret->next = xmlCopyEnumeration(cur->next);
      else ret->next = NULL;
-@@ -1872,8 +2374,23 @@ xmlCopyEnumeration(xmlEnumerationPtr cur) {
+@@ -1872,8 +2419,23 @@ xmlCopyEnumeration(xmlEnumerationPtr cur) {
   */
  static void
  xmlDumpEnumeration(xmlBufferPtr buf, xmlEnumerationPtr cur) {
@@ -23747,7 +23583,7 @@ index 5ee391c0..dd3b49e3 100644
  
      xmlBufferWriteCHAR(buf, cur->name);
      if (cur->next == NULL)
-@@ -1902,7 +2419,22 @@ xmlScanIDAttributeDecl(xmlValidCtxtPtr ctxt, xmlElementPtr elem, int err) {
+@@ -1902,7 +2464,22 @@ xmlScanIDAttributeDecl(xmlValidCtxtPtr ctxt, xmlElementPtr elem, int err) {
      xmlAttributePtr cur;
      int ret = 0;
  
@@ -23771,7 +23607,7 @@ index 5ee391c0..dd3b49e3 100644
      cur = elem->attributes;
      while (cur != NULL) {
          if (cur->atype == XML_ATTRIBUTE_ID) {
-@@ -1928,7 +2460,22 @@ static void
+@@ -1928,7 +2505,22 @@ static void
  xmlFreeAttribute(xmlAttributePtr attr) {
      xmlDictPtr dict;
  
@@ -23795,7 +23631,7 @@ index 5ee391c0..dd3b49e3 100644
      if (attr->doc != NULL)
  	dict = attr->doc->dict;
      else
-@@ -1988,20 +2535,80 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
+@@ -1988,20 +2580,80 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
      xmlElementPtr elemDef;
      xmlDictPtr dict = NULL;
  
@@ -23880,7 +23716,7 @@ index 5ee391c0..dd3b49e3 100644
  
  #ifdef LIBXML_VALID_ENABLED
      /*
-@@ -2041,8 +2648,23 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
+@@ -2041,8 +2693,23 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
  	                "Attribute %s of %s: invalid default value\n",
  	                elem, name, defaultValue);
  	defaultValue = NULL;
@@ -23905,7 +23741,7 @@ index 5ee391c0..dd3b49e3 100644
      }
  #endif /* LIBXML_VALID_ENABLED */
  
-@@ -2068,20 +2690,50 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
+@@ -2068,20 +2735,50 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
          table = xmlHashCreateDict(0, dict);
  	dtd->attributes = (void *) table;
      }
@@ -23958,7 +23794,7 @@ index 5ee391c0..dd3b49e3 100644
      memset(ret, 0, sizeof(xmlAttribute));
      ret->type = XML_ATTRIBUTE_DECL;
  
-@@ -2143,8 +2795,23 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
+@@ -2143,8 +2840,23 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
  	    xmlErrValidNode(ctxt, (xmlNodePtr) dtd, XML_DTD_MULTIPLE_ID,
  	   "Element %s has too may ID attributes defined : %s\n",
  		   elem, name, NULL);
@@ -23983,7 +23819,7 @@ index 5ee391c0..dd3b49e3 100644
  	}
  #endif /* LIBXML_VALID_ENABLED */
  
-@@ -2164,8 +2831,23 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
+@@ -2164,8 +2876,23 @@ xmlAddAttributeDecl(xmlValidCtxtPtr ctxt,
  		   ((xmlStrEqual(tmp->name, BAD_CAST "xmlns")) ||
  		    ((ret->prefix != NULL &&
  		     (xmlStrEqual(ret->prefix, BAD_CAST "xmlns")))))) {
@@ -24008,7 +23844,7 @@ index 5ee391c0..dd3b49e3 100644
  		tmp = tmp->nexth;
  	    }
  	    if (tmp != NULL) {
-@@ -2223,23 +2905,98 @@ xmlCopyAttribute(void *payload, const xmlChar *name ATTRIBUTE_UNUSED) {
+@@ -2223,23 +2950,98 @@ xmlCopyAttribute(void *payload, const xmlChar *name ATTRIBUTE_UNUSED) {
      xmlAttributePtr cur;
  
      cur = (xmlAttributePtr) xmlMalloc(sizeof(xmlAttribute));
@@ -24112,7 +23948,7 @@ index 5ee391c0..dd3b49e3 100644
      return(cur);
  }
  
-@@ -2268,8 +3025,23 @@ xmlCopyAttributeTable(xmlAttributeTablePtr table) {
+@@ -2268,8 +3070,23 @@ xmlCopyAttributeTable(xmlAttributeTablePtr table) {
   */
  void
  xmlDumpAttributeDecl(xmlBufferPtr buf, xmlAttributePtr attr) {
@@ -24137,7 +23973,7 @@ index 5ee391c0..dd3b49e3 100644
      xmlBufferWriteChar(buf, "<!ATTLIST ");
      xmlBufferWriteCHAR(buf, attr->elem);
      xmlBufferWriteChar(buf, " ");
-@@ -2381,7 +3153,22 @@ xmlDumpAttributeTable(xmlBufferPtr buf, xmlAttributeTablePtr table) {
+@@ -2381,7 +3198,22 @@ xmlDumpAttributeTable(xmlBufferPtr buf, xmlAttributeTablePtr table) {
   */
  static void
  xmlFreeNotation(xmlNotationPtr nota) {
@@ -24161,7 +23997,7 @@ index 5ee391c0..dd3b49e3 100644
      if (nota->name != NULL)
  	xmlFree((xmlChar *) nota->name);
      if (nota->PublicID != NULL)
-@@ -2411,12 +3198,42 @@ xmlAddNotationDecl(xmlValidCtxtPtr ctxt, xmlDtdPtr dtd,
+@@ -2411,12 +3243,42 @@ xmlAddNotationDecl(xmlValidCtxtPtr ctxt, xmlDtdPtr dtd,
      xmlNotationPtr ret;
      xmlNotationTablePtr table;
  
@@ -24206,7 +24042,7 @@ index 5ee391c0..dd3b49e3 100644
      if ((PublicID == NULL) && (SystemID == NULL)) {
  	return(NULL);
      }
-@@ -2427,32 +3244,107 @@ xmlAddNotationDecl(xmlValidCtxtPtr ctxt, xmlDtdPtr dtd,
+@@ -2427,32 +3289,107 @@ xmlAddNotationDecl(xmlValidCtxtPtr ctxt, xmlDtdPtr dtd,
      table = (xmlNotationTablePtr) dtd->notations;
      if (table == NULL) {
  	xmlDictPtr dict = NULL;
@@ -24319,7 +24155,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /*
       * Validity Check:
-@@ -2501,10 +3393,25 @@ xmlCopyNotation(void *payload, const xmlChar *name ATTRIBUTE_UNUSED) {
+@@ -2501,10 +3438,25 @@ xmlCopyNotation(void *payload, const xmlChar *name ATTRIBUTE_UNUSED) {
      xmlNotationPtr cur;
  
      cur = (xmlNotationPtr) xmlMalloc(sizeof(xmlNotation));
@@ -24346,7 +24182,7 @@ index 5ee391c0..dd3b49e3 100644
      if (nota->name != NULL)
  	cur->name = xmlStrdup(nota->name);
      else
-@@ -2544,8 +3451,23 @@ xmlCopyNotationTable(xmlNotationTablePtr table) {
+@@ -2544,8 +3496,23 @@ xmlCopyNotationTable(xmlNotationTablePtr table) {
   */
  void
  xmlDumpNotationDecl(xmlBufferPtr buf, xmlNotationPtr nota) {
@@ -24371,7 +24207,7 @@ index 5ee391c0..dd3b49e3 100644
      xmlBufferWriteChar(buf, "<!NOTATION ");
      xmlBufferWriteCHAR(buf, nota->name);
      if (nota->PublicID != NULL) {
-@@ -2584,8 +3506,23 @@ xmlDumpNotationDeclScan(void *nota, void *buf,
+@@ -2584,8 +3551,23 @@ xmlDumpNotationDeclScan(void *nota, void *buf,
   */
  void
  xmlDumpNotationTable(xmlBufferPtr buf, xmlNotationTablePtr table) {
@@ -24396,7 +24232,7 @@ index 5ee391c0..dd3b49e3 100644
      xmlHashScan(table, xmlDumpNotationDeclScan, buf);
  }
  #endif /* LIBXML_OUTPUT_ENABLED */
-@@ -2617,7 +3554,22 @@ static void
+@@ -2617,7 +3599,22 @@ static void
  xmlFreeID(xmlIDPtr id) {
      xmlDictPtr dict = NULL;
  
@@ -24420,7 +24256,7 @@ index 5ee391c0..dd3b49e3 100644
  
      if (id->doc != NULL)
          dict = id->doc->dict;
-@@ -2647,15 +3599,60 @@ xmlAddID(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
+@@ -2647,15 +3644,60 @@ xmlAddID(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
      xmlIDPtr ret;
      xmlIDTablePtr table;
  
@@ -24484,7 +24320,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /*
       * Create the ID table if needed.
-@@ -2664,17 +3661,47 @@ xmlAddID(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
+@@ -2664,17 +3706,47 @@ xmlAddID(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
      if (table == NULL)  {
          doc->ids = table = xmlHashCreateDict(0, doc->dict);
      }
@@ -24534,7 +24370,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /*
       * fill the structure.
-@@ -2745,12 +3772,42 @@ xmlFreeIDTable(xmlIDTablePtr table) {
+@@ -2745,12 +3817,42 @@ xmlFreeIDTable(xmlIDTablePtr table) {
   */
  int
  xmlIsID(xmlDocPtr doc, xmlNodePtr elem, xmlAttrPtr attr) {
@@ -24579,7 +24415,7 @@ index 5ee391c0..dd3b49e3 100644
      if ((doc->intSubset == NULL) && (doc->extSubset == NULL) &&
          (doc->type != XML_HTML_DOCUMENT_NODE)) {
  	return(0);
-@@ -2776,13 +3833,31 @@ xmlIsID(xmlDocPtr doc, xmlNodePtr elem, xmlAttrPtr attr) {
+@@ -2776,13 +3878,31 @@ xmlIsID(xmlDocPtr doc, xmlNodePtr elem, xmlAttrPtr attr) {
  	    xmlBuildQName(attr->name, attr->ns->prefix, fattr, 50) :
  	    (xmlChar *)attr->name;
  
@@ -24612,7 +24448,7 @@ index 5ee391c0..dd3b49e3 100644
  
  	if ((fullattrname != fattr) && (fullattrname != attr->name))
  	    xmlFree(fullattrname);
-@@ -2810,16 +3885,76 @@ xmlRemoveID(xmlDocPtr doc, xmlAttrPtr attr) {
+@@ -2810,16 +3930,76 @@ xmlRemoveID(xmlDocPtr doc, xmlAttrPtr attr) {
      xmlIDPtr id;
      xmlChar *ID;
  
@@ -24693,7 +24529,7 @@ index 5ee391c0..dd3b49e3 100644
  
      id = xmlHashLookup(table, ID);
      if (id == NULL || id->attr != attr) {
-@@ -2847,28 +3982,103 @@ xmlGetID(xmlDocPtr doc, const xmlChar *ID) {
+@@ -2847,28 +4027,103 @@ xmlGetID(xmlDocPtr doc, const xmlChar *ID) {
      xmlIDTablePtr table;
      xmlIDPtr id;
  
@@ -24802,7 +24638,7 @@ index 5ee391c0..dd3b49e3 100644
      return(id->attr);
  }
  
-@@ -2902,7 +4112,22 @@ typedef xmlValidateMemo *xmlValidateMemoPtr;
+@@ -2902,7 +4157,22 @@ typedef xmlValidateMemo *xmlValidateMemoPtr;
  static void
  xmlFreeRef(xmlLinkPtr lk) {
      xmlRefPtr ref = (xmlRefPtr)xmlLinkGetData(lk);
@@ -24826,7 +24662,7 @@ index 5ee391c0..dd3b49e3 100644
      if (ref->value != NULL)
          xmlFree((xmlChar *)ref->value);
      if (ref->name != NULL)
-@@ -2919,7 +4144,22 @@ xmlFreeRef(xmlLinkPtr lk) {
+@@ -2919,7 +4189,22 @@ xmlFreeRef(xmlLinkPtr lk) {
  static void
  xmlFreeRefTableEntry(void *payload, const xmlChar *name ATTRIBUTE_UNUSED) {
      xmlListPtr list_ref = (xmlListPtr) payload;
@@ -24850,7 +24686,7 @@ index 5ee391c0..dd3b49e3 100644
      xmlListDelete(list_ref);
  }
  
-@@ -2976,15 +4216,60 @@ xmlAddRef(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
+@@ -2976,15 +4261,60 @@ xmlAddRef(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
      xmlRefTablePtr table;
      xmlListPtr ref_list;
  
@@ -24914,7 +24750,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /*
       * Create the Ref table if needed.
-@@ -2993,23 +4278,68 @@ xmlAddRef(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
+@@ -2993,23 +4323,68 @@ xmlAddRef(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
      if (table == NULL) {
          doc->refs = table = xmlHashCreateDict(0, doc->dict);
      }
@@ -24986,7 +24822,7 @@ index 5ee391c0..dd3b49e3 100644
  	/*
  	 * Operating in streaming mode, attr is gonna disappear
  	 */
-@@ -3019,6 +4349,9 @@ xmlAddRef(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
+@@ -3019,6 +4394,9 @@ xmlAddRef(xmlValidCtxtPtr ctxt, xmlDocPtr doc, const xmlChar *value,
  	ret->name = NULL;
  	ret->attr = attr;
      }
@@ -24996,7 +24832,7 @@ index 5ee391c0..dd3b49e3 100644
      ret->lineno = xmlGetLineNo(attr->parent);
  
      /* To add a reference :-
-@@ -3086,11 +4419,41 @@ xmlFreeRefTable(xmlRefTablePtr table) {
+@@ -3086,11 +4464,41 @@ xmlFreeRefTable(xmlRefTablePtr table) {
   */
  int
  xmlIsRef(xmlDocPtr doc, xmlNodePtr elem, xmlAttrPtr attr) {
@@ -25040,7 +24876,7 @@ index 5ee391c0..dd3b49e3 100644
      }
  
      if ((doc->intSubset == NULL) && (doc->extSubset == NULL)) {
-@@ -3101,7 +4464,22 @@ xmlIsRef(xmlDocPtr doc, xmlNodePtr elem, xmlAttrPtr attr) {
+@@ -3101,7 +4509,22 @@ xmlIsRef(xmlDocPtr doc, xmlNodePtr elem, xmlAttrPtr attr) {
      } else {
          xmlAttributePtr attrDecl;
  
@@ -25064,7 +24900,7 @@ index 5ee391c0..dd3b49e3 100644
          attrDecl = xmlGetDtdAttrDesc(doc->intSubset, elem->name, attr->name);
          if ((attrDecl == NULL) && (doc->extSubset != NULL))
              attrDecl = xmlGetDtdAttrDesc(doc->extSubset,
-@@ -3222,13 +4600,43 @@ xmlGetDtdElementDesc(xmlDtdPtr dtd, const xmlChar *name) {
+@@ -3222,13 +4645,43 @@ xmlGetDtdElementDesc(xmlDtdPtr dtd, const xmlChar *name) {
      xmlChar *uqname = NULL, *prefix = NULL;
  
      if ((dtd == NULL) || (name == NULL)) return(NULL);
@@ -25110,7 +24946,7 @@ index 5ee391c0..dd3b49e3 100644
      cur = xmlHashLookup2(table, name, prefix);
      if (prefix != NULL) xmlFree(prefix);
      if (uqname != NULL) xmlFree(uqname);
-@@ -3251,12 +4659,42 @@ xmlGetDtdElementDesc2(xmlDtdPtr dtd, const xmlChar *name, int create) {
+@@ -3251,12 +4704,42 @@ xmlGetDtdElementDesc2(xmlDtdPtr dtd, const xmlChar *name, int create) {
      xmlElementPtr cur;
      xmlChar *uqname = NULL, *prefix = NULL;
  
@@ -25155,7 +24991,7 @@ index 5ee391c0..dd3b49e3 100644
  
  	if (!create)
  	    return(NULL);
-@@ -3268,23 +4706,68 @@ xmlGetDtdElementDesc2(xmlDtdPtr dtd, const xmlChar *name, int create) {
+@@ -3268,23 +4751,68 @@ xmlGetDtdElementDesc2(xmlDtdPtr dtd, const xmlChar *name, int create) {
  	    table = xmlHashCreateDict(0, dict);
  	    dtd->elements = (void *) table;
  	}
@@ -25227,7 +25063,7 @@ index 5ee391c0..dd3b49e3 100644
  	memset(cur, 0, sizeof(xmlElement));
  	cur->type = XML_ELEMENT_DECL;
  
-@@ -3319,7 +4802,22 @@ xmlGetDtdQElementDesc(xmlDtdPtr dtd, const xmlChar *name,
+@@ -3319,7 +4847,22 @@ xmlGetDtdQElementDesc(xmlDtdPtr dtd, const xmlChar *name,
      xmlElementTablePtr table;
  
      if (dtd == NULL) return(NULL);
@@ -25251,7 +25087,7 @@ index 5ee391c0..dd3b49e3 100644
      table = (xmlElementTablePtr) dtd->elements;
  
      return(xmlHashLookup2(table, name, prefix));
-@@ -3343,7 +4841,22 @@ xmlGetDtdAttrDesc(xmlDtdPtr dtd, const xmlChar *elem, const xmlChar *name) {
+@@ -3343,7 +4886,22 @@ xmlGetDtdAttrDesc(xmlDtdPtr dtd, const xmlChar *elem, const xmlChar *name) {
      xmlAttributePtr cur;
      xmlChar *uqname = NULL, *prefix = NULL;
  
@@ -25275,7 +25111,7 @@ index 5ee391c0..dd3b49e3 100644
      if (dtd->attributes == NULL) return(NULL);
  
      table = (xmlAttributeTablePtr) dtd->attributes;
-@@ -3379,8 +4892,38 @@ xmlGetDtdQAttrDesc(xmlDtdPtr dtd, const xmlChar *elem, const xmlChar *name,
+@@ -3379,8 +4937,38 @@ xmlGetDtdQAttrDesc(xmlDtdPtr dtd, const xmlChar *elem, const xmlChar *name,
  	          const xmlChar *prefix) {
      xmlAttributeTablePtr table;
  
@@ -25316,7 +25152,7 @@ index 5ee391c0..dd3b49e3 100644
      table = (xmlAttributeTablePtr) dtd->attributes;
  
      return(xmlHashLookup3(table, name, prefix, elem));
-@@ -3400,8 +4943,38 @@ xmlNotationPtr
+@@ -3400,8 +4988,38 @@ xmlNotationPtr
  xmlGetDtdNotationDesc(xmlDtdPtr dtd, const xmlChar *name) {
      xmlNotationTablePtr table;
  
@@ -25357,7 +25193,7 @@ index 5ee391c0..dd3b49e3 100644
      table = (xmlNotationTablePtr) dtd->notations;
  
      return(xmlHashLookup(table, name));
-@@ -3424,8 +4997,22 @@ int
+@@ -3424,8 +5042,22 @@ int
  xmlValidateNotationUse(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
                         const xmlChar *notationName) {
      xmlNotationPtr notaDecl;
@@ -25382,7 +25218,7 @@ index 5ee391c0..dd3b49e3 100644
  
      notaDecl = xmlGetDtdNotationDesc(doc->intSubset, notationName);
      if ((notaDecl == NULL) && (doc->extSubset != NULL))
-@@ -3564,7 +5151,22 @@ xmlValidateNameValueInternal(xmlDocPtr doc, const xmlChar *value) {
+@@ -3564,7 +5196,22 @@ xmlValidateNameValueInternal(xmlDocPtr doc, const xmlChar *value) {
      const xmlChar *cur;
      int val, len;
  
@@ -25406,7 +25242,7 @@ index 5ee391c0..dd3b49e3 100644
      cur = value;
      val = xmlStringCurrentChar(NULL, cur, &len);
      cur += len;
-@@ -3612,7 +5214,22 @@ xmlValidateNamesValueInternal(xmlDocPtr doc, const xmlChar *value) {
+@@ -3612,7 +5259,22 @@ xmlValidateNamesValueInternal(xmlDocPtr doc, const xmlChar *value) {
      const xmlChar *cur;
      int val, len;
  
@@ -25430,7 +25266,7 @@ index 5ee391c0..dd3b49e3 100644
      cur = value;
      val = xmlStringCurrentChar(NULL, cur, &len);
      cur += len;
-@@ -3682,7 +5299,22 @@ xmlValidateNmtokenValueInternal(xmlDocPtr doc, const xmlChar *value) {
+@@ -3682,7 +5344,22 @@ xmlValidateNmtokenValueInternal(xmlDocPtr doc, const xmlChar *value) {
      const xmlChar *cur;
      int val, len;
  
@@ -25454,7 +25290,7 @@ index 5ee391c0..dd3b49e3 100644
      cur = value;
      val = xmlStringCurrentChar(NULL, cur, &len);
      cur += len;
-@@ -3735,7 +5367,22 @@ xmlValidateNmtokensValueInternal(xmlDocPtr doc, const xmlChar *value) {
+@@ -3735,7 +5412,22 @@ xmlValidateNmtokensValueInternal(xmlDocPtr doc, const xmlChar *value) {
      const xmlChar *cur;
      int val, len;
  
@@ -25478,7 +25314,7 @@ index 5ee391c0..dd3b49e3 100644
      cur = value;
      val = xmlStringCurrentChar(NULL, cur, &len);
      cur += len;
-@@ -3951,8 +5598,23 @@ xmlValidateAttributeValue2(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -3951,8 +5643,23 @@ xmlValidateAttributeValue2(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  	    xmlEntityPtr ent;
  
  	    dup = xmlStrdup(value);
@@ -25503,7 +25339,7 @@ index 5ee391c0..dd3b49e3 100644
  	    cur = dup;
  	    while (*cur != 0) {
  		nam = cur;
-@@ -4033,18 +5695,93 @@ xmlValidCtxtNormalizeAttributeValue(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4033,18 +5740,93 @@ xmlValidCtxtNormalizeAttributeValue(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
      xmlAttributePtr attrDecl = NULL;
      int extsubset = 0;
  
@@ -25602,7 +25438,7 @@ index 5ee391c0..dd3b49e3 100644
  	attrDecl = xmlGetDtdAttrDesc(doc->intSubset, fullname, name);
  	if ((attrDecl == NULL) && (doc->extSubset != NULL)) {
  	    attrDecl = xmlGetDtdAttrDesc(doc->extSubset, fullname, name);
-@@ -4068,8 +5805,23 @@ xmlValidCtxtNormalizeAttributeValue(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4068,8 +5850,23 @@ xmlValidCtxtNormalizeAttributeValue(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  	return(NULL);
  
      ret = xmlStrdup(value);
@@ -25627,7 +25463,7 @@ index 5ee391c0..dd3b49e3 100644
      src = value;
      dst = ret;
      while (*src == 0x20) src++;
-@@ -4118,18 +5870,93 @@ xmlValidNormalizeAttributeValue(xmlDocPtr doc, xmlNodePtr elem,
+@@ -4118,18 +5915,93 @@ xmlValidNormalizeAttributeValue(xmlDocPtr doc, xmlNodePtr elem,
      const xmlChar *src;
      xmlAttributePtr attrDecl = NULL;
  
@@ -25726,7 +25562,7 @@ index 5ee391c0..dd3b49e3 100644
  	if ((fullname != fn) && (fullname != elem->name))
  	    xmlFree(fullname);
      }
-@@ -4143,8 +5970,23 @@ xmlValidNormalizeAttributeValue(xmlDocPtr doc, xmlNodePtr elem,
+@@ -4143,8 +6015,23 @@ xmlValidNormalizeAttributeValue(xmlDocPtr doc, xmlNodePtr elem,
  	return(NULL);
  
      ret = xmlStrdup(value);
@@ -25751,7 +25587,7 @@ index 5ee391c0..dd3b49e3 100644
      src = value;
      dst = ret;
      while (*src == 0x20) src++;
-@@ -4193,7 +6035,22 @@ xmlValidateAttributeDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4193,7 +6080,22 @@ xmlValidateAttributeDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
      int ret = 1;
      int val;
      CHECK_DTD;
@@ -25775,7 +25611,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /* Attribute Default Legal */
      /* Enumeration */
-@@ -4265,7 +6122,22 @@ xmlValidateAttributeDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4265,7 +6167,22 @@ xmlValidateAttributeDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
      }
  
      /* Validity Constraint: Enumeration */
@@ -25799,7 +25635,7 @@ index 5ee391c0..dd3b49e3 100644
          xmlEnumerationPtr tree = attr->tree;
  	while (tree != NULL) {
  	    if (xmlStrEqual(tree->name, attr->defaultValue)) break;
-@@ -4278,6 +6150,9 @@ xmlValidateAttributeDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4278,6 +6195,9 @@ xmlValidateAttributeDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  	    ret = 0;
  	}
      }
@@ -25809,7 +25645,7 @@ index 5ee391c0..dd3b49e3 100644
  
      return(ret);
  }
-@@ -4306,7 +6181,22 @@ xmlValidateElementDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4306,7 +6226,22 @@ xmlValidateElementDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  
      CHECK_DTD;
  
@@ -25833,7 +25669,7 @@ index 5ee391c0..dd3b49e3 100644
  
  #if 0
  #ifdef LIBXML_REGEXP_ENABLED
-@@ -4323,7 +6213,22 @@ xmlValidateElementDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4323,7 +6258,22 @@ xmlValidateElementDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  	cur = elem->content;
  	while (cur != NULL) {
  	    if (cur->type != XML_ELEMENT_CONTENT_OR) break;
@@ -25857,7 +25693,7 @@ index 5ee391c0..dd3b49e3 100644
  	    if (cur->c1->type == XML_ELEMENT_CONTENT_ELEMENT) {
  		name = cur->c1->name;
  		next = cur->c2;
-@@ -4344,7 +6249,22 @@ xmlValidateElementDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4344,7 +6294,22 @@ xmlValidateElementDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  			}
  			break;
  		    }
@@ -25881,7 +25717,7 @@ index 5ee391c0..dd3b49e3 100644
  		    if (next->c1->type != XML_ELEMENT_CONTENT_ELEMENT) break;
  		    if ((xmlStrEqual(next->c1->name, name)) &&
  		        (xmlStrEqual(next->c1->prefix, cur->c1->prefix))) {
-@@ -4429,16 +6349,61 @@ xmlValidateOneAttribute(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4429,16 +6394,61 @@ xmlValidateOneAttribute(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
      int ret = 1;
  
      CHECK_DTD;
@@ -25946,7 +25782,7 @@ index 5ee391c0..dd3b49e3 100644
  	if (attr->ns != NULL) {
  	    attrDecl = xmlGetDtdQAttrDesc(doc->intSubset, fullname,
  		                          attr->name, attr->ns->prefix);
-@@ -4517,8 +6482,23 @@ xmlValidateOneAttribute(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -4517,8 +6527,23 @@ xmlValidateOneAttribute(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  
          /* First check that the given NOTATION was declared */
  	nota = xmlGetDtdNotationDesc(doc->intSubset, value);
@@ -25971,7 +25807,7 @@ index 5ee391c0..dd3b49e3 100644
  
  	if (nota == NULL) {
  	    xmlErrValidNode(ctxt, elem, XML_DTD_UNKNOWN_NOTATION,
-@@ -4606,18 +6586,63 @@ xmlNodePtr elem, const xmlChar *prefix, xmlNsPtr ns, const xmlChar *value) {
+@@ -4606,18 +6631,63 @@ xmlNodePtr elem, const xmlChar *prefix, xmlNsPtr ns, const xmlChar *value) {
      int ret = 1;
  
      CHECK_DTD;
@@ -26038,7 +25874,7 @@ index 5ee391c0..dd3b49e3 100644
  	if (ns->prefix != NULL) {
  	    attrDecl = xmlGetDtdQAttrDesc(doc->intSubset, fullname,
  		                          ns->prefix, BAD_CAST "xmlns");
-@@ -4721,8 +6746,23 @@ xmlNodePtr elem, const xmlChar *prefix, xmlNsPtr ns, const xmlChar *value) {
+@@ -4721,8 +6791,23 @@ xmlNodePtr elem, const xmlChar *prefix, xmlNsPtr ns, const xmlChar *value) {
  
          /* First check that the given NOTATION was declared */
  	nota = xmlGetDtdNotationDesc(doc->intSubset, value);
@@ -26063,7 +25899,7 @@ index 5ee391c0..dd3b49e3 100644
  
  	if (nota == NULL) {
  	    if (ns->prefix != NULL) {
-@@ -5225,16 +7265,46 @@ xmlSnprintfElements(char *buf, int size, xmlNodePtr node, int glob) {
+@@ -5225,16 +7310,46 @@ xmlSnprintfElements(char *buf, int size, xmlNodePtr node, int glob) {
      xmlNodePtr cur;
      int len;
  
@@ -26112,7 +25948,7 @@ index 5ee391c0..dd3b49e3 100644
          switch (cur->type) {
              case XML_ELEMENT_NODE:
  		if ((cur->ns != NULL) && (cur->ns->prefix != NULL)) {
-@@ -5319,15 +7389,45 @@ xmlValidateElementContent(xmlValidCtxtPtr ctxt, xmlNodePtr child,
+@@ -5319,15 +7434,45 @@ xmlValidateElementContent(xmlValidCtxtPtr ctxt, xmlNodePtr child,
      xmlElementContentPtr cont;
      const xmlChar *name;
  
@@ -26160,7 +25996,7 @@ index 5ee391c0..dd3b49e3 100644
      if (elemDecl->contModel == NULL) {
  	return(-1);
      } else {
-@@ -5372,10 +7472,25 @@ xmlValidateElementContent(xmlValidCtxtPtr ctxt, xmlNodePtr child,
+@@ -5372,10 +7517,25 @@ xmlValidateElementContent(xmlValidCtxtPtr ctxt, xmlNodePtr child,
  
  			    fullname = xmlBuildQName(cur->name,
  				                     cur->ns->prefix, fn, 50);
@@ -26187,7 +26023,7 @@ index 5ee391c0..dd3b49e3 100644
                              ret = xmlRegExecPushString(exec, fullname, NULL);
  			    if ((fullname != fn) && (fullname != cur->name))
  				xmlFree(fullname);
-@@ -5392,8 +7507,23 @@ xmlValidateElementContent(xmlValidCtxtPtr ctxt, xmlNodePtr child,
+@@ -5392,8 +7552,23 @@ xmlValidateElementContent(xmlValidCtxtPtr ctxt, xmlNodePtr child,
  		cur = cur->next;
  		while (cur == NULL) {
  		    cur = nodeVPop(ctxt);
@@ -26212,7 +26048,7 @@ index 5ee391c0..dd3b49e3 100644
  		    cur = cur->next;
  		}
  	    }
-@@ -5735,9 +7865,23 @@ xmlValidGetElemDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -5735,9 +7910,23 @@ xmlValidGetElemDecl(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
      xmlElementPtr elemDecl = NULL;
      const xmlChar *prefix = NULL;
  
@@ -26238,7 +26074,7 @@ index 5ee391c0..dd3b49e3 100644
      if (extsubset != NULL)
  	*extsubset = 0;
  
-@@ -6032,7 +8176,22 @@ xmlValidateOneElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -6032,7 +8221,22 @@ xmlValidateOneElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  
      CHECK_DTD;
  
@@ -26262,7 +26098,7 @@ index 5ee391c0..dd3b49e3 100644
      switch (elem->type) {
          case XML_ATTRIBUTE_NODE:
  	    xmlErrValidNode(ctxt, elem, XML_ERR_INTERNAL_ERROR,
-@@ -6051,12 +8210,27 @@ xmlValidateOneElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -6051,12 +8255,27 @@ xmlValidateOneElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  				NULL,NULL,NULL);
  		return(0);
  	    }
@@ -26291,7 +26127,7 @@ index 5ee391c0..dd3b49e3 100644
  	    return(1);
          case XML_XINCLUDE_START:
          case XML_XINCLUDE_END:
-@@ -6146,8 +8320,23 @@ xmlValidateOneElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
+@@ -6146,8 +8365,23 @@ xmlValidateOneElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc,
  
  			fullname = xmlBuildQName(child->name, child->ns->prefix,
  				                 fn, 50);
@@ -26316,7 +26152,7 @@ index 5ee391c0..dd3b49e3 100644
  			cont = elemDecl->content;
  			while (cont != NULL) {
  			    if (cont->type == XML_ELEMENT_CONTENT_ELEMENT) {
-@@ -6203,7 +8392,22 @@ child_ok:
+@@ -6203,7 +8437,22 @@ child_ok:
  	    }
  	    break;
          case XML_ELEMENT_TYPE_ELEMENT:
@@ -26340,7 +26176,7 @@ index 5ee391c0..dd3b49e3 100644
  		/*
  		 * VC: Standalone Document Declaration
  		 *     - element types with element content, if white space
-@@ -6228,11 +8432,29 @@ child_ok:
+@@ -6228,11 +8477,29 @@ child_ok:
  		    child =child->next;
  		}
  	    }
@@ -26371,7 +26207,7 @@ index 5ee391c0..dd3b49e3 100644
  	    break;
      }
      } /* not continuous */
-@@ -6249,8 +8471,23 @@ child_ok:
+@@ -6249,8 +8516,23 @@ child_ok:
  
  		ns = elem->nsDef;
  		while (ns != NULL) {
@@ -26396,7 +26232,7 @@ index 5ee391c0..dd3b49e3 100644
  		    ns = ns->next;
  		}
  	    } else if (xmlStrEqual(attr->prefix, BAD_CAST "xmlns")) {
-@@ -6271,8 +8508,23 @@ child_ok:
+@@ -6271,8 +8553,23 @@ child_ok:
  			if (attr->prefix != NULL) {
  			    xmlNsPtr nameSpace = attrib->ns;
  
@@ -26421,7 +26257,7 @@ index 5ee391c0..dd3b49e3 100644
  			    /*
  			     * qualified names handling is problematic, having a
  			     * different prefix should be possible but DTDs don't
-@@ -6333,7 +8585,19 @@ child_ok:
+@@ -6333,7 +8630,19 @@ child_ok:
  
  		ns = elem->nsDef;
  		while (ns != NULL) {
@@ -26442,7 +26278,7 @@ index 5ee391c0..dd3b49e3 100644
  			if (!xmlStrEqual(attr->defaultValue, ns->href)) {
  			    xmlErrValidNode(ctxt, elem,
  			           XML_DTD_ELEM_DEFAULT_NAMESPACE,
-@@ -6343,6 +8607,9 @@ child_ok:
+@@ -6343,6 +8652,9 @@ child_ok:
  			}
  			goto found;
  		    }
@@ -26452,7 +26288,7 @@ index 5ee391c0..dd3b49e3 100644
  		    ns = ns->next;
  		}
  	    } else if (xmlStrEqual(attr->prefix, BAD_CAST "xmlns")) {
-@@ -6388,14 +8655,44 @@ xmlValidateRoot(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
+@@ -6388,14 +8700,44 @@ xmlValidateRoot(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
      xmlNodePtr root;
      int ret;
  
@@ -26499,7 +26335,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /*
       * When doing post validation against a separate DTD, those may
-@@ -6412,10 +8709,25 @@ xmlValidateRoot(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
+@@ -6412,10 +8754,25 @@ xmlValidateRoot(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
  		xmlChar *fullname;
  
  		fullname = xmlBuildQName(root->name, root->ns->prefix, fn, 50);
@@ -26526,7 +26362,7 @@ index 5ee391c0..dd3b49e3 100644
  		ret = xmlStrEqual(doc->intSubset->name, fullname);
  		if ((fullname != fn) && (fullname != root->name))
  		    xmlFree(fullname);
-@@ -6455,7 +8767,22 @@ xmlValidateElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc, xmlNodePtr elem) {
+@@ -6455,7 +8812,22 @@ xmlValidateElement(xmlValidCtxtPtr ctxt, xmlDocPtr doc, xmlNodePtr elem) {
      const xmlChar *value;
      int ret = 1;
  
@@ -26550,7 +26386,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /*
       * XInclude elements were added after parsing in the infoset,
-@@ -6518,8 +8845,23 @@ xmlValidateRef(xmlRefPtr ref, xmlValidCtxtPtr ctxt,
+@@ -6518,8 +8890,23 @@ xmlValidateRef(xmlRefPtr ref, xmlValidCtxtPtr ctxt,
      xmlAttrPtr id;
      xmlAttrPtr attr;
  
@@ -26575,7 +26411,7 @@ index 5ee391c0..dd3b49e3 100644
      if ((ref->attr == NULL) && (ref->name == NULL))
  	return;
      attr = ref->attr;
-@@ -6527,10 +8869,25 @@ xmlValidateRef(xmlRefPtr ref, xmlValidCtxtPtr ctxt,
+@@ -6527,10 +8914,25 @@ xmlValidateRef(xmlRefPtr ref, xmlValidCtxtPtr ctxt,
  	xmlChar *dup, *str = NULL, *cur, save;
  
  	dup = xmlStrdup(name);
@@ -26602,7 +26438,7 @@ index 5ee391c0..dd3b49e3 100644
  	cur = dup;
  	while (*cur != 0) {
  	    str = cur;
-@@ -6562,11 +8919,26 @@ xmlValidateRef(xmlRefPtr ref, xmlValidCtxtPtr ctxt,
+@@ -6562,11 +8964,26 @@ xmlValidateRef(xmlRefPtr ref, xmlValidCtxtPtr ctxt,
  	xmlChar *dup, *str = NULL, *cur, save;
  
  	dup = xmlStrdup(name);
@@ -26630,7 +26466,7 @@ index 5ee391c0..dd3b49e3 100644
  	cur = dup;
  	while (*cur != 0) {
  	    str = cur;
-@@ -6617,8 +8989,23 @@ xmlValidateCheckRefCallback(void *payload, void *data, const xmlChar *name) {
+@@ -6617,8 +9034,23 @@ xmlValidateCheckRefCallback(void *payload, void *data, const xmlChar *name) {
      xmlValidCtxtPtr ctxt = (xmlValidCtxtPtr) data;
      xmlValidateMemo memo;
  
@@ -26655,7 +26491,7 @@ index 5ee391c0..dd3b49e3 100644
      memo.ctxt = ctxt;
      memo.name = name;
  
-@@ -6646,13 +9033,43 @@ xmlValidateDocumentFinal(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
+@@ -6646,13 +9078,43 @@ xmlValidateDocumentFinal(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
      xmlRefTablePtr table;
      unsigned int save;
  
@@ -26701,7 +26537,7 @@ index 5ee391c0..dd3b49e3 100644
  
      /* trick to get correct line id report */
      save = ctxt->finishDtd;
-@@ -6731,8 +9148,23 @@ xmlValidateNotationCallback(void *payload, void *data,
+@@ -6731,8 +9193,23 @@ xmlValidateNotationCallback(void *payload, void *data,
  	                    const xmlChar *name ATTRIBUTE_UNUSED) {
      xmlEntityPtr cur = (xmlEntityPtr) payload;
      xmlValidCtxtPtr ctxt = (xmlValidCtxtPtr) data;
@@ -26726,7 +26562,7 @@ index 5ee391c0..dd3b49e3 100644
      if (cur->etype == XML_EXTERNAL_GENERAL_UNPARSED_ENTITY) {
  	xmlChar *notation = cur->content;
  
-@@ -6756,8 +9188,23 @@ xmlValidateAttributeCallback(void *payload, void *data,
+@@ -6756,8 +9233,23 @@ xmlValidateAttributeCallback(void *payload, void *data,
      xmlDocPtr doc;
      xmlElementPtr elem = NULL;
  
@@ -26751,7 +26587,7 @@ index 5ee391c0..dd3b49e3 100644
      switch (cur->atype) {
  	case XML_ATTRIBUTE_CDATA:
  	case XML_ATTRIBUTE_ID:
-@@ -6774,42 +9221,121 @@ xmlValidateAttributeCallback(void *payload, void *data,
+@@ -6774,42 +9266,121 @@ xmlValidateAttributeCallback(void *payload, void *data,
  
  		ret = xmlValidateAttributeValue2(ctxt, ctxt->doc, cur->name,
  			                         cur->atype, cur->defaultValue);
@@ -26879,7 +26715,7 @@ index 5ee391c0..dd3b49e3 100644
  	if (elem->etype == XML_ELEMENT_TYPE_EMPTY) {
  	    xmlErrValidNode(ctxt, NULL, XML_DTD_EMPTY_NOTATION,
  		   "NOTATION attribute %s declared for EMPTY element %s\n",
-@@ -6842,29 +9368,116 @@ xmlValidateDtdFinal(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
+@@ -6842,29 +9413,116 @@ xmlValidateDtdFinal(xmlValidCtxtPtr ctxt, xmlDocPtr doc) {
      xmlAttributeTablePtr table;
      xmlEntitiesTablePtr entities;
  

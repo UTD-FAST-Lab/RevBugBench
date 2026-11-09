@@ -1,6 +1,18 @@
 #ifdef FRCOV
 #define FIXREVERTER_SIZE 4212
 short FIXREVERTER[FIXREVERTER_SIZE];
+#include <stdlib.h>
+#include <string.h>
+__attribute__((constructor(101))) static void fixReverterInitFlags(void) {
+  const char *p = getenv("FIXREVERTER"); char *end; long k; int on = 0, i;
+  if (p) { while (*p == ' ') p++;
+    if (!strncmp(p, "on", 2) && (p[2] == ' ' || !p[2])) { on = 1; p += 2; }
+    else if (!strncmp(p, "off", 3) && (p[3] == ' ' || !p[3])) p += 3;
+    else if (*p) return; }
+  for (i = 0; i < FIXREVERTER_SIZE; i++) FIXREVERTER[i] = (short)!on;
+  while (p && *p) { k = strtol(p, &end, 10); if (end == p) { p++; continue; }
+    if (k >= 0 && k < FIXREVERTER_SIZE) FIXREVERTER[k] = (short)on; p = end; }
+}
 #endif
 // Copyright 2015 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be

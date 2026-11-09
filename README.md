@@ -37,6 +37,23 @@ They are needed in the triage process, and will be elobrated in the [triage](##t
 This folder contains the driver used by RevBugBench to triage programs with LibFuzzer fuzzing harness.
 The triage driver is compatible with FuzzBench fuzzers, and will be built automatically by the triage scripts with the help of FuzzBench Makefile.
 
+## AFL++ fuzzers
+`fuzzers/` also holds two FuzzBench fuzzers that pin the AFL++ versions used in the papers the benchmarks come from:
+
+| Fuzzer | AFL++ commit | Use for |
+|---|---|---|
+| `aflplusplus_458eb081` | `458eb081` (3.13c+, Jul 2021) | benchmarks named `magma_*` |
+| `aflplusplus_e3a5c313` | `e3a5c313` (3.0c+, Feb 2021) | all other benchmarks |
+
+Copy them into FuzzBench like the benchmarks:
+```
+cp -r [path/to/revbugbench]/fuzzers/aflplusplus_* [path/to/fuzzbench]/fuzzers
+```
+Each fuzzer's `fuzzer.py` and `runner.Dockerfile` come from FuzzBench's `aflplusplus` fuzzer of the same period (FuzzBench `549b44dc` pinned `e3a5c313` itself; `458eb081` uses the July 2021 `7158c0df` version).
+Both AFL++ commits predate LLVM 15, the clang in the OSS-Fuzz base-builder image, so their builders install Ubuntu 20.04's clang-12 and build AFL++ against it. Targets are then compiled by clang-12 through `afl-clang-fast`.
+Because clang-12 links `libc++` dynamically, `fuzzer.py` copies `libc++.so.1` and `libc++abi.so.1` into `$OUT` (on the runner's `LD_LIBRARY_PATH`).
+Both builders also backport one line of AFL++ `110cc276`: the CmpLog/laf-intel switch-splitting pass skips switches wider than 64 bits instead of aborting clang (OpenSSL's curve448 code has 128-bit switches).
+
 
 ## triage
 This folder contains the scripts for triage.

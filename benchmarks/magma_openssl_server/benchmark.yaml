@@ -1,0 +1,12 @@
+commit: 3bd5319b5d0df9ecf05c8baba2c401ad8e3ba130
+fuzz_target: server
+project: openssl
+type: bug
+unsupported_fuzzers:
+  - aflcc
+  - afl_qemu
+  - aflplusplus_qemu
+  - honggfuzz_qemu
+  - klee
+  - lafintel
+  - weizz_qemu
