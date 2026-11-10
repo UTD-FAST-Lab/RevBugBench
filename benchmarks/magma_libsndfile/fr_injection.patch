@@ -1,16 +1,28 @@
 diff --git a/ossfuzz/sndfile_fuzzer.cc b/ossfuzz/sndfile_fuzzer.cc
-index 3c850730..449614f9 100644
+index 3c850730..31625bef 100644
 --- a/ossfuzz/sndfile_fuzzer.cc
 +++ b/ossfuzz/sndfile_fuzzer.cc
-@@ -1,3 +1,7 @@
+@@ -1,3 +1,19 @@
 +#ifdef FRCOV
 +#define FIXREVERTER_SIZE 986
 +short FIXREVERTER[FIXREVERTER_SIZE];
++#include <stdlib.h>
++#include <string.h>
++__attribute__((constructor(101))) static void fixReverterInitFlags(void) {
++  const char *p = getenv("FIXREVERTER"); char *end; long k; int on = 0, i;
++  if (p) { while (*p == ' ') p++;
++    if (!strncmp(p, "on", 2) && (p[2] == ' ' || !p[2])) { on = 1; p += 2; }
++    else if (!strncmp(p, "off", 3) && (p[3] == ' ' || !p[3])) p += 3;
++    else if (*p) return; }
++  for (i = 0; i < FIXREVERTER_SIZE; i++) FIXREVERTER[i] = (short)!on;
++  while (p && *p) { k = strtol(p, &end, 10); if (end == p) { p++; continue; }
++    if (k >= 0 && k < FIXREVERTER_SIZE) FIXREVERTER[k] = (short)on; p = end; }
++}
 +#endif
  #include <stdint.h>
  #include <stdlib.h>
  #include <string.h>
-@@ -94,8 +98,42 @@ static sf_count_t vftell (void *user_data)
+@@ -94,8 +110,42 @@ static sf_count_t vftell (void *user_data)
    return vf->offset;
  }
  
@@ -2481,7 +2493,7 @@ index 5f09ec0e..2566518e 100644
  	return array [((bits + 7) / 8) - 1] ;
  } /* bitwidth_to_subformat */
 diff --git a/src/double64.c b/src/double64.c
-index df49a8ff..b9463e91 100644
+index df49a8ff..8010f65d 100644
 --- a/src/double64.c
 +++ b/src/double64.c
 @@ -1,3 +1,10 @@
@@ -2570,32 +2582,7 @@ index df49a8ff..b9463e91 100644
  		readcount = (int) psf_fread (ubuf.dbuf, sizeof (double), bufferlen, psf) ;
  
  		if (psf->data_endswap == SF_TRUE)
-@@ -636,8 +688,23 @@ host_read_d2f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
- 		d2f_array (ubuf.dbuf, readcount, ptr + total) ;
- 		total += readcount ;
- 		len -= readcount ;
--		if (readcount < bufferlen)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[938]) {
-+		  if ((readcount < bufferlen ) && !(0))
-+		    fprintf(stderr, "triggered bug index 938\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 938\n");
-+		}
-+		if ((!FIXREVERTER[938] && (readcount < bufferlen ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 			break ;
-+			#ifdef FRCOV
-+			}
-+			#endif
- 		} ;
- 
- 	return total ;
-@@ -716,8 +783,23 @@ host_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -716,8 +768,23 @@ host_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.dbuf) ;
  
  	while (len > 0)
@@ -2620,7 +2607,7 @@ index df49a8ff..b9463e91 100644
  		i2d_array (ptr + total, ubuf.dbuf, bufferlen, scale) ;
  
  		if (psf->peak_info)
-@@ -728,8 +810,23 @@ host_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -728,8 +795,23 @@ host_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  
  		writecount = (int) psf_fwrite (ubuf.dbuf, sizeof (double), bufferlen, psf) ;
  		total += writecount ;
@@ -2645,7 +2632,7 @@ index df49a8ff..b9463e91 100644
  		len -= writecount ;
  		} ;
  
-@@ -745,8 +842,23 @@ host_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -745,8 +827,23 @@ host_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.dbuf) ;
  
  	while (len > 0)
@@ -2670,7 +2657,7 @@ index df49a8ff..b9463e91 100644
  		f2d_array (ptr + total, ubuf.dbuf, bufferlen) ;
  
  		if (psf->peak_info)
-@@ -757,8 +869,23 @@ host_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -757,8 +854,23 @@ host_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  
  		writecount = (int) psf_fwrite (ubuf.dbuf, sizeof (double), bufferlen, psf) ;
  		total += writecount ;
@@ -2695,7 +2682,7 @@ index df49a8ff..b9463e91 100644
  		len -= writecount ;
  		} ;
  
-@@ -839,8 +966,23 @@ replace_read_d2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
+@@ -839,8 +951,23 @@ replace_read_d2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
  	scale = (psf->float_int_mult == 0) ? 1.0 : 2147483648.0f / psf->float_max ;
  
  	while (len > 0)
@@ -2720,7 +2707,7 @@ index df49a8ff..b9463e91 100644
  		readcount = (int) psf_fread (ubuf.dbuf, sizeof (double), bufferlen, psf) ;
  
  		if (psf->data_endswap == SF_TRUE)
-@@ -850,8 +992,23 @@ replace_read_d2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
+@@ -850,8 +977,23 @@ replace_read_d2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
  
  		d2i_array (ubuf.dbuf, readcount, ptr + total, scale) ;
  		total += readcount ;
@@ -2745,7 +2732,7 @@ index df49a8ff..b9463e91 100644
  		len -= readcount ;
  		} ;
  
-@@ -867,8 +1024,23 @@ replace_read_d2f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -867,8 +1009,23 @@ replace_read_d2f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.dbuf) ;
  
  	while (len > 0)
@@ -2770,7 +2757,7 @@ index df49a8ff..b9463e91 100644
  		readcount = (int) psf_fread (ubuf.dbuf, sizeof (double), bufferlen, psf) ;
  
  		if (psf->data_endswap == SF_TRUE)
-@@ -879,8 +1051,23 @@ replace_read_d2f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -879,8 +1036,23 @@ replace_read_d2f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
  		memcpy (ptr + total, ubuf.dbuf, bufferlen * sizeof (double)) ;
  
  		total += readcount ;
@@ -2795,7 +2782,7 @@ index df49a8ff..b9463e91 100644
  		len -= readcount ;
  		} ;
  
-@@ -961,8 +1148,23 @@ replace_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -961,8 +1133,23 @@ replace_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.dbuf) ;
  
  	while (len > 0)
@@ -2820,7 +2807,7 @@ index df49a8ff..b9463e91 100644
  		i2d_array (ptr + total, ubuf.dbuf, bufferlen, scale) ;
  
  		if (psf->peak_info)
-@@ -975,8 +1177,23 @@ replace_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -975,8 +1162,23 @@ replace_write_i2d	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  
  		writecount = (int) psf_fwrite (ubuf.dbuf, sizeof (double), bufferlen, psf) ;
  		total += writecount ;
@@ -2845,7 +2832,7 @@ index df49a8ff..b9463e91 100644
  		len -= writecount ;
  		} ;
  
-@@ -992,8 +1209,23 @@ replace_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -992,8 +1194,23 @@ replace_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.dbuf) ;
  
  	while (len > 0)
@@ -2870,7 +2857,7 @@ index df49a8ff..b9463e91 100644
  		f2d_array (ptr + total, ubuf.dbuf, bufferlen) ;
  
  		bd2d_write (ubuf.dbuf, bufferlen) ;
-@@ -1003,8 +1235,23 @@ replace_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -1003,8 +1220,23 @@ replace_write_f2d	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  
  		writecount = (int) psf_fwrite (ubuf.dbuf, sizeof (double), bufferlen, psf) ;
  		total += writecount ;
@@ -3689,7 +3676,7 @@ index 8caf4fa1..51ccecbf 100644
  	pflac->frame = NULL ;
  
 diff --git a/src/float32.c b/src/float32.c
-index 2e4d4440..d1b683a0 100644
+index 2e4d4440..3cbc2aee 100644
 --- a/src/float32.c
 +++ b/src/float32.c
 @@ -1,3 +1,10 @@
@@ -3753,29 +3740,7 @@ index 2e4d4440..d1b683a0 100644
  		len -= readcount ;
  		} ;
  
-@@ -575,21 +612,66 @@ host_read_f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
- 	int			bufferlen, readcount ;
- 	sf_count_t	total = 0 ;
- 
--	if (psf->data_endswap != SF_TRUE)
-+	
-+	#ifdef FRCOV
-+	{if (FIXREVERTER[16]) {
-+	  if ((psf -> data_endswap != SF_TRUE ) && !(0))
-+	    fprintf(stderr, "triggered bug index 16\n");
-+	  else
-+	    fprintf(stderr, "reached bug index 16\n");
-+	}
-+	if ((!FIXREVERTER[16] && (psf -> data_endswap != SF_TRUE ))
-+	#else
-+	if (0
-+	#endif
-+	)
- 		return psf_fread (ptr, sizeof (float), len, psf) ;
-+		#ifdef FRCOV
-+		}
-+		#endif
- 
+@@ -581,8 +618,23 @@ host_read_f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.fbuf) ;
  
  	while (len > 0)
@@ -3800,30 +3765,7 @@ index 2e4d4440..d1b683a0 100644
  		readcount = (int) psf_fread (ubuf.fbuf, sizeof (float), bufferlen, psf) ;
  
  		endswap_int_copy ((int*) (ptr + total), ubuf.ibuf, readcount) ;
- 
- 		total += readcount ;
--		if (readcount < bufferlen)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[18]) {
-+		  if ((readcount < bufferlen ) && !(0))
-+		    fprintf(stderr, "triggered bug index 18\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 18\n");
-+		}
-+		if ((!FIXREVERTER[18] && (readcount < bufferlen ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 			break ;
-+			#ifdef FRCOV
-+			}
-+			#endif
- 		len -= readcount ;
- 		} ;
- 
-@@ -666,8 +748,23 @@ host_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -666,8 +718,23 @@ host_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.fbuf) ;
  
  	while (len > 0)
@@ -3848,7 +3790,7 @@ index 2e4d4440..d1b683a0 100644
  		i2f_array (ptr + total, ubuf.fbuf, bufferlen, scale) ;
  
  		if (psf->peak_info)
-@@ -678,8 +775,23 @@ host_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -678,8 +745,23 @@ host_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  
  		writecount = (int) psf_fwrite (ubuf.fbuf, sizeof (float) , bufferlen, psf) ;
  		total += writecount ;
@@ -3873,7 +3815,7 @@ index 2e4d4440..d1b683a0 100644
  		len -= writecount ;
  		} ;
  
-@@ -695,21 +807,66 @@ host_write_f	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -695,21 +777,66 @@ host_write_f	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	if (psf->peak_info)
  		float32_peak_update (psf, ptr, len, 0) ;
  
@@ -3943,7 +3885,7 @@ index 2e4d4440..d1b683a0 100644
  		len -= writecount ;
  		} ;
  
-@@ -790,8 +947,23 @@ replace_read_f2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
+@@ -790,8 +917,23 @@ replace_read_f2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
  	scale = (psf->float_int_mult == 0) ? 1.0 : 2147483648.0f / psf->float_max ;
  
  	while (len > 0)
@@ -3968,7 +3910,7 @@ index 2e4d4440..d1b683a0 100644
  		readcount = (int) psf_fread (ubuf.fbuf, sizeof (float), bufferlen, psf) ;
  
  		if (psf->data_endswap == SF_TRUE)
-@@ -801,8 +973,23 @@ replace_read_f2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
+@@ -801,8 +943,23 @@ replace_read_f2i	(SF_PRIVATE *psf, int *ptr, sf_count_t len)
  
  		f2i_array (ubuf.fbuf, readcount, ptr + total, scale) ;
  		total += readcount ;
@@ -3993,7 +3935,7 @@ index 2e4d4440..d1b683a0 100644
  		len -= readcount ;
  		} ;
  
-@@ -820,8 +1007,23 @@ replace_read_f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -820,8 +977,23 @@ replace_read_f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.fbuf) ;
  
  	while (len > 0)
@@ -4018,7 +3960,7 @@ index 2e4d4440..d1b683a0 100644
  		readcount = (int) psf_fread (ubuf.fbuf, sizeof (float), bufferlen, psf) ;
  
  		if (psf->data_endswap == SF_TRUE)
-@@ -832,8 +1034,23 @@ replace_read_f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -832,8 +1004,23 @@ replace_read_f	(SF_PRIVATE *psf, float *ptr, sf_count_t len)
  		memcpy (ptr + total, ubuf.fbuf, bufferlen * sizeof (float)) ;
  
  		total += readcount ;
@@ -4043,7 +3985,7 @@ index 2e4d4440..d1b683a0 100644
  		len -= readcount ;
  		} ;
  
-@@ -912,8 +1129,23 @@ replace_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -912,8 +1099,23 @@ replace_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.fbuf) ;
  
  	while (len > 0)
@@ -4068,7 +4010,7 @@ index 2e4d4440..d1b683a0 100644
  		i2f_array (ptr + total, ubuf.fbuf, bufferlen, scale) ;
  
  		if (psf->peak_info)
-@@ -926,8 +1158,23 @@ replace_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -926,8 +1128,23 @@ replace_write_i2f	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  
  		writecount = (int) psf_fwrite (ubuf.fbuf, sizeof (float), bufferlen, psf) ;
  		total += writecount ;
@@ -4093,7 +4035,7 @@ index 2e4d4440..d1b683a0 100644
  		len -= writecount ;
  		} ;
  
-@@ -947,8 +1194,23 @@ replace_write_f	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -947,8 +1164,23 @@ replace_write_f	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.fbuf) ;
  
  	while (len > 0)
@@ -4118,7 +4060,7 @@ index 2e4d4440..d1b683a0 100644
  
  		memcpy (ubuf.fbuf, ptr + total, bufferlen * sizeof (float)) ;
  
-@@ -959,8 +1221,23 @@ replace_write_f	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -959,8 +1191,23 @@ replace_write_f	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  
  		writecount = (int) psf_fwrite (ubuf.fbuf, sizeof (float) , bufferlen, psf) ;
  		total += writecount ;
@@ -5250,7 +5192,7 @@ index 8e7cdba8..aa7a0a9b 100644
  	/* Reset the current header length to zero. */
  	psf->header.ptr [0] = 0 ;
 diff --git a/src/mat4.c b/src/mat4.c
-index 0b1b414b..58767cf0 100644
+index 0b1b414b..b0de8b3b 100644
 --- a/src/mat4.c
 +++ b/src/mat4.c
 @@ -1,3 +1,10 @@
@@ -5289,33 +5231,6 @@ index 0b1b414b..58767cf0 100644
  
  	psf->sf.samplerate = psf_lrint (value) ;
  
-@@ -276,10 +298,25 @@ mat4_read_header (SF_PRIVATE *psf)
- 	{	psf_log_printf (psf, "*** Error : zero channel count.\n") ;
- 		return SFE_CHANNEL_COUNT_ZERO ;
- 		}
--	else if (rows > SF_MAX_CHANNELS)
-+	else 
-+	#ifdef FRCOV
-+	{if (FIXREVERTER[114]) {
-+	  if ((rows > 1024 ) && !(0))
-+	    fprintf(stderr, "triggered bug index 114\n");
-+	  else
-+	    fprintf(stderr, "reached bug index 114\n");
-+	}
-+	if ((!FIXREVERTER[114] && (rows > 1024 ))
-+	#else
-+	if (0
-+	#endif
-+	)
- 	{	psf_log_printf (psf, "*** Error : channel count %d > SF_MAX_CHANNELS.\n", rows) ;
- 		return SFE_CHANNEL_COUNT ;
- 		} ;
-+		#ifdef FRCOV
-+		}
-+		#endif
- 
- 	psf->sf.channels	= rows ;
- 	psf->sf.frames		= cols ;
 diff --git a/src/mat5.c b/src/mat5.c
 index da5a6eca..5e4ab562 100644
 --- a/src/mat5.c
@@ -8142,7 +8057,7 @@ index 871931c6..465c4c4d 100644
  
  	return total ;
 diff --git a/src/pcm.c b/src/pcm.c
-index 7e5fdf62..505f14d3 100644
+index 7e5fdf62..dbb3da41 100644
 --- a/src/pcm.c
 +++ b/src/pcm.c
 @@ -1,3 +1,10 @@
@@ -8524,7 +8439,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= readcount ;
  		} ;
  
-@@ -1038,13 +1285,43 @@ pcm_read_bes2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -1038,8 +1285,23 @@ pcm_read_bes2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.sbuf) ;
  
  	while (len > 0)
@@ -8549,28 +8464,7 @@ index 7e5fdf62..505f14d3 100644
  		readcount = (int) psf_fread (ubuf.sbuf, sizeof (short), bufferlen, psf) ;
  		bes2f_array (ubuf.sbuf, readcount, ptr + total, normfact) ;
  		total += readcount ;
--		if (readcount < bufferlen)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[676]) {
-+		  if ((readcount < bufferlen ) && !(0))
-+		    fprintf(stderr, "triggered bug index 676\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 676\n");
-+		}
-+		if ((!FIXREVERTER[676] && (readcount < bufferlen ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 			break ;
-+			#ifdef FRCOV
-+			}
-+			#endif
- 		len -= readcount ;
- 		} ;
- 
-@@ -1063,13 +1340,43 @@ pcm_read_les2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -1063,8 +1325,23 @@ pcm_read_les2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.sbuf) ;
  
  	while (len > 0)
@@ -8595,28 +8489,7 @@ index 7e5fdf62..505f14d3 100644
  		readcount = (int) psf_fread (ubuf.sbuf, sizeof (short), bufferlen, psf) ;
  		les2f_array (ubuf.sbuf, readcount, ptr + total, normfact) ;
  		total += readcount ;
--		if (readcount < bufferlen)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[678]) {
-+		  if ((readcount < bufferlen ) && !(0))
-+		    fprintf(stderr, "triggered bug index 678\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 678\n");
-+		}
-+		if ((!FIXREVERTER[678] && (readcount < bufferlen ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 			break ;
-+			#ifdef FRCOV
-+			}
-+			#endif
- 		len -= readcount ;
- 		} ;
- 
-@@ -1089,13 +1396,43 @@ pcm_read_bet2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -1089,13 +1366,43 @@ pcm_read_bet2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = sizeof (ubuf.ucbuf) / SIZEOF_TRIBYTE ;
  
  	while (len > 0)
@@ -8662,7 +8535,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= readcount ;
  		} ;
  
-@@ -1115,13 +1452,43 @@ pcm_read_let2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -1115,13 +1422,43 @@ pcm_read_let2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = sizeof (ubuf.ucbuf) / SIZEOF_TRIBYTE ;
  
  	while (len > 0)
@@ -8708,7 +8581,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= readcount ;
  		} ;
  
-@@ -1140,13 +1507,43 @@ pcm_read_bei2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -1140,8 +1477,23 @@ pcm_read_bei2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.ibuf) ;
  
  	while (len > 0)
@@ -8733,28 +8606,7 @@ index 7e5fdf62..505f14d3 100644
  		readcount = (int) psf_fread (ubuf.ibuf, sizeof (int), bufferlen, psf) ;
  		bei2f_array (ubuf.ibuf, readcount, ptr + total, normfact) ;
  		total += readcount ;
--		if (readcount < bufferlen)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[684]) {
-+		  if ((readcount < bufferlen ) && !(0))
-+		    fprintf(stderr, "triggered bug index 684\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 684\n");
-+		}
-+		if ((!FIXREVERTER[684] && (readcount < bufferlen ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 			break ;
-+			#ifdef FRCOV
-+			}
-+			#endif
- 		len -= readcount ;
- 		} ;
- 
-@@ -1165,13 +1562,43 @@ pcm_read_lei2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
+@@ -1165,8 +1517,23 @@ pcm_read_lei2f (SF_PRIVATE *psf, float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.ibuf) ;
  
  	while (len > 0)
@@ -8779,28 +8631,7 @@ index 7e5fdf62..505f14d3 100644
  		readcount = (int) psf_fread (ubuf.ibuf, sizeof (int), bufferlen, psf) ;
  		lei2f_array (ubuf.ibuf, readcount, ptr + total, normfact) ;
  		total += readcount ;
--		if (readcount < bufferlen)
-+		
-+		#ifdef FRCOV
-+		{if (FIXREVERTER[686]) {
-+		  if ((readcount < bufferlen ) && !(0))
-+		    fprintf(stderr, "triggered bug index 686\n");
-+		  else
-+		    fprintf(stderr, "reached bug index 686\n");
-+		}
-+		if ((!FIXREVERTER[686] && (readcount < bufferlen ))
-+		#else
-+		if (0
-+		#endif
-+		)
- 			break ;
-+			#ifdef FRCOV
-+			}
-+			#endif
- 		len -= readcount ;
- 		} ;
- 
-@@ -1585,13 +2012,43 @@ pcm_write_i2sc	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -1585,13 +1952,43 @@ pcm_write_i2sc	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.scbuf) ;
  
  	while (len > 0)
@@ -8846,7 +8677,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1607,13 +2064,43 @@ pcm_write_i2uc	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -1607,13 +2004,43 @@ pcm_write_i2uc	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.ucbuf) ;
  
  	while (len > 0)
@@ -8892,7 +8723,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1629,13 +2116,43 @@ pcm_write_i2bes	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -1629,13 +2056,43 @@ pcm_write_i2bes	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.sbuf) ;
  
  	while (len > 0)
@@ -8938,7 +8769,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1651,13 +2168,43 @@ pcm_write_i2les	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -1651,13 +2108,43 @@ pcm_write_i2les	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.sbuf) ;
  
  	while (len > 0)
@@ -8984,7 +8815,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1673,13 +2220,43 @@ pcm_write_i2bet	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -1673,13 +2160,43 @@ pcm_write_i2bet	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = sizeof (ubuf.ucbuf) / SIZEOF_TRIBYTE ;
  
  	while (len > 0)
@@ -9030,7 +8861,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1695,13 +2272,43 @@ pcm_write_i2let	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -1695,13 +2212,43 @@ pcm_write_i2let	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = sizeof (ubuf.ucbuf) / SIZEOF_TRIBYTE ;
  
  	while (len > 0)
@@ -9076,7 +8907,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1721,13 +2328,43 @@ pcm_write_i2bei	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
+@@ -1721,13 +2268,43 @@ pcm_write_i2bei	(SF_PRIVATE *psf, const int *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.ibuf) ;
  
  	while (len > 0)
@@ -9122,7 +8953,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1814,13 +2451,43 @@ pcm_write_f2sc	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -1814,13 +2391,43 @@ pcm_write_f2sc	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.scbuf) ;
  
  	while (len > 0)
@@ -9168,7 +8999,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1877,13 +2544,43 @@ pcm_write_f2uc	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -1877,13 +2484,43 @@ pcm_write_f2uc	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.ucbuf) ;
  
  	while (len > 0)
@@ -9214,7 +9045,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -1952,13 +2649,43 @@ pcm_write_f2bes	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -1952,13 +2589,43 @@ pcm_write_f2bes	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.sbuf) ;
  
  	while (len > 0)
@@ -9260,7 +9091,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -2027,13 +2754,43 @@ pcm_write_f2les	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -2027,13 +2694,43 @@ pcm_write_f2les	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.sbuf) ;
  
  	while (len > 0)
@@ -9306,7 +9137,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -2102,13 +2859,43 @@ pcm_write_f2let	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -2102,13 +2799,43 @@ pcm_write_f2let	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = sizeof (ubuf.ucbuf) / SIZEOF_TRIBYTE ;
  
  	while (len > 0)
@@ -9352,7 +9183,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -2177,13 +2964,43 @@ pcm_write_f2bet	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -2177,13 +2904,43 @@ pcm_write_f2bet	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = sizeof (ubuf.ucbuf) / SIZEOF_TRIBYTE ;
  
  	while (len > 0)
@@ -9398,7 +9229,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -2260,13 +3077,43 @@ pcm_write_f2bei	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -2260,13 +3017,43 @@ pcm_write_f2bei	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.ibuf) ;
  
  	while (len > 0)
@@ -9444,7 +9275,7 @@ index 7e5fdf62..505f14d3 100644
  		len -= writecount ;
  		} ;
  
-@@ -2343,13 +3190,43 @@ pcm_write_f2lei	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
+@@ -2343,13 +3130,43 @@ pcm_write_f2lei	(SF_PRIVATE *psf, const float *ptr, sf_count_t len)
  	bufferlen = ARRAY_LEN (ubuf.ibuf) ;
  
  	while (len > 0)
@@ -10367,7 +10198,7 @@ index 6bc76171..ab4eb291 100644
  		memcpy (&(psds->write_samples [psds->write_count]), &(ptr [total]), count * sizeof (int)) ;
  		total += count ;
 diff --git a/src/sndfile.c b/src/sndfile.c
-index 365c1361..d56b1a79 100644
+index 365c1361..a98fd1f1 100644
 --- a/src/sndfile.c
 +++ b/src/sndfile.c
 @@ -1,3 +1,10 @@
@@ -10801,29 +10632,11 @@ index 365c1361..d56b1a79 100644
  
  	if (psf->last_op != SFM_READ)
  		if (psf->seek (psf, SFM_READ, psf->read_current) < 0)
-@@ -2906,32 +3168,122 @@ retry:
- 
- static int
+@@ -2908,30 +3170,90 @@ static int
  validate_sfinfo (SF_INFO *sfinfo)
--{	if ((sfinfo->samplerate < 1) || (sfinfo->samplerate > SF_MAX_SAMPLERATE))
-+{	
-+#ifdef FRCOV
-+{if (FIXREVERTER[339]) {
-+  if ((sfinfo -> samplerate < 1 || sfinfo -> samplerate > 655350 ) && !(0))
-+    fprintf(stderr, "triggered bug index 339\n");
-+  else
-+    fprintf(stderr, "reached bug index 339\n");
-+}
-+if ((!FIXREVERTER[339] && (sfinfo -> samplerate < 1 || sfinfo -> samplerate > 655350 ))
-+#else
-+if (0
-+#endif
-+)
+ {	if ((sfinfo->samplerate < 1) || (sfinfo->samplerate > SF_MAX_SAMPLERATE))
  		return 0 ;
 -	if (sfinfo->frames < 0)
-+		#ifdef FRCOV
-+		}
-+		#endif
 +	
 +	#ifdef FRCOV
 +	{if (FIXREVERTER[340]) {
@@ -10838,27 +10651,11 @@ index 365c1361..d56b1a79 100644
 +	#endif
 +	)
  		return 0 ;
--	if ((sfinfo->channels < 1) || (sfinfo->channels > SF_MAX_CHANNELS))
 +		#ifdef FRCOV
 +		}
 +		#endif
-+	
-+	#ifdef FRCOV
-+	{if (FIXREVERTER[341]) {
-+	  if ((sfinfo -> channels < 1 || sfinfo -> channels > 1024 ) && !(0))
-+	    fprintf(stderr, "triggered bug index 341\n");
-+	  else
-+	    fprintf(stderr, "reached bug index 341\n");
-+	}
-+	if ((!FIXREVERTER[341] && (sfinfo -> channels < 1 || sfinfo -> channels > 1024 ))
-+	#else
-+	if (0
-+	#endif
-+	)
+ 	if ((sfinfo->channels < 1) || (sfinfo->channels > SF_MAX_CHANNELS))
  		return 0 ;
-+		#ifdef FRCOV
-+		}
-+		#endif
  	if ((SF_CONTAINER (sfinfo->format)) == 0)
  		return 0 ;
  	if ((SF_CODEC (sfinfo->format)) == 0)
@@ -10930,7 +10727,7 @@ index 365c1361..d56b1a79 100644
  	if (psf->blockwidth && psf->blockwidth != psf->sf.channels * psf->bytewidth)
  	{	psf_log_printf (psf, "Invalid SF_PRIVATE field : channels * bytewidth == %d.\n",
  								psf->sf.channels * psf->bytewidth) ;
-@@ -3010,10 +3362,25 @@ psf_open_file (SF_PRIVATE *psf, SF_INFO *sfinfo)
+@@ -3010,10 +3332,25 @@ psf_open_file (SF_PRIVATE *psf, SF_INFO *sfinfo)
  		goto error_exit ;
  		} ;
  
@@ -10957,7 +10754,7 @@ index 365c1361..d56b1a79 100644
  
  	if (psf->file.mode == SFM_READ)
  	{	if ((SF_CONTAINER (sfinfo->format)) == SF_FORMAT_RAW)
-@@ -3062,11 +3429,26 @@ psf_open_file (SF_PRIVATE *psf, SF_INFO *sfinfo)
+@@ -3062,11 +3399,26 @@ psf_open_file (SF_PRIVATE *psf, SF_INFO *sfinfo)
  	if (psf->fileoffset > 0)
  	{	switch (psf->file.mode)
  		{	case SFM_READ :

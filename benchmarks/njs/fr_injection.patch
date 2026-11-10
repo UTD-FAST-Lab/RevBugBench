@@ -1,5 +1,5 @@
 diff --git a/src/njs_array.c b/src/njs_array.c
-index 35765bba..12be204a 100644
+index 35765bba..0c3dfe9b 100644
 --- a/src/njs_array.c
 +++ b/src/njs_array.c
 @@ -1,3 +1,10 @@
@@ -205,33 +205,7 @@ index 35765bba..12be204a 100644
  
      if (nargs > 2) {
          ret = njs_value_to_integer(vm, njs_arg(args, nargs, 2), &from);
-@@ -2263,9 +2375,24 @@ njs_array_prototype_last_index_of(njs_vm_t *vm, njs_value_t *args,
-     } else if (from < 0) {
-         from += length;
- 
--        if (from <= 0) {
-+        
-+        #ifdef FRCOV
-+        {if (FIXREVERTER[72]) {
-+          if ((from <= 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 72\n");
-+          else
-+            fprintf(stderr, "reached bug index 72\n");
-+        }
-+        if ((!FIXREVERTER[72] && (from <= 0 ))
-+        #else
-+        if (0
-+        #endif
-+        ) {
-             goto not_found;
-         }
-+        #ifdef FRCOV
-+        }
-+        #endif
-     }
- 
-     iargs.from = from;
-@@ -2325,9 +2452,24 @@ njs_array_prototype_includes(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -2325,9 +2437,24 @@ njs_array_prototype_includes(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
          return ret;
      }
  
@@ -257,7 +231,7 @@ index 35765bba..12be204a 100644
  
      ret = njs_value_to_integer(vm, njs_arg(args, nargs, 2), &from);
      if (njs_slow_path(ret != NJS_OK)) {
-@@ -2999,13 +3141,28 @@ njs_array_prototype_reduce_right(njs_vm_t *vm, njs_value_t *args,
+@@ -2999,13 +3126,28 @@ njs_array_prototype_reduce_right(njs_vm_t *vm, njs_value_t *args,
          accumulator = *njs_argument(args, 2);
      }
  
@@ -287,7 +261,7 @@ index 35765bba..12be204a 100644
  
      iargs.from--;
  
-@@ -3048,9 +3205,24 @@ njs_array_string_sort(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -3048,9 +3190,24 @@ njs_array_string_sort(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
      for (i = 1; i < nargs; i++) {
          if (!njs_is_string(&args[i])) {
              ret = njs_value_to_string(vm, &args[i], &args[i]);
@@ -1066,7 +1040,7 @@ index 5c746296..2b60a018 100644
              memcpy(start, data->start, p - data->start);
  
 diff --git a/src/njs_function.c b/src/njs_function.c
-index 850c1f8d..f24ae384 100644
+index 850c1f8d..a569e55d 100644
 --- a/src/njs_function.c
 +++ b/src/njs_function.c
 @@ -1,3 +1,10 @@
@@ -1114,32 +1088,6 @@ index 850c1f8d..f24ae384 100644
  
      return function;
  
-@@ -197,9 +222,24 @@ njs_function_copy(njs_vm_t *vm, njs_function_t *function)
-     copy->object.__proto__ = &vm->prototypes[NJS_OBJ_TYPE_FUNCTION].object;
-     copy->object.shared = 0;
- 
--    if (nesting == 0) {
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[42]) {
-+      if ((nesting == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 42\n");
-+      else
-+        fprintf(stderr, "reached bug index 42\n");
-+    }
-+    if ((!FIXREVERTER[42] && (nesting == 0 ))
-+    #else
-+    if (0
-+    #endif
-+    ) {
-         return copy;
-     }
-+    #ifdef FRCOV
-+    }
-+    #endif
- 
-     copy->closure = 1;
- 
 diff --git a/src/njs_generator.c b/src/njs_generator.c
 index 603d96b1..fbf30ea8 100644
 --- a/src/njs_generator.c
@@ -1183,7 +1131,7 @@ index 603d96b1..fbf30ea8 100644
  
      return njs_generate_node_temp_index_get(vm, generator, node);
 diff --git a/src/njs_json.c b/src/njs_json.c
-index 0a238767..200fd124 100644
+index 0a238767..272cb4a9 100644
 --- a/src/njs_json.c
 +++ b/src/njs_json.c
 @@ -1,3 +1,10 @@
@@ -1252,9 +1200,9 @@ index 0a238767..200fd124 100644
 +                #ifdef FRCOV
 +                }
 +                #endif
-             }
-+            #ifdef FRCOV
 +            }
++            #ifdef FRCOV
+             }
 +            #endif
  
              s = njs_utf8_encode(s, utf);
@@ -1311,7 +1259,7 @@ index 0a238767..200fd124 100644
  
                  continue;
              }
-@@ -914,19 +987,49 @@ njs_json_parse_iterator(njs_vm_t *vm, njs_json_parse_t *parse,
+@@ -914,9 +987,24 @@ njs_json_parse_iterator(njs_vm_t *vm, njs_json_parse_t *parse,
              {
                  state = njs_json_push_parse_state(vm, parse,
                                                    prop->value.data.u.value);
@@ -1337,59 +1285,7 @@ index 0a238767..200fd124 100644
  
                  continue;
              }
- 
-         } else {
-             state = njs_json_pop_parse_state(parse);
--            if (state == NULL) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[183]) {
-+              if ((state == (void *) 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 183\n");
-+              else
-+                fprintf(stderr, "reached bug index 183\n");
-+            }
-+            if ((!FIXREVERTER[183] && (state == (void *) 0 ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 vm->retval = parse->retval;
-                 return NJS_OK;
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
-         }
- 
-         ret = njs_json_parse_iterator_call(vm, parse, state);
-@@ -1155,9 +1258,24 @@ njs_json_stringify_iterator(njs_vm_t *vm, njs_json_stringify_t *stringify,
-                 njs_chb_append(&chain, state->array ? "]" : "}", 1);
- 
-                 state = njs_json_pop_stringify_state(stringify);
--                if (state == NULL) {
-+                
-+                #ifdef FRCOV
-+                {if (FIXREVERTER[184]) {
-+                  if ((state == (void *) 0 ) && !(0))
-+                    fprintf(stderr, "triggered bug index 184\n");
-+                  else
-+                    fprintf(stderr, "reached bug index 184\n");
-+                }
-+                if ((!FIXREVERTER[184] && (state == (void *) 0 ))
-+                #else
-+                if (0
-+                #endif
-+                ) {
-                     goto done;
-                 }
-+                #ifdef FRCOV
-+                }
-+                #endif
- 
-                 break;
-             }
-@@ -1238,9 +1356,24 @@ njs_json_stringify_iterator(njs_vm_t *vm, njs_json_stringify_t *stringify,
+@@ -1238,9 +1326,24 @@ njs_json_stringify_iterator(njs_vm_t *vm, njs_json_stringify_t *stringify,
                  njs_chb_append_literal(&chain,"]");
  
                  state = njs_json_pop_stringify_state(stringify);
@@ -1403,110 +1299,6 @@ index 0a238767..200fd124 100644
 +                    fprintf(stderr, "reached bug index 185\n");
 +                }
 +                if ((!FIXREVERTER[185] && (state == (void *) 0 ))
-+                #else
-+                if (0
-+                #endif
-+                ) {
-                     goto done;
-                 }
-+                #ifdef FRCOV
-+                }
-+                #endif
- 
-                 break;
-             }
-@@ -1265,9 +1398,24 @@ njs_json_stringify_iterator(njs_vm_t *vm, njs_json_stringify_t *stringify,
- 
-             if (njs_json_is_object(value)) {
-                 state = njs_json_push_stringify_state(vm, stringify, value);
--                if (state == NULL) {
-+                
-+                #ifdef FRCOV
-+                {if (FIXREVERTER[186]) {
-+                  if ((state == (void *) 0 ) && !(0))
-+                    fprintf(stderr, "triggered bug index 186\n");
-+                  else
-+                    fprintf(stderr, "reached bug index 186\n");
-+                }
-+                if ((!FIXREVERTER[186] && (state == (void *) 0 ))
-+                #else
-+                if (0
-+                #endif
-+                ) {
-                     return NJS_ERROR;
-                 }
-+                #ifdef FRCOV
-+                }
-+                #endif
- 
-                 break;
-             }
-@@ -1360,9 +1508,24 @@ njs_json_stringify_to_json(njs_json_stringify_t* stringify,
- 
-     to_json = njs_object_to_json_function(stringify->vm, value);
- 
--    if (to_json == NULL) {
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[187]) {
-+      if ((to_json == (void *) 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 187\n");
-+      else
-+        fprintf(stderr, "reached bug index 187\n");
-+    }
-+    if ((!FIXREVERTER[187] && (to_json == (void *) 0 ))
-+    #else
-+    if (0
-+    #endif
-+    ) {
-         return NJS_OK;
-     }
-+    #ifdef FRCOV
-+    }
-+    #endif
- 
-     arguments[0] = *value;
- 
-@@ -2124,9 +2287,24 @@ njs_vm_value_dump(njs_vm_t *vm, njs_str_t *retval, njs_value_t *value,
-                 njs_chb_append(&chain, state->array ? "]" : "}", 1);
- 
-                 state = njs_json_pop_stringify_state(stringify);
--                if (state == NULL) {
-+                
-+                #ifdef FRCOV
-+                {if (FIXREVERTER[188]) {
-+                  if ((state == (void *) 0 ) && !(0))
-+                    fprintf(stderr, "triggered bug index 188\n");
-+                  else
-+                    fprintf(stderr, "reached bug index 188\n");
-+                }
-+                if ((!FIXREVERTER[188] && (state == (void *) 0 ))
-+                #else
-+                if (0
-+                #endif
-+                ) {
-                     goto done;
-                 }
-+                #ifdef FRCOV
-+                }
-+                #endif
- 
-                 break;
-             }
-@@ -2251,9 +2429,24 @@ njs_vm_value_dump(njs_vm_t *vm, njs_str_t *retval, njs_value_t *value,
-                 njs_chb_append_literal(&chain, "]");
- 
-                 state = njs_json_pop_stringify_state(stringify);
--                if (state == NULL) {
-+                
-+                #ifdef FRCOV
-+                {if (FIXREVERTER[189]) {
-+                  if ((state == (void *) 0 ) && !(0))
-+                    fprintf(stderr, "triggered bug index 189\n");
-+                  else
-+                    fprintf(stderr, "reached bug index 189\n");
-+                }
-+                if ((!FIXREVERTER[189] && (state == (void *) 0 ))
 +                #else
 +                if (0
 +                #endif
@@ -1771,7 +1563,7 @@ index 38b2d493..f5911a15 100644
              if (radix != 16) {
                  test_prefix = 0;
 diff --git a/src/njs_object.c b/src/njs_object.c
-index 5e16fd47..cdd050dc 100644
+index 5e16fd47..bc526bc3 100644
 --- a/src/njs_object.c
 +++ b/src/njs_object.c
 @@ -1,3 +1,10 @@
@@ -1863,111 +1655,7 @@ index 5e16fd47..cdd050dc 100644
  
      njs_set_array(&vm->retval, array);
  
-@@ -1093,9 +1145,24 @@ njs_object_own_enumerate_object(njs_vm_t *vm, const njs_object_t *object,
-         for ( ;; ) {
-             prop = njs_lvlhsh_each(hash, &lhe);
- 
--            if (prop == NULL) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[97]) {
-+              if ((prop == (void *) 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 97\n");
-+              else
-+                fprintf(stderr, "reached bug index 97\n");
-+            }
-+            if ((!FIXREVERTER[97] && (prop == (void *) 0 ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 break;
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
- 
-             if (!njs_is_enumerable(&prop->name, type)) {
-                 continue;
-@@ -1119,9 +1186,24 @@ njs_object_own_enumerate_object(njs_vm_t *vm, const njs_object_t *object,
-         for ( ;; ) {
-             prop = njs_lvlhsh_each(hash, &lhe);
- 
--            if (prop == NULL) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[98]) {
-+              if ((prop == (void *) 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 98\n");
-+              else
-+                fprintf(stderr, "reached bug index 98\n");
-+            }
-+            if ((!FIXREVERTER[98] && (prop == (void *) 0 ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 break;
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
- 
-             if (!njs_is_enumerable(&prop->name, type)) {
-                 continue;
-@@ -1146,9 +1228,24 @@ njs_object_own_enumerate_object(njs_vm_t *vm, const njs_object_t *object,
-         for ( ;; ) {
-             prop = njs_lvlhsh_each(hash, &lhe);
- 
--            if (prop == NULL) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[99]) {
-+              if ((prop == (void *) 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 99\n");
-+              else
-+                fprintf(stderr, "reached bug index 99\n");
-+            }
-+            if ((!FIXREVERTER[99] && (prop == (void *) 0 ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 break;
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
- 
-             if (!njs_is_enumerable(&prop->name, type)) {
-                 continue;
-@@ -1183,9 +1280,24 @@ njs_object_own_enumerate_object(njs_vm_t *vm, const njs_object_t *object,
-         for ( ;; ) {
-             prop = njs_lvlhsh_each(hash, &lhe);
- 
--            if (prop == NULL) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[100]) {
-+              if ((prop == (void *) 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 100\n");
-+              else
-+                fprintf(stderr, "reached bug index 100\n");
-+            }
-+            if ((!FIXREVERTER[100] && (prop == (void *) 0 ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 break;
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
- 
-             if (!njs_is_enumerable(&prop->name, type)) {
-                 continue;
-@@ -1576,9 +1688,24 @@ njs_object_get_own_property(njs_vm_t *vm, njs_value_t *args,
+@@ -1576,9 +1628,24 @@ njs_object_get_own_property(njs_vm_t *vm, njs_value_t *args,
  
      names = njs_value_own_enumerate(vm, value, NJS_ENUM_KEYS,
                                      type, 1);
@@ -1993,85 +1681,7 @@ index 5e16fd47..cdd050dc 100644
  
      njs_set_array(&vm->retval, names);
  
-@@ -1690,9 +1817,24 @@ njs_object_freeze(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
-     for ( ;; ) {
-         prop = njs_lvlhsh_each(hash, &lhe);
- 
--        if (prop == NULL) {
-+        
-+        #ifdef FRCOV
-+        {if (FIXREVERTER[103]) {
-+          if ((prop == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 103\n");
-+          else
-+            fprintf(stderr, "reached bug index 103\n");
-+        }
-+        if ((!FIXREVERTER[103] && (prop == (void *) 0 ))
-+        #else
-+        if (0
-+        #endif
-+        ) {
-             break;
-         }
-+        #ifdef FRCOV
-+        }
-+        #endif
- 
-         if (!njs_is_accessor_descriptor(prop)) {
-             prop->writable = 0;
-@@ -1739,9 +1881,24 @@ njs_object_is_frozen(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
-     for ( ;; ) {
-         prop = njs_lvlhsh_each(hash, &lhe);
- 
--        if (prop == NULL) {
-+        
-+        #ifdef FRCOV
-+        {if (FIXREVERTER[104]) {
-+          if ((prop == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 104\n");
-+          else
-+            fprintf(stderr, "reached bug index 104\n");
-+        }
-+        if ((!FIXREVERTER[104] && (prop == (void *) 0 ))
-+        #else
-+        if (0
-+        #endif
-+        ) {
-             break;
-         }
-+        #ifdef FRCOV
-+        }
-+        #endif
- 
-         if (prop->configurable) {
-             goto done;
-@@ -1789,9 +1946,24 @@ njs_object_seal(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
-     for ( ;; ) {
-         prop = njs_lvlhsh_each(hash, &lhe);
- 
--        if (prop == NULL) {
-+        
-+        #ifdef FRCOV
-+        {if (FIXREVERTER[105]) {
-+          if ((prop == (void *) 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 105\n");
-+          else
-+            fprintf(stderr, "reached bug index 105\n");
-+        }
-+        if ((!FIXREVERTER[105] && (prop == (void *) 0 ))
-+        #else
-+        if (0
-+        #endif
-+        ) {
-             break;
-         }
-+        #ifdef FRCOV
-+        }
-+        #endif
- 
-         prop->configurable = 0;
-     }
-@@ -1834,9 +2006,24 @@ njs_object_is_sealed(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -1834,9 +1901,24 @@ njs_object_is_sealed(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
      for ( ;; ) {
          prop = njs_lvlhsh_each(hash, &lhe);
  
@@ -2097,7 +1707,7 @@ index 5e16fd47..cdd050dc 100644
  
          if (prop->configurable) {
              goto done;
-@@ -2029,10 +2216,28 @@ njs_object_prototype_create(njs_vm_t *vm, njs_object_prop_t *prop,
+@@ -2029,10 +2111,28 @@ njs_object_prototype_create(njs_vm_t *vm, njs_object_prop_t *prop,
      function = njs_function(value);
      index = function - vm->constructors;
  
@@ -2682,18 +2292,30 @@ index 6beba260..ab426582 100644
          memcpy(&ctx->buffer[used], data, free);
          data = (u_char *) data + free;
 diff --git a/src/njs_shell.c b/src/njs_shell.c
-index cad7e3ab..1fe14d6d 100644
+index cad7e3ab..369f8811 100644
 --- a/src/njs_shell.c
 +++ b/src/njs_shell.c
-@@ -1,3 +1,7 @@
+@@ -1,3 +1,19 @@
 +#ifdef FRCOV
 +#define FIXREVERTER_SIZE 218
 +short FIXREVERTER[FIXREVERTER_SIZE];
++#include <stdlib.h>
++#include <string.h>
++__attribute__((constructor(101))) static void fixReverterInitFlags(void) {
++  const char *p = getenv("FIXREVERTER"); char *end; long k; int on = 0, i;
++  if (p) { while (*p == ' ') p++;
++    if (!strncmp(p, "on", 2) && (p[2] == ' ' || !p[2])) { on = 1; p += 2; }
++    else if (!strncmp(p, "off", 3) && (p[3] == ' ' || !p[3])) p += 3;
++    else if (*p) return; }
++  for (i = 0; i < FIXREVERTER_SIZE; i++) FIXREVERTER[i] = (short)!on;
++  while (p && *p) { k = strtol(p, &end, 10); if (end == p) { p++; continue; }
++    if (k >= 0 && k < FIXREVERTER_SIZE) FIXREVERTER[k] = (short)on; p = end; }
++}
 +#endif
  
  /*
   * Copyright (C) Dmitry Volyntsev
-@@ -563,9 +567,43 @@ close_fd:
+@@ -563,9 +579,43 @@ close_fd:
  
  #else
  
@@ -2738,7 +2360,7 @@ index cad7e3ab..1fe14d6d 100644
      njs_opts_t    opts;
      njs_str_t     script;
 diff --git a/src/njs_string.c b/src/njs_string.c
-index 8850a0b8..5fadde45 100644
+index 8850a0b8..b93a469a 100644
 --- a/src/njs_string.c
 +++ b/src/njs_string.c
 @@ -1,3 +1,10 @@
@@ -3178,61 +2800,7 @@ index 8850a0b8..5fadde45 100644
  
      last = 0;
      index = 0;
-@@ -2801,10 +3050,25 @@ njs_string_prototype_repeat(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
-         return NJS_ERROR;
-     }
- 
--    if (string.size == 0) {
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[147]) {
-+      if ((string . size == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 147\n");
-+      else
-+        fprintf(stderr, "reached bug index 147\n");
-+    }
-+    if ((!FIXREVERTER[147] && (string . size == 0 ))
-+    #else
-+    if (0
-+    #endif
-+    ) {
-         vm->retval = njs_string_empty;
-         return NJS_OK;
-     }
-+    #ifdef FRCOV
-+    }
-+    #endif
- 
-     size = string.size * n;
-     length = string.length * n;
-@@ -2864,10 +3128,25 @@ njs_string_prototype_pad(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
-         }
-     }
- 
--    if (new_length <= length) {
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[148]) {
-+      if ((new_length <= length ) && !(0))
-+        fprintf(stderr, "triggered bug index 148\n");
-+      else
-+        fprintf(stderr, "reached bug index 148\n");
-+    }
-+    if ((!FIXREVERTER[148] && (new_length <= length ))
-+    #else
-+    if (0
-+    #endif
-+    ) {
-         vm->retval = args[0];
-         return NJS_OK;
-     }
-+    #ifdef FRCOV
-+    }
-+    #endif
- 
-     if (njs_slow_path(new_length >= NJS_STRING_MAX_LENGTH)) {
-         njs_range_error(vm, NULL);
-@@ -2896,10 +3175,25 @@ njs_string_prototype_pad(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -2896,10 +3145,25 @@ njs_string_prototype_pad(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
  
      pad_length = njs_string_prop(&pad_string, pad);
  
@@ -3259,7 +2827,7 @@ index 8850a0b8..5fadde45 100644
  
      if (pad_string.size > 1) {
          n = padding / pad_length;
-@@ -2990,7 +3284,19 @@ njs_string_prototype_search(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -2990,7 +3254,19 @@ njs_string_prototype_search(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
  
              (void) njs_string_prop(&string, value);
  
@@ -3280,7 +2848,7 @@ index 8850a0b8..5fadde45 100644
                  pattern = njs_regexp_pattern_create(vm, string.start,
                                                      string.size, 0);
                  if (njs_slow_path(pattern == NULL)) {
-@@ -2999,6 +3305,9 @@ njs_string_prototype_search(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -2999,6 +3275,9 @@ njs_string_prototype_search(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
  
                  break;
              }
@@ -3290,38 +2858,7 @@ index 8850a0b8..5fadde45 100644
  
              goto done;
          }
-@@ -3138,7 +3447,19 @@ njs_string_match_multiple(njs_vm_t *vm, njs_value_t *args,
-         do {
-             ret = njs_regexp_match(vm, &pattern->regex[type], p, string.size,
-                                    vm->single_match_data);
--            if (ret < 0) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[151]) {
-+              if ((ret < 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 151\n");
-+              else
-+                fprintf(stderr, "reached bug index 151\n");
-+            }
-+            if ((!FIXREVERTER[151] && (ret < 0 ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 if (njs_fast_path(ret == NJS_REGEX_NOMATCH)) {
-                     break;
-                 }
-@@ -3147,6 +3468,9 @@ njs_string_match_multiple(njs_vm_t *vm, njs_value_t *args,
- 
-                 return NJS_ERROR;
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
- 
-             ret = njs_array_expand(vm, array, 0, 1);
-             if (njs_slow_path(ret != NJS_OK)) {
-@@ -3236,9 +3560,24 @@ njs_string_prototype_split(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -3236,9 +3515,24 @@ njs_string_prototype_split(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
                  limit = njs_number_to_uint32(njs_number(value));
              }
  
@@ -3347,7 +2884,7 @@ index 8850a0b8..5fadde45 100644
  
          } else {
              limit = (uint32_t) -1;
-@@ -3246,9 +3585,24 @@ njs_string_prototype_split(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -3246,9 +3540,24 @@ njs_string_prototype_split(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
  
          (void) njs_string_prop(&string, &args[0]);
  
@@ -3373,7 +2910,7 @@ index 8850a0b8..5fadde45 100644
  
          utf8 = NJS_STRING_BYTE;
          type = NJS_REGEXP_BYTE;
-@@ -3325,9 +3679,24 @@ njs_string_prototype_split(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -3325,9 +3634,24 @@ njs_string_prototype_split(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
  
              (void) njs_string_prop(&split, &args[1]);
  
@@ -3399,7 +2936,7 @@ index 8850a0b8..5fadde45 100644
  
              start = string.start;
              end = string.start + string.size;
-@@ -3424,9 +3793,24 @@ njs_string_prototype_replace(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
+@@ -3424,9 +3748,24 @@ njs_string_prototype_replace(njs_vm_t *vm, njs_value_t *args, njs_uint_t nargs,
  
      (void) njs_string_prop(&string, this);
  
@@ -3425,37 +2962,7 @@ index 8850a0b8..5fadde45 100644
  
      r = &string_replace;
  
-@@ -3556,13 +3940,28 @@ njs_string_replace_regexp(njs_vm_t *vm, njs_value_t *this, njs_value_t *regex,
-                                r->part[0].start, r->part[0].size,
-                                r->match_data);
- 
--        if (ret < 0) {
-+        
-+        #ifdef FRCOV
-+        {if (FIXREVERTER[157]) {
-+          if ((ret < 0 ) && !(0))
-+            fprintf(stderr, "triggered bug index 157\n");
-+          else
-+            fprintf(stderr, "reached bug index 157\n");
-+        }
-+        if ((!FIXREVERTER[157] && (ret < 0 ))
-+        #else
-+        if (0
-+        #endif
-+        ) {
-             if (njs_slow_path(ret != NJS_REGEX_NOMATCH)) {
-                 return NJS_ERROR;
-             }
- 
-             break;
-         }
-+        #ifdef FRCOV
-+        }
-+        #endif
- 
-         captures = njs_regex_captures(r->match_data);
- 
-@@ -3849,9 +4248,24 @@ njs_string_replace_search_function(njs_vm_t *vm, njs_value_t *this,
+@@ -3849,9 +4188,24 @@ njs_string_replace_search_function(njs_vm_t *vm, njs_value_t *this,
  
      if (!njs_is_primitive(&r->retval)) {
          ret = njs_value_to_string(vm, &r->retval, &r->retval);
@@ -3481,7 +2988,7 @@ index 8850a0b8..5fadde45 100644
      }
  
      ret = njs_primitive_value_to_string(vm, &string, &r->retval);
-@@ -3885,9 +4299,24 @@ njs_string_replace_parse(njs_vm_t *vm, njs_string_replace_t *r, u_char *p,
+@@ -3885,9 +4239,24 @@ njs_string_replace_parse(njs_vm_t *vm, njs_string_replace_t *r, u_char *p,
  
      s = NULL;
  
@@ -3507,33 +3014,7 @@ index 8850a0b8..5fadde45 100644
  
  copy:
  
-@@ -3937,9 +4366,24 @@ skip:
-                 }
-             }
- 
--            if (type >= ncaptures) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[160]) {
-+              if ((type >= ncaptures ) && !(0))
-+                fprintf(stderr, "triggered bug index 160\n");
-+              else
-+                fprintf(stderr, "reached bug index 160\n");
-+            }
-+            if ((!FIXREVERTER[160] && (type >= ncaptures ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 goto copy;
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
- 
-             type *= 2;
- 
-@@ -4383,10 +4827,25 @@ njs_string_to_c_string(njs_vm_t *vm, njs_value_t *value)
+@@ -4383,10 +4752,25 @@ njs_string_to_c_string(njs_vm_t *vm, njs_value_t *value)
          start = value->short_string.start;
          size = value->short_string.size;
  
@@ -3560,7 +3041,7 @@ index 8850a0b8..5fadde45 100644
  
      } else {
          start = value->long_string.data->start;
-@@ -4809,11 +5268,26 @@ njs_string_encode(njs_vm_t *vm, njs_value_t *value, const uint32_t *escape)
+@@ -4809,11 +5193,26 @@ njs_string_encode(njs_vm_t *vm, njs_value_t *value, const uint32_t *escape)
          }
      }
  
@@ -3588,7 +3069,7 @@ index 8850a0b8..5fadde45 100644
  
      size = string.length + n;
  
-@@ -5000,11 +5474,26 @@ njs_string_decode(njs_vm_t *vm, njs_value_t *value, const uint32_t *reserve)
+@@ -5000,11 +5399,26 @@ njs_string_decode(njs_vm_t *vm, njs_value_t *value, const uint32_t *reserve)
          }
      }
  
@@ -3615,47 +3096,6 @@ index 8850a0b8..5fadde45 100644
 +    #endif
  
      n = string.length - n;
- 
-diff --git a/src/njs_strtod.c b/src/njs_strtod.c
-index 1efd9162..020b95dc 100644
---- a/src/njs_strtod.c
-+++ b/src/njs_strtod.c
-@@ -1,3 +1,10 @@
-+#ifdef FRCOV
-+#include <stdio.h>
-+extern short FIXREVERTER[];
-+#ifndef FIXREVERTER_SIZE
-+__attribute__((weak)) short FIXREVERTER[65536];
-+#endif
-+#endif
- /*
-  * An internal strtod() implementation based upon V8 src/strtod.cc
-  * without bignum support.
-@@ -288,9 +295,24 @@ njs_strtod_internal(const u_char *start, size_t length, int exp)
- 
-     length = right;
- 
--    if (length == 0) {
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[9]) {
-+      if ((length == 0 ) && !(0))
-+        fprintf(stderr, "triggered bug index 9\n");
-+      else
-+        fprintf(stderr, "reached bug index 9\n");
-+    }
-+    if ((!FIXREVERTER[9] && (length == 0 ))
-+    #else
-+    if (0
-+    #endif
-+    ) {
-         return 0.0;
-     }
-+    #ifdef FRCOV
-+    }
-+    #endif
- 
-     shift = (int) (left - right);
  
 diff --git a/src/njs_typed_array.c b/src/njs_typed_array.c
 index c448f896..12460207 100644
@@ -3727,7 +3167,7 @@ index c448f896..12460207 100644
      for (i = 0; i < arr_length; i++) {
          njs_number_to_chain(vm, chain, njs_typed_array_get(array, i));
 diff --git a/src/njs_utf8.c b/src/njs_utf8.c
-index 51baa490..a861e97c 100644
+index 51baa490..b923b10a 100644
 --- a/src/njs_utf8.c
 +++ b/src/njs_utf8.c
 @@ -1,3 +1,10 @@
@@ -3741,35 +3181,7 @@ index 51baa490..a861e97c 100644
  
  /*
   * Copyright (C) Igor Sysoev
-@@ -31,11 +38,26 @@ njs_utf8_encode(u_char *p, uint32_t u)
-         return p;
-     }
- 
--    if (u < 0x0800) {
-+    
-+    #ifdef FRCOV
-+    {if (FIXREVERTER[114]) {
-+      if ((u < 2048 ) && !(0))
-+        fprintf(stderr, "triggered bug index 114\n");
-+      else
-+        fprintf(stderr, "reached bug index 114\n");
-+    }
-+    if ((!FIXREVERTER[114] && (u < 2048 ))
-+    #else
-+    if (0
-+    #endif
-+    ) {
-         *p++ = (u_char) (( u >> 6)          | 0xC0);
-         *p++ = (u_char) (( u        & 0x3F) | 0x80);
-         return p;
-     }
-+    #ifdef FRCOV
-+    }
-+    #endif
- 
-     if (u < 0x10000) {
-         *p++ = (u_char) ( (u >> 12)         | 0xE0);
-@@ -225,7 +247,21 @@ njs_utf8_safe_decode2(const u_char **start, const u_char *end)
+@@ -225,7 +232,21 @@ njs_utf8_safe_decode2(const u_char **start, const u_char *end)
  
      p++;
  
@@ -3792,7 +3204,7 @@ index 51baa490..a861e97c 100644
          c = *p++;
          /*
           * The byte must in the 0x80 - 0xBF range.
-@@ -241,6 +277,9 @@ njs_utf8_safe_decode2(const u_char **start, const u_char *end)
+@@ -241,6 +262,9 @@ njs_utf8_safe_decode2(const u_char **start, const u_char *end)
          u = (u << 6) | c;
          n--;
      }
@@ -3803,7 +3215,7 @@ index 51baa490..a861e97c 100644
      *start = p;
  
 diff --git a/src/njs_value.c b/src/njs_value.c
-index 493c5334..12e6f742 100644
+index 493c5334..e8e4357f 100644
 --- a/src/njs_value.c
 +++ b/src/njs_value.c
 @@ -1,3 +1,10 @@
@@ -3870,33 +3282,7 @@ index 493c5334..12e6f742 100644
  
          return njs_object_property_query(vm, pq, obj, key);
      }
-@@ -709,9 +746,24 @@ njs_object_property_query(njs_vm_t *vm, njs_property_query_t *pq,
-         } else {
-             ret = njs_lvlhsh_find(&proto->shared_hash, &pq->lhq);
- 
--            if (ret == NJS_OK) {
-+            
-+            #ifdef FRCOV
-+            {if (FIXREVERTER[57]) {
-+              if ((ret == 0 ) && !(0))
-+                fprintf(stderr, "triggered bug index 57\n");
-+              else
-+                fprintf(stderr, "reached bug index 57\n");
-+            }
-+            if ((!FIXREVERTER[57] && (ret == 0 ))
-+            #else
-+            if (0
-+            #endif
-+            ) {
-                 return njs_prop_private_copy(vm, pq);
-             }
-+            #ifdef FRCOV
-+            }
-+            #endif
-         }
- 
-         if (own) {
-@@ -844,9 +896,24 @@ njs_typed_array_property_query(njs_vm_t *vm, njs_property_query_t *pq,
+@@ -844,9 +881,24 @@ njs_typed_array_property_query(njs_vm_t *vm, njs_property_query_t *pq,
  {
      njs_object_prop_t  *prop;
  
@@ -3922,47 +3308,6 @@ index 493c5334..12e6f742 100644
  
      prop = &pq->scratch;
  
-diff --git a/src/njs_variable.c b/src/njs_variable.c
-index 63f9e471..f6115f24 100644
---- a/src/njs_variable.c
-+++ b/src/njs_variable.c
-@@ -1,3 +1,10 @@
-+#ifdef FRCOV
-+#include <stdio.h>
-+extern short FIXREVERTER[];
-+#ifndef FIXREVERTER_SIZE
-+__attribute__((weak)) short FIXREVERTER[65536];
-+#endif
-+#endif
- 
- /*
-  * Copyright (C) Igor Sysoev
-@@ -349,9 +356,24 @@ njs_variables_scope_resolve(njs_vm_t *vm, njs_parser_scope_t *scope,
-                     continue;
-                 }
- 
--                if (vr->scope_index == NJS_SCOPE_INDEX_LOCAL) {
-+                
-+                #ifdef FRCOV
-+                {if (FIXREVERTER[3]) {
-+                  if ((vr -> scope_index == 0 ) && !(0))
-+                    fprintf(stderr, "triggered bug index 3\n");
-+                  else
-+                    fprintf(stderr, "reached bug index 3\n");
-+                }
-+                if ((!FIXREVERTER[3] && (vr -> scope_index == 0 ))
-+                #else
-+                if (0
-+                #endif
-+                ) {
-                     continue;
-                 }
-+                #ifdef FRCOV
-+                }
-+                #endif
-             }
- 
-             (void) njs_variable_resolve(vm, node);
 diff --git a/src/njs_vm.c b/src/njs_vm.c
 index ffb933ff..9d843ab2 100644
 --- a/src/njs_vm.c
